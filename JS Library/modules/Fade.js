@@ -1,4 +1,4 @@
-/* fadeIn / fadeOut
+/* El.fadeIn / El.fadeOut
  *
  * Fades in / fades out the specified element
  *
@@ -9,7 +9,7 @@
  * Requires: Core.js
  */
 	
-	fadeIn = function(element,ms){
+	El.fadeIn = function(element,ms){
 		if (testParam(element)){
 			if (ms == "" || ms == undefined){
 				ms = 400;
@@ -20,6 +20,7 @@
 					gap = 25 / ms,
 					timer = setInterval(function(){
 					if (op >= 0.99){
+						op = 1;
 						clearInterval(timer);
 					}
 					element.style.opacity = op;
@@ -32,7 +33,7 @@
 		}
 	};
 	
-	fadeOut = function(element,ms){
+	El.fadeOut = function(element,ms){
 		if (testParam(element)){
 			if (ms == "" || ms == undefined){
 				ms = 400;
