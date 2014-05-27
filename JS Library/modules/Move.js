@@ -1,4 +1,4 @@
-/* moveEl
+/* El.move
  *
  * Moves/animates a specified element
  *
@@ -14,7 +14,7 @@
  * Requires: Core.js
  */
 	
-	moveEl = function(element,direction,posFrom,posTo,ms){
+	El.move = function(element,direction,posFrom,posTo,ms){
 		if (testParam(element) && testParam(direction) && testParam(posFrom) && testParam(posTo)){ // All parameters must be defined except for duration
 			if (direction == "left"){
 				element.style.left = posFrom + "px";
