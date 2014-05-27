@@ -1,4 +1,4 @@
-/* hideEl / showEl
+/* El.hide / El.show
  *
  * Shows a hidden element
  * Hides a visible element
@@ -11,7 +11,7 @@
  * Requires: Core.js
  */
 	
-	showEl = function(element,timer){
+	El.show = function(element,timer){
 		if (testParam(element)){
 			if (testParam(timer)){
 				setTimeout(function(){
@@ -25,7 +25,7 @@
 		}
 	};
 	
-	hideEl = function(element,timer){
+	El.hide = function(element,timer){
 		if (testParam(element)){
 			if (testParam(timer)){
 				setTimeout(function(){
