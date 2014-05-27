@@ -1,4 +1,4 @@
-/* newEl
+/* El.newEl
  *
  * Creates a new element
  
@@ -11,7 +11,7 @@
  * Requires: Core.js
  */
 	
-	newEl = function(elType,elId,elClass,elInner){
+	El.newEl = function(elType,elId,elClass,elInner){
 		if (testParam(elType)){
 			var newElement = document.createElement(elType);
 			if (testParam(elId)){
