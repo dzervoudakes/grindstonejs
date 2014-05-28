@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>JS Library Tests</title>
+		<script src="com/Sizzle.js"></script>
+		<script src="Core.js"></script>
+		<script src="modules/Ajax.js"></script>
+		<script src="modules/Classes.js"></script>
+		<script src="modules/Display.js"></script>
+		<script src="modules/Fade.js"></script>
+		<script src="modules/Move.js"></script>
+		<script src="modules/NewEl.js"></script>
+		<style type="text/css">
+			#testDiv {
+				position: absolute;
+				left: 100px;
+				top: 100px;
+				height: 80px;
+				width: 80px;
+				background: #0f0;
+			}
+			#testDiv.divvyCls {
+				background: #f00;
+			}
+			.btns {
+				position: absolute;
+				right: 100px;
+				width: 45px;
+				height: 45px;
+				background: #069;
+				border: 1px solid #069;
+				cursor: pointer;
+			}
+			.btns:hover {
+				border-color: #f00;
+			}
+			#btn1 {
+				top: 100px;
+			}
+			#btn2 {
+				top: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="testDiv"></div>
+		<div id="btn1" class="btns"></div>
+		<div id="btn2" class="btns"></div>
+		<script type="text/javascript">
+			
+			var el = El.getDOM("#btn1"),
+				el2 = El.getDOM("#btn2"),
+				test = El.getDOM("#testDiv");
+			
+			el.onclick = function(){
+				//var newDiv = El.newEl("div","divvyId","divvyClass","Lorem Ipsum");
+				//test.appendChild(newDiv);
+				//El.hide(test);
+				//El.fadeOut(test);
+				//El.addClass(test,"divvyCls");
+				El.move(test,"left",100,900,900);
+			};
+			
+			el2.onclick = function(){
+				//El.show(test,1000);
+				//El.fadeIn(test,1100);
+				//El.removeClass(test,"divvyCls");
+				//El.toggleClass(test,"divvyCls");
+				El.move(test,"left",900,100,900);
+			};
+			
+		</script>
+	</body>
+</html>
