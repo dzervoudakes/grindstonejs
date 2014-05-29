@@ -6,33 +6,37 @@
  * Clicking/holding will add the class "down" to these elements
  *
  * Parameters:
- * -element (to be an array of DOM elements matching the specified pattern)
+ * -element (single selector, not an array)
  *
  * Requires:
  * -Core.js
  * -Classes.js
  */
 	
-	MouseableEl = function(elements){
-		if (testParam(elements)){
-			var convertEl = El.getDOM(elements) /*|| El.getDOMList(element)*/;
-			El.addClass(convertEl,"mouseable");
-			if (El.hasClass(convertEl,"mouseable")){
-				convertEl.onmouseover = function(){
-					El.addClass(this,"over");
-				},
-				convertEl.onmouseout = function(){
-					El.removeClass(this,"down"); // Tricky: must include this here or things can get buggy...
-					El.removeClass(this,"over");
-				},
-				convertEl.onmousedown = function(){
-					El.addClass(this,"down");
-				},
-				convertEl.onmouseup = function(){
-					El.removeClass(this,"down");
+	MouseableEl = function(element){
+		if (testParam(element)){
+			if (typeof element === "string"){
+				var convertEl = El.getDOM(element); // Supports single selectors only: if applying to multiple elements, suggest adding each item to an array and running through a for loop
+				El.addClass(convertEl,"mouseable");
+				if (El.hasClass(convertEl,"mouseable")){
+					convertEl.onmouseover = function(){
+						El.addClass(this,"over");
+					},
+					convertEl.onmouseout = function(){
+						El.removeClass(this,"down"); // Tricky: must include this here or things can get buggy...
+						El.removeClass(this,"over");
+					},
+					convertEl.onmousedown = function(){
+						El.addClass(this,"down");
+					},
+					convertEl.onmouseup = function(){
+						El.removeClass(this,"down");
+					}
 				}
+				return convertEl;
+			} else {
+				throw new Error("Type of selector must be a string for MouseableEl.");
 			}
-			return convertEl;
 		} else {
 			throw new Error("Cannot convert undefined to MouseableEl.");
 		}
