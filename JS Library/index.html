@@ -10,6 +10,7 @@
 		<script src="modules/Fade.js"></script>
 		<script src="modules/Move.js"></script>
 		<script src="modules/NewEl.js"></script>
+		<script src="modules/MouseableEl.js"></script>
 		<style type="text/css">
 			#testDiv {
 				position: absolute;
@@ -48,26 +49,32 @@
 		<div id="btn2" class="btns"></div>
 		<script type="text/javascript">
 			
-			var el = El.getDOM("#btn1"),
+			/*var el = El.getDOM("#btn1"),
 				el2 = El.getDOM("#btn2"),
-				test = El.getDOM("#testDiv");
+				test = El.getDOM("#testDiv");*/
 			
-			el.onclick = function(){
+			var elements = ["#testDiv","#btn1","#btn2"];
+			
+			for (var i = 0; i < elements.length; i++){
+				var elementEl = new MouseableEl(elements[i]);
+			};
+			
+			/*el.onclick = function(){
 				//var newDiv = El.newEl("div","divvyId","divvyClass","Lorem Ipsum");
 				//test.appendChild(newDiv);
 				//El.hide(test);
 				//El.fadeOut(test);
 				//El.addClass(test,"divvyCls");
-				El.move(test,"left",100,900,900);
-			};
+				//El.move(test,"left",100,900,900);
+			};*/
 			
-			el2.onclick = function(){
+			/*el2.onclick = function(){
 				//El.show(test,1000);
 				//El.fadeIn(test,1100);
 				//El.removeClass(test,"divvyCls");
 				//El.toggleClass(test,"divvyCls");
-				El.move(test,"left",900,100,900);
-			};
+				//El.move(test,"left",900,100,900);
+			};*/
 			
 		</script>
 	</body>
