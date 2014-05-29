@@ -1,7 +1,7 @@
 /* El.newEl
  *
  * Creates a new element
- 
+ *
  * Parameters:
  * -element type
  * -id
