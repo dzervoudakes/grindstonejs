@@ -11,7 +11,7 @@
 	
 	El.fadeIn = function(element,ms){
 		if (testParam(element)){
-			if (ms == "" || ms == undefined){
+			if (!testParam(ms)){
 				ms = 400;
 			}
 			if (element.style.display != "block"){
