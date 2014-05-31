@@ -21,16 +21,26 @@
 				if (El.hasClass(convertEl,"mouseable")){
 					convertEl.onmouseover = function(){
 						El.addClass(this,"over");
-					},
+					};
 					convertEl.onmouseout = function(){
 						El.removeClass(this,"down"); // Tricky: must include this here or things can get buggy...
 						El.removeClass(this,"over");
-					},
+					};
 					convertEl.onmousedown = function(){
 						El.addClass(this,"down");
-					},
+					};
 					convertEl.onmouseup = function(){
 						El.removeClass(this,"down");
+					};
+					if ("createTouch" in document){
+						convertEl.ontouchstart = function(){
+							El.addClass(this,"over");
+							El.addClass(this,"down");
+						};
+						convertEl.ontouchend = function(){
+							El.removeClass(this,"over");
+							El.removeClass(this,"down");
+						};
 					}
 				}
 				return convertEl;
@@ -44,7 +54,7 @@
 	
 	// Ignore class "over" on touch-enabled devices to remove "sticky" hover state bugs
  
-	if ("createTouch" in document){
+	/*if ("createTouch" in document){
 		try {
 			var pattern = /.over\b/,
 			sheet, rule, selectors, newSelector,
@@ -83,4 +93,4 @@
 				}
 			}
 		} catch(e){}
-	}
+	}*/
