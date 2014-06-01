@@ -27,7 +27,7 @@
 			if (selector.nodeType === 1 || selector.nodeType === 9){
 				return selector;
 			} else {
-				if (typeOf === "object" && typeof selector.setInterval !== "undefined"){
+				if (typeOf === "object" && typeOf.setInterval !== "undefined"){
 					return selector;
 				} else {
 					return undefined;
