@@ -43,11 +43,6 @@
 							El.removeClass(this,"down");
 							e.preventDefault();
 						};
-						/*convertEl.ontouchleave = function(e){
-							El.removeClass(this,"over");
-							El.removeClass(this,"down");
-							e.preventDefault();
-						};*/
 					}
 				}
 				return convertEl;
