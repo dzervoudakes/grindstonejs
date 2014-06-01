@@ -43,6 +43,7 @@
 					gap = 25 / ms,
 					timer = setInterval(function(){
 					if (op <= 0.01){
+						op = 0;
 						clearInterval(timer);
 						element.style.display = "none";
 					}
