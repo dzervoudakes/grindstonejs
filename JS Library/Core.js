@@ -1,7 +1,6 @@
 /* JS Library Core
  *
  * Includes full selector; global object "El"; "Elem" selector (for IDs only)
- * Includes detector to remove class "over" on touch-enabled devices
  * Leverages Sizzle.js
  */
 	
