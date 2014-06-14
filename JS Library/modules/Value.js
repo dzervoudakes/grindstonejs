@@ -1,4 +1,4 @@
-/* El.val
+/* El.val / El.getVal
  *
  * El.val: Assigns arbitrary values (defined by the developer) to specified elements
  * El.getVal: Pulls the previously defined values
