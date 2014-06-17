@@ -37,7 +37,7 @@
 					element.style.top = curPosition + "px";
 				}
 				if (Math.round(curPosition) == posTo){
-					clearInterval (timer);
+					clearInterval(timer);
 				}
 			},2);
 		} else {
