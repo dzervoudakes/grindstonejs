@@ -33,15 +33,15 @@
 						El.removeClass(this,"down");
 					};
 					if ("createTouch" in document){ // Support for touch-enabled devices
-						convertEl.ontouchstart = function(e){
+						convertEl.ontouchstart = function(event){
 							El.addClass(this,"over");
 							El.addClass(this,"down");
-							e.preventDefault();
+							event.preventDefault();
 						};
-						convertEl.ontouchend = function(e){
+						convertEl.ontouchend = function(event){
 							El.removeClass(this,"over");
 							El.removeClass(this,"down");
-							e.preventDefault();
+							event.preventDefault();
 						};
 					}
 				}

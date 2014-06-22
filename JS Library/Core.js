@@ -3,6 +3,9 @@
  * Includes full selector; global object "El"; "Elem" selector (for IDs only)
  * Includes detector to remove class "over" on touch-enabled devices
  * Leverages Sizzle.js
+ *
+ * Copyright (c) 2014 Dan Zervoudakes
+ * Developed under the MIT license
  */
 	
 	// Global object
@@ -45,6 +48,12 @@
 			return [];
 		}
 	};
+	
+	// Remove over-active document scrolling on touch-devices, notably iPad
+	
+	document.addEventListener("touchmove",function(event){
+		event.preventDefault();
+	},false);
 	
 	// Test parameters function: to be used for checking if a parameter is undefined
 	
