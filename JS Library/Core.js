@@ -49,7 +49,7 @@
 		}
 	};
 	
-	// Remove over-active document scrolling on touch-devices, notably iPad
+	// Remove over-active document scrolling on touch-enabled devices, notably iPad
 	
 	document.addEventListener("touchmove",function(event){
 		event.preventDefault();
