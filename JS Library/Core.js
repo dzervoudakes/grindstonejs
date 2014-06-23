@@ -1,8 +1,10 @@
 /* JS Library Core
  *
- * Includes full selector; global object "El"; "Elem" selector (for IDs only)
- * Includes detector to remove class "over" on touch-enabled devices
- * Leverages Sizzle.js
+ * Includes:
+ * -Global object "El"
+ * -Full selector functions ("getDOM" and "getDOMList", leverages Sizzle.js)
+ * -Single selector function ("Elem", for IDs only)
+ * -Any tertiary functions as necessary
  *
  * Copyright (c) 2014 Dan Zervoudakes
  * Developed under the MIT license
@@ -22,7 +24,7 @@
 	
 	// Selector: single elements (returns the first element that matches the selector)
 	
-	El.getDOM = function (selector,context){ // Favor this over "document.querySelectorAll()" for IE 7 support
+	El.getDOM = function (selector,context){ // Favor this over "document.querySelector()" for IE 7 support
 		var typeOf = typeof selector;
 		if (typeOf === "string") {
 			return El.global.Sizzle(selector,context)[0];
