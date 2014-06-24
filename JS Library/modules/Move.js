@@ -1,6 +1,6 @@
 /* El.move
  *
- * Moves/animates a specified element
+ * Moves a specified element
  *
  * Parameters:
  * -element
@@ -9,7 +9,7 @@
  * -posTo
  * -duration (default: 400ms)
  *
- * Uses "px" for coordinates; not "%"
+ * Uses "px" for coordinates, not "%"
  *
  * Requires: Core.js
  */
@@ -21,7 +21,7 @@
 			} else if (direction == "top"){
 				element.style.top = posFrom + "px";
 			} else if (direction != "left" || direction != "top"){
-				throw new Error("moveEl function will only support either 'left' or 'top' for direction parameter.");
+				throw new Error("moveEl function will only support either 'left' or 'top' for the direction parameter.");
 			}
 			var gap = 50 / ms,
 				curPosition = posFrom,

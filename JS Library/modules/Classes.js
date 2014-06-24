@@ -9,7 +9,7 @@
  * Requires: Core.js
  */
 	
-	// Detect is a given element has a particular class
+	// Detect if a given element has a particular class
 	
 	El.hasClass = function(element,cls){
 		if (testParam(element)){

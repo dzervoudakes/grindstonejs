@@ -24,7 +24,7 @@
 				throw new Error("The name of the value to assign must be a string.");
 			}
 		} else {
-			throw new Error("All parameters must defined to assign values.");
+			throw new Error("All parameters must be defined in order to assign a value.");
 		}
 	};
 	
@@ -39,6 +39,6 @@
 				throw new Error("The name of the value to pull must be a string.");
 			}
 		} else {
-			throw new Error("All parameters must defined to pull values.");
+			throw new Error("All parameters must be defined in order to pull a value.");
 		}
 	};

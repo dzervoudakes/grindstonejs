@@ -5,7 +5,7 @@
  * Hovering will add the class "over" to these elements
  * Clicking/holding will add the class "down" to these elements
  *
- * Parameters:
+ * Parameter:
  * -element (single selector, not an array)
  *
  * Requires:
