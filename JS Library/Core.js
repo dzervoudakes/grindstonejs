@@ -26,7 +26,7 @@
 	
 	El.getDOM = function (selector,context){ // Favor this over "document.querySelector()" for IE 7 support
 		var typeOf = typeof selector;
-		if (typeOf === "string") {
+		if (typeOf === "string"){
 			return El.global.Sizzle(selector,context)[0];
 		} else {
 			if (selector.nodeType === 1 || selector.nodeType === 9){
@@ -53,9 +53,11 @@
 	
 	// Remove over-active document scrolling on touch-enabled devices, notably iPad
 	
-	document.addEventListener("touchmove",function(event){
-		event.preventDefault();
-	},false);
+	if (document.addEventListener){
+		document.addEventListener("touchmove",function(event){
+			event.preventDefault();
+		},false);
+	}
 	
 	// Test parameters function: to be used for checking if a parameter is undefined
 	
