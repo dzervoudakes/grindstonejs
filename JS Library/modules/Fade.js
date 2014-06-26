@@ -9,15 +9,15 @@
  * Requires: Core.js
  */
 	
-	El.fadeIn = function(element,ms){
+	El.fadeIn = function(element,duration){
 		if (testParam(element)){
-			if (!testParam(ms)){
-				ms = 400;
+			if (!testParam(duration)){
+				duration = 400;
 			}
 			if (element.style.display != "block"){
 				element.style.display = "block";
 				var op = 0.01,
-					gap = 25 / ms,
+					gap = 25 / duration,
 					timer = setInterval(function(){
 					if (op >= 0.99){
 						op = 1;
@@ -33,14 +33,14 @@
 		}
 	};
 	
-	El.fadeOut = function(element,ms){
+	El.fadeOut = function(element,duration){
 		if (testParam(element)){
-			if (ms == "" || ms == undefined){
-				ms = 400;
+			if (duration == "" || duration == undefined){
+				duration = 400;
 			}
 			if (element.style.display != "none"){
 				var op = 1,
-					gap = 25 / ms,
+					gap = 25 / duration,
 					timer = setInterval(function(){
 					if (op <= 0.01){
 						op = 0;

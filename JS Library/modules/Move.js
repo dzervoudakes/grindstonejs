@@ -14,7 +14,7 @@
  * Requires: Core.js
  */
 	
-	El.move = function(element,direction,posFrom,posTo,ms){
+	El.move = function(element,direction,posFrom,posTo,duration){
 		if (testParam(element) && testParam(direction) && testParam(posFrom) && testParam(posTo)){ // All parameters must be defined except for duration
 			if (direction == "left"){
 				element.style.left = posFrom + "px";
@@ -23,7 +23,7 @@
 			} else if (direction != "left" || direction != "top"){
 				throw new Error("moveEl function will only support either 'left' or 'top' for the direction parameter.");
 			}
-			var gap = 50 / ms,
+			var gap = 50 / duration,
 				curPosition = posFrom,
 			timer = setInterval(function(){
 				if (posTo >= 0 && posTo > posFrom){

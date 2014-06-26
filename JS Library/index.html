@@ -69,15 +69,7 @@
 			};
 			
 			el.onclick = function(){
-				El.val(test,"testtt",4);
-				El.val(el2,"tttest",4);
-				var testVal = El.getVal(test,"testtt"),
-					testVal2 = El.getVal(el2,"tttest");
-				if (testVal === testVal2){
-					console.log("No need for jQuery $.data!");
-				} else {
-					console.log("jQuery beat you...");
-				}
+				El.move(test,"left",100,900,400);
 			};
 			
 		</script>
