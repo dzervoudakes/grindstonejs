@@ -55,9 +55,10 @@
 		<div id="btn2" class="btns"></div>
 		<script type="text/javascript">
 			
-			var el = El.getDOM("#btn1"),
-				el2 = El.getDOM("#btn2"),
-				test = El.getDOM("#testDiv");
+			var el = El("#btn1"),
+				el2 = El("#btn2"),
+				test = El("#testDiv"),
+				buttonsArray = El.list(".btns");
 			
 			var elements = ["#testDiv","#btn1","#btn2"];
 			
@@ -66,7 +67,12 @@
 			};
 			
 			el.onclick = function(){
-				El.move(test,"left",100,900,400);
+				El.val(test,"IE","FAIL!");
+			};
+			
+			el2.onclick = function(){
+				var Elem = El.getVal(test,"IE");
+				alert(Elem);
 			};
 			
 		</script>

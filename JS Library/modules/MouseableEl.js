@@ -16,7 +16,7 @@
 	MouseableEl = function(element){
 		if (testParam(element)){
 			if (typeof element === "string"){
-				var convertEl = El.getDOM(element); // Supports single selectors only: if applying to multiple elements, suggest adding each item to an array and running through a for loop
+				var convertEl = El(element); // Supports single selectors only: if applying to multiple elements, suggest adding each item to an array and running through a for loop
 				El.addClass(convertEl,"mouseable");
 				if (El.hasClass(convertEl,"mouseable")){
 					convertEl.onmouseover = function(){

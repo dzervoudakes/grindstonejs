@@ -11,7 +11,7 @@
  * Requires: Core.js
  */
 	
-	El.newEl = function(elType,elId,elClass,elInner){
+	newEl = function(elType,elId,elClass,elInner){
 		if (testParam(elType)){
 			var newElement = document.createElement(elType);
 			if (testParam(elId)){
