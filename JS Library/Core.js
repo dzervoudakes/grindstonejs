@@ -15,11 +15,11 @@
 	
 	function Grindstone(){
 		this.name = "GrindstoneJS";
-		this.about = "Lightweight JavaScript library optimized for simple DOM manipulation. Not a MVC.";
-		this.github = "http://github.com/DRZervoudakes/JS-Library/";
 		this.version = "1.0.0";
-		this.author = "Dan Zervoudakes";
+		this.about = "Lightweight JavaScript library optimized for simple DOM manipulation. Not a MVC.";
 		this.compatibility = "Chrome, Firefox, Safari, Opera, IE 7+, mobile.";
+		this.github = "http://github.com/DRZervoudakes/JS-Library/";
+		this.author = "Dan Zervoudakes";
 		return this;
 	};
 	
