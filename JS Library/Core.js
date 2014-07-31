@@ -1,20 +1,52 @@
-/* JS Library Core
+/* GrindstoneJS Library Core
  *
  * Includes:
- * -Global variable "El"
- * -Selector functions (leverage Sizzle.js)
+ * -Constructor "Grindstone"
+ * -Selector functions "El" and "El.list"
+ * -ID selector function "Elem"
  * -Any tertiary functions as necessary
+ *
+ * Requires:
+ * -Sizzle.js
  *
  * Copyright (c) 2014 Dan Zervoudakes
  * Developed under the MIT license
  */
 	
+	function Grindstone(){
+		this.name = "GrindstoneJS";
+		this.about = "Lightweight JavaScript library optimized for simple DOM manipulation. Not a MVC.";
+		this.github = "http://github.com/DRZervoudakes/JS-Library/";
+		this.version = "1.0.0";
+		this.author = "Dan Zervoudakes";
+		this.compatibility = "Chrome, Firefox, Safari, Opera, IE 7+, mobile.";
+		return this;
+	};
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	Grindstone.prototype = {
+		hide: function(){
+			this.style.display = "none";
+			return this;
+		},
+		show: function(){
+			//this.style.display = "block";
+			//return this;
+			alert("fudgesicle");
+			console.log(this);
+		}
+	};
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	// Global "El" variable and primary selector: single elements (returns the first element that matches the selector)
 	
-	var El = function(selector,context){ // Favor this over "document.querySelector()" for IE 7 support
+	El = function(selector,context){ // Favor this over "document.querySelector()" for IE 7 support
 		var typeOf = typeof selector;
 		if (typeOf === "string"){
-			return Sizzle(selector,context)[0];
+			//return Sizzle(selector,context)[0];
+			return Sizzle(selector,context)[0] = new Grindstone();
 		} else {
 			if (selector.nodeType === 1 || selector.nodeType === 9){
 				return selector;
@@ -36,6 +68,12 @@
 		} else {
 			return [];
 		}
+	};
+	
+	// Simple selector: "Elem" (returns IDs only)
+	
+	Elem = function(id){
+		return document.getElementById(id);
 	};
 	
 	// Remove over-active document scrolling on touch-enabled devices, notably iPad
