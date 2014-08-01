@@ -13,7 +13,7 @@
  * Developed under the MIT license
  */
 	
-	function Grindstone(){
+	var Grindstone = function(){
 		this.name = "GrindstoneJS";
 		this.version = "1.0.0";
 		this.about = "Lightweight JavaScript library optimized for simple DOM manipulation. Not a MVC.";
@@ -23,30 +23,12 @@
 		return this;
 	};
 	
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	Grindstone.prototype = {
-		hide: function(){
-			this.style.display = "none";
-			return this;
-		},
-		show: function(){
-			//this.style.display = "block";
-			//return this;
-			alert("fudgesicle");
-			console.log(this);
-		}
-	};
-	
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
 	// Global "El" variable and primary selector: single elements (returns the first element that matches the selector)
 	
-	El = function(selector,context){ // Favor this over "document.querySelector()" for IE 7 support
+	Grindstone.init = function(selector,context){
 		var typeOf = typeof selector;
 		if (typeOf === "string"){
-			//return Sizzle(selector,context)[0];
-			return Sizzle(selector,context)[0] = new Grindstone();
+			return Sizzle(selector,context)[0];
 		} else {
 			if (selector.nodeType === 1 || selector.nodeType === 9){
 				return selector;
@@ -59,6 +41,24 @@
 			}
 		}
 	};
+	
+	var El = function(selector,context){
+		return new Grindstone.init(selector,context);
+	};
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	Grindstone.init.prototype.hide2 = function(){
+		this.style.display = "none"; // TESTS: TO BE REMOVED
+		return this;
+	};
+		
+	Grindstone.init.prototype.show2 = function(){
+		this.style.display = "block";
+		return this;
+	};
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	// Selector: array (returns an array of elements that match the selector)
 	
