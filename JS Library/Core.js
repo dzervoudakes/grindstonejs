@@ -13,56 +13,32 @@
  * Developed under the MIT license
  */
 	
-	var Grindstone = function(){
-		this.name = "GrindstoneJS";
-		this.version = "1.0.0";
-		this.about = "Lightweight JavaScript library optimized for simple DOM manipulation. Not a MVC.";
-		this.compatibility = "Chrome, Firefox, Safari, Opera, IE 7+, mobile.";
-		this.github = "http://github.com/DRZervoudakes/JS-Library/";
-		this.author = "Dan Zervoudakes";
-		return this;
-	};
+	// Global constructor "Grindstone" and selector function
 	
-	// Global "El" variable and primary selector: single elements (returns the first element that matches the selector)
-	
-	Grindstone.init = function(selector,context){
-		var typeOf = typeof selector;
-		if (typeOf === "string"){
-			return Sizzle(selector,context)[0];
+	var Grindstone = function(selector,context){
+		var info = {
+			Name: "GrindstoneJS",
+			Version: "1.0.0",
+			About: "Lightweight JavaScript library optimized for simple DOM manipulation. Not a MVC.",
+			Compatibility: "Chrome, Firefox, Safari, Opera, IE 7+, mobile.",
+			GitHub: "http://github.com/DRZervoudakes/JS-Library/",
+			Author: "Dan Zervoudakes"
+		};
+		if (selector){
+			this.init = Sizzle(selector,context)[0]; // Returns the first DOM element that matches the specified pattern
+			return this;
 		} else {
-			if (selector.nodeType === 1 || selector.nodeType === 9){
-				return selector;
-			} else {
-				if (typeOf === "object" && typeOf.setInterval !== "undefined"){
-					return selector;
-				} else {
-					return undefined;
-				}
-			}
+			return info;
 		}
 	};
 	
 	var El = function(selector,context){
-		return new Grindstone.init(selector,context);
+		return new Grindstone(selector,context); // Shorthand method for obtaining the same results above
 	};
 	
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Selector function: array (returns an array of elements that match the selector)
 	
-	Grindstone.init.prototype.hide2 = function(){
-		this.style.display = "none"; // TESTS: TO BE REMOVED
-		return this;
-	};
-		
-	Grindstone.init.prototype.show2 = function(){
-		this.style.display = "block";
-		return this;
-	};
-	
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	// Selector: array (returns an array of elements that match the selector)
-	
-	El.list = function(selector,context){ // Favor this over "document.querySelectorAll()" for IE 7 support
+	El.list = function(selector,context){
 		if (typeof selector === "string"){
 			return Sizzle(selector,context);
 		} else {

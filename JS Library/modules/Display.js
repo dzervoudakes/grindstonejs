@@ -1,40 +1,37 @@
-/* El.hide / El.show
+/* show() / hide()
  *
  * Shows a hidden element
  * Hides a visible element
  * May be instant or delayed
  *
- * Parameters:
- * -element
+ * Parameter: (optional)
  * -timer
  *
  * Requires: Core.js
  */
 	
-	El.show = function(element,timer){
-		if (testParam(element)){
-			if (testParam(timer)){
-				setTimeout(function(){
-					return element.style.display = "block";
-				},timer);
-			} else {
-				return element.style.display = "block";
-			}
+	Grindstone.prototype.show = function(timer){
+		var element = this.init;
+		if (testParam(timer)){
+			setTimeout(function(){
+				element.style.display = "block";
+				return this;
+			},timer);
 		} else {
-			throw new Error("Cannot show undefined element.");
+			element.style.display = "block";
+			return this;
 		}
 	};
 	
-	El.hide = function(element,timer){
-		if (testParam(element)){
-			if (testParam(timer)){
-				setTimeout(function(){
-					return element.style.display = "none";
-				},timer);
-			} else {
-				return element.style.display = "none";
-			}
+	Grindstone.prototype.hide = function(timer){
+		var element = this.init;
+		if (testParam(timer)){
+			setTimeout(function(){
+				element.style.display = "none";
+				return this;
+			},timer);
 		} else {
-			throw new Error("Cannot hide undefined element.");
+			element.style.display = "none";
+			return this;
 		}
 	};
