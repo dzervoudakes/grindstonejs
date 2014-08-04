@@ -1,4 +1,4 @@
-/* MouseableEl
+/* mouseableEl()
  *
  * Converts the assigned element to a new "Mouseable" object
  * 
@@ -13,43 +13,34 @@
  * -Classes.js
  */
 	
-	MouseableEl = function(element){
-		if (testParam(element)){
-			if (typeof element === "string"){
-				var convertEl = El(element); // Supports single selectors only: if applying to multiple elements, suggest adding each item to an array and running through a for loop
-				El.addClass(convertEl,"mouseable");
-				if (El.hasClass(convertEl,"mouseable")){
-					convertEl.onmouseover = function(){
-						El.addClass(this,"over");
-					};
-					convertEl.onmouseout = function(){
-						El.removeClass(this,"down"); // Tricky: must include this here or things can get buggy...
-						El.removeClass(this,"over");
-					};
-					convertEl.onmousedown = function(){
-						El.addClass(this,"down");
-					};
-					convertEl.onmouseup = function(){
-						El.removeClass(this,"down");
-					};
-					if ("createTouch" in document){ // Support for touch-enabled devices
-						convertEl.ontouchstart = function(event){
-							El.addClass(this,"over");
-							El.addClass(this,"down");
-							event.preventDefault();
-						};
-						convertEl.ontouchend = function(event){
-							El.removeClass(this,"over");
-							El.removeClass(this,"down");
-							event.preventDefault();
-						};
-					}
-				}
-				return convertEl;
-			} else {
-				throw new Error("Type of selector must be a string for MouseableEl.");
+	Grindstone.prototype.mouseableEl = function(){
+		this.addClass("mouseable"); // Supports single selectors only: if applying to multiple elements, suggest adding each item to an array and running through a for loop
+		if (this.hasClass("mouseable")){
+			this.onmouseover = function(){
+				this.addClass("over");
+			};
+			this.onmouseout = function(){
+				this.removeClass("down"); // Tricky: must include this here or things can get buggy...
+				this.removeClass("over");
+			};
+			this.onmousedown = function(){
+				this.addClass("down");
+			};
+			this.onmouseup = function(){
+				this.removeClass("down");
+			};
+			if ("createTouch" in document){ // Support for touch-enabled devices
+				this.ontouchstart = function(event){
+					this.addClass("over");
+					this.addClass("down");
+					event.preventDefault();
+				};
+				this.ontouchend = function(event){
+					this.removeClass("over");
+					this.removeClass("down");
+					event.preventDefault();
+				};
 			}
-		} else {
-			throw new Error("Cannot convert undefined to MouseableEl.");
+			return this;
 		}
 	};

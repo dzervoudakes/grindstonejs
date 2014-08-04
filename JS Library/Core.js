@@ -33,17 +33,21 @@
 	};
 	
 	var El = function(selector,context){
-		return new Grindstone(selector,context); // Shorthand method for obtaining the same results above
+		return new Grindstone(selector,context); // Shorthand method for obtaining the same results as above
 	};
 	
 	// Selector function: array (returns an array of elements that match the selector)
 	
-	El.list = function(selector,context){
+	Grindstone.initList = function(selector,context){
 		if (typeof selector === "string"){
 			return Sizzle(selector,context);
 		} else {
 			return [];
 		}
+	};
+	
+	El.list = function(selector,context){
+		return Grindstone.initList(selector,context); // Shorthand method for obtaining the same results as above
 	};
 	
 	// Simple selector: "Elem" (returns IDs only)
