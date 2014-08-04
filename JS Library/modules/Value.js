@@ -1,12 +1,11 @@
-/* El.val / El.getVal
+/* val() / getVal()
  *
- * El.val: Assigns arbitrary values (defined by the developer) to specified elements
- * El.getVal: Pulls the previously defined values
+ * val(): Assigns an arbitrary value (defined by the developer) to a specified element
+ * getVal(): Pulls the previously defined values
  * 
  * Parameters:
- * -element (single selector, not an array)
  * -valueName (defined by the developer)
- * -valueContent ("El.val" only)
+ * -valueContent (specified in the .val() method)
  *
  * Requires:
  * -Core.js
@@ -14,31 +13,30 @@
 	
 	// Set the arbitrary value
 	
-	El.val = function(element,valueName,valueContent){
-		if (testParam(element) && testParam(valueName) && testParam(valueContent)){
+	Grindstone.prototype.val = function(valueName,valueContent){
+		var valueElement = this.init;
+		if (testParam(valueName) && testParam(valueContent)){
 			if (typeof valueName === "string"){
-				var valueElement = element;
-				valueElement.setAttribute(("data-value-" + valueName),valueContent);
-				return valueElement;
+				return valueElement.setAttribute(("data-value-" + valueName),valueContent);
 			} else {
 				throw new Error("The name of the value to assign must be a string.");
 			}
 		} else {
-			throw new Error("All parameters must be defined in order to assign a value.");
+			throw new Error("Both value name and value content must be defined in order to assign a value.");
 		}
 	};
 	
 	// Call the arbitrary value
 	
-	El.getVal = function(element,valueName){
-		if (testParam(element) && testParam(valueName)){
+	Grindstone.prototype.getVal = function(valueName){
+		var grabValueElement = this.init;
+		if (testParam(valueName)){
 			if (typeof valueName === "string"){
-				var grabValueElement = element;
 				return grabValueElement.getAttribute("data-value-" + valueName);
 			} else {
-				throw new Error("The name of the value to pull must be a string.");
+				throw new Error("The name of the value to call must be a string.");
 			}
 		} else {
-			throw new Error("All parameters must be defined in order to pull a value.");
+			throw new Error("Please specify the value to call.");
 		}
 	};

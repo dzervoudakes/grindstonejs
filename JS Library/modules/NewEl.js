@@ -1,4 +1,4 @@
-/* El.newEl
+/* newEl()
  *
  * Creates a new element
  *
