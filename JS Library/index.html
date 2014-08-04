@@ -8,6 +8,7 @@
 		<script src="modules/Ajax.js"></script>
 		<script src="modules/Classes.js"></script>
 		<script src="modules/Display.js"></script>
+		<script src="modules/Events.js"></script>
 		<script src="modules/Fade.js"></script>
 		<script src="modules/Move.js"></script>
 		<script src="modules/NewEl.js"></script>
@@ -66,9 +67,9 @@
 				elements[i].mouseableEl();
 			};
 			
-			Elem("btn1").onclick = function(){
-				
-			};
+			El("#btn1").evt("click",function(){
+				Elem("testDiv").style.background = "#f00";
+			});
 			
 			/*Elem("btn2").onclick = function(){
 				

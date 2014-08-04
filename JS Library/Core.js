@@ -25,8 +25,12 @@
 			Author: "Dan Zervoudakes"
 		};
 		if (selector){
-			this.init = Sizzle(selector,context)[0]; // Returns the first DOM element that matches the specified pattern
-			return this;
+			if (typeof selector === "string"){
+				this.init = Sizzle(selector,context)[0]; // Returns the first DOM element that matches the specified pattern
+				return this;
+			} else {
+				return null;
+			}
 		} else {
 			return info;
 		}
@@ -39,10 +43,12 @@
 	// Selector function: array (returns an array of elements that match the selector)
 	
 	Grindstone.initList = function(selector,context){
-		if (typeof selector === "string"){
-			return Sizzle(selector,context);
-		} else {
-			return [];
+		if (selector){
+			if (typeof selector === "string"){
+				return Sizzle(selector,context);
+			} else {
+				return [];
+			}
 		}
 	};
 	
@@ -50,7 +56,7 @@
 		return Grindstone.initList(selector,context); // Shorthand method for obtaining the same results as above
 	};
 	
-	// Simple selector: "Elem" (returns IDs only)
+	// Simple selector: "Elem" (returns IDs only - Grindstone prototype methods will not work with "Elem" selectors)
 	
 	Elem = function(id){
 		return document.getElementById(id);
