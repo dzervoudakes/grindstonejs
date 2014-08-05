@@ -24,7 +24,7 @@
 			this.evt("mouseover",function(){
 				//this.addClass("over"); // TYPEERROR: UNDEFINED IS NOT A FUNCTION
 				this.className += " over"; // POTENTIALLY HAVE TO REDO ADD/REMOVE CLASS FUNCTIONS HERE MANUALLY
-			},false);
+			});
 			
 			/////////////////////////////////////////////////////////////////////////////////////////////////
 			

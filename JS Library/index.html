@@ -7,6 +7,7 @@
 		<script src="Core.js"></script>
 		<script src="modules/Ajax.js"></script>
 		<script src="modules/Classes.js"></script>
+		<script src="modules/CSS.js"></script>
 		<script src="modules/Display.js"></script>
 		<script src="modules/Events.js"></script>
 		<script src="modules/Fade.js"></script>
@@ -70,13 +71,12 @@
 			//buttonsArray.mouseableEl();
 			
 			el.evt("click",function(){
-				el2.fadeOut(650);
+				test.css("left","200px");
 			});
 			
-			/*buttonsArray.evt("click",function(){
-				Elem("testDiv").style.background = "#f00";
-				buttonsArray.addClass("success");
-			});*/
+			el2.evt("click",function(){
+				test.css("background","#f00");
+			});
 			
 		</script>
 	</body>
