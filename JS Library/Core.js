@@ -3,9 +3,8 @@
  * Library Core
  *
  * Includes:
- * -Constructor "Grindstone"
- * -Selector functions "El" and "El.list"
- * -ID selector function "Elem"
+ * -Constructor "Grindstone" and selector functions
+ * -ID-specific selector function "Elem"
  * -Any tertiary functions as necessary
  *
  * Requires:
