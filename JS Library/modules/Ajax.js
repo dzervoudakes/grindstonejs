@@ -27,6 +27,6 @@
 			xmlhttp.open(Method,URL,Async);
 			xmlhttp.send(null);
 		} else {
-			throw new Error("Please define 'GET'/'POST', the URL, Async true/false, and the function to be ran called successful.");
+			throw new Error("Please define 'GET'/'POST', the URL, Async true/false, and the function to be ran if successful.");
 		}
 	};
