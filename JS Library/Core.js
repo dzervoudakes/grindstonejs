@@ -1,4 +1,4 @@
-/* GrindstoneJS (http://github.com/DRZervoudakes/GrindstoneJS/)
+/* GrindstoneJS (https://github.com/DRZervoudakes/GrindstoneJS)
  *
  * Library Core
  *
@@ -9,7 +9,7 @@
  * -Any tertiary functions as necessary
  *
  * Requires:
- * -Sizzle.js (http://www.sizzlejs.com/)
+ * -Sizzle.js (http://sizzlejs.com/)
  *
  * Copyright (c) 2014 Dan Zervoudakes
  * Developed under the MIT license
@@ -23,7 +23,7 @@
 			Version: "1.0.0",
 			About: "Lightweight JavaScript library optimized for simple DOM manipulation. Not a MVC.",
 			Compatibility: "Chrome, Firefox, Safari, Opera, IE 7+, mobile.",
-			GitHub: "http://github.com/DRZervoudakes/JS-Library/",
+			GitHub: "https://github.com/DRZervoudakes/GrindstoneJS",
 			Author: "Dan Zervoudakes"
 		};
 		if (selector){
