@@ -9,7 +9,7 @@
  * Requires:
  * -Core.js
  */
-
+	
  	Grindstone.prototype.evt = function(action,fn){
  		var element = this.init;
  		if(testParam(action)){

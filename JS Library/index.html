@@ -59,7 +59,7 @@
 			var el = El("#btn1"),
 				el2 = El("#btn2"),
 				test = El("#testDiv"),
-				buttonsArray = El.list(".btns");
+				buttonsArray = El(".btns");
 			
 			var elements = [el,el2,test];
 			
@@ -67,13 +67,16 @@
 				elements[i].mouseableEl();
 			};
 			
-			El("#btn1").evt("click",function(){
-				Elem("testDiv").style.background = "#f00";
+			//buttonsArray.mouseableEl();
+			
+			el.evt("click",function(){
+				el2.fadeOut(650);
 			});
 			
-			/*Elem("btn2").onclick = function(){
-				
-			};*/
+			/*buttonsArray.evt("click",function(){
+				Elem("testDiv").style.background = "#f00";
+				buttonsArray.addClass("success");
+			});*/
 			
 		</script>
 	</body>

@@ -1,4 +1,6 @@
-/* GrindstoneJS Library Core
+/* GrindstoneJS (http://github.com/DRZervoudakes/GrindstoneJS/)
+ *
+ * Library Core
  *
  * Includes:
  * -Constructor "Grindstone"
@@ -7,13 +9,13 @@
  * -Any tertiary functions as necessary
  *
  * Requires:
- * -Sizzle.js
+ * -Sizzle.js (http://www.sizzlejs.com/)
  *
  * Copyright (c) 2014 Dan Zervoudakes
  * Developed under the MIT license
  */
 	
-	// Global constructor "Grindstone" and selector function
+	// Global constructor "Grindstone" and selector functions
 	
 	var Grindstone = function(selector,context){
 		var info = {
@@ -26,7 +28,16 @@
 		};
 		if (selector){
 			if (typeof selector === "string"){
-				this.init = Sizzle(selector,context)[0]; // Returns the first DOM element that matches the specified pattern
+				var selectedElements = Sizzle(selector,context);
+				if (selectedElements.length === 1){
+					this.init = selectedElements[0];
+				} else if (selectedElements.length > 1){
+					for (var i = 0; i < selectedElements.length; i++){ // SO FAR, THIS IS ONLY RETURNING THE FINAL ELEMENT IN THE LOOP
+						this.init = selectedElements[i];
+					}
+				} else if (selectedElements.length === 0){
+					return [];
+				}
 				return this;
 			} else {
 				return null;
@@ -38,22 +49,6 @@
 	
 	var El = function(selector,context){
 		return new Grindstone(selector,context); // Shorthand method for obtaining the same results as above
-	};
-	
-	// Selector function: array (returns an array of elements that match the selector)
-	
-	Grindstone.initList = function(selector,context){
-		if (selector){
-			if (typeof selector === "string"){
-				return Sizzle(selector,context);
-			} else {
-				return [];
-			}
-		}
-	};
-	
-	El.list = function(selector,context){
-		return Grindstone.initList(selector,context); // Shorthand method for obtaining the same results as above
 	};
 	
 	// Simple selector: "Elem" (returns IDs only - Grindstone prototype methods will not work with "Elem" selectors)

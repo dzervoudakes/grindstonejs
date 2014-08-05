@@ -16,14 +16,17 @@
 	
 	Grindstone.prototype.mouseableEl = function(){
 		var element = this.init;
-		this.addClass("mouseable"); // Supports single selectors only: if applying to multiple elements, suggest adding each item to an array and running through a for loop
+		this.addClass("mouseable");
 		if (this.hasClass("mouseable")){
+		
+			/////////////////////////////////////////////////////////////////////////////////////////////////
 			
 			this.evt("mouseover",function(){
 				//this.addClass("over"); // TYPEERROR: UNDEFINED IS NOT A FUNCTION
-				console.log(this); // REMOVE THIS AFTER TESTING
-				this.className += " over"; // GOING TO HAVE TO REDO ADD/REMOVE CLASS FUNCTIONS HERE MANUALLY
-			});
+				this.className += " over"; // POTENTIALLY HAVE TO REDO ADD/REMOVE CLASS FUNCTIONS HERE MANUALLY
+			},false);
+			
+			/////////////////////////////////////////////////////////////////////////////////////////////////
 			
 			this.onmouseout = function(){
 				this.removeClass("down"); // Tricky: must include this here or things can get buggy...
