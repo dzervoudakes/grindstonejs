@@ -2,26 +2,19 @@
  *
  * Adjusts the CSS styles of a selected element
  *
- * Parameters: (both parameters must be defined and must be strings in order for this module to work)
- * -Property
- * -New Style
+ * Parameter:
+ * -new styles (to be programmed as an object which contains an unlimited number of style properties)
  *
  * Requires: Core.js
  */
 	
-	Grindstone.prototype.css = function(property,newStyle){
+	Grindstone.prototype.css = function(newStyles){
 		var element = this.init;
-		if (testParam(property)){
-			if (testParam(newStyle)){
-				if (typeof property === "string" && typeof newStyle === "string"){
-					return element.style.property = newStyle;
-				} else {
-					throw new Error("CSS property and new style must be strings.");
-				}
-			} else {
-				throw new Error("New CSS style is undefined.");
+		if (testParam(newStyles)){
+			for (var i in newStyles){
+				element.style[i] = newStyles[i];
 			}
 		} else {
-			throw new Error("CSS property is undefined.");
+			throw new Error("CSS properties to edit are undefined.");
 		}
 	}

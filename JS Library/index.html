@@ -6,6 +6,7 @@
 		<script src="com/html5shiv.js"></script>
 		<script src="Core.js"></script>
 		<script src="modules/Ajax.js"></script>
+		<script src="modules/Append.js"></script>
 		<script src="modules/Classes.js"></script>
 		<script src="modules/CSS.js"></script>
 		<script src="modules/Display.js"></script>
@@ -14,6 +15,8 @@
 		<script src="modules/Move.js"></script>
 		<script src="modules/NewEl.js"></script>
 		<script src="modules/MouseableEl.js"></script>
+		<script src="modules/Prepend.js"></script>
+		<script src="modules/Remove.js"></script>
 		<script src="modules/Value.js"></script>
 		<style type="text/css">
 			#testDiv {
@@ -49,10 +52,20 @@
 			#btn2 {
 				top: 200px;
 			}
+			.emptyDiv {
+				margin: 0;
+				padding: 0;
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
-		<div id="testDiv"></div>
+		<div id="testDiv">
+			<div id="emptyDiv01" class="emptyDiv"></div>
+			<div id="emptyDiv02" class="emptyDiv"></div>
+			<div id="emptyDiv03" class="emptyDiv"></div>
+			<div id="emptyDiv04" class="emptyDiv"></div>
+		</div>
 		<div id="btn1" class="btns"></div>
 		<div id="btn2" class="btns"></div>
 		<script type="text/javascript">
@@ -62,20 +75,14 @@
 				test = El("#testDiv"),
 				buttonsArray = El(".btns");
 			
-			var elements = [el,el2,test];
-			
-			for (var i = 0; i < elements.length; i++){
-				elements[i].mouseableEl();
-			};
-			
-			//buttonsArray.mouseableEl();
+			var theElement = newEl("div","newElement","newElement","Hello World!");
 			
 			el.evt("click",function(){
-				test.css("left","200px");
+				test.prepend(theElement);
 			});
 			
 			el2.evt("click",function(){
-				test.css("background","#f00");
+				test.remove(theElement);
 			});
 			
 		</script>

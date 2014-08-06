@@ -4,7 +4,7 @@
  *
  * Parameters:
  * -Method ("GET"/"POST")
- * -URL
+ * -URL (data path)
  * -Async (true/false)
  * -Fn (element to receive the new data)
  *
