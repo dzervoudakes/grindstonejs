@@ -73,17 +73,26 @@
 			var el = El("#btn1"),
 				el2 = El("#btn2"),
 				test = El("#testDiv"),
-				buttonsArray = El(".btns");
+				buttonsArray = El(".btns"),
+				divs = El("div");
 			
 			var theElement = newEl("div","newElement","newElement","Hello World!");
 			
-			el.evt("click",function(){
-				test.prepend(theElement);
+			buttonsArray.evt("click",function(){
+				console.log(this);
 			});
 			
-			el2.evt("click",function(){
-				test.remove(theElement);
-			});
+			/*el2.evt("click",function(){
+				
+			});*/
+			
+			/*buttonsArray.evt("click",function(){
+				buttonsArray.prepend(theElement);
+			});*/
+			
+			/*divs.evt("click",function(){
+				console.log(this);
+			});*/
 			
 		</script>
 	</body>

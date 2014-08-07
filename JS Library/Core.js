@@ -31,9 +31,7 @@
 				if (selectedElements.length === 1){
 					this.init = selectedElements[0];
 				} else if (selectedElements.length > 1){
-					for (var i = 0; i < selectedElements.length; i++){ // SO FAR, THIS IS ONLY RETURNING THE FINAL ELEMENT IN THE LOOP
-						this.init = selectedElements[i];
-					}
+					this.init = selectedElements;
 				} else if (selectedElements.length === 0){
 					return [];
 				}
