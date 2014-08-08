@@ -8,7 +8,7 @@
  * Requires: Core.js
  */
 	
-	Grindstone.prototype.css = function(newStyles){
+	/*Grindstone.prototype.css = function(newStyles){
 		var element = this.init;
 		if (testParam(newStyles)){
 			for (var i in newStyles){
@@ -16,5 +16,32 @@
 			}
 		} else {
 			throw new Error("CSS properties to edit are undefined.");
+		}
+	}*/
+	
+	Grindstone.prototype.css = function(newStyles){
+		var results = this.init;
+		if (results.length > 1){
+			for (var i = 0; i < results.length; i++){
+				var element = results[i];
+				if (testParam(newStyles)){
+					for (var j in newStyles){
+						element.style[j] = newStyles[j];
+					}
+				} else {
+					throw new Error("CSS properties to edit are undefined.");
+				}
+			};
+			return this;
+		} else {
+			var element = results;
+			if (testParam(newStyles)){
+				for (var j in newStyles){
+					element.style[j] = newStyles[j];
+				}
+			} else {
+				throw new Error("CSS properties to edit are undefined.");
+			}
+			return this;
 		}
 	}

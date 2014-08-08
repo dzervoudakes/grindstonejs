@@ -9,10 +9,32 @@
  */
 	
 	Grindstone.prototype.append = function(appendElement){
-		var element = this.init;
-		if (testParam(appendElement)){
-			return element.appendChild(appendElement);
+		var results = this.init;
+		if (results.length > 1){
+			for (var i = 0; i < results.length; i++){
+				var element = results[i];
+				if (testParam(appendElement)){
+					if (typeof appendElement === "string"){
+						element.innerHTML += appendElement;
+					} else {
+						element.appendChild(appendElement);
+					}
+				} else {
+					throw new Error("Cannot append undefined element.");
+				}
+			};
+			return this;
 		} else {
-			throw new Error("Cannot append undefined element.");
+			var element = results;
+			if (testParam(appendElement)){
+				if (typeof appendElement === "string"){
+					element.innerHTML += appendElement;
+				} else {
+					element.appendChild(appendElement);
+				}
+			} else {
+				throw new Error("Cannot append undefined element.");
+			}
+			return this;
 		}
 	}

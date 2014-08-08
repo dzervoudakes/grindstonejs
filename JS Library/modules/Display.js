@@ -11,27 +11,55 @@
  */
 	
 	Grindstone.prototype.show = function(timer){
-		var element = this.init;
-		if (testParam(timer)){
-			setTimeout(function(){
-				element.style.display = "block";
-				return this;
-			},timer);
+		var results = this.init;
+		if (results.length > 1){
+			for (var i = 0; i < results.length; i++){
+				var element = results[i];
+				if (testParam(timer)){
+					setTimeout(function(){
+						element.style.display = "block";
+					},timer);
+				} else {
+					element.style.display = "block";
+				}
+			};
+			return this;
 		} else {
-			element.style.display = "block";
+			var element = results;
+			if (testParam(timer)){
+				setTimeout(function(){
+					element.style.display = "block";
+				},timer);
+			} else {
+				element.style.display = "block";
+			}
 			return this;
 		}
 	};
 	
 	Grindstone.prototype.hide = function(timer){
-		var element = this.init;
-		if (testParam(timer)){
-			setTimeout(function(){
-				element.style.display = "none";
-				return this;
-			},timer);
-		} else {
-			element.style.display = "none";
+		var results = this.init;
+		if (results.length > 1){
+			for (var i = 0; i < results.length; i++){
+				var element = results[i];
+				if (testParam(timer)){
+					setTimeout(function(){
+						element.style.display = "none";
+					},timer);
+				} else {
+					element.style.display = "none";
+				}
+			};
 			return this;
+		} else {
+			var element = results;
+			if (testParam(timer)){
+				setTimeout(function(){
+					element.style.display = "none";
+				},timer);
+			} else {
+				element.style.display = "none";
+			}
 		}
+		return this;
 	};

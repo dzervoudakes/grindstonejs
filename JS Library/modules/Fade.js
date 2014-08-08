@@ -9,45 +9,95 @@
  */
 	
 	Grindstone.prototype.fadeIn = function(duration){
-		var element = this.init;
-		if (!testParam(duration)){
-			duration = 400;
-		}
-		if (element.style.display != "block"){
-			element.style.display = "block";
-			var op = 0.01,
-				gap = 25 / duration,
-				timer = setInterval(function(){
-				if (op >= 0.99){
-					op = 1;
-					clearInterval(timer);
+		var results = this.init;
+		if (results.length > 1){
+			for (var i = 0; i < results.length; i++){
+				var element = results[i];
+				if (!testParam(duration)){
+					duration = 400;
 				}
-				element.style.opacity = op;
-				element.style.filter = "alpha(opacity=" + (op * 100) + ")";
-				op += gap;
-			},25);
+				if (element.style.display != "block"){
+					element.style.display = "block";
+					var op = 0.01,
+						gap = 25 / duration,
+						timer = setInterval(function(){
+						if (op >= 0.99){
+							op = 1;
+							clearInterval(timer);
+						}
+						element.style.opacity = op;
+						element.style.filter = "alpha(opacity=" + (op * 100) + ")";
+						op += gap;
+					},25);
+				}
+			};
+			return this;
+		} else {
+			var element = results;
+			if (!testParam(duration)){
+				duration = 400;
+			}
+			if (element.style.display != "block"){
+				element.style.display = "block";
+				var op = 0.01,
+					gap = 25 / duration,
+					timer = setInterval(function(){
+					if (op >= 0.99){
+						op = 1;
+						clearInterval(timer);
+					}
+					element.style.opacity = op;
+					element.style.filter = "alpha(opacity=" + (op * 100) + ")";
+					op += gap;
+				},25);
+			}
 			return this;
 		}
 	};
 	
 	Grindstone.prototype.fadeOut = function(duration){
-		var element = this.init;
-		if (duration == "" || duration == undefined){
-			duration = 400;
-		}
-		if (element.style.display != "none"){
-			var op = 1,
-				gap = 25 / duration,
-				timer = setInterval(function(){
-				if (op <= 0.01){
-					op = 0;
-					clearInterval(timer);
-					element.style.display = "none";
+		var results = this.init;
+		if (results.length > 1){
+			for (var i = 0; i < results.length; i++){
+				var element = results[i];
+				if (!testParam(duration)){
+					duration = 400;
 				}
-				element.style.opacity = op;
-				element.style.filter = "alpha(opacity=" + (op * 100) + ")";
-				op -= gap;
-			},25);
+				if (element.style.display != "none"){
+					var op = 1,
+						gap = 25 / duration,
+						timer = setInterval(function(){
+						if (op <= 0.01){
+							op = 0;
+							clearInterval(timer);
+							element.style.display = "none";
+						}
+						element.style.opacity = op;
+						element.style.filter = "alpha(opacity=" + (op * 100) + ")";
+						op -= gap;
+					},25);
+				}
+			};
+			return this;
+		} else {
+			var element = results;
+			if (!testParam(duration)){
+				duration = 400;
+			}
+			if (element.style.display != "none"){
+				var op = 1,
+					gap = 25 / duration,
+					timer = setInterval(function(){
+					if (op <= 0.01){
+						op = 0;
+						clearInterval(timer);
+						element.style.display = "none";
+					}
+					element.style.opacity = op;
+					element.style.filter = "alpha(opacity=" + (op * 100) + ")";
+					op -= gap;
+				},25);
+			}
 			return this;
 		}
 	};
