@@ -10,12 +10,12 @@
 	
 	Grindstone.prototype.fadeIn = function(duration){
 		var results = this.init;
+		if (!testParam(duration)){
+			duration = 400;
+		}
 		if (results.length > 1){
 			for (var i = 0; i < results.length; i++){
 				var element = results[i];
-				if (!testParam(duration)){
-					duration = 400;
-				}
 				if (element.style.display != "block"){
 					element.style.display = "block";
 					var op = 0.01,
@@ -34,9 +34,6 @@
 			return this;
 		} else {
 			var element = results;
-			if (!testParam(duration)){
-				duration = 400;
-			}
 			if (element.style.display != "block"){
 				element.style.display = "block";
 				var op = 0.01,
@@ -57,12 +54,12 @@
 	
 	Grindstone.prototype.fadeOut = function(duration){
 		var results = this.init;
+		if (!testParam(duration)){
+			duration = 400;
+		}
 		if (results.length > 1){
 			for (var i = 0; i < results.length; i++){
 				var element = results[i];
-				if (!testParam(duration)){
-					duration = 400;
-				}
 				if (element.style.display != "none"){
 					var op = 1,
 						gap = 25 / duration,
@@ -81,9 +78,6 @@
 			return this;
 		} else {
 			var element = results;
-			if (!testParam(duration)){
-				duration = 400;
-			}
 			if (element.style.display != "none"){
 				var op = 1,
 					gap = 25 / duration,

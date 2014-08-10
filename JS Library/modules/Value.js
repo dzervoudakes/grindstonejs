@@ -73,5 +73,6 @@
 			} else {
 				throw new Error("Please specify the value to call.");
 			}
+			return this;
 		}
 	};

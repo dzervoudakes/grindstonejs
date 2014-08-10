@@ -60,6 +60,6 @@
 			} else {
 				element.style.display = "none";
 			}
+			return this;
 		}
-		return this;
 	};

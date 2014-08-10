@@ -8,17 +8,6 @@
  * Requires: Core.js
  */
 	
-	/*Grindstone.prototype.css = function(newStyles){
-		var element = this.init;
-		if (testParam(newStyles)){
-			for (var i in newStyles){
-				element.style[i] = newStyles[i];
-			}
-		} else {
-			throw new Error("CSS properties to edit are undefined.");
-		}
-	}*/
-	
 	Grindstone.prototype.css = function(newStyles){
 		var results = this.init;
 		if (results.length > 1){
@@ -44,4 +33,4 @@
 			}
 			return this;
 		}
-	}
+	};
