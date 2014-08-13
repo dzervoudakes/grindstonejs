@@ -14,7 +14,6 @@
 		<script src="modules/Fade.js"></script>
 		<script src="modules/Move.js"></script>
 		<script src="modules/NewEl.js"></script>
-		<script src="modules/MouseableEl.js"></script>
 		<script src="modules/Prepend.js"></script>
 		<script src="modules/Remove.js"></script>
 		<script src="modules/Value.js"></script>
@@ -80,9 +79,24 @@
 				test.toggleClass("cls");
 			});
 			
-			/*el2.evt("click",function(){
-				
-			});*/
+			if ("createTouch" in document){
+				test.evt("touchstart",function(){
+					test.addClass("over down");
+				}).evt("touchend",function(){
+					test.removeClass("over down");
+				});
+			} else {
+				test.evt("mouseover",function(){
+					test.addClass("over");
+				}).evt("mouseleave",function(){
+					test.removeClass("over");
+					test.removeClass("down");
+				}).evt("mousedown",function(){
+					test.addClass("down");
+				}).evt("mouseup",function(){
+					test.removeClass("down");
+				});
+			}
 			
 		</script>
 	</body>
