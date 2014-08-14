@@ -59,7 +59,7 @@
 		</style>
 	</head>
 	<body>
-		<div id="testDiv">
+		<div id="testDiv" class="test">
 			<div id="emptyDiv01" class="emptyDiv"></div>
 			<div id="emptyDiv02" class="emptyDiv"></div>
 			<div id="emptyDiv03" class="emptyDiv"></div>
@@ -76,7 +76,8 @@
 				divs = El("div");
 			
 			el.evt("click",function(){
-				test.toggleClass("cls");
+				console.log(this);
+				console.log(El(this));
 			});
 			
 			if ("createTouch" in document){
@@ -86,7 +87,7 @@
 					test.removeClass("over down");
 				});
 			} else {
-				test.evt("mouseover",function(){
+				test.evt("mouseover",function(){ // New Bug: removing a class doesn't always work (example" class="test over down" becomes class="testdown", etc...
 					test.addClass("over");
 				}).evt("mouseleave",function(){
 					test.removeClass("over");
