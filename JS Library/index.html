@@ -2,7 +2,6 @@
 <html lang="en">
 	<head>
 		<title>JS Library Tests</title>
-		<script src="com/sizzle.js"></script>
 		<script src="Core.js"></script>
 		<script src="modules/Ajax.js"></script>
 		<script src="modules/Append.js"></script>
@@ -76,7 +75,8 @@
 			
 			el.evt("click",function(){
 				console.log(this);
-				console.log(El(this));
+				console.log(divs);
+				test.fadeOut().addClass("donezo");
 			});
 			
 			if ("createTouch" in document){

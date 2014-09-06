@@ -7,27 +7,24 @@
  * -ID-specific selector function "Elem"
  * -Any tertiary functions as necessary
  *
- * Requires:
- * -Sizzle.js (http://sizzlejs.com/)
- *
  * Copyright (c) 2014 Dan Zervoudakes
  * Developed under the MIT license
  */
 	
 	// Global constructor "Grindstone" and selector functions
 	
-	var Grindstone = function(selector,context){
+	var Grindstone = function(selector){
 		var info = {
 			Name: "GrindstoneJS",
 			Version: "1.0.0",
 			About: "Lightweight JavaScript library optimized for simple DOM manipulation. Not a MVC.",
-			Compatibility: "Chrome, Firefox, Safari, Opera, IE 7+, mobile.",
+			Compatibility: "Chrome, Firefox, Safari, Opera, IE 8+, mobile.",
 			GitHub: "https://github.com/DRZervoudakes/GrindstoneJS",
 			Author: "Dan Zervoudakes"
 		};
 		if (selector){
 			if (typeof selector === "string"){
-				var selectedElements = Sizzle(selector,context);
+				var selectedElements = document.querySelectorAll(selector);
 				if (selectedElements.length === 1){
 					this.init = selectedElements[0];
 				} else if (selectedElements.length > 1){
@@ -44,8 +41,8 @@
 		}
 	};
 	
-	var El = function(selector,context){
-		return new Grindstone(selector,context); // Shorthand method for obtaining the same results as above
+	var El = function(selector){
+		return new Grindstone(selector); // Shorthand method for obtaining the same results as above
 	};
 	
 	// Simple selector: "Elem" (returns IDs only - Grindstone prototype methods will not work with "Elem" selectors)
