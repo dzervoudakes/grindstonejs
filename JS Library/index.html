@@ -74,9 +74,8 @@
 				divs = El("div");
 			
 			el.evt("click",function(){
-				console.log(this);
-				console.log(divs);
-				test.fadeOut().addClass("donezo");
+				var el3 = newEl("div","test_newEl");
+				buttonsArray.ind(1).appendChild(el3); // Returns elements which can use native JS methods, but not Grindstone methods...
 			});
 			
 			if ("createTouch" in document){

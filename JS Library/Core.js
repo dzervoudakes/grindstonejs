@@ -25,11 +25,9 @@
 		if (selector){
 			if (typeof selector === "string"){
 				var selectedElements = document.querySelectorAll(selector);
-				if (selectedElements.length === 1){
-					this.init = selectedElements[0];
-				} else if (selectedElements.length > 1){
+				if (selectedElements.length > 0){
 					this.init = selectedElements;
-				} else if (selectedElements.length === 0){
+				} else {
 					return [];
 				}
 				return this;
@@ -39,6 +37,12 @@
 		} else {
 			return info;
 		}
+	};
+	
+	// ind(): returns the specified index of the selector
+	
+	Grindstone.prototype.ind = function(index){
+		return this.init[index];
 	};
 	
 	var El = function(selector){

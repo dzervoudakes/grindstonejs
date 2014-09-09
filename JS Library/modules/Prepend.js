@@ -10,22 +10,8 @@
 	
 	Grindstone.prototype.prepend = function(prependElement){
 		var results = this.init;
-		if (results.length > 1){
-			for (var i = 0; i < results.length; i++){
-				var element = results[i];
-				if (testParam(prependElement)){
-					if (typeof prependElement === "string"){
-						element.insertAdjacentHTML("afterbegin",prependElement);
-					} else {
-						element.insertBefore(prependElement,element.firstChild);
-					}
-				} else {
-					throw new Error("Cannot prepend undefined element.");
-				}
-			};
-			return this;
-		} else {
-			var element = results;
+		for (var i = 0; i < results.length; i++){
+			var element = results[i];
 			if (testParam(prependElement)){
 				if (typeof prependElement === "string"){
 					element.insertAdjacentHTML("afterbegin",prependElement);
@@ -35,6 +21,6 @@
 			} else {
 				throw new Error("Cannot prepend undefined element.");
 			}
-			return this;
-		}
+		};
+		return this;
 	};

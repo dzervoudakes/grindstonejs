@@ -13,23 +13,14 @@
 	Grindstone.prototype.hasClass = function(cls){
 		var results = this.init,
 			reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-		if (results.length > 1){
-			for (var i = 0; i < results.length; i++){
-				var element = results[i];
-				if (testParam(cls)){
-					return element.className.match(reg);
-				} else {
-					throw new Error("Cannot determine if the element has undefined class.");
-				}
-			};
-		} else {
-			var element = results;
+		for (var i = 0; i < results.length; i++){
+			var element = results[i];
 			if (testParam(cls)){
 				return element.className.match(reg);
 			} else {
 				throw new Error("Cannot determine if the element has undefined class.");
 			}
-		}
+		};
 	};
 	
 	// Add the specified class to the element if it doesn't already contain that class
@@ -37,24 +28,8 @@
 	Grindstone.prototype.addClass = function(cls){
 		var results = this.init,
 			reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-		if (results.length > 1){
-			for (var i = 0; i < results.length; i++){
-				var element = results[i];
-				if (!element.className.match(reg)){
-					if (testParam(cls)){
-						if (element.className == ""){
-							element.className += cls;
-						} else {
-							element.className += " " + cls;
-						}
-					} else {
-						throw new Error("Class to add is undefined.");
-					}
-				}
-			};
-			return this;
-		} else {
-			var element = results;
+		for (var i = 0; i < results.length; i++){
+			var element = results[i];
 			if (!element.className.match(reg)){
 				if (testParam(cls)){
 					if (element.className == ""){
@@ -66,29 +41,17 @@
 					throw new Error("Class to add is undefined.");
 				}
 			}
-			return this;
-		}
+		};
+		return this;
 	};
 	
 	// Remove the specified class from the element if it contains that class
 	
 	Grindstone.prototype.removeClass = function(cls){
 		var results = this.init,
-			reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-		if (results.length > 1){
-			for (var i = 0; i < results.length; i++){
-				var element = results[i];
-				if (element.className.match(reg)){
-					if (testParam(cls)){
-						element.className = element.className.replace(reg,"");
-					} else {
-						throw new Error("Class to remove is undefined.");
-					}
-				}
-			};
-			return this;
-		} else {
-			var element = results;
+		reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
+		for (var i = 0; i < results.length; i++){
+			var element = results[i];
 			if (element.className.match(reg)){
 				if (testParam(cls)){
 					element.className = element.className.replace(reg,"");
@@ -96,8 +59,8 @@
 					throw new Error("Class to remove is undefined.");
 				}
 			}
-			return this;
-		}
+		};
+		return this;
 	};
 	
 	// Toggle the specified class
@@ -105,26 +68,8 @@
 	Grindstone.prototype.toggleClass = function(cls){
 		var results = this.init,
 			reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-		if (results.length > 1){
-			for (var i = 0; i < results.length; i++){
-				var element = results[i];
-				if (testParam(cls)){
-					if (!element.className.match(reg)){
-						if (element.className == ""){
-							element.className += cls;
-						} else {
-							element.className += " " + cls;
-						}
-					} else if (element.className.match(reg)){
-						element.className = element.className.replace(reg,"");
-					}
-				} else {
-					throw new Error("Class to toggle is undefined.");
-				}
-			};
-			return this;
-		} else {
-			var element = results;
+		for (var i = 0; i < results.length; i++){
+			var element = results[i];
 			if (testParam(cls)){
 				if (!element.className.match(reg)){
 					if (element.className == ""){
@@ -138,6 +83,6 @@
 			} else {
 				throw new Error("Class to toggle is undefined.");
 			}
-			return this;
-		}
+		};
+		return this;
 	};
