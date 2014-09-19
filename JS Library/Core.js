@@ -39,12 +39,6 @@
 		}
 	};
 	
-	// ind(): returns the specified index of the selector
-	
-	Grindstone.prototype.ind = function(index){
-		return this.init[index];
-	};
-	
 	var El = function(selector){
 		return new Grindstone(selector); // Shorthand method for obtaining the same results as above
 	};
@@ -55,13 +49,11 @@
 		return document.getElementById(id);
 	};
 	
-	// Remove over-active document scrolling on touch-enabled devices, notably iPad
+	// ind(): returns the specified index of the selector
 	
-	if (document.addEventListener){
-		document.addEventListener("touchmove",function(event){
-			event.preventDefault();
-		},false);
-	}
+	Grindstone.prototype.ind = function(index){
+		return this.init[index];
+	};
 	
 	// Test parameters function: to be used for checking if a parameter is undefined
 	
