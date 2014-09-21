@@ -13,7 +13,7 @@
 	
 	// Global constructor "Grindstone" and selector functions
 	
-	var Grindstone = function(selector){
+	var Grindstone = function(selector,ind){ // ind: optional parameter, will return the specified index of the results array
 		var info = {
 			Name: "GrindstoneJS",
 			Version: "1.0.0",
@@ -22,9 +22,21 @@
 			GitHub: "https://github.com/DRZervoudakes/GrindstoneJS",
 			Author: "Dan Zervoudakes"
 		};
-		if (selector){
+		if (testParam(selector)){
+			var selectedElements;
 			if (typeof selector === "string"){
-				var selectedElements = document.querySelectorAll(selector);
+				if (ind != null){
+					if (ind == false){ // If "0" is passed as the ind parameter, ind will be considered "false" and must manually be set to "0" as a number
+						ind = 0;
+					}
+					if (typeof ind === "number" && ind >= 0){
+						selectedElements = [document.querySelectorAll(selector)[Math.round(ind)]];
+					}  else {
+						throw new Error("Index parameter of Grindstone must be a number >= 0.");
+					}
+				} else {
+					selectedElements = document.querySelectorAll(selector);
+				}
 				if (selectedElements.length > 0){
 					this.init = selectedElements;
 				} else {
@@ -39,20 +51,14 @@
 		}
 	};
 	
-	var El = function(selector){
-		return new Grindstone(selector); // Shorthand method for obtaining the same results as above
+	var El = function(selector,ind){
+		return new Grindstone(selector,ind); // Shorthand method for obtaining the same results as above
 	};
 	
 	// Simple selector: "Elem" (returns IDs only - Grindstone prototype methods will not work with "Elem" selectors)
 	
 	Elem = function(id){
 		return document.getElementById(id);
-	};
-	
-	// ind(): returns the specified index of the selector
-	
-	Grindstone.prototype.ind = function(index){
-		return this.init[index];
 	};
 	
 	// Test parameters function: to be used for checking if a parameter is undefined

@@ -67,15 +67,14 @@
 		<div id="btn2" class="btns"></div>
 		<script type="text/javascript">
 			
-			var el = El("#btn1"),
+			var el = El(".btns",0),
 				el2 = El("#btn2"),
 				test = El("#testDiv"),
 				buttonsArray = El(".btns"),
 				divs = El("div");
 			
 			el.evt("click",function(){
-				var el3 = newEl("div","test_newEl");
-				buttonsArray.ind(1).appendChild(el3); // Returns elements which can use native JS methods, but not Grindstone methods...
+				alert("This is correct.");
 			});
 			
 			if ("createTouch" in document){
