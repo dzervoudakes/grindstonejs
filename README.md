@@ -1,6 +1,6 @@
-"GrindstoneJS", JavaScript Library
-========================================
+"GrindstoneJS"
+=================
 
-Custom, open-source, lightweight JavaScript library without the bloat: optimized for simple DOM manipulation.
+Lightweight JavaScript library without the bloat, optimized for simple jQuery-style DOM manipulation with similar syntax.
 
-Not a MVC.
+Documentation to come soon...
