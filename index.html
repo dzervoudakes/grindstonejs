@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>JS Library Tests</title>
+		<script src="Core.js"></script>
+		<script src="modules/Ajax.js"></script>
+		<script src="modules/Append.js"></script>
+		<script src="modules/Classes.js"></script>
+		<script src="modules/CSS.js"></script>
+		<script src="modules/Display.js"></script>
+		<script src="modules/Events.js"></script>
+		<script src="modules/Fade.js"></script>
+		<script src="modules/Move.js"></script>
+		<script src="modules/NewEl.js"></script>
+		<script src="modules/Prepend.js"></script>
+		<script src="modules/Remove.js"></script>
+		<script src="modules/Value.js"></script>
+		<style type="text/css">
+			#testDiv {
+				position: absolute;
+				left: 100px;
+				top: 100px;
+				height: 80px;
+				width: 80px;
+				background: #0f0;
+			}
+			#testDiv.over {
+				background: #333;
+			}
+			#testDiv.down {
+				top: 101px;
+				left: 101px;
+			}
+			.btns {
+				position: absolute;
+				right: 100px;
+				width: 45px;
+				height: 45px;
+				background: #069;
+				border: 1px solid #069;
+				cursor: pointer;
+			}
+			.btns.over {
+				border-color: #f00;
+			}
+			#btn1 {
+				top: 100px;
+			}
+			#btn2 {
+				top: 200px;
+			}
+			.emptyDiv {
+				margin: 0;
+				padding: 0;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="testDiv" class="test">
+			<div id="emptyDiv01" class="emptyDiv"></div>
+			<div id="emptyDiv02" class="emptyDiv"></div>
+			<div id="emptyDiv03" class="emptyDiv"></div>
+			<div id="emptyDiv04" class="emptyDiv"></div>
+		</div>
+		<div id="btn1" class="btns"></div>
+		<div id="btn2" class="btns"></div>
+		<script type="text/javascript">
+			
+			var el = El(".btns",0),
+				el2 = El("#btn2"),
+				test = El("#testDiv"),
+				buttonsArray = El(".btns"),
+				divs = El("div");
+			
+			el.evt("click",function(){
+				alert("This is correct.");
+			});
+			
+			if ("createTouch" in document){
+				test.evt("touchstart",function(){
+					test.addClass("over down");
+				}).evt("touchend",function(){
+					test.removeClass("over down");
+				});
+			} else {
+				test.evt("mouseover",function(){
+					test.addClass("over");
+				}).evt("mouseleave",function(){
+					test.removeClass("over down"); // New Bug: removing a class doesn't always work (example" class="test over down" becomes class="testdown", etc...)
+					test.removeClass("over");      // Seems specific to removeClass()
+				}).evt("mousedown",function(){
+					test.addClass("down");
+				}).evt("mouseup",function(){
+					test.removeClass("down");
+				});
+			}
+			
+		</script>
+	</body>
+</html>
