@@ -10,7 +10,7 @@
  * Requires: Core.js
  */
 	
-	Grindstone.prototype.show = function(timer){
+	GS.show = function(timer){
 		var results = this.init;
 		for (var i = 0; i < results.length; i++){
 			var element = results[i];
@@ -25,7 +25,7 @@
 		return this;
 	};
 	
-	Grindstone.prototype.hide = function(timer){
+	GS.hide = function(timer){
 		var results = this.init;
 		for (var i = 0; i < results.length; i++){
 			var element = results[i];

@@ -13,7 +13,7 @@
 	
 	// Set the arbitrary value
 	
-	Grindstone.prototype.val = function(valueName,valueContent){
+	GS.val = function(valueName,valueContent){
 		var results = this.init;
 		for (var i = 0; i < results.length; i++){
 			var valueElement = results[i];
@@ -32,7 +32,7 @@
 	
 	// Call the arbitrary value
 	
-	Grindstone.prototype.getVal = function(valueName){
+	GS.getVal = function(valueName){
 		var results = this.init;
 		for (var i = 0; i < results.length; i++){
 			var grabValueElement = results[i];

@@ -10,7 +10,7 @@
 	
 	// Detect if a given element has a particular class
 	
-	Grindstone.prototype.hasClass = function(cls){
+	GS.hasClass = function(cls){
 		var results = this.init,
 			reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
 		for (var i = 0; i < results.length; i++){
@@ -25,7 +25,7 @@
 	
 	// Add the specified class to the element if it doesn't already contain that class
 	
-	Grindstone.prototype.addClass = function(cls){
+	GS.addClass = function(cls){
 		var results = this.init,
 			reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
 		for (var i = 0; i < results.length; i++){
@@ -47,7 +47,7 @@
 	
 	// Remove the specified class from the element if it contains that class
 	
-	Grindstone.prototype.removeClass = function(cls){
+	GS.removeClass = function(cls){
 		var results = this.init,
 		reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
 		for (var i = 0; i < results.length; i++){
@@ -65,7 +65,7 @@
 	
 	// Toggle the specified class
 	
-	Grindstone.prototype.toggleClass = function(cls){
+	GS.toggleClass = function(cls){
 		var results = this.init,
 			reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
 		for (var i = 0; i < results.length; i++){

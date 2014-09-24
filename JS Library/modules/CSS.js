@@ -8,7 +8,7 @@
  * Requires: Core.js
  */
 	
-	Grindstone.prototype.css = function(newStyles){
+	GS.css = function(newStyles){
 		var results = this.init;
 		for (var i = 0; i < results.length; i++){
 			var element = results[i];

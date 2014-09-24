@@ -8,7 +8,7 @@
  * Requires: Core.js
  */
 	
-	Grindstone.prototype.fadeIn = function(duration){
+	GS.fadeIn = function(duration){
 		var results = this.init;
 		if (!testParam(duration)){
 			duration = 400;
@@ -33,7 +33,7 @@
 		return this;
 	};
 	
-	Grindstone.prototype.fadeOut = function(duration){
+	GS.fadeOut = function(duration){
 		var results = this.init;
 		if (!testParam(duration)){
 			duration = 400;

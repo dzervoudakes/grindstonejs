@@ -10,7 +10,7 @@
  * -Core.js
  */
 	
-	Grindstone.prototype.evt = function(action,fn){
+	GS.evt = function(action,fn){
 		var results = this.init;
 		for (var i = 0; i < results.length; i++){
 			var element = results[i];

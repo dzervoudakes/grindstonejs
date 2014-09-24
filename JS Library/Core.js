@@ -30,7 +30,7 @@
 						ind = 0;
 					}
 					if (typeof ind === "number" && ind >= 0){
-						selectedElements = [document.querySelectorAll(selector)[Math.round(ind)]];
+						selectedElements = [document.querySelectorAll(selector)[Math.round(ind)]]; // In case users decide - for whatever reason - to input decimals...
 					}  else {
 						throw new Error("Index parameter of Grindstone must be a number >= 0.");
 					}
@@ -43,6 +43,8 @@
 					return [];
 				}
 				return this;
+			} else if(typeof selector === "object"){
+				this.init = [selector];
 			} else {
 				return null;
 			}
@@ -66,3 +68,7 @@
 	function testParam(parameter){
 		return parameter != undefined && parameter != "";
 	};
+	
+	// Cut down on needless text throughout...
+	
+	var GS = Grindstone.prototype;

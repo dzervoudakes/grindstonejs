@@ -73,8 +73,8 @@
 				buttonsArray = El(".btns"),
 				divs = El("div");
 			
-			el.evt("click",function(){
-				alert("This is correct.");
+			test.evt("click",function(){
+				El(this).append("<p>SUCCESS</p>");
 			});
 			
 			if ("createTouch" in document){

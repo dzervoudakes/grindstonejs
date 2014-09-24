@@ -8,7 +8,7 @@
  * Requires: Core.js
  */
 	
-	Grindstone.prototype.remove = function(removeElement){
+	GS.remove = function(removeElement){
 		var results = this.init;
 		for (var i = 0; i < results.length; i++){
 			var element = results[i];
