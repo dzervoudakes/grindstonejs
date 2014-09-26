@@ -12,6 +12,8 @@
 		var results = this.init;
 		if (!testParam(duration)){
 			duration = 400;
+		} else if (typeof duration !== "number"){
+			throw new Error("Fade duration parameter must be a number.");
 		}
 		for (var i = 0; i < results.length; i++){
 			var element = results[i];
@@ -37,6 +39,8 @@
 		var results = this.init;
 		if (!testParam(duration)){
 			duration = 400;
+		} else if (typeof duration !== "number"){
+			throw new Error("Fade duration parameter must be a number.");
 		}
 		for (var i = 0; i < results.length; i++){
 			var element = results[i];

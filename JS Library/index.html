@@ -67,14 +67,18 @@
 		<div id="btn2" class="btns"></div>
 		<script type="text/javascript">
 			
-			var el = El(".btns",0),
-				el2 = El("#btn2"),
-				test = El("#testDiv"),
-				buttonsArray = El(".btns"),
-				divs = El("div");
+			var el = $(".btns",0),
+				el2 = $("#btn2"),
+				test = $("#testDiv"),
+				buttonsArray = $(".btns"),
+				divs = $("div");
 			
-			test.evt("click",function(){
-				El(this).append("<p>SUCCESS</p>");
+			el.evt("click",function(){
+				$(this).hide();
+			});
+			
+			el2.evt("click",function(){
+				el.fadeIn();
 			});
 			
 			if ("createTouch" in document){

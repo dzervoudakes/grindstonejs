@@ -11,7 +11,7 @@
  * Requires: Core.js
  */
 	
-	El.ajax = function(Method,URL,Async,Fn){
+	$.ajax = function(Method,URL,Async,Fn){
 		if (testParam(Method) && testParam(URL) && testParam(Async) && testParam(Fn)){ // All parameters must be defined
 			var xmlhttp;
 			if (window.XMLHttpRequest){
@@ -21,7 +21,7 @@
 			}
 			xmlhttp.onreadystatechange = function(){
 				if (xmlhttp.readyState == 4 && (xmlhttp.status == 200 || xmlhttp.status == 304)){
-					Fn.innerHTML = xmlhttp.responseText;
+					Fn();
 				}
 			};
 			xmlhttp.open(Method,URL,Async);

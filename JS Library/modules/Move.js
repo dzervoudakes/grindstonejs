@@ -14,7 +14,7 @@
  * Requires: Core.js
  */
 	
-	El.move = function(element,direction,posFrom,posTo,duration){
+	$.move = function(element,direction,posFrom,posTo,duration){
 		if (testParam(element) && testParam(direction) && testParam(posFrom) && testParam(posTo)){ // All parameters must be defined except for duration
 			if (direction == "left"){
 				element.style.left = posFrom + "px";

@@ -53,14 +53,8 @@
 		}
 	};
 	
-	var El = function(selector,ind){
+	var $ = function(selector,ind){
 		return new Grindstone(selector,ind); // Shorthand method for obtaining the same results as above
-	};
-	
-	// Simple selector: "Elem" (returns IDs only - Grindstone prototype methods will not work with "Elem" selectors)
-	
-	Elem = function(id){
-		return document.getElementById(id);
 	};
 	
 	// Test parameters function: to be used for checking if a parameter is undefined
