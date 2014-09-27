@@ -7,8 +7,6 @@
  * -id
  * -className
  * -innerHTML
- *
- * Requires: Core.js
  */
 	
 	newEl = function(elType,elId,elClass,elInner){

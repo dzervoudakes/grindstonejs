@@ -6,9 +6,6 @@
  * Parameters:
  * -valueName (defined by the developer)
  * -valueContent (specified in the .val() method)
- *
- * Requires:
- * -Core.js
  */
 	
 	// Set the arbitrary value

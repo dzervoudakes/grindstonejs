@@ -4,8 +4,6 @@
  *
  * Parameter:
  * -duration (default: 400ms)
- *
- * Requires: Core.js
  */
 	
 	GS.fadeIn = function(duration){

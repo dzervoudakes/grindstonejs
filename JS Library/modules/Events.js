@@ -5,9 +5,6 @@
  * Parameters:
  * -action (the event to handle: only accepts one event per function call)
  * -fn (the event handler)
- *
- * Requires:
- * -Core.js
  */
 	
 	GS.evt = function(action,fn){

@@ -10,8 +10,6 @@
  * -duration (default: 400ms)
  *
  * Uses "px" for coordinates, not "%"
- *
- * Requires: Core.js
  */
 	
 	$.move = function(element,direction,posFrom,posTo,duration){

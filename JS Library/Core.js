@@ -59,7 +59,7 @@
 	
 	// Test parameters function: to be used for checking if a parameter is undefined
 	
-	function testParam(parameter){
+	testParam = function(parameter){
 		return parameter != undefined && parameter != "";
 	};
 	

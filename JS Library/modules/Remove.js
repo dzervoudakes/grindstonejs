@@ -4,8 +4,6 @@
  *
  * Parameter:
  * -removeElement
- *
- * Requires: Core.js
  */
 	
 	GS.remove = function(removeElement){

@@ -4,8 +4,6 @@
  *
  * Parameter:
  * -new styles (to be programmed as an object which contains an unlimited number of style properties)
- *
- * Requires: Core.js
  */
 	
 	GS.css = function(newStyles){

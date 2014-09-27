@@ -4,8 +4,6 @@
  *
  * Parameter:
  * -className
- *
- * Requires: Core.js
  */
 	
 	// Detect if a given element has a particular class

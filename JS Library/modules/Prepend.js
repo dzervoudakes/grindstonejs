@@ -4,8 +4,6 @@
  *
  * Parameter:
  * -prependElement
- *
- * Requires: Core.js
  */
 	
 	GS.prepend = function(prependElement){

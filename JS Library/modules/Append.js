@@ -4,8 +4,6 @@
  *
  * Parameter:
  * -appendElement
- *
- * Requires: Core.js
  */
 	
 	GS.append = function(appendElement){

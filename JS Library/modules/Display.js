@@ -6,8 +6,6 @@
  *
  * Parameter: (optional)
  * -timer
- *
- * Requires: Core.js
  */
 	
 	GS.show = function(timer){

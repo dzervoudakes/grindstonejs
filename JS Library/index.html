@@ -73,8 +73,14 @@
 				buttonsArray = $(".btns"),
 				divs = $("div");
 			
+			function ajaxTest(){
+				var testTxt = xmlhttp.responseText;
+				test.append(testTxt);
+			};
+			
 			el.evt("click",function(){
-				$(this).hide();
+				//$(this).hide();
+				$.ajax("GET","test.txt",true,ajaxTest);
 			});
 			
 			el2.evt("click",function(){

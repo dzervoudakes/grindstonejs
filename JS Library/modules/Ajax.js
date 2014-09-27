@@ -1,4 +1,4 @@
-/* El.ajax
+/* $.ajax()
  *
  * Basic AJAX call for pulling external data into the DOM
  *
@@ -6,14 +6,13 @@
  * -Method ("GET"/"POST")
  * -URL (data path)
  * -Async (true/false)
- * -Fn (element to receive the new data)
- *
- * Requires: Core.js
+ * -Fn (function to invoke if successful)
  */
+	
+	var xmlhttp;
 	
 	$.ajax = function(Method,URL,Async,Fn){
 		if (testParam(Method) && testParam(URL) && testParam(Async) && testParam(Fn)){ // All parameters must be defined
-			var xmlhttp;
 			if (window.XMLHttpRequest){
 				xmlhttp = new XMLHttpRequest(); // Modern browsers
 			} else {
@@ -29,4 +28,5 @@
 		} else {
 			throw new Error("Please define 'GET'/'POST', the URL, Async true/false, and the function to be ran if successful.");
 		}
+		return xmlhttp;
 	};
