@@ -67,6 +67,8 @@
 		<div id="btn2" class="btns"></div>
 		<script type="text/javascript">
 			
+			// LATEST UPDATE: $(this) will work in all browsers except - yeah, that's right - IE 8!!!
+			
 			var el = $(".btns",0),
 				el2 = $("#btn2"),
 				test = $("#testDiv"),
@@ -84,7 +86,9 @@
 			});
 			
 			el2.evt("click",function(){
-				el.fadeIn();
+				var test2 = $(".btns, #testDiv");
+				test2.css({backgroundColor: "red"});
+				//test2.css({"background-color": "red"}); // Both ways work...
 			});
 			
 			if ("createTouch" in document){
