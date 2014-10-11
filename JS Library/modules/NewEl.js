@@ -10,15 +10,15 @@
  */
 	
 	var newEl = function(elType,elId,elClass,elInner){
-		if (testParam(elType)){
+		if (elType){
 			var newElement = document.createElement(elType);
-			if (testParam(elId)){
+			if (elId){
 				newElement.id = elId;
 			}
-			if (testParam(elClass)){
+			if (elClass){
 				newElement.className = elClass;
 			}
-			if (testParam(elInner)){
+			if (elInner){
 				newElement.innerHTML = elInner;
 			}
 			return newElement;

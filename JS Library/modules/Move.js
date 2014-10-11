@@ -13,7 +13,7 @@
  */
 	
 	$.move = function(element,direction,posFrom,posTo,duration){
-		if (testParam(element) && testParam(direction) && testParam(posFrom) && testParam(posTo)){ // All parameters must be defined except for duration
+		if (element && direction && posFrom && posTo){ // All parameters must be defined except for duration
 			if (direction == "left"){
 				element.style.left = posFrom + "px";
 			} else if (direction == "top"){

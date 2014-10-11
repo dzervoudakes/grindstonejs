@@ -21,10 +21,10 @@
 			GitHub: "https://github.com/DRZervoudakes/GrindstoneJS",
 			Author: "Dan Zervoudakes"
 		};
-		if (testParam(selector)){
+		if (selector){
 			var selectedElements;
 			if (typeof selector === "string"){
-				if (testParam(context)){
+				if (context){
 					var elem = document.querySelector(context);
 					selectedElements = elem.querySelectorAll(selector);
 				} else {
@@ -50,12 +50,6 @@
 	
 	var $ = function(selector,context){
 		return new Grindstone(selector,context);
-	};
-	
-	// Test parameters function: to be used for checking if a parameter is undefined...
-	
-	function testParam(parameter){
-		return (parameter != undefined && parameter != "");
 	};
 	
 	// Custom forEach function to streamline the looping process throughout... (since we are dealing with NodeLists, the Array.prototype.forEach() method will not work natively)

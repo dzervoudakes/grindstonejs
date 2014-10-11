@@ -13,6 +13,7 @@
 		<script src="modules/Move.js"></script>
 		<script src="modules/NewEl.js"></script>
 		<script src="modules/Prepend.js"></script>
+		<script src="modules/Ready.js"></script>
 		<script src="modules/Remove.js"></script>
 		<script src="modules/Value.js"></script>
 		<style type="text/css">
@@ -74,20 +75,13 @@
 				divs = $("div"),
 				emptyDivs = $("div","#testDiv");
 			
-			function ajaxTest(){
-				var testTxt = xmlhttp.responseText;
-				test.append(testTxt);
-			};
-			
 			el.evt("click",function(){
-				//divs.hide();
-				//$.ajax("GET","test.txt",true,ajaxTest);
-				test.hide();
+				test.addClass("updated");
 			});
 			
-			el2.evt("click",function(){
-				test.show();
-			});
+			/*el2.evt("click",function(){
+				test.fadeOut();
+			});*/
 			
 			if ("createTouch" in document){
 				test.evt("touchstart",function(){
@@ -99,7 +93,7 @@
 				test.evt("mouseover",function(){
 					test.addClass("over");
 				}).evt("mouseleave",function(){
-					test.removeClass("over down"); // Potential Bug: removing a class doesn't always work (example" class="test over down" becomes class="testdown", etc...)
+					test.removeClass("over down"); // Potential Bug: removing a class doesn't always work (example: class="test over down" becomes class="testdown", etc...)
 					test.removeClass("over");      // Seems specific to removeClass()
 				}).evt("mousedown",function(){
 					test.addClass("down");

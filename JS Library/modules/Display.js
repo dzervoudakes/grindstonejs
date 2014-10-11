@@ -10,7 +10,7 @@
 	
 	GS.show = function(timer){
 		forEach(this.init,function(){
-			if (testParam(timer)){
+			if (timer){
 				if (typeof timer === "number"){
 					setTimeout(function(){
 						this.style.display = "block";
@@ -27,7 +27,7 @@
 	
 	GS.hide = function(timer){
 		forEach(this.init,function(){
-			if (testParam(timer)){
+			if (timer){
 				if (typeof timer === "number"){
 					setTimeout(function(){
 						this.style.display = "none";

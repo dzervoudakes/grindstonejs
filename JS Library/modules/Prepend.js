@@ -7,18 +7,16 @@
  */
 	
 	GS.prepend = function(prependElement){
-		var results = this.init;
-		for (var i = 0; i < results.length; i++){
-			var element = results[i];
-			if (testParam(prependElement)){
+		forEach(this.init,function(){
+			if (prependElement){
 				if (typeof prependElement === "string"){
-					element.insertAdjacentHTML("afterbegin",prependElement);
+					this.insertAdjacentHTML("afterbegin",prependElement);
 				} else {
-					element.insertBefore(prependElement,element.firstChild);
+					this.insertBefore(prependElement,element.firstChild);
 				}
 			} else {
 				throw new Error("Cannot prepend undefined element.");
 			}
-		};
+		});
 		return this;
 	};

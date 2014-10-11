@@ -3,16 +3,16 @@
  * Basic AJAX call for pulling external data into the DOM
  *
  * Parameters:
- * -Method ("GET"/"POST")
- * -URL (data path)
- * -Async (true/false)
- * -Callback (function to invoke if successful)
+ * -method ("GET"/"POST")
+ * -url (data path)
+ * -async (true/false)
+ * -callback (function to invoke if successful)
  */
 	
 	var xmlhttp;
 	
 	$.ajax = function(method,url,async,callback){
-		if (testParam(method) && testParam(url) && testParam(async) && testParam(callback)){ // All parameters must be defined
+		if (method && url && async && callback){ // All parameters must be defined
 			xmlhttp = new XMLHttpRequest(); // Modern browsers
 			xmlhttp.onreadystatechange = function(){
 				if (xmlhttp.readyState == 4 && (xmlhttp.status == 200 || xmlhttp.status == 304)){

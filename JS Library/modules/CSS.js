@@ -7,20 +7,18 @@
  */
 	
 	GS.css = function(newStyles){
-		var results = this.init;
-		for (var i = 0; i < results.length; i++){
-			var element = results[i];
-			if (testParam(newStyles)){
+		forEach(this.init,function(){
+			if (newStyles){
 				if (typeof newStyles === "object"){
 					for (var j in newStyles){
-						element.style[j] = newStyles[j];
-					}
+						this.style[j] = newStyles[j];
+					};
 				} else {
 					throw new Error("CSS styles parameter must be an object with key/value pairs.");
 				}
 			} else {
 				throw new Error("CSS properties to edit are undefined.");
 			}
-		};
+		});
 		return this;
 	};
