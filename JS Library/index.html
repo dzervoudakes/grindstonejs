@@ -77,14 +77,14 @@
 			
 			function ajaxTest(){
 				$.ajax("GET","test.txt",true,function(){
-					var txt = xmlhttp.responseText;
+					var txt = $.xmlhttp.responseText;
 					test.append(txt);
 				});
 			};
 			
 			el.evt("click",function(){
-				//ajaxTest();
-				test.toggleClass("reg");
+				ajaxTest();
+				//test.toggleClass("reg");
 			});
 			
 			el2.evt("click",function(){
