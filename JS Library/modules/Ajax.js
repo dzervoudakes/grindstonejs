@@ -6,25 +6,21 @@
  * -Method ("GET"/"POST")
  * -URL (data path)
  * -Async (true/false)
- * -Fn (function to invoke if successful)
+ * -Callback (function to invoke if successful)
  */
 	
 	var xmlhttp;
 	
-	$.ajax = function(Method,URL,Async,Fn){
-		if (testParam(Method) && testParam(URL) && testParam(Async) && testParam(Fn)){ // All parameters must be defined
-			if (window.XMLHttpRequest){
-				xmlhttp = new XMLHttpRequest(); // Modern browsers
-			} else {
-				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); // Older IE
-			}
+	$.ajax = function(method,url,async,callback){
+		if (testParam(method) && testParam(url) && testParam(async) && testParam(callback)){ // All parameters must be defined
+			xmlhttp = new XMLHttpRequest(); // Modern browsers
 			xmlhttp.onreadystatechange = function(){
 				if (xmlhttp.readyState == 4 && (xmlhttp.status == 200 || xmlhttp.status == 304)){
-					Fn();
+					callback();
 				}
 			};
-			xmlhttp.open(Method,URL,Async);
-			xmlhttp.send(null);
+			xmlhttp.open(method,url,async);
+			xmlhttp.send();
 		} else {
 			throw new Error("Please define 'GET'/'POST', the URL, Async true/false, and the function to be ran if successful.");
 		}

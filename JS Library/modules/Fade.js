@@ -25,7 +25,6 @@
 						clearInterval(timer);
 					}
 					element.style.opacity = op;
-					element.style.filter = "alpha(opacity=" + (op * 100) + ")";
 					op += gap;
 				},25);
 			}
@@ -52,7 +51,6 @@
 						element.style.display = "none";
 					}
 					element.style.opacity = op;
-					element.style.filter = "alpha(opacity=" + (op * 100) + ")";
 					op -= gap;
 				},25);
 			}

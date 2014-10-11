@@ -9,7 +9,7 @@
  * -innerHTML
  */
 	
-	newEl = function(elType,elId,elClass,elInner){
+	var newEl = function(elType,elId,elClass,elInner){
 		if (testParam(elType)){
 			var newElement = document.createElement(elType);
 			if (testParam(elId)){

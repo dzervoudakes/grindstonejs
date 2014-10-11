@@ -4,20 +4,16 @@
  *
  * Parameters:
  * -action (the event to handle: only accepts one event per function call)
- * -fn (the event handler)
+ * -callback (the event handler)
  */
 	
-	GS.evt = function(action,fn){
+	GS.evt = function(action,callback){
 		var results = this.init;
 		for (var i = 0; i < results.length; i++){
 			var element = results[i];
 			if(testParam(action)){
 				if (typeof action === "string"){
-					if (document.addEventListener){ // Modern browsers
-						element.addEventListener(action,fn);
-					} else if (document.attachEvent){ // IE 8 and below
-						element.attachEvent("on" + action,fn);
-					}
+					element.addEventListener(action,callback);
 				} else {
 					throw new Error("Type of event action must be a string.");
 				}

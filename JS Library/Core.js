@@ -4,36 +4,29 @@
  *
  * Includes:
  * -Constructor "Grindstone" and selector functions
- * -ID-specific selector function "Elem"
  * -Any tertiary functions as necessary
  *
  * Copyright (c) 2014 Dan Zervoudakes
  * Developed under the MIT license
  */
 	
-	// Global constructor "Grindstone" and selector functions
+	// Global constructor "Grindstone" and selector functions...
 	
-	var Grindstone = function(selector,ind){ // ind: optional parameter, will return the specified index of the results array
+	var Grindstone = function(selector,context){
 		var info = {
 			Name: "GrindstoneJS",
 			Version: "1.0.0",
 			About: "Lightweight JavaScript library optimized for simple DOM manipulation. Not a MVC.",
-			Compatibility: "Chrome, Firefox, Safari, Opera, IE 8+, mobile.",
+			Compatibility: "Chrome, Firefox, Safari, Opera, IE 9+, mobile.",
 			GitHub: "https://github.com/DRZervoudakes/GrindstoneJS",
 			Author: "Dan Zervoudakes"
 		};
 		if (testParam(selector)){
 			var selectedElements;
 			if (typeof selector === "string"){
-				if (ind != null){
-					if (ind == false){ // If "0" is passed as the ind parameter, ind will be considered "false" and must manually be set to "0" as a number
-						ind = 0;
-					}
-					if (typeof ind === "number" && ind >= 0){
-						selectedElements = [document.querySelectorAll(selector)[Math.round(ind)]]; // In case users decide - for whatever reason - to input decimals...
-					}  else {
-						throw new Error("Index parameter of Grindstone must be a number >= 0.");
-					}
+				if (testParam(context)){
+					var elem = document.querySelector(context);
+					selectedElements = elem.querySelectorAll(selector);
 				} else {
 					selectedElements = document.querySelectorAll(selector);
 				}
@@ -43,7 +36,7 @@
 					return [];
 				}
 				return this;
-			} else if(typeof selector === "object"){
+			} else if (typeof selector === "object"){
 				this.init = [selector];
 			} else {
 				return null;
@@ -53,16 +46,26 @@
 		}
 	};
 	
-	var $ = function(selector,ind){
-		return new Grindstone(selector,ind); // Shorthand method for obtaining the same results as above
+	// Shorthand method for obtaining the same results as above...
+	
+	var $ = function(selector,context){
+		return new Grindstone(selector,context);
 	};
 	
-	// Test parameters function: to be used for checking if a parameter is undefined
+	// Test parameters function: to be used for checking if a parameter is undefined...
 	
 	function testParam(parameter){
-		return parameter != undefined && parameter != "";
+		return (parameter != undefined && parameter != "");
 	};
 	
-	// Cut down on needless text throughout...
+	// Custom forEach function to streamline the looping process throughout... (since we are dealing with NodeLists, the Array.prototype.forEach() method will not work natively)
+	
+	var forEach = function(array,callback){
+		for (var i = 0; i < array.length; i++){
+			callback.call(array[i]);
+		};
+	};
+	
+	// Cut down on repetitive text throughout...
 	
 	var GS = Grindstone.prototype;

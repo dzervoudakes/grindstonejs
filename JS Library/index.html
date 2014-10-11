@@ -67,13 +67,12 @@
 		<div id="btn2" class="btns"></div>
 		<script type="text/javascript">
 			
-			// LATEST UPDATE: $(this) will work in all browsers except - yeah, that's right - IE 8!!!
-			
-			var el = $(".btns",0),
+			var el = $("#btn1"),
 				el2 = $("#btn2"),
 				test = $("#testDiv"),
 				buttonsArray = $(".btns"),
-				divs = $("div");
+				divs = $("div"),
+				emptyDivs = $("div","#testDiv");
 			
 			function ajaxTest(){
 				var testTxt = xmlhttp.responseText;
@@ -81,14 +80,13 @@
 			};
 			
 			el.evt("click",function(){
-				//$(this).hide();
-				$.ajax("GET","test.txt",true,ajaxTest);
+				//divs.hide();
+				//$.ajax("GET","test.txt",true,ajaxTest);
+				test.hide();
 			});
 			
 			el2.evt("click",function(){
-				var test2 = $(".btns, #testDiv");
-				test2.css({backgroundColor: "red"});
-				//test2.css({"background-color": "red"}); // Both ways work...
+				test.show();
 			});
 			
 			if ("createTouch" in document){
@@ -101,7 +99,7 @@
 				test.evt("mouseover",function(){
 					test.addClass("over");
 				}).evt("mouseleave",function(){
-					test.removeClass("over down"); // New Bug: removing a class doesn't always work (example" class="test over down" becomes class="testdown", etc...)
+					test.removeClass("over down"); // Potential Bug: removing a class doesn't always work (example" class="test over down" becomes class="testdown", etc...)
 					test.removeClass("over");      // Seems specific to removeClass()
 				}).evt("mousedown",function(){
 					test.addClass("down");
