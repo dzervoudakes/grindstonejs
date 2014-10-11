@@ -1,24 +1,29 @@
 /* css()
  *
- * Adjusts the CSS styles of a selected element
+ * Adjusts the CSS styles of a selected element if an object is passed as the argument; returns the specified CSS value if a string is passed as the argument
  *
  * Parameter:
- * -new styles (to be programmed as an object which contains an unlimited number of style properties)
+ * -styles (can be programmed as an object or a string)
  */
 	
-	GS.css = function(newStyles){
+	GS.css = function(styles){
+		var returnedStyle;
 		forEach(this.init,function(){
-			if (newStyles){
-				if (typeof newStyles === "object"){
-					for (var j in newStyles){
-						this.style[j] = newStyles[j];
+			if (styles){
+				if (typeof styles === "object"){
+					for (var j in styles){
+						this.style[j] = styles[j];
 					};
 				} else {
-					throw new Error("CSS styles parameter must be an object with key/value pairs.");
+					returnedStyle = this.style[styles];
 				}
 			} else {
-				throw new Error("CSS properties to edit are undefined.");
+				throw new Error("CSS properties are undefined.");
 			}
 		});
-		return this;
+		if (typeof styles === "object"){
+			return this;
+		} else {
+			return returnedStyle;
+		}
 	};
