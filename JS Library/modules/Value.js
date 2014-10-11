@@ -10,8 +10,8 @@
 	
 	// Set the arbitrary value
 	
-	GS.val = function(valueName,valueContent){
-		forEach(this.init,function(){
+	$.gs.val = function(valueName,valueContent){
+		$.forEach(this.init,function(){
 			if (valueName && valueContent){
 				if (typeof valueName === "string"){
 					this.setAttribute(("data-value-" + valueName),valueContent);
@@ -27,9 +27,9 @@
 	
 	// Call the arbitrary value
 	
-	GS.getVal = function(valueName){
+	$.gs.getVal = function(valueName){
 		var elemValue;
-		forEach(this.init,function(){
+		$.forEach(this.init,function(){
 			if (valueName){
 				if (typeof valueName === "string"){
 					elemValue = this.getAttribute("data-value-" + valueName);

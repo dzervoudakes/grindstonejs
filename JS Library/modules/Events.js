@@ -7,11 +7,11 @@
  * -callback (the event handler)
  */
 	
-	GS.evt = function(action,callback){
-		forEach(this.init,function(){
+	$.gs.evt = function(action,callback){
+		$.forEach(this.init,function(){
 			if(action){
 				if (typeof action === "string"){
-					this.addEventListener(action,callback);
+					this.addEventListener(action,callback,false);
 				} else {
 					throw new Error("Type of event action must be a string.");
 				}

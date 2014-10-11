@@ -6,13 +6,13 @@
  * -duration (default: 400ms)
  */
 	
-	/*GS.fadeIn = function(duration){
+	/*$.gs.fadeIn = function(duration){
 		if (!duration){
 			duration = 400;
 		} else if (typeof duration !== "number"){
 			throw new Error("Fade duration parameter must be a number.");
 		}
-		forEach(this.init,function(){
+		$.forEach(this.init,function(){
 			if (this.style.display != "block"){
 				this.style.display = "block";
 				var op = 0.01,
@@ -30,13 +30,13 @@
 		return this;
 	};
 	
-	GS.fadeOut = function(duration){
+	$.gs.fadeOut = function(duration){
 		if (!duration){
 			duration = 400;
 		} else if (typeof duration !== "number"){
 			throw new Error("Fade duration parameter must be a number.");
 		}
-		forEach(this.init,function(){
+		$.forEach(this.init,function(){
 			if (this.style.display != "none"){
 				var op = 1,
 					gap = 25 / duration,
@@ -54,7 +54,7 @@
 		return this;
 	};*/
 	
-	GS.fadeIn = function(duration){
+	$.gs.fadeIn = function(duration){
 		var results = this.init;
 		if (!duration){
 			duration = 400;
@@ -80,7 +80,7 @@
 		return this;
 	};
 	
-	GS.fadeOut = function(duration){
+	$.gs.fadeOut = function(duration){
 		var results = this.init;
 		if (!duration){
 			duration = 400;

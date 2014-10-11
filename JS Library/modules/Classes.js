@@ -8,17 +8,17 @@
 	
 	// Global regular expression
 	
-	var reg = function(cls){
+	$.reg = function(cls){
 		return new RegExp("(\\s|^)" + cls + "(\\s|$)");
 	};
 	
 	// Detect if a given element has a particular class
 	
-	GS.hasClass = function(cls){
+	$.gs.hasClass = function(cls){
 		var classTrue;
-		forEach(this.init,function(){
+		$.forEach(this.init,function(){
 			if (cls){
-				classTrue = this.className.match(reg(cls));
+				classTrue = this.className.match($.reg(cls));
 			} else {
 				throw new Error("Cannot determine if the element has undefined class.");
 			}
@@ -28,8 +28,8 @@
 	
 	// Add the specified class to the element if it doesn't already contain that class
 	
-	GS.addClass = function(cls){
-		forEach(this.init,function(){
+	$.gs.addClass = function(cls){
+		$.forEach(this.init,function(){
 			if (!$(this).hasClass(cls)){
 				if (cls){
 					if (this.className == ""){
@@ -47,11 +47,11 @@
 	
 	// Remove the specified class from the element if it contains that class
 	
-	GS.removeClass = function(cls){
-		forEach(this.init,function(){
+	$.gs.removeClass = function(cls){
+		$.forEach(this.init,function(){
 			if ($(this).hasClass(cls)){
 				if (cls){
-					this.className = this.className.replace(reg(cls),"");
+					this.className = this.className.replace($.reg(cls),"");
 				} else {
 					throw new Error("Class to remove is undefined.");
 				}
@@ -62,8 +62,8 @@
 	
 	// Toggle the specified class
 	
-	GS.toggleClass = function(cls){
-		forEach(this.init,function(){
+	$.gs.toggleClass = function(cls){
+		$.forEach(this.init,function(){
 			if (!$(this).hasClass(cls)){
 				$(this).addClass(cls);
 			} else if ($(this).hasClass(cls)){

@@ -6,8 +6,8 @@
  * -removeElement
  */
 	
-	GS.remove = function(removeElement){
-		forEach(this.init,function(){
+	$.gs.remove = function(removeElement){
+		$.forEach(this.init,function(){
 			if (removeElement){
 				this.removeChild(removeElement);
 			} else {

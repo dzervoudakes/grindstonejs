@@ -6,8 +6,8 @@
  * -prependElement
  */
 	
-	GS.prepend = function(prependElement){
-		forEach(this.init,function(){
+	$.gs.prepend = function(prependElement){
+		$.forEach(this.init,function(){
 			if (prependElement){
 				if (typeof prependElement === "string"){
 					this.insertAdjacentHTML("afterbegin",prependElement);

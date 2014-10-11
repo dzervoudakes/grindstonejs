@@ -8,8 +8,8 @@
  * -timer
  */
 	
-	GS.show = function(timer){
-		forEach(this.init,function(){
+	$.gs.show = function(timer){
+		$.forEach(this.init,function(){
 			if (timer){
 				if (typeof timer === "number"){
 					setTimeout(function(){
@@ -25,8 +25,8 @@
 		return this;
 	};
 	
-	GS.hide = function(timer){
-		forEach(this.init,function(){
+	$.gs.hide = function(timer){
+		$.forEach(this.init,function(){
 			if (timer){
 				if (typeof timer === "number"){
 					setTimeout(function(){

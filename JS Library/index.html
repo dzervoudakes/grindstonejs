@@ -75,13 +75,23 @@
 				divs = $("div"),
 				emptyDivs = $("div","#testDiv");
 			
+			function ajaxTest(){
+				$.ajax("GET","test.txt",true,function(){
+					var txt = xmlhttp.responseText;
+					test.append(txt);
+				});
+			};
+			
 			el.evt("click",function(){
-				test.addClass("updated");
+				//ajaxTest();
+				test.toggleClass("reg");
 			});
 			
-			/*el2.evt("click",function(){
-				test.fadeOut();
-			});*/
+			el2.evt("click",function(){
+				test.css({"background":"red"});
+				var bg = test.css("background");
+				alert(bg);
+			});
 			
 			if ("createTouch" in document){
 				test.evt("touchstart",function(){

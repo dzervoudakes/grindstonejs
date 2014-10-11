@@ -54,7 +54,7 @@
 	
 	// Custom forEach function to streamline the looping process throughout... (since we are dealing with NodeLists, the Array.prototype.forEach() method will not work natively)
 	
-	var forEach = function(array,callback){
+	$.forEach = function(array,callback){
 		for (var i = 0; i < array.length; i++){
 			callback.call(array[i]);
 		};
@@ -62,4 +62,4 @@
 	
 	// Cut down on repetitive text throughout...
 	
-	var GS = Grindstone.prototype;
+	$.gs = Grindstone.prototype;
