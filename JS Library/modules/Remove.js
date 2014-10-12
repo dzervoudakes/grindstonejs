@@ -7,12 +7,16 @@
  */
 	
 	$.gs.remove = function(removeElement){
-		$.forEach(this.init,function(){
-			if (removeElement){
-				this.removeChild(removeElement);
-			} else {
-				throw new Error("Cannot remove undefined element.");
-			}
-		});
+		if (removeElement){
+			var elems = document.querySelectorAll(removeElement),
+				parents = this.init;
+			for (var j = 0; j < parents.length; j++){
+				$.forEach(elems,function(){
+					parents[j].removeChild(this);
+				});
+			};
+		} else {
+			throw new Error("Cannot remove undefined element.");
+		}
 		return this;
 	};

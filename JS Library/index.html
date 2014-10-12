@@ -83,14 +83,16 @@
 			};
 			
 			el.evt("click",function(){
-				ajaxTest();
+				//ajaxTest();
 				//test.toggleClass("reg");
+				test.append("<p id='testTxt' class='testTxtCls'>TEST</p>");
 			});
 			
 			el2.evt("click",function(){
-				test.css({"background":"red"});
+				/*test.css({"background":"red"});
 				var bg = test.css("background");
-				alert(bg);
+				alert(bg);*/
+				test.remove(".testTxtCls");
 			});
 			
 			if ("createTouch" in document){
