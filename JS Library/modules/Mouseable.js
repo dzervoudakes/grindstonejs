@@ -6,29 +6,6 @@
  * Handles both standard mouse events and touch events
  */
 	
-	/*$.gs.mouseable = function(){
-		$.forEach(this.init,function(){
-			if ("createTouch" in document){
-				$(this).evt("touchstart",function(){
-					$(this).addClass("over down");
-				}).evt("touchend",function(){
-					$(this).removeClass("over down");
-				});
-			} else {
-				$(this).evt("mouseover",function(){
-					$(this).addClass("over");
-				}).evt("mouseleave",function(){
-					$(this).removeClass("over down").removeClass("over");
-				}).evt("mousedown",function(){
-					$(this).addClass("down");
-				}).evt("mouseup",function(){
-					$(this).removeClass("down");
-				});
-			}
-		});
-		return this;
-	};*/
-	
 	$.gs.mouseable = function(){
 		$.forEach(this.init,function(){
 			$(this).evt("mouseover touchstart",function(e){
