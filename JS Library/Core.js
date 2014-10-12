@@ -64,7 +64,7 @@
 	
 	$.gs = Grindstone.prototype;
 	
-	// ind() - returns the element as specified by index
+	// ind() - returns an element as specified by the corresponding index value
 	
 	$.gs.ind = function(index){
 		return $(this.init[index]);
