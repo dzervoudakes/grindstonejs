@@ -63,3 +63,9 @@
 	// Cut down on repetitive text throughout...
 	
 	$.gs = Grindstone.prototype;
+	
+	// ind() - returns the element as specified by index
+	
+	$.gs.ind = function(index){
+		return $(this.init[index]);
+	};

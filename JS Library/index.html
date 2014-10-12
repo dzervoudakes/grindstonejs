@@ -10,6 +10,7 @@
 		<script src="modules/Display.js"></script>
 		<script src="modules/Events.js"></script>
 		<script src="modules/Fade.js"></script>
+		<script src="modules/Mouseable.js"></script>
 		<script src="modules/Move.js"></script>
 		<script src="modules/NewEl.js"></script>
 		<script src="modules/Prepend.js"></script>
@@ -75,44 +76,22 @@
 				divs = $("div"),
 				emptyDivs = $("div","#testDiv");
 			
-			function ajaxTest(){
-				$.ajax("GET","test.txt",true,function(){
-					var txt = $.xmlhttp.responseText;
-					test.append(txt);
-				});
-			};
+			test.mouseable();
+			buttonsArray.mouseable();
 			
-			el.evt("click",function(){
-				//ajaxTest();
-				//test.toggleClass("reg");
+			el.evt("click touchstart",function(e){
 				test.append("<p id='testTxt' class='testTxtCls'>TEST</p>");
+				e.preventDefault();
 			});
 			
-			el2.evt("click",function(){
-				/*test.css({"background":"red"});
-				var bg = test.css("background");
-				alert(bg);*/
+			el2.evt("click touchstart",function(e){
 				test.remove(".testTxtCls");
+				e.preventDefault();
 			});
 			
-			if ("createTouch" in document){
-				test.evt("touchstart",function(){
-					test.addClass("over down");
-				}).evt("touchend",function(){
-					test.removeClass("over down");
-				});
-			} else {
-				test.evt("mouseover",function(){
-					test.addClass("over");
-				}).evt("mouseleave",function(){
-					test.removeClass("over down"); // Potential Bug: removing a class doesn't always work (example: class="test over down" becomes class="testdown", etc...)
-					test.removeClass("over");      // Seems specific to removeClass()
-				}).evt("mousedown",function(){
-					test.addClass("down");
-				}).evt("mouseup",function(){
-					test.removeClass("down");
-				});
-			}
+			test.evt("touchstart",function(){
+				buttonsArray.ind(1).hide();
+			});
 			
 		</script>
 	</body>

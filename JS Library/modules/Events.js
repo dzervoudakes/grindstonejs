@@ -11,7 +11,10 @@
 		$.forEach(this.init,function(){
 			if(action){
 				if (typeof action === "string"){
-					this.addEventListener(action,callback,false);
+					var events = action.split(" ");
+					for (var j = 0; j < events.length; j++){
+						this.addEventListener(events[j],callback,false);
+					};
 				} else {
 					throw new Error("Type of event action must be a string.");
 				}
