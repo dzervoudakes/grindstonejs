@@ -11,18 +11,10 @@
 		var elemAttribute;
 		$.forEach(this.init,function(){
 			if (attribute){
-				if (typeof attribute === "string"){
-					if (value){
-						if (typeof value === "string"){
-							this.setAttribute(attribute,value);
-						} else {
-							throw new Error("Attribute value parameter must be a string.");
-						}
-					} else {
-						elemAttribute = this.getAttribute(attribute);
-					}
+				if (value){
+					this.setAttribute(attribute,value);
 				} else {
-					throw new Error("Attribute parameter must be a string.");
+					elemAttribute = this.getAttribute(attribute);
 				}
 			} else {
 				throw new Error("Please specify an attribute to either edit or return it's value.");
