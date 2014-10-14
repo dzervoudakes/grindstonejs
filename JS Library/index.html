@@ -5,6 +5,7 @@
 		<script src="Core.js"></script>
 		<script src="modules/Ajax.js"></script>
 		<script src="modules/Append.js"></script>
+		<script src="modules/Attributes.js"></script>
 		<script src="modules/Classes.js"></script>
 		<script src="modules/CSS.js"></script>
 		<script src="modules/Display.js"></script>
@@ -25,6 +26,15 @@
 				height: 80px;
 				width: 80px;
 				background: #0f0;
+			}
+			#testDiv_020 {
+				position: absolute;
+				left: 100px;
+				top: 100px;
+				height: 90px;
+				width: 60px;
+				border-radius: 35px;
+				background: #008088;
 			}
 			#testDiv.over {
 				background: #333;
@@ -77,21 +87,15 @@
 				emptyDivs = $("div","#testDiv");
 			
 			test.mouseable();
-			buttonsArray.mouseable();
 			
-			/*el.evt("click touchstart",function(e){
-				test.append("<p id='testTxt' class='testTxtCls'>TEST</p>");
-				e.preventDefault();
+			el.evt("click",function(){
+				test.attr("id","testDiv_020");
 			});
 			
-			el2.evt("click touchstart",function(e){
-				test.remove(".testTxtCls");
-				e.preventDefault();
+			el2.evt("click",function(){
+				var attribute = test.attr("id");
+				alert(attribute);
 			});
-			
-			test.evt("touchstart",function(){
-				buttonsArray.ind(1).hide();
-			});*/
 			
 		</script>
 	</body>

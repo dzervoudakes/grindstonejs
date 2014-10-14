@@ -21,9 +21,6 @@
 				throw new Error("CSS properties are undefined.");
 			}
 		});
-		if (typeof styles === "object"){
-			return this;
-		} else {
-			return returnedStyle;
-		}
+		var toReturn = (typeof styles === "object") ? this : returnedStyle;
+		return toReturn;
 	};

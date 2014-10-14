@@ -66,7 +66,7 @@
 		$.forEach(this.init,function(){
 			if (!$(this).hasClass(cls)){
 				$(this).addClass(cls);
-			} else if ($(this).hasClass(cls)){
+			} else {
 				$(this).removeClass(cls);
 			}
 		});
