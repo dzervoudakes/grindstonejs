@@ -10,6 +10,7 @@
 		<script src="modules/CSS.js"></script>
 		<script src="modules/Display.js"></script>
 		<script src="modules/DoubleTap.js"></script>
+		<script src="modules/Each.js"></script>
 		<script src="modules/Events.js"></script>
 		<script src="modules/Fade.js"></script>
 		<script src="modules/Mouseable.js"></script>
@@ -67,6 +68,9 @@
 				padding: 0;
 				display: none;
 			}
+			[action] {
+				border-radius: 35px;
+			}
 		</style>
 	</head>
 	<body>
@@ -89,22 +93,28 @@
 			
 			test.mouseable();
 			
-			/*el.evt("click",function(){
-				test.attr("id","testDiv_020");
+			var num = 1;
+			
+			function eachTest(){
+				console.log(num);
+				num++;
+			};
+			
+			el.evt("click",function(){
+				buttonsArray.each(function(){
+					$(this).fadeOut();
+				});
 			});
 			
 			el2.evt("click",function(){
-				var attribute = buttonsArray.ind(0).attr("id");
-				alert(attribute);
-			});*/
-			
-			el.doubleTap(function(){
-				if ("createTouch" in document){
-					alert("Double-tapped!");
-				} else {
-					alert("Double-clicked!");
-				}
+				divs.each(function(){
+					console.log(this);
+				});
 			});
+			
+			/*el.doubleTap(function(){
+				buttonsArray.attr("action","BUTTON");
+			});*/
 			
 		</script>
 	</body>
