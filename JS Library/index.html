@@ -9,6 +9,7 @@
 		<script src="modules/Classes.js"></script>
 		<script src="modules/CSS.js"></script>
 		<script src="modules/Display.js"></script>
+		<script src="modules/DoubleTap.js"></script>
 		<script src="modules/Events.js"></script>
 		<script src="modules/Fade.js"></script>
 		<script src="modules/Mouseable.js"></script>
@@ -46,8 +47,8 @@
 			.btns {
 				position: absolute;
 				right: 100px;
-				width: 45px;
-				height: 45px;
+				width: 60px;
+				height: 60px;
 				background: #069;
 				border: 1px solid #069;
 				cursor: pointer;
@@ -59,7 +60,7 @@
 				top: 100px;
 			}
 			#btn2 {
-				top: 200px;
+				top: 210px;
 			}
 			.emptyDiv {
 				margin: 0;
@@ -88,13 +89,21 @@
 			
 			test.mouseable();
 			
-			el.evt("click",function(){
+			/*el.evt("click",function(){
 				test.attr("id","testDiv_020");
 			});
 			
 			el2.evt("click",function(){
-				var attribute = test.attr("id");
+				var attribute = buttonsArray.ind(0).attr("id");
 				alert(attribute);
+			});*/
+			
+			el.doubleTap(function(){
+				if ("createTouch" in document){
+					alert("Double-tapped!");
+				} else {
+					alert("Double-clicked!");
+				}
 			});
 			
 		</script>
