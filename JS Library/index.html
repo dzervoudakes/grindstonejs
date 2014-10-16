@@ -19,6 +19,7 @@
 		<script src="modules/Prepend.js"></script>
 		<script src="modules/Ready.js"></script>
 		<script src="modules/Remove.js"></script>
+		<script src="modules/ReplaceWith.js"></script>
 		<script src="modules/Value.js"></script>
 		<style type="text/css">
 			#testDiv {
@@ -93,28 +94,13 @@
 			
 			test.mouseable();
 			
-			var num = 1;
-			
-			function eachTest(){
-				console.log(num);
-				num++;
-			};
-			
 			el.evt("click",function(){
-				buttonsArray.each(function(){
-					$(this).fadeOut();
-				});
+				test.replaceWith("<div id='testDiv_020'></div>");
 			});
 			
 			el2.evt("click",function(){
-				divs.each(function(){
-					console.log(this);
-				});
+				$("body").remove("#testDiv_020");
 			});
-			
-			/*el.doubleTap(function(){
-				buttonsArray.attr("action","BUTTON");
-			});*/
 			
 		</script>
 	</body>
