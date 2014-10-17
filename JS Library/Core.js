@@ -16,8 +16,7 @@
 		var info = {
 			Name: "GrindstoneJS",
 			Version: "1.0.0",
-			About: "Lightweight JavaScript library optimized for simple DOM manipulation. Not a MVC.",
-			Compatibility: "Chrome, Firefox, Safari, Opera, IE 9+, mobile.",
+			About: "Lightweight JavaScript library optimized for simple DOM manipulation within modern browsers.",
 			GitHub: "https://github.com/DRZervoudakes/GrindstoneJS",
 			Author: "Dan Zervoudakes"
 		};
@@ -42,7 +41,8 @@
 				return null;
 			}
 		} else {
-			return info;
+			console.log(info);
+			return false;
 		}
 	};
 	
