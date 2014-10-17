@@ -94,12 +94,22 @@
 			
 			test.mouseable();
 			
+			function ajaxTest(){
+				var txt = $.xmlhttp.responseText;
+				test.append(txt);
+			};
+			
 			el.evt("click",function(){
 				test.replaceWith("<div id='testDiv_020'></div>");
 			});
 			
 			el2.evt("click",function(){
-				$("body").remove("#testDiv_020");
+				$.ajax({
+					method: "GET",
+					url: "test.txt",
+					async: true,
+					callback: ajaxTest
+				});
 			});
 			
 		</script>

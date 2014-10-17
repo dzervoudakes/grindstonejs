@@ -1,4 +1,4 @@
-/* El.move
+/* move()
  *
  * Moves a specified element
  *

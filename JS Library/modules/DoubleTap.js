@@ -18,7 +18,7 @@
 					active = true;
 					setTimeout(function(){
 						active = false;
-					},350);
+					},360);
 					e.preventDefault();
 				});
 			} else {
