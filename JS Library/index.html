@@ -13,6 +13,7 @@
 		<script src="modules/Each.js"></script>
 		<script src="modules/Events.js"></script>
 		<script src="modules/Fade.js"></script>
+		<script src="modules/Insert.js"></script>
 		<script src="modules/Mouseable.js"></script>
 		<script src="modules/Move.js"></script>
 		<script src="modules/NewEl.js"></script>
@@ -100,19 +101,17 @@
 			};
 			
 			el.evt("click",function(){
-				test.replaceWith("<div id='testDiv_020'></div>");
+				$("div",".test").insertBefore("<div id='testDiv_020'></div>");
 			});
 			
-			el2.evt("click",function(){
+			/*el2.evt("click",function(){
 				$.ajax({
 					method: "GET",
 					url: "test.txt",
 					async: true,
 					callback: ajaxTest
 				});
-			});
-			
-			$();
+			});*/
 			
 		</script>
 	</body>

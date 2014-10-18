@@ -3,13 +3,13 @@
  * Replaces the selected element contents with the specified content
  *
  * Parameter:
- * -cnt (the new content)
+ * -content (the new content)
  */
 	
-	$.gs.replaceWith = function(cnt){
+	$.gs.replaceWith = function(content){
 		$.forEach(this.init,function(){
-			if(cnt){
-				this.outerHTML = cnt;
+			if(content){
+				this.outerHTML = content;
 			} else {
 				throw new Error("Cannot replace element with null.");
 			}

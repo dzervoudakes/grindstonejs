@@ -42,7 +42,7 @@
 			}
 		} else {
 			console.log(info);
-			return false;
+			return info;
 		}
 	};
 	

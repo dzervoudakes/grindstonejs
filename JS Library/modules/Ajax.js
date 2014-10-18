@@ -18,11 +18,11 @@
 			return obj.hasOwnProperty(property);
 		};
 		if (obj && typeof obj === "object"){
-			method = (prop("method")) ? obj.method : null;
-			url = (prop("url")) ? obj.url : null;
-			async = (prop("async")) ? obj.async : true;
+			method   = (prop("method"))   ? obj.method   : null;
+			url      = (prop("url"))      ? obj.url      : null;
+			async    = (prop("async"))    ? obj.async    : true;
 			callback = (prop("callback")) ? obj.callback : null;
-			sendStr = (prop("str")) ? obj.sendStr : null;
+			sendStr  = (prop("str"))      ? obj.sendStr  : null;
 		} else {
 			throw new Error("Ajax request cannot be sent.");
 		}
