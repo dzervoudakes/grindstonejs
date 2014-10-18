@@ -7,8 +7,8 @@
  * -url (data path)
  * -async (true/false)
  * -callback (function to invoke if successful)
- * -header (adds an HTTP header to the request)
- * -headerValue (value of the HTTP header)
+ * -header (adds a custom HTTP header to the request)
+ * -headerValue (value of the custom HTTP header)
  * -str (string to be sent for POST requests)
  */
 	
@@ -35,6 +35,8 @@
 		$.xmlhttp.open(method,url,async);
 		if (prop("header") && prop("headerValue")){
 			$.xmlhttp.setRequestHeader(header,headerValue);
+		} else {
+			$.xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
 		}
 		$.xmlhttp.send(sendStr);
 		return $.xmlhttp;
