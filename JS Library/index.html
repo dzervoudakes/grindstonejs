@@ -102,7 +102,8 @@
 			};
 			
 			el.evt("click",function(){
-				$("div",".test").insertBefore("<div id='testDiv_020'></div>");
+				var element = "<p>test</p>";
+				$("div",".test").after(element);
 			});
 			
 			el2.evt("click",function(){
