@@ -6,7 +6,7 @@
  * -appendElement
  */
 	
-	$.gs.append = function(appendElement){
+	$.fn.append = function(appendElement){
 		$.forEach(this.init,function(){
 			if (appendElement){
 				if (typeof appendElement === "string"){

@@ -11,7 +11,7 @@
 	
 	// Set the arbitrary value
 	
-	$.gs.val = function(valueName,valueContent){
+	$.fn.val = function(valueName,valueContent){
 		$.forEach(this.init,function(){
 			if (valueName && valueContent){
 				if (typeof valueName === "string"){
@@ -28,7 +28,7 @@
 	
 	// Call the arbitrary value
 	
-	$.gs.getVal = function(valueName){
+	$.fn.getVal = function(valueName){
 		var elemValue;
 		$.forEach(this.init,function(){
 			if (valueName){
@@ -46,7 +46,7 @@
 	
 	// Remove the arbitrary value
 	
-	$.gs.removeVal = function(valueName){
+	$.fn.removeVal = function(valueName){
 		$.forEach(this.init,function(){
 			if (valueName){
 				if (typeof valueName === "string"){

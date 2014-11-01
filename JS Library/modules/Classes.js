@@ -14,7 +14,7 @@
 	
 	// Detect if a given element has a particular class
 	
-	$.gs.hasClass = function(cls){
+	$.fn.hasClass = function(cls){
 		var classTrue;
 		$.forEach(this.init,function(){
 			if (cls){
@@ -28,7 +28,7 @@
 	
 	// Add the specified class to the element if it doesn't already contain that class
 	
-	$.gs.addClass = function(cls){
+	$.fn.addClass = function(cls){
 		$.forEach(this.init,function(){
 			if (!$(this).hasClass(cls)){
 				if (cls){
@@ -47,7 +47,7 @@
 	
 	// Remove the specified class from the element if it contains that class
 	
-	$.gs.removeClass = function(cls){
+	$.fn.removeClass = function(cls){
 		$.forEach(this.init,function(){
 			if ($(this).hasClass(cls)){
 				if (cls){
@@ -62,7 +62,7 @@
 	
 	// Toggle the specified class
 	
-	$.gs.toggleClass = function(cls){
+	$.fn.toggleClass = function(cls){
 		$.forEach(this.init,function(){
 			if (!$(this).hasClass(cls)){
 				$(this).addClass(cls);

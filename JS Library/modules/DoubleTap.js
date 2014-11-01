@@ -6,7 +6,7 @@
  * -callback (triggered if the double-click/tap event is completed in time)
  */
 	
-	$.gs.doubleTap = function(callback){
+	$.fn.doubleTap = function(callback){
 		$.forEach(this.init,function(){
 			var active = false;
 			if(callback){

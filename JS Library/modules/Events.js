@@ -9,7 +9,7 @@
 	
 	// Assign the eventListener
 	
-	$.gs.evt = function(action,callback){
+	$.fn.evt = function(action,callback){
 		$.forEach(this.init,function(){
 			if(action){
 				if (typeof action === "string"){
@@ -29,7 +29,7 @@
 	
 	// Drop the eventListener
 	
-	$.gs.dropEvt = function(action,callback){
+	$.fn.dropEvt = function(action,callback){
 		$.forEach(this.init,function(){
 			if (action){
 				if (typeof action === "string"){

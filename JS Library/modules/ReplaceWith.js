@@ -6,7 +6,7 @@
  * -content (the new content)
  */
 	
-	$.gs.replaceWith = function(content){
+	$.fn.replaceWith = function(content){
 		$.forEach(this.init,function(){
 			if(content){
 				this.outerHTML = content;

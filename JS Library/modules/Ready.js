@@ -9,7 +9,7 @@
 	
 	// DOM structure ready
 	
-	$.gs.ready = function(callback){
+	$.fn.ready = function(callback){
 		$.forEach(this.init,function(){
 			this.addEventListener("DOMContentLoaded",callback,false);
 		});
@@ -18,7 +18,7 @@
 	
 	// DOM structure and content fully loaded
 	
-	$.gs.load = function(callback){
+	$.fn.load = function(callback){
 		$.forEach(this.init,function(){
 			this.addEventListener("load",callback,false);
 		});

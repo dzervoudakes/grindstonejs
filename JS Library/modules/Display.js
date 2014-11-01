@@ -8,7 +8,7 @@
  * -timer
  */
 	
-	$.gs.show = function(timer){
+	$.fn.show = function(timer){
 		$.forEach(this.init,function(){
 			if (timer){
 				if (typeof timer === "number"){
@@ -25,7 +25,7 @@
 		return this;
 	};
 	
-	$.gs.hide = function(timer){
+	$.fn.hide = function(timer){
 		$.forEach(this.init,function(){
 			if (timer){
 				if (typeof timer === "number"){

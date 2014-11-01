@@ -6,7 +6,7 @@
  * -removeElement
  */
 	
-	$.gs.remove = function(removeElement){
+	$.fn.remove = function(removeElement){
 		if (removeElement){
 			var elems = document.querySelectorAll(removeElement),
 				parents = this.init;

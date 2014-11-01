@@ -7,7 +7,7 @@
  * -location (the content will be inserted either before or after the target element within the DOM hierarchy)
  */
 	
-	$.gs.before = function(content){
+	$.fn.before = function(content){
 		$.forEach(this.init,function(){
 			if (content){
 				if (typeof content === "string"){
@@ -22,7 +22,7 @@
 		return this;
 	};
 	
-	$.gs.after = function(content){
+	$.fn.after = function(content){
 		$.forEach(this.init,function(){
 			if (content){
 				if (typeof content === "string"){

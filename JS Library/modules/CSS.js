@@ -6,7 +6,7 @@
  * -styles (can be programmed as an object or a string)
  */
 	
-	$.gs.css = function(styles){
+	$.fn.css = function(styles){
 		var returnedStyle;
 		$.forEach(this.init,function(){
 			if (styles){

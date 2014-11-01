@@ -7,7 +7,7 @@
  * -value (optional - if included, the specified attribute will be set to this value... otherwise, the current value of the specified value will be returned)
  */
 	
-	$.gs.attr = function(attribute,value){
+	$.fn.attr = function(attribute,value){
 		var elemAttribute;
 		$.forEach(this.init,function(){
 			if (attribute){

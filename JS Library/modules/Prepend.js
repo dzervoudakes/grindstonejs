@@ -6,7 +6,7 @@
  * -prependElement
  */
 	
-	$.gs.prepend = function(prependElement){
+	$.fn.prepend = function(prependElement){
 		$.forEach(this.init,function(){
 			if (prependElement){
 				if (typeof prependElement === "string"){

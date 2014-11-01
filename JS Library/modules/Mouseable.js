@@ -9,7 +9,7 @@
  * -classes = an object users may program to create their own "hover" and "active" classes (accepts properties "hoverClass" and "activeClass")
  */
 	
-	$.gs.mouseable = function(classes){
+	$.fn.mouseable = function(classes){
 		var hoverClass,
 			activeClass;
 		if (classes){

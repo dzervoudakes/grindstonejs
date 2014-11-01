@@ -6,7 +6,7 @@
  * -duration (default: 400ms)
  */
 	
-	/*$.gs.fadeIn = function(duration){
+	/*$.fn.fadeIn = function(duration){
 		if (!duration){
 			duration = 400;
 		} else if (typeof duration !== "number"){
@@ -30,7 +30,7 @@
 		return this;
 	};
 	
-	$.gs.fadeOut = function(duration){
+	$.fn.fadeOut = function(duration){
 		if (!duration){
 			duration = 400;
 		} else if (typeof duration !== "number"){
@@ -54,7 +54,7 @@
 		return this;
 	};*/
 	
-	$.gs.fadeIn = function(duration){
+	$.fn.fadeIn = function(duration){
 		var results = this.init;
 		if (!duration){
 			duration = 400;
@@ -80,7 +80,7 @@
 		return this;
 	};
 	
-	$.gs.fadeOut = function(duration){
+	$.fn.fadeOut = function(duration){
 		var results = this.init;
 		if (!duration){
 			duration = 400;
