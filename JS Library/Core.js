@@ -1,4 +1,5 @@
-/* GrindstoneJS (https://github.com/DRZervoudakes/GrindstoneJS)
+/**
+ * GrindstoneJS: https://github.com/DRZervoudakes/GrindstoneJS
  *
  * Library Core
  *
@@ -13,13 +14,6 @@
 	// Global constructor "Grindstone" and selector functions...
 	
 	var Grindstone = function(selector,context){
-		var info = {
-			Name: "GrindstoneJS",
-			Version: "1.0.0",
-			About: "Lightweight JavaScript library optimized for simple DOM manipulation within modern browsers.",
-			GitHub: "https://github.com/DRZervoudakes/GrindstoneJS",
-			Author: "Dan Zervoudakes"
-		};
 		if (selector){
 			var selectedElements;
 			if (typeof selector === "string"){
@@ -41,8 +35,7 @@
 				return null;
 			}
 		} else {
-			console.log(info);
-			return info;
+			return false;
 		}
 	};
 	
@@ -52,7 +45,10 @@
 		return new Grindstone(selector,context);
 	};
 	
-	// Custom forEach function to streamline the looping process throughout... (since we are dealing with NodeLists, the Array.prototype.forEach() method will not work natively)
+	/**
+	 * Custom forEach function to streamline the looping process throughout...
+	 * Since we are dealing with NodeLists, the Array.prototype.forEach() method will not work natively
+	 */
 	
 	$.forEach = function(array,callback){
 		for (var i = 0; i < array.length; i++){

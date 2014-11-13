@@ -1,4 +1,5 @@
-/* replaceWith()
+/**
+ * replaceWith()
  * 
  * Replaces the selected element contents with the specified content
  *

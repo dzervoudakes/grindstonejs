@@ -1,10 +1,12 @@
-/* attr()
+/**
+ * attr()
  *
  * Sets or returns the value of the specified attribute
  *
  * Parameter:
  * -attribute
- * -value (optional - if included, the specified attribute will be set to this value... otherwise, the current value of the specified value will be returned)
+ * -value (optional - if included, the specified attribute will be set to this value...
+ *         otherwise, the current value of the specified value will be returned)
  */
 	
 	$.fn.attr = function(attribute,value){

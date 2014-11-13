@@ -1,4 +1,5 @@
-/* hasClass() / addClass() / removeClass() / toggleClass()
+/**
+ * hasClass() / addClass() / removeClass() / toggleClass()
  *
  * Detects whether or not a specified element has a specified class; Adds/removes a specified class; Toggles a specified class
  *

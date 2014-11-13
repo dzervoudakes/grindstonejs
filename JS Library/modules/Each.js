@@ -1,4 +1,5 @@
-/* each()
+/**
+ * each()
  * 
  * Iterates through each item in the set and executes the callback
  *

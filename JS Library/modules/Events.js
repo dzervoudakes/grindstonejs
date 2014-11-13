@@ -1,4 +1,5 @@
-/* evt() / dropEvt()
+/**
+ * evt() / dropEvt()
  * 
  * Adding and removing event listeners
  *

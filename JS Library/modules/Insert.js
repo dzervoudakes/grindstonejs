@@ -1,4 +1,5 @@
-/* before() / after()
+/**
+ * before() / after()
  *
  * Inserts new content either before or after the target element
  *

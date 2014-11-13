@@ -1,4 +1,5 @@
-/* val() / getVal() / removeVal()
+/**
+ * val() / getVal() / removeVal()
  *
  * val(): Assigns an arbitrary value (defined by the developer) to a specified element
  * getVal(): Returns the arbitrary value defined by val()

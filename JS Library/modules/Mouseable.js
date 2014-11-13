@@ -1,4 +1,5 @@
-/* mouseable()
+/**
+ * mouseable()
  *
  * Dynamically adds class "over" to elements as a hover state (default)
  * Dynamically adds class "down" to elements as an active state (default)

@@ -1,4 +1,5 @@
-/* ajax()
+/**
+ * ajax()
  *
  * Basic AJAX call for pulling external data into the DOM and sending data to external servers
  *

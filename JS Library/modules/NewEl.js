@@ -1,4 +1,5 @@
-/* newEl()
+/**
+ * newEl()
  *
  * Creates a new element
  *

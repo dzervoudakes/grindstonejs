@@ -1,4 +1,5 @@
-/* doubleTap() / doubleClick()
+/**
+ * doubleTap() / doubleClick()
  * 
  * Custom double-tapping and double-clicking methods
  *

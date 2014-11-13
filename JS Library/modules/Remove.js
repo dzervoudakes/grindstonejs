@@ -1,4 +1,5 @@
-/* remove()
+/**
+ * remove()
  *
  * Appends the specified child element from the current object
  *

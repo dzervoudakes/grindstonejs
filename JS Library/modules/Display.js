@@ -1,4 +1,5 @@
-/* show() / hide()
+/**
+ * show() / hide()
  *
  * Shows a hidden element
  * Hides a visible element

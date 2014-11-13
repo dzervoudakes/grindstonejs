@@ -1,4 +1,5 @@
-/* append()
+/**
+ * append()
  *
  * Appends a new child element to the current object
  *

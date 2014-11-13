@@ -1,4 +1,5 @@
-/* ready() / load()
+/**
+ * ready() / load()
  *
  * Triggers when the DOM Content of the selected element is loaded
  *

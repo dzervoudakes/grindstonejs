@@ -1,4 +1,5 @@
-/* fadeIn() / fadeOut()
+/**
+ * fadeIn() / fadeOut()
  *
  * Fades in / fades out the specified element
  *
