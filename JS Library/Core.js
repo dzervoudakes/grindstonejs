@@ -1,5 +1,5 @@
 /**
- * GrindstoneJS: https://github.com/DRZervoudakes/GrindstoneJS
+ * GrindstoneJS: https://github.com/DanZiti/GrindstoneJS
  *
  * Library Core
  *
