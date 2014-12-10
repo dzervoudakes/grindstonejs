@@ -15,7 +15,7 @@
 				$.forEach(elems,function(){
 					parents[j].removeChild(this);
 				});
-			};
+			}
 		} else {
 			throw new Error("Cannot remove undefined element.");
 		}

@@ -25,3 +25,14 @@
 		var toReturn = (value) ? this : elemAttribute;
 		return toReturn;
 	};
+	
+	$.fn.removeAttr = function(attribute){
+		$.forEach(this.init,function(){
+			if (attribute){
+				this.removeAttribute(attribute);
+			} else {
+				throw new Error("Please specify an attribute to remove.");
+			}
+		});
+		return this;
+	};

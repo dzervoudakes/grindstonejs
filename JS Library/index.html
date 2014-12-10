@@ -12,10 +12,8 @@
 		<script src="modules/DoubleTap.js"></script>
 		<script src="modules/Each.js"></script>
 		<script src="modules/Events.js"></script>
-		<script src="modules/Fade.js"></script>
 		<script src="modules/Insert.js"></script>
 		<script src="modules/Mouseable.js"></script>
-		<script src="modules/Move.js"></script>
 		<script src="modules/NewEl.js"></script>
 		<script src="modules/Prepend.js"></script>
 		<script src="modules/Ready.js"></script>
@@ -96,7 +94,7 @@
 			test.mouseable();
 			buttonsArray.mouseable();
 			
-			function ajaxTest(){
+			/*function ajaxTest(){
 				var txt = $.xmlhttp.responseText;
 				test.append(txt);
 			};
@@ -113,6 +111,14 @@
 					async: true,
 					callback: ajaxTest
 				});
+			});*/
+			
+			el.evt("click",function(){
+				test.val("junk","Jordy Nelson");
+			});
+			
+			el2.evt("click",function(){
+				test.removeVal("junk");
 			});
 			
 		</script>

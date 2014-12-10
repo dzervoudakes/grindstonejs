@@ -11,6 +11,6 @@
 		var results = this.init;
 		for (var j = 0; j < results.length; j++){
 			callback.call(results[j]);
-		};
+		}
 		return this;
  	};

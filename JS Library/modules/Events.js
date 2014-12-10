@@ -17,7 +17,7 @@
 					var events = action.split(" ");
 					for (var j = 0; j < events.length; j++){
 						this.addEventListener(events[j],callback,false);
-					};
+					}
 				} else {
 					throw new Error("Type of event action must be a string.");
 				}
@@ -37,7 +37,7 @@
 					var events = action.split(" ");
 					for (var j = 0; j < events.length; j++){
 						this.removeEventListener(events[j],callback,false);
-					};
+					}
 				} else {
 					throw new Error("Type of event action must be a string.");
 				}

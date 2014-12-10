@@ -15,7 +15,7 @@
 				if (typeof styles === "object"){
 					for (var j in styles){
 						this.style[j] = styles[j];
-					};
+					}
 				} else {
 					returnedStyle = this.style[styles];
 				}

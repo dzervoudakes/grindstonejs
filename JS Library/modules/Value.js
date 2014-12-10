@@ -16,7 +16,7 @@
 		$.forEach(this.init,function(){
 			if (valueName && valueContent){
 				if (typeof valueName === "string"){
-					this.setAttribute(("data-value-" + valueName),valueContent);
+					$(this).attr("data-value-" + valueName,valueContent);
 				} else {
 					throw new Error("The name of the value to assign must be a string.");
 				}
@@ -34,7 +34,7 @@
 		$.forEach(this.init,function(){
 			if (valueName){
 				if (typeof valueName === "string"){
-					elemValue = this.getAttribute("data-value-" + valueName);
+					elemValue = $(this).attr("data-value-" + valueName);
 				} else {
 					throw new Error("The name of the value to return must be a string.");
 				}
@@ -51,7 +51,7 @@
 		$.forEach(this.init,function(){
 			if (valueName){
 				if (typeof valueName === "string"){
-					this.removeAttribute("data-value-" + valueName);
+					$(this).removeAttr("data-value-" + valueName);
 				} else {
 					throw new Error("The name of the value to remove must be a string.");
 				}
