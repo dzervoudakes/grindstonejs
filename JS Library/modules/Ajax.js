@@ -7,7 +7,7 @@
  * -method ("GET"/"POST")
  * -url (data path)
  * -async (true/false)
- * -callback (function to invoke if successful)
+ * -success (callback to invoke if successful)
  * -header (adds a custom HTTP header to the request)
  * -headerValue (value of the custom HTTP header)
  * -str (string to be sent for POST requests)
@@ -22,23 +22,23 @@
 			method   = (prop("method"))   ? obj.method   : null;
 			url      = (prop("url"))      ? obj.url      : null;
 			async    = (prop("async"))    ? obj.async    : true;
-			callback = (prop("callback")) ? obj.callback : null;
+			success  = (prop("success"))  ? obj.success  : null;
 			sendStr  = (prop("str"))      ? obj.sendStr  : null;
 		} else {
 			throw new Error("Ajax request cannot be sent.");
 		}
-		$.xmlhttp = new XMLHttpRequest();
-		$.xmlhttp.onreadystatechange = function(){
-			if ($.xmlhttp.readyState == 4 && $.xmlhttp.status == 200){
-				callback();
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function(){
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+				success(xmlhttp);
 			}
 		};
-		$.xmlhttp.open(method,url,async);
+		xmlhttp.open(method,url,async);
 		if (prop("header") && prop("headerValue")){
-			$.xmlhttp.setRequestHeader(header,headerValue);
+			xmlhttp.setRequestHeader(header,headerValue);
 		} else {
-			$.xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
+			xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
 		}
-		$.xmlhttp.send(sendStr);
-		return $.xmlhttp;
+		xmlhttp.send(sendStr);
+		return xmlhttp;
 	};

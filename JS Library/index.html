@@ -74,7 +74,7 @@
 		</style>
 	</head>
 	<body>
-		<div id="testDiv" class="test">
+		<div id="testDiv" class="test" mouseable>
 			<div id="emptyDiv01" class="emptyDiv"></div>
 			<div id="emptyDiv02" class="emptyDiv"></div>
 			<div id="emptyDiv03" class="emptyDiv"></div>
@@ -97,29 +97,27 @@
 			/*function ajaxTest(){
 				var txt = $.xmlhttp.responseText;
 				test.append(txt);
-			};
+			};*/
 			
 			el.evt("click",function(){
-				var element = "<p>test</p>";
-				$("div",".test").before(element);
-			});
-			
-			el2.evt("click",function(){
 				$.ajax({
 					method: "GET",
 					url: "test.txt",
 					async: true,
-					callback: ajaxTest
+					success: function(xml){
+						var txt = xml.responseText;
+						test.append(txt);
+					}
 				});
-			});*/
+			});
 			
-			el.evt("click",function(){
+			/*el.evt("click",function(){
 				test.val("junk","Jordy Nelson");
 			});
 			
 			el2.evt("click",function(){
 				test.removeVal("junk");
-			});
+			});*/
 			
 		</script>
 	</body>
