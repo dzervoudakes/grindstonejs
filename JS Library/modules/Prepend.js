@@ -13,7 +13,7 @@
 				if (typeof prependElement === "string"){
 					this.insertAdjacentHTML("afterbegin",prependElement);
 				} else {
-					this.insertBefore(prependElement,element.firstChild);
+					this.insertBefore(prependElement,this.firstChild);
 				}
 			} else {
 				throw new Error("Cannot prepend undefined element.");

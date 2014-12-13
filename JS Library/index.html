@@ -55,6 +55,8 @@
 				height: 60px;
 				background: #069;
 				border: 1px solid #069;
+			}
+			[gs-mouseable] {
 				cursor: pointer;
 			}
 			.btns.over {
@@ -70,9 +72,6 @@
 				margin: 0;
 				padding: 0;
 				display: none;
-			}
-			[action] {
-				border-radius: 35px;
 			}
 		</style>
 	</head>
@@ -100,7 +99,9 @@
 				divs = $("div"),
 				emptyDivs = $("div","#testDiv");
 			
-			test.wrapInner("div class='wrapTest'");
+			el.evt("click",function(){
+				test.wrapInner("div class='wrapTest'");
+			});
 			
 		</script>
 	</body>

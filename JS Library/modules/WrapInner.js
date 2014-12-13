@@ -13,7 +13,7 @@
 				if (typeof structure === "string"){
 					var contents = $(this).html(),
 						wrap = "<" + structure + ">";
-					$(this).prepend(wrap + contents);
+					$(this).html(wrap + contents);
 				} else {
 					throw new Error("wrapInner structure must be specified as a string.");
 				}
