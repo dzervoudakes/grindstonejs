@@ -12,6 +12,7 @@
 		<script src="modules/DoubleTap.js"></script>
 		<script src="modules/Each.js"></script>
 		<script src="modules/Events.js"></script>
+		<script src="modules/HTML.js"></script>
 		<script src="modules/Insert.js"></script>
 		<script src="modules/Mouseable.js"></script>
 		<script src="modules/NewEl.js"></script>
@@ -20,6 +21,8 @@
 		<script src="modules/Remove.js"></script>
 		<script src="modules/ReplaceWith.js"></script>
 		<script src="modules/Value.js"></script>
+		<script src="modules/WrapInner.js"></script>
+		<script src="directives/Directives.js"></script>
 		<style type="text/css">
 			#testDiv {
 				position: absolute;
@@ -74,14 +77,20 @@
 		</style>
 	</head>
 	<body>
-		<div id="testDiv" class="test" mouseable>
+		<div id="testDiv" class="test" gs-mouseable>
 			<div id="emptyDiv01" class="emptyDiv"></div>
 			<div id="emptyDiv02" class="emptyDiv"></div>
 			<div id="emptyDiv03" class="emptyDiv"></div>
 			<div id="emptyDiv04" class="emptyDiv"></div>
 		</div>
-		<div id="btn1" class="btns"></div>
-		<div id="btn2" class="btns"></div>
+		<!--<article id="text">
+			<p>Test</p>
+			<p>of</p>
+			<p>HTML</p>
+			<p>module.</p>
+		</article>-->
+		<div id="btn1" class="btns" gs-mouseable></div>
+		<div id="btn2" class="btns" gs-mouseable></div>
 		<script type="text/javascript">
 			
 			var el = $("#btn1"),
@@ -91,33 +100,7 @@
 				divs = $("div"),
 				emptyDivs = $("div","#testDiv");
 			
-			test.mouseable();
-			buttonsArray.mouseable();
-			
-			/*function ajaxTest(){
-				var txt = $.xmlhttp.responseText;
-				test.append(txt);
-			};*/
-			
-			el.evt("click",function(){
-				$.ajax({
-					method: "GET",
-					url: "test.txt",
-					async: true,
-					success: function(xml){
-						var txt = xml.responseText;
-						test.append(txt);
-					}
-				});
-			});
-			
-			/*el.evt("click",function(){
-				test.val("junk","Jordy Nelson");
-			});
-			
-			el2.evt("click",function(){
-				test.removeVal("junk");
-			});*/
+			test.wrapInner("div class='wrapTest'");
 			
 		</script>
 	</body>
