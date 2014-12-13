@@ -4,10 +4,10 @@
  * Creates a new element
  *
  * Parameters:
- * -element type
- * -id
- * -className
- * -innerHTML
+ * -elType (type of DOM element)
+ * -elId (ID of the new element)
+ * -elClass (className of the new element)
+ * -elInner (innerHTML to be added)
  */
 	
 	$.newEl = function(elType,elId,elClass,elInner){

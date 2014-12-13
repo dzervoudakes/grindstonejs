@@ -3,7 +3,7 @@
  * 
  * Returns the selected element's innerHTML, or replaces it if "content" argument is entered
  *
- * Parameter:
+ * Parameter: (optional)
  * -content (the new content)
  */
 	

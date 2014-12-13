@@ -4,7 +4,7 @@
  * Wraps the innerHTML of the selected element(s) with the specified structure
  *
  * Parameter:
- * -content (the new content)
+ * -structure (new HTML structure to wrap the selected content in)
  */
 	
 	$.fn.wrapInner = function(structure){
@@ -12,7 +12,7 @@
 			if(structure){
 				if (typeof structure === "string"){
 					var contents = $(this).html(),
-						wrap = "<" + structure + ">";
+						wrap = structure;
 					$(this).html(wrap + contents);
 				} else {
 					throw new Error("wrapInner structure must be specified as a string.");

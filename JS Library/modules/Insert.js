@@ -5,7 +5,6 @@
  *
  * Parameter:
  * -content (to be added in the location specified)
- * -location (the content will be inserted either before or after the target element within the DOM hierarchy)
  */
 	
 	$.fn.before = function(content){

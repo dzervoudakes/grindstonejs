@@ -3,18 +3,18 @@
  *
  * Basic AJAX call for pulling external data into the DOM and sending data to external servers
  *
- * Parameters:
+ * Parameters - to be programmed as properties of an object:
  * -method ("GET"/"POST")
  * -url (data path)
  * -async (true/false)
  * -success (callback to invoke if successful)
  * -header (adds a custom HTTP header to the request)
  * -headerValue (value of the custom HTTP header)
- * -str (string to be sent for POST requests)
+ * -sendStr (string to be sent for POST requests)
  */
 	
 	$.ajax = function(obj){
-		var method, url, async, callback, header, headerValue, sendStr;
+		var method, url, async, success, header, headerValue, sendStr;
 		function prop(property){
 			return obj.hasOwnProperty(property);
 		};
