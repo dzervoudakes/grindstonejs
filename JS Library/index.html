@@ -7,7 +7,9 @@
 		<script src="modules/Append.js"></script>
 		<script src="modules/Attributes.js"></script>
 		<script src="modules/Classes.js"></script>
+		<script src="modules/Clone.js"></script>
 		<script src="modules/CSS.js"></script>
+		<script src="modules/Dimensions.js"></script>
 		<script src="modules/Display.js"></script>
 		<script src="modules/DoubleTap.js"></script>
 		<script src="modules/Each.js"></script>
@@ -16,6 +18,7 @@
 		<script src="modules/Insert.js"></script>
 		<script src="modules/Mouseable.js"></script>
 		<script src="modules/NewEl.js"></script>
+		<script src="modules/Offset.js"></script>
 		<script src="modules/Prepend.js"></script>
 		<script src="modules/Ready.js"></script>
 		<script src="modules/Remove.js"></script>
@@ -82,12 +85,6 @@
 			<div id="emptyDiv03" class="emptyDiv"></div>
 			<div id="emptyDiv04" class="emptyDiv"></div>
 		</div>
-		<!--<article id="text">
-			<p>Test</p>
-			<p>of</p>
-			<p>HTML</p>
-			<p>module.</p>
-		</article>-->
 		<div id="btn1" class="btns" gs-mouseable></div>
 		<div id="btn2" class="btns" gs-mouseable></div>
 		<script type="text/javascript">
@@ -102,6 +99,9 @@
 			el.evt("click",function(){
 				test.wrapInner("<div class='wrapTest'><em><b>");
 			});
+			
+			var offsetter = test.offset("left");
+			console.log(offsetter);
 			
 		</script>
 	</body>
