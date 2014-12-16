@@ -1,4 +1,0 @@
-<p id="txt_010">AJAX</p>
-<p id="txt_020">call</p>
-<p id="txt_030">was</p>
-<p id="txt_040">successful.</p>

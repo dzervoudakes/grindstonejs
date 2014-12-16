@@ -1,14 +1,16 @@
 /**
- * GrindstoneJS: https://github.com/DanZiti/GrindstoneJS
+ * GrindstoneJS JavaScript Library v1.0.0
+ * https://github.com/DanZiti/GrindstoneJS
+ *
+ * Copyright (c) 2014 Dan Zervoudakes
+ * Developed under the MIT license
+ * https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE
  *
  * Library Core
  *
  * Includes:
  * -Constructor "Grindstone" and selector functions
  * -Any tertiary functions as necessary
- *
- * Copyright (c) 2014 Dan Zervoudakes
- * Developed under the MIT license
  */
 	
 	// Global constructor "Grindstone" and selector functions...
