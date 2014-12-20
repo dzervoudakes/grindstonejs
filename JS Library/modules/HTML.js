@@ -1,7 +1,7 @@
 /**
  * html()
  * 
- * Returns the selected element's innerHTML, or replaces it if "content" argument is entered
+ * Returns the selected element's innerHTML, or replaces it if the "content" argument is entered
  *
  * Parameter: (optional)
  * -content (the new content)

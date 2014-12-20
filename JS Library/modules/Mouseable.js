@@ -34,7 +34,7 @@
 			}).evt("mousedown touchstart",function(e){
 				$(this).addClass(activeClass);
 				e.preventDefault();
-			}).evt("mouseup touchend",function(e){
+			}).evt("mouseup mouseleave touchend",function(e){
 				$(this).removeClass(activeClass);
 				e.preventDefault();
 			});
