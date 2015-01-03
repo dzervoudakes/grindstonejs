@@ -25,7 +25,6 @@
 		<script src="modules/ReplaceWith.js"></script>
 		<script src="modules/Value.js"></script>
 		<script src="modules/WrapInner.js"></script>
-		<script src="directives/Directives.js"></script>
 		<style type="text/css">
 			* {
 				margin: 0;
@@ -85,15 +84,15 @@
 	</head>
 	<body>
 		<div style="position: relative; left: 30px; top: 10px;"><!-- for offset() test -->
-			<div id="testDiv" class="test" gs-mouseable>
+			<div id="testDiv" class="test">
 				<div id="emptyDiv01" class="emptyDiv"></div>
 				<div id="emptyDiv02" class="emptyDiv"></div>
 				<div id="emptyDiv03" class="emptyDiv"></div>
 				<div id="emptyDiv04" class="emptyDiv"></div>
 			</div>
 		</div>
-		<div id="btn1" class="btns" gs-mouseable></div>
-		<div id="btn2" class="btns" gs-mouseable></div>
+		<div id="btn1" class="btns"></div>
+		<div id="btn2" class="btns"></div>
 		<script type="text/javascript">
 			
 			var el = $("#btn1"),
