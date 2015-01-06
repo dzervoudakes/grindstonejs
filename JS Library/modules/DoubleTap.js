@@ -9,9 +9,10 @@
 	
 	$.fn.doubleTap = function(callback){
 		$.forEach(this.init,function(){
-			var active = false;
+			var active = false,
+				interaction = ("createTouch" in document) ? "touchstart" : "click";
 			if(callback){
-				$(this).evt("click touchstart",function(e){
+				$(this).evt(interaction,function(){
 					if (active){
 						callback();
 						active = false;
@@ -20,7 +21,6 @@
 					setTimeout(function(){
 						active = false;
 					},360);
-					e.preventDefault();
 				});
 			} else {
 				throw new Error("Double-tap/double-click callback is undefined.");

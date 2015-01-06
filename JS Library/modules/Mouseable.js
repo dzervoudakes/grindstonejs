@@ -28,13 +28,16 @@
 			$(this).evt("mouseover touchstart",function(e){
 				$(this).addClass(hoverClass);
 				e.preventDefault();
-			}).evt("mouseleave touchend",function(e){
+			})
+			.evt("mouseleave touchend",function(e){
 				$(this).removeClass(hoverClass + " " + activeClass).removeClass(hoverClass);
 				e.preventDefault();
-			}).evt("mousedown touchstart",function(e){
+			})
+			.evt("mousedown touchstart",function(e){
 				$(this).addClass(activeClass);
 				e.preventDefault();
-			}).evt("mouseup mouseleave touchend",function(e){
+			})
+			.evt("mouseup mouseleave touchend",function(e){
 				$(this).removeClass(activeClass);
 				e.preventDefault();
 			});

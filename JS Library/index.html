@@ -30,6 +30,9 @@
 				margin: 0;
 				padding: 0;
 			}
+			button {
+				border: none;
+			}
 			#testDiv {
 				position: absolute;
 				left: 100px;
@@ -63,7 +66,7 @@
 				background: #069;
 				border: 1px solid #069;
 			}
-			[gs-mouseable] {
+			[mouseable] {
 				cursor: pointer;
 			}
 			.btns.over {
@@ -84,15 +87,15 @@
 	</head>
 	<body>
 		<div style="position: relative; left: 30px; top: 10px;"><!-- for offset() test -->
-			<div id="testDiv" class="test">
+			<div id="testDiv" class="test" mouseable>
 				<div id="emptyDiv01" class="emptyDiv"></div>
 				<div id="emptyDiv02" class="emptyDiv"></div>
 				<div id="emptyDiv03" class="emptyDiv"></div>
 				<div id="emptyDiv04" class="emptyDiv"></div>
 			</div>
 		</div>
-		<div id="btn1" class="btns"></div>
-		<div id="btn2" class="btns"></div>
+		<button id="btn1" class="btns" mouseable></button>
+		<button id="btn2" class="btns" mouseable></button>
 		<script type="text/javascript">
 			
 			var el = $("#btn1"),
@@ -106,10 +109,12 @@
 				test.wrapInner("<div class='wrapTest'><em><b>");
 			});
 			
-			el2.evt("click",function(){
+			el2.doubleTap(function(){
 				test.width(400);
 				buttonsArray.height(70);
 			});
+			
+			$("[mouseable]").mouseable();
 			
 		</script>
 	</body>
