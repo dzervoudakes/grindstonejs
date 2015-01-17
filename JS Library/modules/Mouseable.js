@@ -24,22 +24,22 @@
 			hoverClass = "over";
 			activeClass = "down";
 		}
+		var evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseover",
+			evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave",
+			evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown",
+			evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
 		$.forEach(this.init,function(){
-			$(this).evt("mouseover touchstart",function(e){
+			$(this).evt(evt_hover,function(){
 				$(this).addClass(hoverClass);
-				e.preventDefault();
 			})
-			.evt("mouseleave touchend",function(e){
+			.evt(evt_remove,function(){
 				$(this).removeClass(hoverClass + " " + activeClass).removeClass(hoverClass);
-				e.preventDefault();
 			})
-			.evt("mousedown touchstart",function(e){
+			.evt(evt_down,function(){
 				$(this).addClass(activeClass);
-				e.preventDefault();
 			})
-			.evt("mouseup mouseleave touchend",function(e){
+			.evt(evt_up,function(){
 				$(this).removeClass(activeClass);
-				e.preventDefault();
 			});
 		});
 	};

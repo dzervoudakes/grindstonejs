@@ -2,7 +2,7 @@
  * GrindstoneJS JavaScript Library v1.0.0
  * https://github.com/DanZiti/GrindstoneJS
  *
- * Copyright (c) 2014 Dan Zervoudakes
+ * Copyright (c) 2014, 2015 Dan Zervoudakes
  * Developed under the MIT license
  * https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE
  *
