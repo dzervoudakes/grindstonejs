@@ -7,12 +7,12 @@
  * -structure (new HTML structure to wrap the selected content in)
  */
 	
-	$.fn.wrapInner = function(structure){
+	$.fn.wrapInner = function(_structure){
 		$.forEach(this.init,function(){
-			if(structure){
-				if (typeof structure === "string"){
+			if(_structure){
+				if (typeof _structure === "string"){
 					var contents = $(this).html(),
-						wrap = structure;
+						wrap = _structure;
 					$(this).html(wrap + contents);
 				} else {
 					throw new Error("wrapInner structure must be specified as a string.");

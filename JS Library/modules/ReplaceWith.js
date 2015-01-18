@@ -7,10 +7,10 @@
  * -content (the new content)
  */
 	
-	$.fn.replaceWith = function(content){
+	$.fn.replaceWith = function(_content){
 		$.forEach(this.init,function(){
-			if(content){
-				this.outerHTML = content;
+			if(_content){
+				this.outerHTML = _content;
 			} else {
 				throw new Error("Cannot replace element with null.");
 			}

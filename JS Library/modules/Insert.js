@@ -7,13 +7,13 @@
  * -content (to be added in the location specified)
  */
 	
-	$.fn.before = function(content){
+	$.fn.before = function(_content){
 		$.forEach(this.init,function(){
-			if (content){
-				if (typeof content === "string"){
-					this.insertAdjacentHTML("beforebegin",content);
+			if (_content){
+				if (typeof _content === "string"){
+					this.insertAdjacentHTML("beforebegin",_content);
 				} else {
-					this.parentNode.insertBefore(content,this);
+					this.parentNode.insertBefore(_content,this);
 				}
 			} else {
 				throw new Error("Cannot insert null after the specified element.");
@@ -22,13 +22,13 @@
 		return this;
 	};
 	
-	$.fn.after = function(content){
+	$.fn.after = function(_content){
 		$.forEach(this.init,function(){
-			if (content){
-				if (typeof content === "string"){
-					this.insertAdjacentHTML("afterend",content);
+			if (_content){
+				if (typeof _content === "string"){
+					this.insertAdjacentHTML("afterend",_content);
 				} else {
-					this.parentNode.insertBefore(content,this.nextSibling);
+					this.parentNode.insertBefore(_content,this.nextSibling);
 				}
 			} else {
 				throw new Error("Cannot insert null after the specified element.");

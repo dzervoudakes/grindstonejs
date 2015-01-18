@@ -12,11 +12,11 @@
 	
 	// Set the arbitrary value
 	
-	$.fn.val = function(valueName,valueContent){
+	$.fn.val = function(_valueName,_valueContent){
 		$.forEach(this.init,function(){
-			if (valueName && valueContent){
-				if (typeof valueName === "string"){
-					$(this).attr("data-value-" + valueName,valueContent);
+			if (_valueName && _valueContent){
+				if (typeof _valueName === "string"){
+					$(this).attr("data-value-" + _valueName,_valueContent);
 				} else {
 					throw new Error("The name of the value to assign must be a string.");
 				}
@@ -29,12 +29,12 @@
 	
 	// Call the arbitrary value
 	
-	$.fn.getVal = function(valueName){
+	$.fn.getVal = function(_valueName){
 		var elemValue;
 		$.forEach(this.init,function(){
-			if (valueName){
-				if (typeof valueName === "string"){
-					elemValue = $(this).attr("data-value-" + valueName);
+			if (_valueName){
+				if (typeof _valueName === "string"){
+					elemValue = $(this).attr("data-value-" + _valueName);
 				} else {
 					throw new Error("The name of the value to return must be a string.");
 				}
@@ -47,11 +47,11 @@
 	
 	// Remove the arbitrary value
 	
-	$.fn.removeVal = function(valueName){
+	$.fn.removeVal = function(_valueName){
 		$.forEach(this.init,function(){
-			if (valueName){
-				if (typeof valueName === "string"){
-					$(this).removeAttr("data-value-" + valueName);
+			if (_valueName){
+				if (typeof _valueName === "string"){
+					$(this).removeAttr("data-value-" + _valueName);
 				} else {
 					throw new Error("The name of the value to remove must be a string.");
 				}

@@ -10,10 +10,10 @@
  * -num (integer; number of pixels)
  */
 	
-	$.fn.height = function(num){
-		if (num && typeof num === "number"){
+	$.fn.height = function(_num){
+		if (_num && typeof _num === "number"){
 			$.forEach(this.init,function(){
-				this.style.height = num + "px";
+				this.style.height = _num + "px";
 			});
 		} else {
 			return this.init[0].offsetHeight;
@@ -21,10 +21,10 @@
 		return this;
 	};
 	
-	$.fn.width = function(num){
-		if (num){
+	$.fn.width = function(_num){
+		if (_num){
 			$.forEach(this.init,function(){
-				this.style.width = num + "px";
+				this.style.width = _num + "px";
 			});
 		} else {
 			return this.init[0].offsetWidth;

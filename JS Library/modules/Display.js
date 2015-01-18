@@ -9,13 +9,13 @@
  * -timer
  */
 	
-	$.fn.show = function(timer){
+	$.fn.show = function(_timer){
 		$.forEach(this.init,function(){
-			if (timer){
-				if (typeof timer === "number"){
+			if (_timer){
+				if (typeof _timer === "number"){
 					setTimeout(function(){
 						this.style.display = "block";
-					},timer);
+					},_timer);
 				} else {
 					throw new Error("Display timeout parameter must be a number.");
 				}
@@ -26,13 +26,13 @@
 		return this;
 	};
 	
-	$.fn.hide = function(timer){
+	$.fn.hide = function(_timer){
 		$.forEach(this.init,function(){
-			if (timer){
-				if (typeof timer === "number"){
+			if (_timer){
+				if (typeof _timer === "number"){
 					setTimeout(function(){
 						this.style.display = "none";
-					},timer);
+					},_timer);
 				} else {
 					throw new Error("Display timeout parameter must be a number.");
 				}

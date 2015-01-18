@@ -8,13 +8,13 @@
  * -position (either "left" or "top")
  */
 	
-	$.fn.offset = function(position){
-		if (position && typeof position === "string"){
-			if (position !== "left" && position !== "top"){
+	$.fn.offset = function(_position){
+		if (_position && typeof _position === "string"){
+			if (_position !== "left" && _position !== "top"){
 				throw new Error("Offset position must be either 'left' or 'top'.");
 			} else {
 				var elem = this.init[0];
-				if (position === "left"){
+				if (_position === "left"){
 					var offsetLeft = 0;
 				    do {
 				        if (!isNaN(elem.offsetLeft)){
@@ -22,7 +22,7 @@
 				        }
 				    } while (elem = elem.offsetParent);
 				    return offsetLeft;
-				} else if (position === "top") {
+				} else if (_position === "top") {
 					var offsetTop = 0;
 				    do {
 				        if (!isNaN(elem.offsetTop)){

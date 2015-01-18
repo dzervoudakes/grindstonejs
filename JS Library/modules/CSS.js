@@ -8,21 +8,21 @@
  * -styles (can be programmed as an object or a string)
  */
 	
-	$.fn.css = function(styles){
+	$.fn.css = function(_styles){
 		var returnedStyle;
 		$.forEach(this.init,function(){
-			if (styles){
-				if (typeof styles === "object"){
-					for (var j in styles){
-						this.style[j] = styles[j];
+			if (_styles){
+				if (typeof _styles === "object"){
+					for (var j in _styles){
+						this.style[j] = _styles[j];
 					}
 				} else {
-					returnedStyle = this.style[styles];
+					returnedStyle = this.style[_styles];
 				}
 			} else {
 				throw new Error("CSS properties are undefined.");
 			}
 		});
-		var toReturn = (typeof styles === "object") ? this : returnedStyle;
+		var toReturn = (typeof _styles === "object") ? this : returnedStyle;
 		return toReturn;
 	};

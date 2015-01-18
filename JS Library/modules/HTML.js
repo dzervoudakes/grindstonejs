@@ -7,15 +7,15 @@
  * -content (the new content)
  */
 	
-	$.fn.html = function(content){
+	$.fn.html = function(_content){
 		var txt;
 		$.forEach(this.init,function(){
-			if(content){
-				this.innerHTML = content;
+			if(_content){
+				this.innerHTML = _content;
 			} else {
 				txt = this.innerHTML;
 			}
 		});
-		var toReturn = (content) ? this : txt;
+		var toReturn = (_content) ? this : txt;
 		return toReturn;
  	};

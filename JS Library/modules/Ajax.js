@@ -13,17 +13,17 @@
  * -sendStr (string to be sent for POST requests)
  */
 	
-	$.ajax = function(obj){
+	$.ajax = function(_obj){
 		var method, url, async, success, header, headerValue, sendStr;
-		function prop(property){
-			return obj.hasOwnProperty(property);
+		function prop(_property){
+			return _obj.hasOwnProperty(_property);
 		};
-		if (obj && typeof obj === "object"){
-			method   = (prop("method"))   ? obj.method   : null;
-			url      = (prop("url"))      ? obj.url      : null;
-			async    = (prop("async"))    ? obj.async    : true;
-			success  = (prop("success"))  ? obj.success  : null;
-			sendStr  = (prop("str"))      ? obj.sendStr  : null;
+		if (_obj && typeof _obj === "object"){
+			method   = (prop("method"))   ? _obj.method   : null;
+			url      = (prop("url"))      ? _obj.url      : null;
+			async    = (prop("async"))    ? _obj.async    : true;
+			success  = (prop("success"))  ? _obj.success  : null;
+			sendStr  = (prop("str"))      ? _obj.sendStr  : null;
 		} else {
 			throw new Error("Ajax request cannot be sent.");
 		}

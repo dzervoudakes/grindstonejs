@@ -7,13 +7,13 @@
  * -appendElement
  */
 	
-	$.fn.append = function(appendElement){
+	$.fn.append = function(_appendElement){
 		$.forEach(this.init,function(){
-			if (appendElement){
-				if (typeof appendElement === "string"){
-					this.innerHTML += appendElement;
+			if (_appendElement){
+				if (typeof _appendElement === "string"){
+					this.innerHTML += _appendElement;
 				} else {
-					this.appendChild(appendElement);
+					this.appendChild(_appendElement);
 				}
 			} else {
 				throw new Error("Cannot append undefined element.");

@@ -15,15 +15,15 @@
 	
 	// Global constructor "Grindstone" and selector functions...
 	
-	var Grindstone = function(selector,context){
-		if (selector){
+	var Grindstone = function(_selector,_context){
+		if (_selector){
 			var selectedElements;
-			if (typeof selector === "string"){
-				if (context){
-					var elem = document.querySelector(context);
-					selectedElements = elem.querySelectorAll(selector);
+			if (typeof _selector === "string"){
+				if (_context){
+					var elem = document.querySelector(_context);
+					selectedElements = elem.querySelectorAll(_selector);
 				} else {
-					selectedElements = document.querySelectorAll(selector);
+					selectedElements = document.querySelectorAll(_selector);
 				}
 				if (selectedElements.length > 0){
 					this.init = selectedElements;
@@ -31,8 +31,8 @@
 					return [];
 				}
 				return this;
-			} else if (typeof selector === "object"){
-				this.init = [selector];
+			} else if (typeof _selector === "object"){
+				this.init = [_selector];
 			} else {
 				return null;
 			}
@@ -43,8 +43,8 @@
 	
 	// Shorthand method for obtaining the same results as above...
 	
-	var $ = function(selector,context){
-		return new Grindstone(selector,context);
+	var $ = function(_selector,_context){
+		return new Grindstone(_selector,_context);
 	};
 	
 	/**
@@ -52,9 +52,9 @@
 	 * Since we are dealing with NodeLists, the Array.prototype.forEach() method will not work natively
 	 */
 	
-	$.forEach = function(array,callback){
-		for (var i = 0; i < array.length; i++){
-			callback.call(array[i]);
+	$.forEach = function(_array,_callback){
+		for (var i = 0; i < _array.length; i++){
+			_callback.call(_array[i]);
 		}
 	};
 	
@@ -64,6 +64,6 @@
 	
 	// ind() - returns an element as specified by the corresponding index value
 	
-	$.fn.ind = function(index){
-		return $(this.init[index]);
+	$.fn.ind = function(_index){
+		return $(this.init[_index]);
 	};

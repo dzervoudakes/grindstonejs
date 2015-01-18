@@ -10,17 +10,17 @@
  * -elInner (innerHTML to be added)
  */
 	
-	$.newEl = function(elType,elId,elClass,elInner){
-		if (elType){
-			var newElement = document.createElement(elType);
-			if (elId){
-				newElement.id = elId;
+	$.newEl = function(_elType,_elId,_elClass,_elInner){
+		if (_elType){
+			var newElement = document.createElement(_elType);
+			if (_elId){
+				newElement.id = _elId;
 			}
-			if (elClass){
-				newElement.className = elClass;
+			if (_elClass){
+				newElement.className = _elClass;
 			}
-			if (elInner){
-				newElement.innerHTML = elInner;
+			if (_elInner){
+				newElement.innerHTML = _elInner;
 			}
 			return newElement;
 		} else {

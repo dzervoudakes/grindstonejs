@@ -9,17 +9,17 @@
 	
 	// Global regular expression
 	
-	$.reg = function(cls){
-		return new RegExp("(\\s|^)" + cls + "(\\s|$)");
+	$.reg = function(_cls){
+		return new RegExp("(\\s|^)" + _cls + "(\\s|$)");
 	};
 	
 	// Detect if a given element has a particular class
 	
-	$.fn.hasClass = function(cls){
+	$.fn.hasClass = function(_cls){
 		var classTrue;
 		$.forEach(this.init,function(){
-			if (cls){
-				classTrue = this.className.match($.reg(cls));
+			if (_cls){
+				classTrue = this.className.match($.reg(_cls));
 			} else {
 				throw new Error("Cannot determine if the element has undefined class.");
 			}
@@ -29,14 +29,14 @@
 	
 	// Add the specified class to the element if it doesn't already contain that class
 	
-	$.fn.addClass = function(cls){
+	$.fn.addClass = function(_cls){
 		$.forEach(this.init,function(){
-			if (!$(this).hasClass(cls)){
-				if (cls){
+			if (!$(this).hasClass(_cls)){
+				if (_cls){
 					if (this.className == ""){
-						this.className += cls;
+						this.className += _cls;
 					} else {
-						this.className += " " + cls;
+						this.className += " " + _cls;
 					}
 				} else {
 					throw new Error("Class to add is undefined.");
@@ -48,11 +48,11 @@
 	
 	// Remove the specified class from the element if it contains that class
 	
-	$.fn.removeClass = function(cls){
+	$.fn.removeClass = function(_cls){
 		$.forEach(this.init,function(){
-			if ($(this).hasClass(cls)){
-				if (cls){
-					this.className = this.className.replace($.reg(cls),"");
+			if ($(this).hasClass(_cls)){
+				if (_cls){
+					this.className = this.className.replace($.reg(_cls),"");
 				} else {
 					throw new Error("Class to remove is undefined.");
 				}
@@ -63,12 +63,12 @@
 	
 	// Toggle the specified class
 	
-	$.fn.toggleClass = function(cls){
+	$.fn.toggleClass = function(_cls){
 		$.forEach(this.init,function(){
-			if (!$(this).hasClass(cls)){
-				$(this).addClass(cls);
+			if (!$(this).hasClass(_cls)){
+				$(this).addClass(_cls);
 			} else {
-				$(this).removeClass(cls);
+				$(this).removeClass(_cls);
 			}
 		});
 		return this;

@@ -7,13 +7,13 @@
  * -prependElement
  */
 	
-	$.fn.prepend = function(prependElement){
+	$.fn.prepend = function(_prependElement){
 		$.forEach(this.init,function(){
-			if (prependElement){
-				if (typeof prependElement === "string"){
-					this.insertAdjacentHTML("afterbegin",prependElement);
+			if (_prependElement){
+				if (typeof _prependElement === "string"){
+					this.insertAdjacentHTML("afterbegin",_prependElement);
 				} else {
-					this.insertBefore(prependElement,this.firstChild);
+					this.insertBefore(_prependElement,this.firstChild);
 				}
 			} else {
 				throw new Error("Cannot prepend undefined element.");

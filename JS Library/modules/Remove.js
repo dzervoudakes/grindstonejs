@@ -7,9 +7,9 @@
  * -removeElement
  */
 	
-	$.fn.remove = function(removeElement){
-		if (removeElement){
-			var elems = document.querySelectorAll(removeElement),
+	$.fn.remove = function(_removeElement){
+		if (_removeElement){
+			var elems = document.querySelectorAll(_removeElement),
 				parents = this.init;
 			for (var j = 0; j < parents.length; j++){
 				$.forEach(elems,function(){
