@@ -3,7 +3,7 @@
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
- * Developed under the MIT license
+ * Released under the MIT license
  * https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE
  *
  * Library Core
