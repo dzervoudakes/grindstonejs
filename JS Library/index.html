@@ -94,8 +94,8 @@
 				<div id="emptyDiv04" class="emptyDiv"></div>
 			</div>
 		</div>
-		<button id="btn1" class="btns" mouseable></button>
-		<button id="btn2" class="btns" mouseable></button>
+		<button id="btn1" class="btns" data-mouseable></button>
+		<button id="btn2" class="btns" data-mouseable></button>
 		<script type="text/javascript">
 			
 			var el = $("#btn1"),
@@ -114,7 +114,7 @@
 				buttonsArray.height(70);
 			});
 			
-			$("[mouseable]").mouseable();
+			$("[data-mouseable]").mouseable();
 			
 		</script>
 	</body>

@@ -24,7 +24,7 @@
 			hoverClass = "over";
 			activeClass = "down";
 		}
-		var evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseover",
+		var evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseenter",
 			evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave",
 			evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown",
 			evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
@@ -33,7 +33,9 @@
 				$(this).addClass(hoverClass);
 			})
 			.evt(evt_remove,function(){
-				$(this).removeClass(hoverClass + " " + activeClass).removeClass(hoverClass);
+				$(this)
+					.removeClass(hoverClass + " " + activeClass)
+					.removeClass(hoverClass);
 			})
 			.evt(evt_down,function(){
 				$(this).addClass(activeClass);
