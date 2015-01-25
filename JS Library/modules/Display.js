@@ -6,16 +6,16 @@
  * May be instant or delayed
  *
  * Parameter: (optional)
- * -timer
+ * -delay (miliseconds)
  */
 	
-	$.fn.show = function(_timer){
+	$.fn.show = function(_delay){
 		$.forEach(this.init,function(){
-			if (_timer){
-				if (typeof _timer === "number"){
+			if (_delay){
+				if (typeof _delay === "number"){
 					setTimeout(function(){
 						this.style.display = "block";
-					},_timer);
+					},_delay);
 				} else {
 					throw new Error("Display timeout parameter must be a number.");
 				}
@@ -26,13 +26,13 @@
 		return this;
 	};
 	
-	$.fn.hide = function(_timer){
+	$.fn.hide = function(_delay){
 		$.forEach(this.init,function(){
-			if (_timer){
-				if (typeof _timer === "number"){
+			if (_delay){
+				if (typeof _delay === "number"){
 					setTimeout(function(){
 						this.style.display = "none";
-					},_timer);
+					},_delay);
 				} else {
 					throw new Error("Display timeout parameter must be a number.");
 				}

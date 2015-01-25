@@ -4,7 +4,7 @@
  * Returns the selected element's innerHTML, or replaces it if the "content" argument is entered
  *
  * Parameter: (optional)
- * -content (the new content)
+ * -content
  */
 	
 	$.fn.html = function(_content){

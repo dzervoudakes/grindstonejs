@@ -3,7 +3,7 @@
  *
  * Basic AJAX call for pulling external data into the DOM and sending data to external servers
  *
- * Parameters - to be programmed as properties of an object:
+ * Parameter - to be programmed as an object with the following properties:
  * -method ("GET"/"POST")
  * -url (data path)
  * -async (true/false)

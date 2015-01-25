@@ -1,10 +1,10 @@
 /**
  * doubleTap()
  * 
- * Custom double-tapping and double-clicking methods
+ * Custom double-tapping/double-clicking method
  *
  * Parameter:
- * -callback (triggered if the double-click/tap event is completed in time)
+ * -callback (triggered if the double-click/double-tap event is completed in time)
  */
 	
 	$.fn.doubleTap = function(_callback){

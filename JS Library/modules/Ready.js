@@ -1,9 +1,10 @@
 /**
  * ready() / load()
  *
- * Triggers when the DOM Content of the selected element is loaded
+ * Ready: triggers when the DOM structure of the selected element is ready
+ * Load: triggers when the full DOM content of the selected element is loaded
  *
- * Parameters:
+ * Parameter:
  * -callback
  */
 	

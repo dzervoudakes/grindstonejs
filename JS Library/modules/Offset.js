@@ -5,7 +5,7 @@
  * This will only apply to the first match in the set and includes margins
  *
  * Parameter:
- * -position (either "left" or "top")
+ * -position (string; either "left" or "top")
  */
 	
 	$.fn.offset = function(_position){

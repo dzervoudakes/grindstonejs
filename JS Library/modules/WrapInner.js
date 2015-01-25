@@ -1,10 +1,10 @@
 /**
  * wrapInner(structure)
  * 
- * Wraps the innerHTML of the selected element(s) with the specified structure
+ * Wraps the innerHTML of the selected element(s) within the specified structure
  *
  * Parameter:
- * -structure (new HTML structure to wrap the selected content in)
+ * -structure
  */
 	
 	$.fn.wrapInner = function(_structure){

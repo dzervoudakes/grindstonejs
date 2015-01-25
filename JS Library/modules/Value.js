@@ -7,7 +7,7 @@
  * 
  * Parameters:
  * -valueName (defined by the developer)
- * -valueContent (specified in the .val() method)
+ * -valueContent (specified in the .val() method only)
  */
 	
 	// Set the arbitrary value

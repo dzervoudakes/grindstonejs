@@ -2,6 +2,9 @@
  * trigger()
  * 
  * Dispatches custom event listeners
+ * 
+ * Parameter:
+ * -event
  */
 	
 	$.fn.trigger = function(_event){

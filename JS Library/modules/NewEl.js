@@ -1,13 +1,13 @@
 /**
  * newEl()
  *
- * Creates a new element
+ * Creates a new DOM element
  *
  * Parameters:
  * -elType (type of DOM element)
- * -elId (ID of the new element)
- * -elClass (className of the new element)
- * -elInner (innerHTML to be added)
+ * -elId (ID of the new element - optional)
+ * -elClass (className of the new element - optional)
+ * -elInner (innerHTML to be added - optional)
  */
 	
 	$.newEl = function(_elType,_elId,_elClass,_elInner){

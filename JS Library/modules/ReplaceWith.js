@@ -4,7 +4,7 @@
  * Replaces the selected element contents with the specified content
  *
  * Parameter:
- * -content (the new content)
+ * -content
  */
 	
 	$.fn.replaceWith = function(_content){

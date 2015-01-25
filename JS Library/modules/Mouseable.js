@@ -5,9 +5,10 @@
  * Dynamically adds class "down" to elements as an active state (default)
  * Removes the need for applicable CSS pseudo-states
  * Handles both standard mouse events and touch events
+ * Developers may define their own hover/active classes with the optional "classes" object
  * 
  * Parameter:
- * -classes (an object users may program to create their own "hover" and "active" classes - accepts properties "hoverClass" and "activeClass")
+ * -classes (object with properties "hoverClass" and "activeClass")
  */
 	
 	$.fn.mouseable = function(_classes){

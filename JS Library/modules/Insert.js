@@ -4,7 +4,7 @@
  * Inserts new content either before or after the target element
  *
  * Parameter:
- * -content (to be added in the location specified)
+ * -content
  */
 	
 	$.fn.before = function(_content){

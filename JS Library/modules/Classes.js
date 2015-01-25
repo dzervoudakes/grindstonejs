@@ -1,10 +1,10 @@
 /**
  * hasClass() / addClass() / removeClass() / toggleClass()
  *
- * Detects whether or not a specified element has a specified class; Adds/removes a specified class; Toggles a specified class
+ * Detects whether or not the target element has the specified class; Adds/removes the specified class; Toggles the specified class
  *
  * Parameter:
- * -cls (the className being targeted)
+ * -cls (the className being specified)
  */
 	
 	// Global regular expression
@@ -33,10 +33,10 @@
 		$.forEach(this.init,function(){
 			if (!$(this).hasClass(_cls)){
 				if (_cls){
-					if (this.className == ""){
-						this.className += _cls;
+					if (this.className === ""){
+						this.className +== _cls;
 					} else {
-						this.className += " " + _cls;
+						this.className +== " " + _cls;
 					}
 				} else {
 					throw new Error("Class to add is undefined.");
