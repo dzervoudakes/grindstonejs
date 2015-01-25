@@ -1,6 +1,6 @@
 GrindstoneJS
 =================
 
-Lightweight JavaScript library optimized for simple jQuery-style DOM manipulation with similar syntax.
+A lightweight jQuery alternative for modern browsers with familiar syntax.
 
-Documentation to come soon...
+Documentation coming in the next few weeks...
