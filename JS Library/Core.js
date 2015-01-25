@@ -62,8 +62,8 @@
 	
 	$.fn = Grindstone.prototype;
 	
-	// ind() - returns an element as specified by the corresponding index value
+	// eq() - returns an element as specified by the corresponding index value
 	
-	$.fn.ind = function(_index){
+	$.fn.eq = function(_index){
 		return $(this.init[_index]);
 	};

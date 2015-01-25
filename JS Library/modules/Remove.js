@@ -1,15 +1,16 @@
 /**
  * remove()
  *
- * Appends the specified child element from the current object
+ * Appends the specified child element from the current object if the target is specified.
+ * If no target is specified, the parent of the current node will remove the node from the DOM.
  *
- * Parameter:
- * -removeElement
+ * Parameter: (optional)
+ * -target
  */
 	
-	$.fn.remove = function(_removeElement){
-		if (_removeElement){
-			var elems = document.querySelectorAll(_removeElement),
+	$.fn.remove = function(_target){
+		if (_target){
+			var elems = document.querySelectorAll(_target),
 				parents = this.init;
 			for (var j = 0; j < parents.length; j++){
 				$.forEach(elems,function(){
@@ -17,7 +18,9 @@
 				});
 			}
 		} else {
-			throw new Error("Cannot remove undefined element.");
+			$.forEach(this.init,function(){
+				this.parentNode.removeChild(this);
+			});
 		}
 		return this;
 	};

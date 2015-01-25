@@ -23,6 +23,8 @@
 		<script src="modules/Ready.js"></script>
 		<script src="modules/Remove.js"></script>
 		<script src="modules/ReplaceWith.js"></script>
+		<script src="modules/Resize.js"></script>
+		<script src="modules/Trigger.js"></script>
 		<script src="modules/Value.js"></script>
 		<script src="modules/WrapInner.js"></script>
 		<style type="text/css">
@@ -30,8 +32,16 @@
 				margin: 0;
 				padding: 0;
 			}
+			body {
+				height: 2000px;
+			}
 			button {
 				border: none;
+			}
+			body > *first-child {
+				position: relative;
+				left: 30px;
+				top: 10px;
 			}
 			#testDiv {
 				position: absolute;
@@ -66,7 +76,7 @@
 				background: #069;
 				border: 1px solid #069;
 			}
-			[mouseable] {
+			[data-mouseable] {
 				cursor: pointer;
 			}
 			.btns.over {
@@ -86,8 +96,8 @@
 		</style>
 	</head>
 	<body>
-		<div style="position: relative; left: 30px; top: 10px;"><!-- for offset() test -->
-			<div id="testDiv" class="test" mouseable>
+		<div>
+			<div id="testDiv" class="test" data-mouseable>
 				<div id="emptyDiv01" class="emptyDiv"></div>
 				<div id="emptyDiv02" class="emptyDiv"></div>
 				<div id="emptyDiv03" class="emptyDiv"></div>
@@ -106,12 +116,12 @@
 				emptyDivs = $("div","#testDiv");
 			
 			el.evt("click",function(){
-				test.wrapInner("<div class='wrapTest'><em><b>");
+				var _scrollTop = window.pageYOffset;
+				console.log(_scrollTop);
 			});
 			
-			el2.doubleTap(function(){
-				test.width(400);
-				buttonsArray.height(70);
+			el2.evt("click",function(){
+				_scrollTop = window.pageYOffset = 0;
 			});
 			
 			$("[data-mouseable]").mouseable();
