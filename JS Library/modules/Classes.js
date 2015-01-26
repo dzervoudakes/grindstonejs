@@ -33,10 +33,10 @@
 		$.forEach(this.init,function(){
 			if (!$(this).hasClass(_cls)){
 				if (_cls){
-					if (this.className === ""){
-						this.className +== _cls;
+					if (this.className == ""){
+						this.className += _cls;
 					} else {
-						this.className +== " " + _cls;
+						this.className += " " + _cls;
 					}
 				} else {
 					throw new Error("Class to add is undefined.");
