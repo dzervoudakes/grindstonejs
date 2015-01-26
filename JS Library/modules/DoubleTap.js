@@ -10,7 +10,7 @@
 	$.fn.doubleTap = function(_callback){
 		$.forEach(this.init,function(){
 			var active = false,
-				interaction = ("createTouch" in document) ? "touchstart" : "click";
+				interaction = ("createTouch" in document) ? "touchend" : "click";
 			if(_callback){
 				$(this).evt(interaction,function(){
 					if (active){

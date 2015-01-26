@@ -10,12 +10,12 @@
  *         otherwise, the current value of the specified value will be returned)
  */
 	
-	$.fn.attr = function(_attribute,_value){
+	$.fn.attr = function(_attribute, _value){
 		var elemAttribute;
 		$.forEach(this.init,function(){
 			if (_attribute){
 				if (_value){
-					this.setAttribute(_attribute,_value);
+					this.setAttribute(_attribute, _value);
 				} else {
 					elemAttribute = this.getAttribute(_attribute);
 				}

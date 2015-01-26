@@ -52,7 +52,7 @@
 		$.forEach(this.init,function(){
 			if ($(this).hasClass(_cls)){
 				if (_cls){
-					this.className = this.className.replace($.reg(_cls),"");
+					this.className = this.className.replace($.reg(_cls), "");
 				} else {
 					throw new Error("Class to remove is undefined.");
 				}

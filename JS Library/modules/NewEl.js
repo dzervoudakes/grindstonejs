@@ -10,7 +10,7 @@
  * -elInner (innerHTML to be added - optional)
  */
 	
-	$.newEl = function(_elType,_elId,_elClass,_elInner){
+	$.newEl = function(_elType, _elId, _elClass, _elInner){
 		if (_elType){
 			var newElement = document.createElement(_elType);
 			if (_elId){

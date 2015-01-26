@@ -15,7 +15,7 @@
 	
 	// Global constructor "Grindstone" and selector functions...
 	
-	var Grindstone = function(_selector,_context){
+	var Grindstone = function(_selector, _context){
 		if (_selector){
 			var selectedElements;
 			if (typeof _selector === "string"){
@@ -43,8 +43,8 @@
 	
 	// Shorthand method for obtaining the same results as above...
 	
-	var $ = function(_selector,_context){
-		return new Grindstone(_selector,_context);
+	var $ = function(_selector, _context){
+		return new Grindstone(_selector, _context);
 	};
 	
 	/**
@@ -52,7 +52,7 @@
 	 * Since we are dealing with NodeLists, the Array.prototype.forEach() method will not work natively
 	 */
 	
-	$.forEach = function(_array,_callback){
+	$.forEach = function(_array, _callback){
 		for (var i = 0; i < _array.length; i++){
 			_callback.call(_array[i]);
 		}

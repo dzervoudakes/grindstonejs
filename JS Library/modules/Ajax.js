@@ -33,11 +33,11 @@
 				success(xmlhttp);
 			}
 		};
-		xmlhttp.open(method,url,async);
+		xmlhttp.open(method, url, async);
 		if (prop("header") && prop("headerValue")){
-			xmlhttp.setRequestHeader(header,headerValue);
+			xmlhttp.setRequestHeader(header, headerValue);
 		} else {
-			xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		}
 		xmlhttp.send(sendStr);
 		return xmlhttp;

@@ -10,13 +10,13 @@
 	
 	// Assign the eventListener
 	
-	$.fn.evt = function(_action,_callback){
+	$.fn.evt = function(_action, _callback){
 		$.forEach(this.init,function(){
 			if(_action){
 				if (typeof _action === "string"){
 					var events = _action.split(" ");
 					for (var j = 0; j < events.length; j++){
-						this.addEventListener(events[j],_callback,false);
+						this.addEventListener(events[j], _callback, false);
 					}
 				} else {
 					throw new Error("Type of event action must be a string.");
@@ -30,13 +30,13 @@
 	
 	// Drop the eventListener
 	
-	$.fn.dropEvt = function(_action,_callback){
+	$.fn.dropEvt = function(_action, _callback){
 		$.forEach(this.init,function(){
 			if (_action){
 				if (typeof _action === "string"){
 					var events = _action.split(" ");
 					for (var j = 0; j < events.length; j++){
-						this.removeEventListener(events[j],_callback,false);
+						this.removeEventListener(events[j], _callback, false);
 					}
 				} else {
 					throw new Error("Type of event action must be a string.");

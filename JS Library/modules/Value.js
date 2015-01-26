@@ -12,11 +12,11 @@
 	
 	// Set the arbitrary value
 	
-	$.fn.val = function(_valueName,_valueContent){
+	$.fn.val = function(_valueName, _valueContent){
 		$.forEach(this.init,function(){
 			if (_valueName && _valueContent){
 				if (typeof _valueName === "string"){
-					$(this).attr("data-value-" + _valueName,_valueContent);
+					$(this).attr("data-value-" + _valueName, _valueContent);
 				} else {
 					throw new Error("The name of the value to assign must be a string.");
 				}
