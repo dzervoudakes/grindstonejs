@@ -24,6 +24,7 @@
 		<script src="modules/Remove.js"></script>
 		<script src="modules/ReplaceWith.js"></script>
 		<script src="modules/Resize.js"></script>
+		<script src="modules/Scroll.js"></script>
 		<script src="modules/Trigger.js"></script>
 		<script src="modules/Value.js"></script>
 		<script src="modules/WrapInner.js"></script>
@@ -115,13 +116,8 @@
 				divs = $("div"),
 				emptyDivs = $("div","#testDiv");
 			
-			el.evt("click",function(){
-				var _scrollTop = window.pageYOffset;
-				console.log(_scrollTop);
-			});
-			
-			el2.evt("click",function(){
-				_scrollTop = window.pageYOffset = 0;
+			$(window).scroll(function(){
+				console.log("yay");
 			});
 			
 			$("[data-mouseable]").mouseable();
