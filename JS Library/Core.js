@@ -59,11 +59,11 @@
 	};
 	
 	// Cut down on repetitive text throughout...
-	
+	//
 	$.fn = Grindstone.prototype;
 	
 	// eq() - returns an element as specified by the corresponding index value
-	
+	//
 	$.fn.eq = function(_index){
 		return $(this.init[_index]);
 	};

@@ -11,7 +11,7 @@
  */
 	
 	// Set the arbitrary value
-	
+	//
 	$.fn.val = function(_valueName, _valueContent){
 		$.forEach(this.init,function(){
 			if (_valueName && _valueContent){
@@ -28,7 +28,7 @@
 	};
 	
 	// Call the arbitrary value
-	
+	//
 	$.fn.getVal = function(_valueName){
 		var elemValue;
 		$.forEach(this.init,function(){
@@ -46,7 +46,7 @@
 	};
 	
 	// Remove the arbitrary value
-	
+	//
 	$.fn.removeVal = function(_valueName){
 		$.forEach(this.init,function(){
 			if (_valueName){

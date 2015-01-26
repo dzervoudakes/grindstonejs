@@ -9,7 +9,7 @@
  */
 	
 	// DOM structure ready
-	
+	//
 	$.fn.ready = function(_callback){
 		$.forEach(this.init,function(){
 			this.addEventListener("DOMContentLoaded",_callback,false);
@@ -18,7 +18,7 @@
 	};
 	
 	// DOM structure and content fully loaded
-	
+	//
 	$.fn.load = function(_callback){
 		$.forEach(this.init,function(){
 			this.addEventListener("load",_callback,false);

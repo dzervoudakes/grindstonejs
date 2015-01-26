@@ -9,7 +9,7 @@
  */
 	
 	// Assign the eventListener
-	
+	//
 	$.fn.evt = function(_action, _callback){
 		$.forEach(this.init,function(){
 			if(_action){
@@ -29,7 +29,7 @@
  	};
 	
 	// Drop the eventListener
-	
+	//
 	$.fn.dropEvt = function(_action, _callback){
 		$.forEach(this.init,function(){
 			if (_action){

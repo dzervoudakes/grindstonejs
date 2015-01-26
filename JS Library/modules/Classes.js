@@ -8,13 +8,13 @@
  */
 	
 	// Global regular expression
-	
+	//
 	$.reg = function(_cls){
 		return new RegExp("(\\s|^)" + _cls + "(\\s|$)");
 	};
 	
 	// Detect if a given element has a particular class
-	
+	//
 	$.fn.hasClass = function(_cls){
 		var classTrue;
 		$.forEach(this.init,function(){
@@ -28,7 +28,7 @@
 	};
 	
 	// Add the specified class to the element if it doesn't already contain that class
-	
+	//
 	$.fn.addClass = function(_cls){
 		$.forEach(this.init,function(){
 			if (!$(this).hasClass(_cls)){
@@ -47,7 +47,7 @@
 	};
 	
 	// Remove the specified class from the element if it contains that class
-	
+	//
 	$.fn.removeClass = function(_cls){
 		$.forEach(this.init,function(){
 			if ($(this).hasClass(_cls)){
@@ -62,7 +62,7 @@
 	};
 	
 	// Toggle the specified class
-	
+	//
 	$.fn.toggleClass = function(_cls){
 		$.forEach(this.init,function(){
 			if (!$(this).hasClass(_cls)){
