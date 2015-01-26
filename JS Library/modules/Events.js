@@ -4,7 +4,7 @@
  * Adding and removing event listeners
  *
  * Parameters:
- * -action (the event to handle: only accepts one event per function call)
+ * -action (the event(s) to handle)
  * -callback (the event handler)
  */
 	
