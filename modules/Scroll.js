@@ -10,10 +10,11 @@
 	$.fn.scroll = function(_callback){
 		$.forEach(this.init,function(){
 			$(this).evt("scroll",function(){
-				if(_callback){
+				if (_callback){
 					_callback();
 				}
 			});
 		});
 		return this;
  	};
+ 

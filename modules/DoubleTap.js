@@ -11,7 +11,7 @@
 		$.forEach(this.init,function(){
 			var active = false,
 				interaction = ("createTouch" in document) ? "touchend" : "click";
-			if(_callback){
+			if (_callback){
 				$(this).evt(interaction,function(){
 					if (active){
 						_callback();
@@ -28,3 +28,4 @@
 		});
 		return this;
  	};
+ 

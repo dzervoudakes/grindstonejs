@@ -10,10 +10,11 @@
 	$.fn.resize = function(_callback){
 		$.forEach(this.init,function(){
 			$(this).evt("resize",function(){
-				if(_callback){
+				if (_callback){
 					_callback();
 				}
 			});
 		});
 		return this;
  	};
+ 

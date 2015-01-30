@@ -7,9 +7,9 @@
  * -cls (the className being specified)
  */
 	
-	// Global regular expression
+	// Regular expression specific to this module
 	//
-	$.reg = function(_cls){
+	$.regxCls = function(_cls){
 		return new RegExp("(\\s|^)" + _cls + "(\\s|$)");
 	};
 	
@@ -19,7 +19,7 @@
 		var classTrue;
 		$.forEach(this.init,function(){
 			if (_cls){
-				classTrue = this.className.match($.reg(_cls));
+				classTrue = (this.className.match($.regxCls(_cls)) !== null) ? true : false;
 			} else {
 				throw new Error("Cannot determine if the element has undefined class.");
 			}
@@ -52,7 +52,7 @@
 		$.forEach(this.init,function(){
 			if ($(this).hasClass(_cls)){
 				if (_cls){
-					this.className = this.className.replace($.reg(_cls), "");
+					this.className = this.className.replace($.regxCls(_cls), "");
 				} else {
 					throw new Error("Class to remove is undefined.");
 				}

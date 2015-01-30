@@ -38,6 +38,7 @@
 			}
 			button {
 				border: none;
+				outline: none;
 			}
 			body > *first-child {
 				position: relative;
@@ -116,8 +117,10 @@
 				divs = $("div"),
 				emptyDivs = $("div","#testDiv");
 			
-			$(window).scroll(function(){
-				console.log("yay");
+			el.evt("click",function(){
+				var clsTrue = test.hasClass("down");
+				console.log(clsTrue);
+				test.toggleClass("down");
 			});
 			
 			$("[data-mouseable]").mouseable();

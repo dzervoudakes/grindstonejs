@@ -9,7 +9,7 @@
 	
 	$.fn.wrapInner = function(_structure){
 		$.forEach(this.init,function(){
-			if(_structure){
+			if (_structure){
 				if (typeof _structure === "string"){
 					var contents = $(this).html(),
 						wrap = _structure;
@@ -23,3 +23,4 @@
 		});
 		return this;
  	};
+ 

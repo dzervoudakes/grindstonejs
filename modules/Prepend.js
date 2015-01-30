@@ -1,7 +1,7 @@
 /**
  * prepend()
  *
- * Appends a new child element to the current object and moves it to the front of the childNode list
+ * Inserts a new element or content to the front of the target's childNode list
  *
  * Parameter:
  * -prependElement

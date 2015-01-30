@@ -12,7 +12,7 @@
 	//
 	$.fn.evt = function(_action, _callback){
 		$.forEach(this.init,function(){
-			if(_action){
+			if (_action){
 				if (typeof _action === "string"){
 					var events = _action.split(" ");
 					for (var j = 0; j < events.length; j++){
