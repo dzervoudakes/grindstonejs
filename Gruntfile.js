@@ -37,7 +37,7 @@ module.exports = function(grunt){
 		},
 		uglify: {
 		    options: {
-		    	banner: "/* Grindstone JavaScript Library <%= pkg.version %> | Copyright (c) 2014, <%= grunt.template.today('yyyy') %> Dan Zervoudakes | https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE */\n"
+		    	banner: "/* Grindstone JavaScript Library v<%= pkg.version %> | Copyright (c) 2014, <%= grunt.template.today('yyyy') %> Dan Zervoudakes | https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE */\n"
 		    },
 		    build: {
             	src: "bin/<%= pkg.name %>-v<%= pkg.version %>.js",
