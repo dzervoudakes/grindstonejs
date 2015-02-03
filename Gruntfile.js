@@ -1,3 +1,12 @@
+/**
+ * GrindstoneJS Gruntfile - some notes:
+ * 
+ * When outputting a custom build, some modules require the inclusion of others in order to work properly as currently programmed.
+ * These dependencies are commented below...
+ * 
+ * By default, all modules require the library Core.
+ */
+
 module.exports = function(grunt){
 
 	grunt.initConfig({
@@ -5,7 +14,7 @@ module.exports = function(grunt){
 		concat: {
 		    dist: {
 			    src: [
-				    "Core.js",
+				"Core.js",
 		    		"modules/Ajax.js",
 		    		"modules/Append.js",
 		    		"modules/Attributes.js",
@@ -14,23 +23,23 @@ module.exports = function(grunt){
 		    		"modules/CSS.js",
 		    		"modules/Dimensions.js",
 		    		"modules/Display.js",
-		    		"modules/DoubleTap.js",
+		    		"modules/DoubleTap.js",	// Requires Events.js
 		    		"modules/Each.js",
 		    		"modules/Events.js",
 		    		"modules/HTML.js",
 		    		"modules/Insert.js",
-		    		"modules/Mouseable.js",
+		    		"modules/Mouseable.js",	// Requires Classes.js
 		    		"modules/NewEl.js",
 		    		"modules/Offset.js",
 		    		"modules/Prepend.js",
 		    		"modules/Ready.js",
 		    		"modules/Remove.js",
 		    		"modules/ReplaceWith.js",
-		    		"modules/Resize.js",
-		    		"modules/Scroll.js",
+		    		"modules/Resize.js",	// Requires Events.js
+		    		"modules/Scroll.js",	// Requires Events.js
 		    		"modules/Trigger.js",
-		    		"modules/Value.js",
-		    		"modules/WrapInner.js"
+		    		"modules/Value.js",		// Requires Attributes.js
+		    		"modules/WrapInner.js"	// Requires HTML.js
 			    ],
 			    dest: "bin/<%= pkg.name %>-v<%= pkg.version %>.js"
 		    }
