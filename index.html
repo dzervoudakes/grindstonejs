@@ -118,9 +118,7 @@
 				emptyDivs = $("div","#testDiv");
 			
 			el.evt("click",function(){
-				var clsTrue = test.hasClass("down");
-				console.log(clsTrue);
-				test.toggleClass("down");
+				test.wrapInner("<article><section><span>")
 			});
 			
 			$("[data-mouseable]").mouseable();

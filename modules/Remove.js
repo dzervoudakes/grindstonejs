@@ -9,18 +9,25 @@
  */
 	
 	$.fn.remove = function(_target){
+		
 		if (_target){
-			var elems = document.querySelectorAll(_target),
-				parents = this.init;
+			
+			var elems = document.querySelectorAll(_target);
+			var parents = this.set;
+			
 			for (var j = 0; j < parents.length; j++){
 				$.forEach(elems,function(){
 					parents[j].removeChild(this);
 				});
 			}
+			
 		} else {
-			$.forEach(this.init,function(){
+			
+			$.forEach(this.set,function(){
 				this.parentNode.removeChild(this);
 			});
+			
 		}
+		
 		return this;
 	};

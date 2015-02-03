@@ -9,8 +9,10 @@
  */
 	
 	$.fn.css = function(_styles){
+		
 		var returnedStyle;
-		$.forEach(this.init,function(){
+		
+		this.init(function(){
 			if (_styles){
 				if (typeof _styles === "object"){
 					for (var j in _styles){
@@ -23,6 +25,7 @@
 				throw new Error("CSS properties are undefined.");
 			}
 		});
+		
 		var toReturn = (typeof _styles === "object") ? this : returnedStyle;
 		return toReturn;
 	};

@@ -8,7 +8,7 @@
  */
 	
 	$.fn.append = function(_appendElement){
-		$.forEach(this.init,function(){
+		this.init(function(){
 			if (_appendElement){
 				if (typeof _appendElement === "string"){
 					this.innerHTML += _appendElement;

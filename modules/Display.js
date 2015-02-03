@@ -10,35 +10,51 @@
  */
 	
 	$.fn.show = function(_delay){
-		$.forEach(this.init,function(){
+		
+		this.init(function(){
+			
+			var self = this;
+			
 			if (_delay){
+				
 				if (typeof _delay === "number"){
 					setTimeout(function(){
-						this.style.display = "block";
+						self.style.display = "block";
 					},_delay);
 				} else {
 					throw new Error("Display timeout parameter must be a number.");
 				}
+				
 			} else {
-				this.style.display = "block";
+				self.style.display = "block";
 			}
+			
 		});
+		
 		return this;
 	};
 	
 	$.fn.hide = function(_delay){
-		$.forEach(this.init,function(){
+		
+		this.init(function(){
+			
+			var self = this;
+			
 			if (_delay){
+				
 				if (typeof _delay === "number"){
 					setTimeout(function(){
-						this.style.display = "none";
+						self.style.display = "none";
 					},_delay);
 				} else {
 					throw new Error("Display timeout parameter must be a number.");
 				}
+				
 			} else {
-				this.style.display = "none";
+				self.style.display = "none";
 			}
+			
 		});
+		
 		return this;
 	};

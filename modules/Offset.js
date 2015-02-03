@@ -9,26 +9,37 @@
  */
 	
 	$.fn.offset = function(_position){
+		
 		if (_position && typeof _position === "string"){
+			
 			if (_position !== "left" && _position !== "top"){
 				throw new Error("Offset position must be either 'left' or 'top'.");
 			} else {
-				var elem = this.init[0];
+				
+				var elem = this.set[0];
+				
 				if (_position === "left"){
+					
 					var offsetLeft = 0;
+				   
 				    do {
 				        if (!isNaN(elem.offsetLeft)){
 				          offsetLeft += elem.offsetLeft;
 				        }
 				    } while (elem = elem.offsetParent);
+				   
 				    return offsetLeft;
+				    
 				} else if (_position === "top") {
+					
 					var offsetTop = 0;
+				  
 				    do {
 				        if (!isNaN(elem.offsetTop)){
 				          offsetTop += elem.offsetTop;
 				        }
 				    } while (elem = elem.offsetParent);
+				    
 				    return offsetTop;
 				}
 			}

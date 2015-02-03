@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.0.1
+ * Grindstone JavaScript Library v1.1.0
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -14,35 +14,44 @@
  */
 	
 	// Global constructor "Grindstone" and selector functions...
-	
+	//
 	var Grindstone = function(_selector, _context){
+		
 		if (_selector){
+			
 			var selectedElements;
+			
 			if (typeof _selector === "string"){
 				if (_context){
+					
 					var elem = document.querySelector(_context);
 					selectedElements = elem.querySelectorAll(_selector);
+					
 				} else {
 					selectedElements = document.querySelectorAll(_selector);
 				}
+				
 				if (selectedElements.length > 0){
-					this.init = selectedElements;
+					this.set = selectedElements;
 				} else {
 					return [];
 				}
+				
 				return this;
+				
 			} else if (typeof _selector === "object"){
-				this.init = [_selector];
+				this.set = [_selector];
 			} else {
 				return null;
 			}
+			
 		} else {
 			return false;
 		}
 	};
 	
 	// Shorthand method for obtaining the same results as above...
-	
+	//
 	var $ = function(_selector, _context){
 		return new Grindstone(_selector, _context);
 	};
@@ -62,8 +71,17 @@
 	//
 	$.fn = Grindstone.prototype;
 	
+	/**
+	 * The init() method:
+	 * Use this throughout each module to collect and loop through the set
+	 */
+	
+	$.fn.init = function(_callback){
+		$.forEach(this.set, _callback);
+	};
+	
 	// eq() - returns an element from the set as specified by the corresponding index value
 	//
 	$.fn.eq = function(_index){
-		return $(this.init[_index]);
+		return $(this.set[_index]);
 	};

@@ -11,23 +11,31 @@
  */
 	
 	$.fn.height = function(_num){
+		
 		if (_num && typeof _num === "number"){
-			$.forEach(this.init,function(){
+			
+			this.init(function(){
 				this.style.height = _num + "px";
 			});
+			
 		} else {
-			return this.init[0].offsetHeight;
+			return this.set[0].offsetHeight;
 		}
+		
 		return this;
 	};
 	
 	$.fn.width = function(_num){
+		
 		if (_num){
-			$.forEach(this.init,function(){
+			
+			this.init(function(){
 				this.style.width = _num + "px";
 			});
+			
 		} else {
-			return this.init[0].offsetWidth;
+			return this.set[0].offsetWidth;
 		}
+		
 		return this;
 	};

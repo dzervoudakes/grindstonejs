@@ -1,7 +1,7 @@
 /**
  * GrindstoneJS - Change Log
  * 
- * Current Version: 1.0.1
+ * Current Version: 1.1.0
  */
  
 ==========================================================================================================
@@ -17,3 +17,13 @@
  
  	-Slight bug fix for hasClass()
  	-Classes.js: made Reg Exp more specific/semantic to the module
+ 
+ ----------------------------------------------------------------------------------------------------------
+
+ /* Version 1.1.0 - 2/3/15 */
+ 
+ 	-Reformatted initialization - now to loop through collections, use "this.init()" format in all modules
+ 	-Added new modules:
+ 	  -x
+ 	  -y
+ 	  -z

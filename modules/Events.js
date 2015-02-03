@@ -11,8 +11,11 @@
 	// Assign the eventListener
 	//
 	$.fn.evt = function(_action, _callback){
-		$.forEach(this.init,function(){
+		
+		this.init(function(){
+			
 			if (_action){
+				
 				if (typeof _action === "string"){
 					var events = _action.split(" ");
 					for (var j = 0; j < events.length; j++){
@@ -21,18 +24,24 @@
 				} else {
 					throw new Error("Type of event action must be a string.");
 				}
+				
 			} else {
 				throw new Error("Event to handle is undefined.");
 			}
+			
 		});
+		
 		return this;
  	};
 	
 	// Drop the eventListener
 	//
 	$.fn.dropEvt = function(_action, _callback){
-		$.forEach(this.init,function(){
+		
+		this.init(function(){
+			
 			if (_action){
+				
 				if (typeof _action === "string"){
 					var events = _action.split(" ");
 					for (var j = 0; j < events.length; j++){
@@ -41,9 +50,12 @@
 				} else {
 					throw new Error("Type of event action must be a string.");
 				}
+				
 			} else {
 				throw new Error("Event handler to drop is undefined.");
 			}
+			
 		});
+		
 		return this;
 	};

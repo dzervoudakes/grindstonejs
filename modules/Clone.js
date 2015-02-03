@@ -5,5 +5,5 @@
  */
 	
 	$.fn.clone = function(){
-		return this.init[0].cloneNode(true);
+		return this.set[0].cloneNode(true);
 	};

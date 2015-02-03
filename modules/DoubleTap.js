@@ -8,24 +8,30 @@
  */
 	
 	$.fn.doubleTap = function(_callback){
-		$.forEach(this.init,function(){
-			var active = false,
-				interaction = ("createTouch" in document) ? "touchend" : "click";
+		
+		this.init(function(){
+			
+			var active = false;
+			var interaction = ("createTouch" in document) ? "touchend" : "click";
+			
 			if (_callback){
+				
 				$(this).evt(interaction,function(){
 					if (active){
 						_callback();
-						active = false;
+						return active = false;
 					}
 					active = true;
 					setTimeout(function(){
-						active = false;
-					},360);
+						return active = false;
+					},320);
 				});
+				
 			} else {
 				throw new Error("Double-tap/double-click callback is undefined.");
 			}
 		});
+		
 		return this;
  	};
  

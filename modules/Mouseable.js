@@ -12,24 +12,31 @@
  */
 	
 	$.fn.mouseable = function(_classes){
-		var hoverClass,
-			activeClass;
+		
+		var hoverClass;
+		
+		var activeClass;
+		
 		if (_classes){
+			
 			if (typeof _classes === "object"){
 				hoverClass  = (_classes.hasOwnProperty("hoverClass"))  ? _classes["hoverClass"]  : "over";
 				activeClass = (_classes.hasOwnProperty("activeClass")) ? _classes["activeClass"] : "down";
 			} else {
 				throw new Error("Classes parameter for mouseable() must be an object with properties 'hoverClass' and/or 'activeClass'.");
 			}
+			
 		} else {
 			hoverClass = "over";
 			activeClass = "down";
 		}
-		var evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseenter",
-			evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave",
-			evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown",
-			evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
-		$.forEach(this.init,function(){
+		
+		var evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseenter";
+		var evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave";
+		var evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown";
+		var evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
+		
+		this.init(function(){
 			$(this).evt(evt_hover,function(){
 				$(this).addClass(hoverClass);
 			})

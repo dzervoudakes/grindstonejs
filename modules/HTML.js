@@ -8,14 +8,17 @@
  */
 	
 	$.fn.html = function(_content){
+		
 		var txt;
-		$.forEach(this.init,function(){
+		
+		this.init(function(){
 			if (_content){
 				this.innerHTML = _content;
 			} else {
 				txt = this.innerHTML;
 			}
 		});
+		
 		var toReturn = (_content) ? this : txt;
 		return toReturn;
  	};
