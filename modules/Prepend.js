@@ -12,8 +12,6 @@
 		
 		this.init(function(){
 			
-			var self = this;
-			
 			if (_prependElement){
 			
 				if (typeof _prependElement === "string"){
@@ -22,20 +20,20 @@
 					
 					if (txt[0] === "<"){
 						
-						self.insertAdjacentHTML("afterbegin", _prependElement);
+						this.insertAdjacentHTML("afterbegin", _prependElement);
 					
 					} else {
 						
 						var dom = document.querySelectorAll(_prependElement);
 						
 						for (var i = 0; i < dom.length; i++){
-							self.insertBefore(dom[i], self.firstChild);
+							this.insertBefore(dom[i], this.firstChild);
 						}
 						
 					}
 					
 				} else {
-					self.insertBefore(_prependElement, self.firstChild);
+					this.insertBefore(_prependElement, self.firstChild);
 				}
 				
 			} else {

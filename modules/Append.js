@@ -12,8 +12,6 @@
 		
 		this.init(function(){
 			
-			var self = this;
-			
 			if (_appendElement){
 				
 				if (typeof _appendElement === "string"){
@@ -22,14 +20,14 @@
 					
 					if (txt[0] === "<"){
 						
-						self.innerHTML += _appendElement;
+						this.innerHTML += _appendElement;
 					
 					} else {
 						
 						var dom = document.querySelectorAll(_appendElement);
 						
 						for (var i = 0; i < dom.length; i++){
-							self.appendChild(dom[i]);
+							this.appendChild(dom[i]);
 						}
 						
 					}

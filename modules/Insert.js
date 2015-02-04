@@ -12,8 +12,6 @@
 		
 		this.init(function(){
 			
-			var self = this;
-			
 			if (_content){
 				
 				if (typeof _content === "string"){
@@ -22,20 +20,20 @@
 					
 					if (txt[0] === "<"){
 						
-						self.insertAdjacentHTML("beforebegin", _content);
+						this.insertAdjacentHTML("beforebegin", _content);
 						
 					} else {
 						
 						var dom = document.querySelectorAll(_content);
 						
 						for (var i = 0; i < dom.length; i++){
-							self.parentNode.insertBefore(dom[i], self);
+							this.parentNode.insertBefore(dom[i], this);
 						}
 						
 					}
 					
 				} else {
-					self.parentNode.insertBefore(_content, self);
+					this.parentNode.insertBefore(_content, this);
 				}
 				
 			} else {
@@ -51,8 +49,6 @@
 		
 		this.init(function(){
 			
-			var self = this;
-			
 			if (_content){
 				
 				if (typeof _content === "string"){
@@ -61,20 +57,20 @@
 					
 					if (txt[0] === "<"){
 						
-						self.insertAdjacentHTML("afterend", _content);
+						this.insertAdjacentHTML("afterend", _content);
 						
 					} else {
 						
 						var dom = document.querySelectorAll(_content);
 						
 						for (var i = 0; i < dom.length; i++){
-							self.parentNode.insertBefore(dom[i], self.nextSibling);
+							this.parentNode.insertBefore(dom[i], this.nextSibling);
 						}
 						
 					}
 					
 				} else {
-					self.parentNode.insertBefore(_content, self.nextSibling);
+					this.parentNode.insertBefore(_content, this.nextSibling);
 				}
 				
 			} else {

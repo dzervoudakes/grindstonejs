@@ -151,8 +151,6 @@
 		
 		this.init(function(){
 			
-			var self = this;
-			
 			if (_appendElement){
 				
 				if (typeof _appendElement === "string"){
@@ -161,14 +159,14 @@
 					
 					if (txt[0] === "<"){
 						
-						self.innerHTML += _appendElement;
+						this.innerHTML += _appendElement;
 					
 					} else {
 						
 						var dom = document.querySelectorAll(_appendElement);
 						
 						for (var i = 0; i < dom.length; i++){
-							self.appendChild(dom[i]);
+							this.appendChild(dom[i]);
 						}
 						
 					}
@@ -633,8 +631,6 @@
 		
 		this.init(function(){
 			
-			var self = this;
-			
 			if (_content){
 				
 				if (typeof _content === "string"){
@@ -643,20 +639,20 @@
 					
 					if (txt[0] === "<"){
 						
-						self.insertAdjacentHTML("beforebegin", _content);
+						this.insertAdjacentHTML("beforebegin", _content);
 						
 					} else {
 						
 						var dom = document.querySelectorAll(_content);
 						
 						for (var i = 0; i < dom.length; i++){
-							self.parentNode.insertBefore(dom[i], self);
+							this.parentNode.insertBefore(dom[i], this);
 						}
 						
 					}
 					
 				} else {
-					self.parentNode.insertBefore(_content, self);
+					this.parentNode.insertBefore(_content, this);
 				}
 				
 			} else {
@@ -672,8 +668,6 @@
 		
 		this.init(function(){
 			
-			var self = this;
-			
 			if (_content){
 				
 				if (typeof _content === "string"){
@@ -682,20 +676,20 @@
 					
 					if (txt[0] === "<"){
 						
-						self.insertAdjacentHTML("afterend", _content);
+						this.insertAdjacentHTML("afterend", _content);
 						
 					} else {
 						
 						var dom = document.querySelectorAll(_content);
 						
 						for (var i = 0; i < dom.length; i++){
-							self.parentNode.insertBefore(dom[i], self.nextSibling);
+							this.parentNode.insertBefore(dom[i], this.nextSibling);
 						}
 						
 					}
 					
 				} else {
-					self.parentNode.insertBefore(_content, self.nextSibling);
+					this.parentNode.insertBefore(_content, this.nextSibling);
 				}
 				
 			} else {
@@ -864,8 +858,6 @@
 		
 		this.init(function(){
 			
-			var self = this;
-			
 			if (_prependElement){
 			
 				if (typeof _prependElement === "string"){
@@ -874,20 +866,20 @@
 					
 					if (txt[0] === "<"){
 						
-						self.insertAdjacentHTML("afterbegin", _prependElement);
+						this.insertAdjacentHTML("afterbegin", _prependElement);
 					
 					} else {
 						
 						var dom = document.querySelectorAll(_prependElement);
 						
 						for (var i = 0; i < dom.length; i++){
-							self.insertBefore(dom[i], self.firstChild);
+							this.insertBefore(dom[i], this.firstChild);
 						}
 						
 					}
 					
 				} else {
-					self.insertBefore(_prependElement, self.firstChild);
+					this.insertBefore(_prependElement, self.firstChild);
 				}
 				
 			} else {
