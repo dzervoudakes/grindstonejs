@@ -2,6 +2,7 @@
  * prepend()
  *
  * Inserts a new element or content to the front of the target's childNode list
+ * New content can be either HTML input as a string or existing DOM elements
  *
  * Parameter:
  * -prependElement
@@ -11,12 +12,30 @@
 		
 		this.init(function(){
 			
+			var self = this;
+			
 			if (_prependElement){
 			
 				if (typeof _prependElement === "string"){
-					this.insertAdjacentHTML("afterbegin",_prependElement);
+					
+					var txt = _prependElement.split("");
+					
+					if (txt[0] === "<"){
+						
+						self.insertAdjacentHTML("afterbegin", _prependElement);
+					
+					} else {
+						
+						var dom = document.querySelectorAll(_prependElement);
+						
+						for (var i = 0; i < dom.length; i++){
+							self.insertBefore(dom[i], self.firstChild);
+						}
+						
+					}
+					
 				} else {
-					this.insertBefore(_prependElement,this.firstChild);
+					self.insertBefore(_prependElement, self.firstChild);
 				}
 				
 			} else {

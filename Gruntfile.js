@@ -14,7 +14,7 @@ module.exports = function(grunt){
 		concat: {
 		    dist: {
 			    src: [
-				"Core.js",
+				    "Core.js",
 		    		"modules/Ajax.js",
 		    		"modules/Append.js",
 		    		"modules/Attributes.js",

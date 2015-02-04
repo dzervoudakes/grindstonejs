@@ -106,6 +106,7 @@
 				<div id="emptyDiv04" class="emptyDiv"></div>
 			</div>
 		</div>
+		<article id="emptyArticle"></article>
 		<button id="btn1" class="btns" data-mouseable></button>
 		<button id="btn2" class="btns" data-mouseable></button>
 		<script type="text/javascript">
@@ -118,7 +119,7 @@
 				emptyDivs = $("div","#testDiv");
 			
 			el.evt("click",function(){
-				test.wrapInner("<article><section><span>")
+				test.after("#btn2");
 			});
 			
 			$("[data-mouseable]").mouseable();
