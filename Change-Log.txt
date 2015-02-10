@@ -1,7 +1,7 @@
 /**
  * GrindstoneJS - Change Log
  * 
- * Current Version: 1.1.0
+ * Current Version: 1.1.1
  */
  
 ==========================================================================================================
@@ -28,3 +28,9 @@
  	  -Append.js
  	  -Prepend.js
  	  -Insert.js
+
+ ----------------------------------------------------------------------------------------------------------
+
+ /* Version 1.1.1 - 2/10/15 */
+ 
+ 	-Refactored variable layout/format within each module

@@ -10,13 +10,15 @@
 	
 	$.fn.before = function(_content){
 		
+		var txt, dom, i;
+		
 		this.init(function(){
 			
 			if (_content){
 				
 				if (typeof _content === "string"){
 					
-					var txt = _content.split("");
+					txt = _content.split("");
 					
 					if (txt[0] === "<"){
 						
@@ -24,9 +26,9 @@
 						
 					} else {
 						
-						var dom = document.querySelectorAll(_content);
+						dom = document.querySelectorAll(_content);
 						
-						for (var i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++){
 							this.parentNode.insertBefore(dom[i], this);
 						}
 						
@@ -47,13 +49,15 @@
 	
 	$.fn.after = function(_content){
 		
+		var txt, dom, i;
+		
 		this.init(function(){
 			
 			if (_content){
 				
 				if (typeof _content === "string"){
 					
-					var txt = _content.split("");
+					txt = _content.split("");
 					
 					if (txt[0] === "<"){
 						
@@ -61,9 +65,9 @@
 						
 					} else {
 						
-						var dom = document.querySelectorAll(_content);
+						dom = document.querySelectorAll(_content);
 						
-						for (var i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++){
 							this.parentNode.insertBefore(dom[i], this.nextSibling);
 						}
 						

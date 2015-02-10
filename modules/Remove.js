@@ -10,14 +10,16 @@
 	
 	$.fn.remove = function(_target){
 		
+		var elems, parents, i;
+		
 		if (_target){
 			
-			var elems = document.querySelectorAll(_target);
-			var parents = this.set;
+			elems = document.querySelectorAll(_target);
+			parents = this.set;
 			
-			for (var j = 0; j < parents.length; j++){
+			for (i = 0; i < parents.length; i++){
 				$.forEach(elems,function(){
-					parents[j].removeChild(this);
+					parents[i].removeChild(this);
 				});
 			}
 			

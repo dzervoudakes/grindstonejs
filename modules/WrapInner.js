@@ -9,14 +9,16 @@
 	
 	$.fn.wrapInner = function(_structure){
 		
+		var contents, wrap;
+		
 		this.init(function(){
 			
 			if (_structure){
 				
 				if (typeof _structure === "string"){
 					
-					var contents = $(this).html();
-					var wrap = _structure;
+					contents = $(this).html();
+					wrap = _structure;
 					
 					$(this).html(wrap + contents);
 					

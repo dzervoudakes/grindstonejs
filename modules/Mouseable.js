@@ -13,9 +13,7 @@
 	
 	$.fn.mouseable = function(_classes){
 		
-		var hoverClass;
-		
-		var activeClass;
+		var hoverClass, activeClass, evt_hover, evt_remove, evt_down, evt_up;
 		
 		if (_classes){
 			
@@ -31,10 +29,10 @@
 			activeClass = "down";
 		}
 		
-		var evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseenter";
-		var evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave";
-		var evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown";
-		var evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
+		evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseenter";
+		evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave";
+		evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown";
+		evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
 		
 		this.init(function(){
 			$(this).evt(evt_hover,function(){

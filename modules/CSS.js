@@ -10,13 +10,13 @@
 	
 	$.fn.css = function(_styles){
 		
-		var returnedStyle;
+		var returnedStyle, i, toReturn;
 		
 		this.init(function(){
 			if (_styles){
 				if (typeof _styles === "object"){
-					for (var j in _styles){
-						this.style[j] = _styles[j];
+					for (i in _styles){
+						this.style[i] = _styles[i];
 					}
 				} else {
 					returnedStyle = this.style[_styles];
@@ -26,6 +26,6 @@
 			}
 		});
 		
-		var toReturn = (typeof _styles === "object") ? this : returnedStyle;
+		toReturn = (typeof _styles === "object") ? this : returnedStyle;
 		return toReturn;
 	};

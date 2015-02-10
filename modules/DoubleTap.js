@@ -9,22 +9,28 @@
 	
 	$.fn.doubleTap = function(_callback){
 		
+		var active, interaction;
+		
 		this.init(function(){
 			
-			var active = false;
-			var interaction = ("createTouch" in document) ? "touchend" : "click";
+			active = false;
+			interaction = ("createTouch" in document) ? "touchend" : "click";
 			
 			if (_callback){
 				
 				$(this).evt(interaction,function(){
+					
 					if (active){
 						_callback();
 						return active = false;
 					}
+					
 					active = true;
+					
 					setTimeout(function(){
 						return active = false;
-					},320);
+					}, 350);
+					
 				});
 				
 			} else {

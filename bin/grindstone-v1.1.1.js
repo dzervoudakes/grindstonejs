@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.1.0
+ * Grindstone JavaScript Library v1.1.1
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -19,12 +19,12 @@
 		
 		if (_selector){
 			
-			var selectedElements;
+			var elem, selectedElements;
 			
 			if (typeof _selector === "string"){
 				if (_context){
 					
-					var elem = document.querySelector(_context);
+					elem = document.querySelector(_context);
 					selectedElements = elem.querySelectorAll(_selector);
 					
 				} else {
@@ -103,23 +103,25 @@
 	
 	$.ajax = function(_obj){
 		
-		var method, url, async, success, header, headerValue, sendStr;
+		var method, url, async, success, header, headerValue, sendStr, xmlhttp;
 		
 		function prop(_property){
 			return _obj.hasOwnProperty(_property);
 		};
 		
 		if (_obj && typeof _obj === "object"){
+			
 			method   = (prop("method"))   ? _obj.method   : null;
 			url      = (prop("url"))      ? _obj.url      : null;
 			async    = (prop("async"))    ? _obj.async    : true;
 			success  = (prop("success"))  ? _obj.success  : null;
 			sendStr  = (prop("str"))      ? _obj.sendStr  : null;
+			
 		} else {
 			throw new Error("Ajax request cannot be sent.");
 		}
 		
-		var xmlhttp = new XMLHttpRequest();
+		xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function(){
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
 				success(xmlhttp);
@@ -149,13 +151,15 @@
 	
 	$.fn.append = function(_appendElement){
 		
+		var txt, dom, i;
+		
 		this.init(function(){
 			
 			if (_appendElement){
 				
 				if (typeof _appendElement === "string"){
 					
-					var txt = _appendElement.split("");
+					txt = _appendElement.split("");
 					
 					if (txt[0] === "<"){
 						
@@ -163,9 +167,9 @@
 					
 					} else {
 						
-						var dom = document.querySelectorAll(_appendElement);
+						dom = document.querySelectorAll(_appendElement);
 						
-						for (var i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++){
 							this.appendChild(dom[i]);
 						}
 						
@@ -198,7 +202,7 @@
 	
 	$.fn.attr = function(_attribute, _value){
 		
-		var elemAttribute;
+		var elemAttribute, toReturn;
 		
 		this.init(function(){
 			if (_attribute){
@@ -214,7 +218,7 @@
 			}
 		});
 		
-		var toReturn = (_value) ? this : elemAttribute;
+		toReturn = (_value) ? this : elemAttribute;
 		return toReturn;
 	};
 	
@@ -353,13 +357,13 @@
 	
 	$.fn.css = function(_styles){
 		
-		var returnedStyle;
+		var returnedStyle, i, toReturn;
 		
 		this.init(function(){
 			if (_styles){
 				if (typeof _styles === "object"){
-					for (var j in _styles){
-						this.style[j] = _styles[j];
+					for (i in _styles){
+						this.style[i] = _styles[i];
 					}
 				} else {
 					returnedStyle = this.style[_styles];
@@ -369,7 +373,7 @@
 			}
 		});
 		
-		var toReturn = (typeof _styles === "object") ? this : returnedStyle;
+		toReturn = (typeof _styles === "object") ? this : returnedStyle;
 		return toReturn;
 	};
 
@@ -435,9 +439,11 @@
 			if (_delay){
 				
 				if (typeof _delay === "number"){
+					
 					setTimeout(function(){
 						self.style.display = "block";
-					},_delay);
+					}, _delay);
+					
 				} else {
 					throw new Error("Display timeout parameter must be a number.");
 				}
@@ -460,9 +466,11 @@
 			if (_delay){
 				
 				if (typeof _delay === "number"){
+					
 					setTimeout(function(){
 						self.style.display = "none";
-					},_delay);
+					}, _delay);
+					
 				} else {
 					throw new Error("Display timeout parameter must be a number.");
 				}
@@ -487,22 +495,28 @@
 	
 	$.fn.doubleTap = function(_callback){
 		
+		var active, interaction;
+		
 		this.init(function(){
 			
-			var active = false;
-			var interaction = ("createTouch" in document) ? "touchend" : "click";
+			active = false;
+			interaction = ("createTouch" in document) ? "touchend" : "click";
 			
 			if (_callback){
 				
 				$(this).evt(interaction,function(){
+					
 					if (active){
 						_callback();
 						return active = false;
 					}
+					
 					active = true;
+					
 					setTimeout(function(){
 						return active = false;
-					},320);
+					}, 350);
+					
 				});
 				
 			} else {
@@ -523,10 +537,15 @@
  */
 	
 	$.fn.each = function(_callback){
-		var results = this.set;
-		for (var j = 0; j < results.length; j++){
-			_callback.call(results[j]);
+		
+		var results, i;
+		
+		results = this.set;
+		
+		for (i = 0; i < results.length; i++){
+			_callback.call(results[i]);
 		}
+		
 		return this;
  	};
  
@@ -544,15 +563,20 @@
 	//
 	$.fn.evt = function(_action, _callback){
 		
+		var events, i;
+		
 		this.init(function(){
 			
 			if (_action){
 				
 				if (typeof _action === "string"){
-					var events = _action.split(" ");
-					for (var j = 0; j < events.length; j++){
-						this.addEventListener(events[j], _callback, false);
+					
+					events = _action.split(" ");
+					
+					for (i = 0; i < events.length; i++){
+						this.addEventListener(events[i], _callback, false);
 					}
+					
 				} else {
 					throw new Error("Type of event action must be a string.");
 				}
@@ -570,15 +594,20 @@
 	//
 	$.fn.dropEvt = function(_action, _callback){
 		
+		var events, i;
+		
 		this.init(function(){
 			
 			if (_action){
 				
 				if (typeof _action === "string"){
-					var events = _action.split(" ");
-					for (var j = 0; j < events.length; j++){
-						this.removeEventListener(events[j], _callback, false);
+					
+					events = _action.split(" ");
+					
+					for (i = 0; i < events.length; i++){
+						this.removeEventListener(events[i], _callback, false);
 					}
+					
 				} else {
 					throw new Error("Type of event action must be a string.");
 				}
@@ -603,7 +632,7 @@
 	
 	$.fn.html = function(_content){
 		
-		var txt;
+		var txt, toReturn;
 		
 		this.init(function(){
 			if (_content){
@@ -613,7 +642,7 @@
 			}
 		});
 		
-		var toReturn = (_content) ? this : txt;
+		toReturn = (_content) ? this : txt;
 		return toReturn;
  	};
  
@@ -629,13 +658,15 @@
 	
 	$.fn.before = function(_content){
 		
+		var txt, dom, i;
+		
 		this.init(function(){
 			
 			if (_content){
 				
 				if (typeof _content === "string"){
 					
-					var txt = _content.split("");
+					txt = _content.split("");
 					
 					if (txt[0] === "<"){
 						
@@ -643,9 +674,9 @@
 						
 					} else {
 						
-						var dom = document.querySelectorAll(_content);
+						dom = document.querySelectorAll(_content);
 						
-						for (var i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++){
 							this.parentNode.insertBefore(dom[i], this);
 						}
 						
@@ -666,13 +697,15 @@
 	
 	$.fn.after = function(_content){
 		
+		var txt, dom, i;
+		
 		this.init(function(){
 			
 			if (_content){
 				
 				if (typeof _content === "string"){
 					
-					var txt = _content.split("");
+					txt = _content.split("");
 					
 					if (txt[0] === "<"){
 						
@@ -680,9 +713,9 @@
 						
 					} else {
 						
-						var dom = document.querySelectorAll(_content);
+						dom = document.querySelectorAll(_content);
 						
-						for (var i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++){
 							this.parentNode.insertBefore(dom[i], this.nextSibling);
 						}
 						
@@ -716,9 +749,7 @@
 	
 	$.fn.mouseable = function(_classes){
 		
-		var hoverClass;
-		
-		var activeClass;
+		var hoverClass, activeClass, evt_hover, evt_remove, evt_down, evt_up;
 		
 		if (_classes){
 			
@@ -734,10 +765,10 @@
 			activeClass = "down";
 		}
 		
-		var evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseenter";
-		var evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave";
-		var evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown";
-		var evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
+		evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseenter";
+		evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave";
+		evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown";
+		evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
 		
 		this.init(function(){
 			$(this).evt(evt_hover,function(){
@@ -806,17 +837,19 @@
 	
 	$.fn.offset = function(_position){
 		
+		var elem, offsetLeft, offsetTop;
+		
 		if (_position && typeof _position === "string"){
 			
 			if (_position !== "left" && _position !== "top"){
 				throw new Error("Offset position must be either 'left' or 'top'.");
 			} else {
 				
-				var elem = this.set[0];
+				elem = this.set[0];
 				
 				if (_position === "left"){
 					
-					var offsetLeft = 0;
+					offsetLeft = 0;
 				   
 				    do {
 				        if (!isNaN(elem.offsetLeft)){
@@ -828,7 +861,7 @@
 				    
 				} else if (_position === "top") {
 					
-					var offsetTop = 0;
+					offsetTop = 0;
 				  
 				    do {
 				        if (!isNaN(elem.offsetTop)){
@@ -856,13 +889,15 @@
 	
 	$.fn.prepend = function(_prependElement){
 		
+		var txt, dom, i;
+		
 		this.init(function(){
 			
 			if (_prependElement){
 			
 				if (typeof _prependElement === "string"){
 					
-					var txt = _prependElement.split("");
+					txt = _prependElement.split("");
 					
 					if (txt[0] === "<"){
 						
@@ -870,9 +905,9 @@
 					
 					} else {
 						
-						var dom = document.querySelectorAll(_prependElement);
+						dom = document.querySelectorAll(_prependElement);
 						
-						for (var i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++){
 							this.insertBefore(dom[i], this.firstChild);
 						}
 						
@@ -904,18 +939,22 @@
 	// DOM structure ready
 	//
 	$.fn.ready = function(_callback){
+		
 		this.init(function(){
 			this.addEventListener("DOMContentLoaded",_callback,false);
 		});
+		
 		return this;
 	};
 	
 	// DOM structure and content fully loaded
 	//
 	$.fn.load = function(_callback){
+		
 		this.init(function(){
 			this.addEventListener("load",_callback,false);
 		});
+		
 		return this;
 	};
 
@@ -931,14 +970,16 @@
 	
 	$.fn.remove = function(_target){
 		
+		var elems, parents, i;
+		
 		if (_target){
 			
-			var elems = document.querySelectorAll(_target);
-			var parents = this.set;
+			elems = document.querySelectorAll(_target);
+			parents = this.set;
 			
-			for (var j = 0; j < parents.length; j++){
+			for (i = 0; i < parents.length; i++){
 				$.forEach(elems,function(){
-					parents[j].removeChild(this);
+					parents[i].removeChild(this);
 				});
 			}
 			
@@ -1036,9 +1077,11 @@
 	
 	$.fn.trigger = function(_event){
 		
+		var customEvent;
+		
 		if (_event){
 			
-			var customEvent = new Event(_event);
+			customEvent = new Event(_event);
 			
 			this.init(function(){
 				this.dispatchEvent(customEvent);
@@ -1145,14 +1188,16 @@
 	
 	$.fn.wrapInner = function(_structure){
 		
+		var contents, wrap;
+		
 		this.init(function(){
 			
 			if (_structure){
 				
 				if (typeof _structure === "string"){
 					
-					var contents = $(this).html();
-					var wrap = _structure;
+					contents = $(this).html();
+					wrap = _structure;
 					
 					$(this).html(wrap + contents);
 					

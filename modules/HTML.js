@@ -9,7 +9,7 @@
 	
 	$.fn.html = function(_content){
 		
-		var txt;
+		var txt, toReturn;
 		
 		this.init(function(){
 			if (_content){
@@ -19,7 +19,7 @@
 			}
 		});
 		
-		var toReturn = (_content) ? this : txt;
+		toReturn = (_content) ? this : txt;
 		return toReturn;
  	};
  

@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.1.0
+ * Grindstone JavaScript Library v1.1.1
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -19,12 +19,12 @@
 		
 		if (_selector){
 			
-			var selectedElements;
+			var elem, selectedElements;
 			
 			if (typeof _selector === "string"){
 				if (_context){
 					
-					var elem = document.querySelector(_context);
+					elem = document.querySelector(_context);
 					selectedElements = elem.querySelectorAll(_selector);
 					
 				} else {

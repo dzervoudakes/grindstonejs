@@ -18,9 +18,11 @@
 			if (_delay){
 				
 				if (typeof _delay === "number"){
+					
 					setTimeout(function(){
 						self.style.display = "block";
-					},_delay);
+					}, _delay);
+					
 				} else {
 					throw new Error("Display timeout parameter must be a number.");
 				}
@@ -43,9 +45,11 @@
 			if (_delay){
 				
 				if (typeof _delay === "number"){
+					
 					setTimeout(function(){
 						self.style.display = "none";
-					},_delay);
+					}, _delay);
+					
 				} else {
 					throw new Error("Display timeout parameter must be a number.");
 				}

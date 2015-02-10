@@ -10,17 +10,19 @@
 	
 	$.fn.offset = function(_position){
 		
+		var elem, offsetLeft, offsetTop;
+		
 		if (_position && typeof _position === "string"){
 			
 			if (_position !== "left" && _position !== "top"){
 				throw new Error("Offset position must be either 'left' or 'top'.");
 			} else {
 				
-				var elem = this.set[0];
+				elem = this.set[0];
 				
 				if (_position === "left"){
 					
-					var offsetLeft = 0;
+					offsetLeft = 0;
 				   
 				    do {
 				        if (!isNaN(elem.offsetLeft)){
@@ -32,7 +34,7 @@
 				    
 				} else if (_position === "top") {
 					
-					var offsetTop = 0;
+					offsetTop = 0;
 				  
 				    do {
 				        if (!isNaN(elem.offsetTop)){

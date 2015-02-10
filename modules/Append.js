@@ -10,13 +10,15 @@
 	
 	$.fn.append = function(_appendElement){
 		
+		var txt, dom, i;
+		
 		this.init(function(){
 			
 			if (_appendElement){
 				
 				if (typeof _appendElement === "string"){
 					
-					var txt = _appendElement.split("");
+					txt = _appendElement.split("");
 					
 					if (txt[0] === "<"){
 						
@@ -24,9 +26,9 @@
 					
 					} else {
 						
-						var dom = document.querySelectorAll(_appendElement);
+						dom = document.querySelectorAll(_appendElement);
 						
-						for (var i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++){
 							this.appendChild(dom[i]);
 						}
 						

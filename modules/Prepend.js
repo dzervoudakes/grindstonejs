@@ -10,13 +10,15 @@
 	
 	$.fn.prepend = function(_prependElement){
 		
+		var txt, dom, i;
+		
 		this.init(function(){
 			
 			if (_prependElement){
 			
 				if (typeof _prependElement === "string"){
 					
-					var txt = _prependElement.split("");
+					txt = _prependElement.split("");
 					
 					if (txt[0] === "<"){
 						
@@ -24,9 +26,9 @@
 					
 					} else {
 						
-						var dom = document.querySelectorAll(_prependElement);
+						dom = document.querySelectorAll(_prependElement);
 						
-						for (var i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++){
 							this.insertBefore(dom[i], this.firstChild);
 						}
 						

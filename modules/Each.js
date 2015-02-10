@@ -8,10 +8,15 @@
  */
 	
 	$.fn.each = function(_callback){
-		var results = this.set;
-		for (var j = 0; j < results.length; j++){
-			_callback.call(results[j]);
+		
+		var results, i;
+		
+		results = this.set;
+		
+		for (i = 0; i < results.length; i++){
+			_callback.call(results[i]);
 		}
+		
 		return this;
  	};
  
