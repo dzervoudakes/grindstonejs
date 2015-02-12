@@ -1,7 +1,7 @@
 /**
  * GrindstoneJS - Change Log
  * 
- * Current Version: 1.1.1
+ * Current Version: 1.1.2
  */
  
 ==========================================================================================================
@@ -34,3 +34,9 @@
  /* Version 1.1.1 - 2/10/15 */
  
  	-Refactored variable layout/format within each module
+
+ ----------------------------------------------------------------------------------------------------------
+
+ /* Version 1.1.2 - 2/11/15 */
+ 
+ 	-Updated "querySelector" to "querySelectorAll" for _context in Core.js

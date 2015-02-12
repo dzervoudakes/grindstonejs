@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.1.1
+ * Grindstone JavaScript Library v1.1.2
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -19,13 +19,22 @@
 		
 		if (_selector){
 			
-			var elem, selectedElements;
+			var selectedElements, ctx, els, i, j;
 			
 			if (typeof _selector === "string"){
 				if (_context){
 					
-					elem = document.querySelector(_context);
-					selectedElements = elem.querySelectorAll(_selector);
+					ctx = document.querySelectorAll(_context);
+					selectedElements = [];
+					
+					for (i = 0; i < ctx.length; i++){
+						
+						els = ctx[i].querySelectorAll(_selector);
+						
+						for (j = 0; j < els.length; j++){
+							selectedElements.push(els[j]);
+						}
+					}
 					
 				} else {
 					selectedElements = document.querySelectorAll(_selector);
@@ -50,7 +59,7 @@
 		}
 	};
 	
-	// Shorthand method for obtaining the same results as above...
+	// Shorthand for the above...
 	//
 	var $ = function(_selector, _context){
 		return new Grindstone(_selector, _context);
