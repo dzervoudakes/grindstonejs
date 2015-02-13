@@ -20,7 +20,7 @@
 					
 					txt = _content.split("");
 					
-					if (txt[0] === "<"){
+					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
 						
 						this.insertAdjacentHTML("beforebegin", _content);
 						
@@ -59,7 +59,7 @@
 					
 					txt = _content.split("");
 					
-					if (txt[0] === "<"){
+					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
 						
 						this.insertAdjacentHTML("afterend", _content);
 						

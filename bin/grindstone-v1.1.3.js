@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.1.2
+ * Grindstone JavaScript Library v1.1.3
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -170,7 +170,7 @@
 					
 					txt = _appendElement.split("");
 					
-					if (txt[0] === "<"){
+					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
 						
 						this.innerHTML += _appendElement;
 					
@@ -677,7 +677,7 @@
 					
 					txt = _content.split("");
 					
-					if (txt[0] === "<"){
+					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
 						
 						this.insertAdjacentHTML("beforebegin", _content);
 						
@@ -716,7 +716,7 @@
 					
 					txt = _content.split("");
 					
-					if (txt[0] === "<"){
+					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
 						
 						this.insertAdjacentHTML("afterend", _content);
 						
@@ -908,7 +908,7 @@
 					
 					txt = _prependElement.split("");
 					
-					if (txt[0] === "<"){
+					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
 						
 						this.insertAdjacentHTML("afterbegin", _prependElement);
 					

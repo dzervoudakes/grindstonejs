@@ -20,7 +20,7 @@
 					
 					txt = _prependElement.split("");
 					
-					if (txt[0] === "<"){
+					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
 						
 						this.insertAdjacentHTML("afterbegin", _prependElement);
 					
