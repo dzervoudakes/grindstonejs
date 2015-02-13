@@ -10,7 +10,7 @@
 	
 	$.fn.append = function(_appendElement){
 		
-		var txt, dom, i;
+		var dom, i;
 		
 		this.init(function(){
 			
@@ -18,9 +18,7 @@
 				
 				if (typeof _appendElement === "string"){
 					
-					txt = _appendElement.split("");
-					
-					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
+					if (_appendElement.charAt(0) === "<" && _appendElement.charAt(_appendElement.length - 1) === ">" && _appendElement.length >= 3){
 						
 						this.innerHTML += _appendElement;
 					

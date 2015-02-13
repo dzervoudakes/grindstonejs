@@ -33,9 +33,6 @@
 				margin: 0;
 				padding: 0;
 			}
-			body {
-				height: 2000px;
-			}
 			button {
 				border: none;
 				outline: none;
@@ -49,8 +46,8 @@
 				position: absolute;
 				left: 100px;
 				top: 100px;
-				height: 80px;
-				width: 80px;
+				height: 60px;
+				width: 60px;
 				background: #0f0;
 				margin-left: 10px; /* for offset() test */
 			}
@@ -73,8 +70,8 @@
 			.btns {
 				position: absolute;
 				right: 100px;
-				width: 60px;
-				height: 60px;
+				width: 50px;
+				height: 50px;
 				background: #069;
 				border: 1px solid #069;
 			}
@@ -119,7 +116,8 @@
 				emptyDivs = $("div","#testDiv");
 			
 			el.evt("click",function(){
-				test.after("<p>yo</p>");
+				test.append("<p>hey</p>");
+				//test.append("article");
 			});
 			
 			$("[data-mouseable]").mouseable();

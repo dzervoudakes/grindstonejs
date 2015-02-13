@@ -160,7 +160,7 @@
 	
 	$.fn.append = function(_appendElement){
 		
-		var txt, dom, i;
+		var dom, i;
 		
 		this.init(function(){
 			
@@ -168,9 +168,7 @@
 				
 				if (typeof _appendElement === "string"){
 					
-					txt = _appendElement.split("");
-					
-					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
+					if (_appendElement.charAt(0) === "<" && _appendElement.charAt(_appendElement.length - 1) === ">" && _appendElement.length >= 3){
 						
 						this.innerHTML += _appendElement;
 					
@@ -667,7 +665,7 @@
 	
 	$.fn.before = function(_content){
 		
-		var txt, dom, i;
+		var dom, i;
 		
 		this.init(function(){
 			
@@ -675,9 +673,7 @@
 				
 				if (typeof _content === "string"){
 					
-					txt = _content.split("");
-					
-					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
+					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3){
 						
 						this.insertAdjacentHTML("beforebegin", _content);
 						
@@ -706,7 +702,7 @@
 	
 	$.fn.after = function(_content){
 		
-		var txt, dom, i;
+		var dom, i;
 		
 		this.init(function(){
 			
@@ -714,9 +710,7 @@
 				
 				if (typeof _content === "string"){
 					
-					txt = _content.split("");
-					
-					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
+					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3){
 						
 						this.insertAdjacentHTML("afterend", _content);
 						
@@ -898,7 +892,7 @@
 	
 	$.fn.prepend = function(_prependElement){
 		
-		var txt, dom, i;
+		var dom, i;
 		
 		this.init(function(){
 			
@@ -906,9 +900,7 @@
 			
 				if (typeof _prependElement === "string"){
 					
-					txt = _prependElement.split("");
-					
-					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
+					if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3){
 						
 						this.insertAdjacentHTML("afterbegin", _prependElement);
 					

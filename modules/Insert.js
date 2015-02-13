@@ -10,7 +10,7 @@
 	
 	$.fn.before = function(_content){
 		
-		var txt, dom, i;
+		var dom, i;
 		
 		this.init(function(){
 			
@@ -18,9 +18,7 @@
 				
 				if (typeof _content === "string"){
 					
-					txt = _content.split("");
-					
-					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
+					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3){
 						
 						this.insertAdjacentHTML("beforebegin", _content);
 						
@@ -49,7 +47,7 @@
 	
 	$.fn.after = function(_content){
 		
-		var txt, dom, i;
+		var dom, i;
 		
 		this.init(function(){
 			
@@ -57,9 +55,7 @@
 				
 				if (typeof _content === "string"){
 					
-					txt = _content.split("");
-					
-					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
+					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3){
 						
 						this.insertAdjacentHTML("afterend", _content);
 						

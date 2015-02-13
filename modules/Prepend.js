@@ -10,7 +10,7 @@
 	
 	$.fn.prepend = function(_prependElement){
 		
-		var txt, dom, i;
+		var dom, i;
 		
 		this.init(function(){
 			
@@ -18,9 +18,7 @@
 			
 				if (typeof _prependElement === "string"){
 					
-					txt = _prependElement.split("");
-					
-					if (txt[0] === "<" && txt[txt.length - 1] === ">" && txt.length >= 3){
+					if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3){
 						
 						this.insertAdjacentHTML("afterbegin", _prependElement);
 					
