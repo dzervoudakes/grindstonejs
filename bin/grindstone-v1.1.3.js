@@ -13,7 +13,7 @@
  * -Any tertiary functions as necessary
  */
 	
-	// Global constructor "Grindstone" and selector functions...
+	// Constructor - gathers the set
 	//
 	var Grindstone = function(_selector, _context){
 		
