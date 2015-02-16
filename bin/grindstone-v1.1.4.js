@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.1.3
+ * Grindstone JavaScript Library v1.1.4
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -398,7 +398,7 @@
 	
 	$.fn.height = function(_num){
 		
-		if (_num && typeof _num === "number"){
+		if (_num && typeof _num === "number" || _num === 0){
 			
 			this.init(function(){
 				this.style.height = _num + "px";
@@ -413,7 +413,7 @@
 	
 	$.fn.width = function(_num){
 		
-		if (_num){
+		if (_num && typeof _num === "number" || _num === 0){
 			
 			this.init(function(){
 				this.style.width = _num + "px";
