@@ -52,3 +52,4 @@
  /* Version 1.1.4 - 2/16/15 */
  
  	-Fixed bug in Dimensions module where inputting "0" returned null
+ 	-Updated CSS module to accept single properties for altering; no longer just the object

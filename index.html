@@ -116,7 +116,7 @@
 				emptyDivs = $("div","#testDiv");
 			
 			el.evt("click",function(){
-				test.width(0);
+				test.css({background: "red", border: "1px solid #0f0"});
 			});
 			
 			$("[data-mouseable]").mouseable();
