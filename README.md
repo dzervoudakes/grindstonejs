@@ -32,7 +32,7 @@ Full documentation and examples: http://grindstonejs.drzwebdev.com/
 
 ### Abbreviated Documentation/Examples
 
-_For full documentation/examples, navigate to the official site. (link provided above)_
+For full documentation/examples, navigate to the official site. (link provided above)
 
 ##### $()
 
