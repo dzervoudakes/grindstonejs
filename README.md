@@ -1,4 +1,4 @@
-# GrindstoneJS
+# {gs} - GrindstoneJS
 
 ##### A lightweight jQuery alternative for modern browsers with familiar syntax.
 
