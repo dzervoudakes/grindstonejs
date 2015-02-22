@@ -271,8 +271,8 @@ $.newEl(_type, _id, _class, _innerHTML);
 _Returns the left/top offset value of the specified selector relative to the document (as an integer). This will only apply to the first match in the set and includes margins._
 
 ```
-$("#target").offset("left");
-$("#target").offset("top");
+$(_selector).offset("left");
+$(_selector).offset("top");
 ```
 
 ##### prepend()
