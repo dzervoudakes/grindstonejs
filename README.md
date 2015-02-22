@@ -7,10 +7,11 @@ This library does not aim to "replace" jQuery: it is merely an ensemble of the f
 ##### Browser Support:
 
 * IE 9+
-* Firefox 6.0+
-* Chrome 1.0+
-* Safari 1.0+
-* Opera 7+
+* Firefox
+* Chrome
+* Safari
+* Opera
+* Mobile
 
 Full documentation and examples: http://grindstonejs.drzwebdev.com/
 
