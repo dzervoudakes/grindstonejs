@@ -214,7 +214,7 @@ $(_selector).each(_callback);
 _Adding event listeners._
 
 ```
-$(_selector).evt(_callback);
+$(_selector).evt(_events, _callback);
 ```
 
 ##### dropEvt()
@@ -222,7 +222,7 @@ $(_selector).evt(_callback);
 _Removing event listeners._
 
 ```
-$(_selector).dropEvt(_callback);
+$(_selector).dropEvt(_events, _callback);
 ```
 
 ##### html()
