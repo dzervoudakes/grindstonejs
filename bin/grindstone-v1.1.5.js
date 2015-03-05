@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.1.4
+ * Grindstone JavaScript Library v1.1.5
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -524,7 +524,7 @@
 			
 			if (_callback){
 				
-				$(this).evt(interaction,function(){
+				$(this).on(interaction,function(){
 					
 					if (active){
 						_callback();
@@ -570,7 +570,7 @@
  	};
  
 /**
- * evt() / dropEvt()
+ * on() / off()
  * 
  * Adding and removing event listeners
  *
@@ -581,7 +581,7 @@
 	
 	// Assign the eventListener
 	//
-	$.fn.evt = function(_action, _callback){
+	$.fn.on = function(_action, _callback){
 		
 		var events, i;
 		
@@ -612,7 +612,7 @@
 	
 	// Drop the eventListener
 	//
-	$.fn.dropEvt = function(_action, _callback){
+	$.fn.off = function(_action, _callback){
 		
 		var events, i;
 		
@@ -787,18 +787,18 @@
 		evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
 		
 		this.init(function(){
-			$(this).evt(evt_hover,function(){
+			$(this).on(evt_hover,function(){
 				$(this).addClass(hoverClass);
 			})
-			.evt(evt_remove,function(){
+			.on(evt_remove,function(){
 				$(this)
 					.removeClass(hoverClass + " " + activeClass)
 					.removeClass(hoverClass);
 			})
-			.evt(evt_down,function(){
+			.on(evt_down,function(){
 				$(this).addClass(activeClass);
 			})
-			.evt(evt_up,function(){
+			.on(evt_up,function(){
 				$(this).removeClass(activeClass);
 			});
 		});
@@ -1045,7 +1045,7 @@
 	
 		this.init(function(){
 			
-			$(this).evt("resize",function(){
+			$(this).on("resize",function(){
 				if (_callback){
 					_callback();
 				}
@@ -1069,7 +1069,7 @@
 		
 		this.init(function(){
 			
-			$(this).evt("scroll",function(){
+			$(this).on("scroll",function(){
 				if (_callback){
 					_callback();
 				}

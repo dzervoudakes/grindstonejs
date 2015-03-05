@@ -35,18 +35,18 @@
 		evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
 		
 		this.init(function(){
-			$(this).evt(evt_hover,function(){
+			$(this).on(evt_hover,function(){
 				$(this).addClass(hoverClass);
 			})
-			.evt(evt_remove,function(){
+			.on(evt_remove,function(){
 				$(this)
 					.removeClass(hoverClass + " " + activeClass)
 					.removeClass(hoverClass);
 			})
-			.evt(evt_down,function(){
+			.on(evt_down,function(){
 				$(this).addClass(activeClass);
 			})
-			.evt(evt_up,function(){
+			.on(evt_up,function(){
 				$(this).removeClass(activeClass);
 			});
 		});

@@ -209,20 +209,20 @@ _Iterates through each item in the set and executes the callback._
 $(_selector).each(_callback);
 ```
 
-##### evt()
+##### on()
 
 _Adding event listeners._
 
 ```
-$(_selector).evt(_events, _callback);
+$(_selector).on(_event[s], _callback);
 ```
 
-##### dropEvt()
+##### off()
 
 _Removing event listeners._
 
 ```
-$(_selector).dropEvt(_events, _callback);
+$(_selector).off(_event[s], _callback);
 ```
 
 ##### html()

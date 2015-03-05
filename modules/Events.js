@@ -1,5 +1,5 @@
 /**
- * evt() / dropEvt()
+ * on() / off()
  * 
  * Adding and removing event listeners
  *
@@ -10,7 +10,7 @@
 	
 	// Assign the eventListener
 	//
-	$.fn.evt = function(_action, _callback){
+	$.fn.on = function(_action, _callback){
 		
 		var events, i;
 		
@@ -41,7 +41,7 @@
 	
 	// Drop the eventListener
 	//
-	$.fn.dropEvt = function(_action, _callback){
+	$.fn.off = function(_action, _callback){
 		
 		var events, i;
 		

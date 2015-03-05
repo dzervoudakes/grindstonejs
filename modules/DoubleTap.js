@@ -18,7 +18,7 @@
 			
 			if (_callback){
 				
-				$(this).evt(interaction,function(){
+				$(this).on(interaction,function(){
 					
 					if (active){
 						_callback();

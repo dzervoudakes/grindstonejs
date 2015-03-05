@@ -113,9 +113,9 @@
 				test = $("#testDiv"),
 				buttonsArray = $(".btns"),
 				divs = $("div"),
-				emptyDivs = $("div","#testDiv");
+				emptyDivs = $("div", "#testDiv");
 			
-			el.evt("click",function(){
+			el.on("click",function(){
 				test.css({background: "red", border: "1px solid #0f0"});
 			});
 			

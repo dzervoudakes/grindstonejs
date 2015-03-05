@@ -11,7 +11,7 @@
 		
 		this.init(function(){
 			
-			$(this).evt("scroll",function(){
+			$(this).on("scroll",function(){
 				if (_callback){
 					_callback();
 				}

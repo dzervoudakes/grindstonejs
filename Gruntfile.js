@@ -28,7 +28,7 @@ module.exports = function(grunt){
 		    		"modules/Events.js",
 		    		"modules/HTML.js",
 		    		"modules/Insert.js",
-		    		"modules/Mouseable.js",	// Requires Classes.js
+		    		"modules/Mouseable.js",	// Requires Classes.js, Events.js
 		    		"modules/NewEl.js",
 		    		"modules/Offset.js",
 		    		"modules/Prepend.js",
