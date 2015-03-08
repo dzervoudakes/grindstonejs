@@ -221,7 +221,7 @@
 				}
 				
 			} else {
-				throw new Error("Please specify an attribute to either edit or return it's value.");
+				throw new Error("Please specify an attribute to either edit or return its value.");
 			}
 		});
 		
