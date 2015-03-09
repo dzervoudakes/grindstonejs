@@ -9,17 +9,17 @@
  * -delay (miliseconds)
  */
 	
-	$.fn.show = function(_delay){
+	$.fn.show = function(_delay) {
 		
-		this.init(function(){
+		this.init(function() {
 			
 			var self = this;
 			
-			if (_delay){
+			if (_delay) {
 				
-				if (typeof _delay === "number"){
+				if (typeof _delay === "number") {
 					
-					setTimeout(function(){
+					setTimeout(function() {
 						self.style.display = "block";
 					}, _delay);
 					
@@ -36,17 +36,17 @@
 		return this;
 	};
 	
-	$.fn.hide = function(_delay){
+	$.fn.hide = function(_delay) {
 		
-		this.init(function(){
+		this.init(function() {
 			
 			var self = this;
 			
-			if (_delay){
+			if (_delay) {
 				
-				if (typeof _delay === "number"){
+				if (typeof _delay === "number") {
 					
-					setTimeout(function(){
+					setTimeout(function() {
 						self.style.display = "none";
 					}, _delay);
 					

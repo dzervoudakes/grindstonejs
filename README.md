@@ -48,7 +48,7 @@ $(_selector, [_context]);
 _"Grindstone.prototype": Use this to create new methods/modules._
 
 ```
-$.fn.newMethod = function(){};
+$.fn.newMethod = function() {};
 ```
 
 ##### eq()

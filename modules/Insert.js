@@ -8,17 +8,17 @@
  * -content
  */
 	
-	$.fn.before = function(_content){
+	$.fn.before = function(_content) {
 		
 		var dom, i;
 		
-		this.init(function(){
+		this.init(function() {
 			
-			if (_content){
+			if (_content) {
 				
-				if (typeof _content === "string"){
+				if (typeof _content === "string") {
 					
-					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3){
+					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
 						
 						this.insertAdjacentHTML("beforebegin", _content);
 						
@@ -26,7 +26,7 @@
 						
 						dom = document.querySelectorAll(_content);
 						
-						for (i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++) {
 							this.parentNode.insertBefore(dom[i], this);
 						}
 						
@@ -45,17 +45,17 @@
 		return this;
 	};
 	
-	$.fn.after = function(_content){
+	$.fn.after = function(_content) {
 		
 		var dom, i;
 		
-		this.init(function(){
+		this.init(function() {
 			
-			if (_content){
+			if (_content) {
 				
-				if (typeof _content === "string"){
+				if (typeof _content === "string") {
 					
-					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3){
+					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
 						
 						this.insertAdjacentHTML("afterend", _content);
 						
@@ -63,7 +63,7 @@
 						
 						dom = document.querySelectorAll(_content);
 						
-						for (i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++) {
 							this.parentNode.insertBefore(dom[i], this.nextSibling);
 						}
 						

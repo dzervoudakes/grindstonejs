@@ -8,17 +8,17 @@
  * -prependElement
  */
 	
-	$.fn.prepend = function(_prependElement){
+	$.fn.prepend = function(_prependElement) {
 		
 		var dom, i;
 		
-		this.init(function(){
+		this.init(function() {
 			
-			if (_prependElement){
+			if (_prependElement) {
 			
-				if (typeof _prependElement === "string"){
+				if (typeof _prependElement === "string") {
 					
-					if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3){
+					if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3) {
 						
 						this.insertAdjacentHTML("afterbegin", _prependElement);
 					
@@ -26,7 +26,7 @@
 						
 						dom = document.querySelectorAll(_prependElement);
 						
-						for (i = 0; i < dom.length; i++){
+						for (i = 0; i < dom.length; i++) {
 							this.insertBefore(dom[i], this.firstChild);
 						}
 						

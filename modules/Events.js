@@ -10,19 +10,19 @@
 	
 	// Assign the eventListener
 	//
-	$.fn.on = function(_action, _callback){
+	$.fn.on = function(_action, _callback) {
 		
 		var events, i;
 		
-		this.init(function(){
+		this.init(function() {
 			
-			if (_action){
+			if (_action) {
 				
-				if (typeof _action === "string"){
+				if (typeof _action === "string") {
 					
 					events = _action.split(" ");
 					
-					for (i = 0; i < events.length; i++){
+					for (i = 0; i < events.length; i++) {
 						this.addEventListener(events[i], _callback, false);
 					}
 					
@@ -41,19 +41,19 @@
 	
 	// Drop the eventListener
 	//
-	$.fn.off = function(_action, _callback){
+	$.fn.off = function(_action, _callback) {
 		
 		var events, i;
 		
-		this.init(function(){
+		this.init(function() {
 			
-			if (_action){
+			if (_action) {
 				
-				if (typeof _action === "string"){
+				if (typeof _action === "string") {
 					
 					events = _action.split(" ");
 					
-					for (i = 0; i < events.length; i++){
+					for (i = 0; i < events.length; i++) {
 						this.removeEventListener(events[i], _callback, false);
 					}
 					

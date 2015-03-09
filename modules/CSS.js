@@ -9,17 +9,17 @@
  * -value (optional; the new value of the styles argument, assuming styles is a string with a valid CSS property)
  */
 	
-	$.fn.css = function(_styles, _value){
+	$.fn.css = function(_styles, _value) {
 		
 		var returnedStyle, i, toReturn;
 		
-		this.init(function(){
+		this.init(function() {
 			
-			if (_styles){
+			if (_styles) {
 				
-				if (typeof _styles === "object"){
+				if (typeof _styles === "object") {
 					
-					for (i in _styles){
+					for (i in _styles) {
 						this.style[i] = _styles[i];
 					}
 					
@@ -27,7 +27,7 @@
 					
 					returnedStyle = this.style[_styles];
 					
-				} else if (_styles && typeof _styles === "string" && _value && typeof _value === "string"){
+				} else if (_styles && typeof _styles === "string" && _value && typeof _value === "string") {
 					
 					this.style[_styles] = _value;
 					

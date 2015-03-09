@@ -7,27 +7,27 @@
  * -callback (triggered if the double-click/double-tap event is completed in time)
  */
 	
-	$.fn.doubleTap = function(_callback){
+	$.fn.doubleTap = function(_callback) {
 		
 		var active, interaction;
 		
-		this.init(function(){
+		this.init(function() {
 			
 			active = false;
 			interaction = ("createTouch" in document) ? "touchend" : "click";
 			
-			if (_callback){
+			if (_callback) {
 				
-				$(this).on(interaction,function(){
+				$(this).on(interaction, function() {
 					
-					if (active){
+					if (active) {
 						_callback();
 						return active = false;
 					}
 					
 					active = true;
 					
-					setTimeout(function(){
+					setTimeout(function() {
 						return active = false;
 					}, 350);
 					

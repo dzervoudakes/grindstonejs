@@ -10,14 +10,14 @@
  *         otherwise, the current value of the specified value will be returned)
  */
 	
-	$.fn.attr = function(_attribute, _value){
+	$.fn.attr = function(_attribute, _value) {
 		
 		var elemAttribute, toReturn;
 		
-		this.init(function(){
-			if (_attribute){
+		this.init(function() {
+			if (_attribute) {
 				
-				if (_value){
+				if (_value) {
 					this.setAttribute(_attribute, _value);
 				} else {
 					elemAttribute = this.getAttribute(_attribute);
@@ -32,12 +32,12 @@
 		return toReturn;
 	};
 	
-	$.fn.hasAttr = function(_attribute){
+	$.fn.hasAttr = function(_attribute) {
 		
 		var attr;
 		
-		this.init(function(){
-			if (_attribute){
+		this.init(function() {
+			if (_attribute) {
 				attr = $(this).attr(_attribute) !== null;
 			} else {
 				throw new Error("Can't determine if the selected element has null attribute.");
@@ -47,10 +47,10 @@
 		return attr;
 	};
 	
-	$.fn.removeAttr = function(_attribute){
+	$.fn.removeAttr = function(_attribute) {
 		
-		this.init(function(){
-			if (_attribute){
+		this.init(function() {
+			if (_attribute) {
 				this.removeAttribute(_attribute);
 			} else {
 				throw new Error("Please specify an attribute to remove.");

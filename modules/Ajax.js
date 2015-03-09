@@ -13,15 +13,15 @@
  * -sendStr (string to be sent for POST requests)
  */
 	
-	$.ajax = function(_obj){
+	$.ajax = function(_obj) {
 		
 		var method, url, async, success, header, headerValue, sendStr, xmlhttp;
 		
-		function prop(_property){
+		function prop(_property) {
 			return _obj.hasOwnProperty(_property);
 		};
 		
-		if (_obj && typeof _obj === "object"){
+		if (_obj && typeof _obj === "object") {
 			
 			method   = (prop("method"))   ? _obj.method   : null;
 			url      = (prop("url"))      ? _obj.url      : null;
@@ -34,14 +34,14 @@
 		}
 		
 		xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function(){
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				success(xmlhttp);
 			}
 		};
 		xmlhttp.open(method, url, async);
 		
-		if (prop("header") && prop("headerValue")){
+		if (prop("header") && prop("headerValue")) {
 			xmlhttp.setRequestHeader(header, headerValue);
 		} else {
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");

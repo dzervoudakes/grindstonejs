@@ -7,12 +7,12 @@
  * -callback
  */
 	
-	$.fn.resize = function(_callback){
+	$.fn.resize = function(_callback) {
 	
-		this.init(function(){
+		this.init(function() {
 			
-			$(this).on("resize",function(){
-				if (_callback){
+			$(this).on("resize", function() {
+				if (_callback) {
 					_callback();
 				}
 			});

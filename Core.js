@@ -15,23 +15,23 @@
 	
 	// Constructor - gathers the set
 	//
-	var Grindstone = function(_selector, _context){
+	var Grindstone = function(_selector, _context) {
 		
-		if (_selector){
+		if (_selector) {
 			
 			var selectedElements, ctx, els, i, j;
 			
-			if (typeof _selector === "string"){
-				if (_context){
+			if (typeof _selector === "string") {
+				if (_context) {
 					
 					ctx = document.querySelectorAll(_context);
 					selectedElements = [];
 					
-					for (i = 0; i < ctx.length; i++){
+					for (i = 0; i < ctx.length; i++) {
 						
 						els = ctx[i].querySelectorAll(_selector);
 						
-						for (j = 0; j < els.length; j++){
+						for (j = 0; j < els.length; j++) {
 							selectedElements.push(els[j]);
 						}
 					}
@@ -40,7 +40,7 @@
 					selectedElements = document.querySelectorAll(_selector);
 				}
 				
-				if (selectedElements.length > 0){
+				if (selectedElements.length > 0) {
 					this.set = selectedElements;
 				} else {
 					return [];
@@ -48,7 +48,7 @@
 				
 				return this;
 				
-			} else if (typeof _selector === "object"){
+			} else if (typeof _selector === "object") {
 				this.set = [_selector];
 			} else {
 				return null;
@@ -61,7 +61,7 @@
 	
 	// Shorthand for the above...
 	//
-	var $ = function(_selector, _context){
+	var $ = function(_selector, _context) {
 		return new Grindstone(_selector, _context);
 	};
 	
@@ -70,8 +70,8 @@
 	 * Since we are dealing with NodeLists, the Array.prototype.forEach() method will not work natively
 	 */
 	
-	$.forEach = function(_array, _callback){
-		for (var i = 0; i < _array.length; i++){
+	$.forEach = function(_array, _callback) {
+		for (var i = 0; i < _array.length; i++) {
 			_callback.call(_array[i]);
 		}
 	};
@@ -85,12 +85,12 @@
 	 * Use this throughout each module to collect and loop through the set
 	 */
 	
-	$.fn.init = function(_callback){
+	$.fn.init = function(_callback) {
 		$.forEach(this.set, _callback);
 	};
 	
 	// eq() - returns an element from the set as specified by the corresponding index value
 	//
-	$.fn.eq = function(_index){
+	$.fn.eq = function(_index) {
 		return $(this.set[_index]);
 	};

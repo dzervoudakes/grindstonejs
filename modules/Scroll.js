@@ -7,12 +7,12 @@
  * -callback
  */
 	
-	$.fn.scroll = function(_callback){
+	$.fn.scroll = function(_callback) {
 		
-		this.init(function(){
+		this.init(function() {
 			
-			$(this).on("scroll",function(){
-				if (_callback){
+			$(this).on("scroll", function() {
+				if (_callback) {
 					_callback();
 				}
 			});

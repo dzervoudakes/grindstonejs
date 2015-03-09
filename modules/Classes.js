@@ -9,18 +9,18 @@
 	
 	// Regular expression specific to this module
 	//
-	$.regxCls = function(_cls){
+	$.regxCls = function(_cls) {
 		return new RegExp("(\\s|^)" + _cls + "(\\s|$)");
 	};
 	
 	// Detect if a given element has a particular class
 	//
-	$.fn.hasClass = function(_cls){
+	$.fn.hasClass = function(_cls) {
 		
 		var classTrue;
 		
-		this.init(function(){
-			if (_cls){
+		this.init(function() {
+			if (_cls) {
 				classTrue = (this.className.match($.regxCls(_cls)) !== null) ? true : false;
 			} else {
 				throw new Error("Cannot determine if the element has undefined class.");
@@ -32,12 +32,12 @@
 	
 	// Add the specified class to the element if it doesn't already contain that class
 	//
-	$.fn.addClass = function(_cls){
+	$.fn.addClass = function(_cls) {
 		
-		this.init(function(){
-			if (!$(this).hasClass(_cls)){
-				if (_cls){
-					if (this.className == ""){
+		this.init(function() {
+			if (!$(this).hasClass(_cls)) {
+				if (_cls) {
+					if (this.className == "") {
 						this.className += _cls;
 					} else {
 						this.className += " " + _cls;
@@ -53,11 +53,11 @@
 	
 	// Remove the specified class from the element if it contains that class
 	//
-	$.fn.removeClass = function(_cls){
+	$.fn.removeClass = function(_cls) {
 		
-		this.init(function(){
-			if ($(this).hasClass(_cls)){
-				if (_cls){
+		this.init(function() {
+			if ($(this).hasClass(_cls)) {
+				if (_cls) {
 					this.className = this.className.replace($.regxCls(_cls), "");
 				} else {
 					throw new Error("Class to remove is undefined.");
@@ -70,10 +70,10 @@
 	
 	// Toggle the specified class
 	//
-	$.fn.toggleClass = function(_cls){
+	$.fn.toggleClass = function(_cls) {
 		
-		this.init(function(){
-			if (!$(this).hasClass(_cls)){
+		this.init(function() {
+			if (!$(this).hasClass(_cls)) {
 				$(this).addClass(_cls);
 			} else {
 				$(this).removeClass(_cls);

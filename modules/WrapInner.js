@@ -7,15 +7,15 @@
  * -structure
  */
 	
-	$.fn.wrapInner = function(_structure){
+	$.fn.wrapInner = function(_structure) {
 		
 		var contents, wrap;
 		
-		this.init(function(){
+		this.init(function() {
 			
-			if (_structure){
+			if (_structure) {
 				
-				if (typeof _structure === "string"){
+				if (typeof _structure === "string") {
 					
 					contents = $(this).html();
 					wrap = _structure;

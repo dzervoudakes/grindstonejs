@@ -10,10 +10,10 @@
 	
 	// DOM structure ready
 	//
-	$.fn.ready = function(_callback){
+	$.fn.ready = function(_callback) {
 		
-		this.init(function(){
-			this.addEventListener("DOMContentLoaded",_callback,false);
+		this.init(function() {
+			this.addEventListener("DOMContentLoaded", _callback, false);
 		});
 		
 		return this;
@@ -21,10 +21,10 @@
 	
 	// DOM structure and content fully loaded
 	//
-	$.fn.load = function(_callback){
+	$.fn.load = function(_callback) {
 		
-		this.init(function(){
-			this.addEventListener("load",_callback,false);
+		this.init(function() {
+			this.addEventListener("load", _callback, false);
 		});
 		
 		return this;

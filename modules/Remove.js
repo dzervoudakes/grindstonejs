@@ -8,24 +8,24 @@
  * -target
  */
 	
-	$.fn.remove = function(_target){
+	$.fn.remove = function(_target) {
 		
 		var elems, parents, i;
 		
-		if (_target){
+		if (_target) {
 			
 			elems = document.querySelectorAll(_target);
 			parents = this.set;
 			
-			for (i = 0; i < parents.length; i++){
-				$.forEach(elems,function(){
+			for (i = 0; i < parents.length; i++) {
+				$.forEach(elems,function() {
 					parents[i].removeChild(this);
 				});
 			}
 			
 		} else {
 			
-			$.forEach(this.set,function(){
+			$.forEach(this.set, function() {
 				this.parentNode.removeChild(this);
 			});
 			

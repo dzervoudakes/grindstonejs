@@ -7,15 +7,15 @@
  * -event
  */
 	
-	$.fn.trigger = function(_event){
+	$.fn.trigger = function(_event) {
 		
 		var customEvent;
 		
-		if (_event){
+		if (_event) {
 			
 			customEvent = new Event(_event);
 			
-			this.init(function(){
+			this.init(function() {
 				this.dispatchEvent(customEvent);
 			});
 			

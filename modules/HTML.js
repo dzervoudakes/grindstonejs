@@ -7,12 +7,12 @@
  * -content
  */
 	
-	$.fn.html = function(_content){
+	$.fn.html = function(_content) {
 		
 		var txt, toReturn;
 		
-		this.init(function(){
-			if (_content){
+		this.init(function() {
+			if (_content) {
 				this.innerHTML = _content;
 			} else {
 				txt = this.innerHTML;
