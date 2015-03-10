@@ -2,46 +2,50 @@
 <html lang="en-US">
 	<head>
 		<title>JS Library Tests</title>
-		<script src="Core.js"></script>
-		<script src="modules/Ajax.js"></script>
-		<script src="modules/Append.js"></script>
-		<script src="modules/Attributes.js"></script>
-		<script src="modules/Classes.js"></script>
-		<script src="modules/Clone.js"></script>
-		<script src="modules/CSS.js"></script>
-		<script src="modules/Dimensions.js"></script>
-		<script src="modules/Display.js"></script>
-		<script src="modules/DoubleTap.js"></script>
-		<script src="modules/Each.js"></script>
-		<script src="modules/Events.js"></script>
-		<script src="modules/HTML.js"></script>
-		<script src="modules/Insert.js"></script>
-		<script src="modules/Mouseable.js"></script>
-		<script src="modules/NewEl.js"></script>
-		<script src="modules/Offset.js"></script>
-		<script src="modules/Prepend.js"></script>
-		<script src="modules/Ready.js"></script>
-		<script src="modules/Remove.js"></script>
-		<script src="modules/ReplaceWith.js"></script>
-		<script src="modules/Resize.js"></script>
-		<script src="modules/Scroll.js"></script>
-		<script src="modules/Trigger.js"></script>
-		<script src="modules/Value.js"></script>
-		<script src="modules/WrapInner.js"></script>
+		<script src="../src/Core.js"></script>
+		<script src="../src/Ajax.js"></script>
+		<script src="../src/Append.js"></script>
+		<script src="../src/Attributes.js"></script>
+		<script src="../src/Classes.js"></script>
+		<script src="../src/Clone.js"></script>
+		<script src="../src/CSS.js"></script>
+		<script src="../src/Dimensions.js"></script>
+		<script src="../src/Display.js"></script>
+		<script src="../src/DoubleTap.js"></script>
+		<script src="../src/Each.js"></script>
+		<script src="../src/Events.js"></script>
+		<script src="../src/HTML.js"></script>
+		<script src="../src/Insert.js"></script>
+		<script src="../src/Mouseable.js"></script>
+		<script src="../src/NewEl.js"></script>
+		<script src="../src/Offset.js"></script>
+		<script src="../src/Prepend.js"></script>
+		<script src="../src/Ready.js"></script>
+		<script src="../src/Remove.js"></script>
+		<script src="../src/ReplaceWith.js"></script>
+		<script src="../src/Resize.js"></script>
+		<script src="../src/Scroll.js"></script>
+		<script src="../src/Trigger.js"></script>
+		<script src="../src/Value.js"></script>
+		<script src="../src/WrapInner.js"></script>
 		<style type="text/css">
+			
 			* {
 				margin: 0;
 				padding: 0;
 			}
+			
 			button {
 				border: none;
 				outline: none;
 			}
-			body > *first-child {
+			
+			body > *:first-child {
 				position: relative;
 				left: 30px;
 				top: 10px;
 			}
+			
 			#testDiv {
 				position: absolute;
 				left: 100px;
@@ -51,6 +55,7 @@
 				background: #0f0;
 				margin-left: 10px; /* for offset() test */
 			}
+			
 			#testDiv_020 {
 				position: absolute;
 				left: 100px;
@@ -60,13 +65,16 @@
 				border-radius: 35px;
 				background: #008088;
 			}
+			
 			#testDiv.over {
 				background: #333;
 			}
+			
 			#testDiv.down {
 				top: 104px;
 				left: 104px;
 			}
+			
 			.btns {
 				position: absolute;
 				right: 100px;
@@ -75,23 +83,29 @@
 				background: #069;
 				border: 1px solid #069;
 			}
+			
 			[data-mouseable] {
 				cursor: pointer;
 			}
+			
 			.btns.over {
 				border-color: #f00;
 			}
+			
 			#btn1 {
 				top: 100px;
 			}
+			
 			#btn2 {
 				top: 210px;
 			}
+			
 			.emptyDiv {
 				margin: 0;
 				padding: 0;
 				display: none;
 			}
+			
 		</style>
 	</head>
 	<body>
@@ -115,7 +129,7 @@
 				divs = $("div"),
 				emptyDivs = $("div", "#testDiv");
 			
-			el.on("click",function(){
+			el.on("click", function() {
 				test.css({background: "red", border: "1px solid #0f0"});
 			});
 			

@@ -14,34 +14,34 @@ module.exports = function(grunt) {
 		concat: {
 		    dist: {
 			    src: [
-				    "Core.js",
-		    		"modules/Ajax.js",
-		    		"modules/Append.js",
-		    		"modules/Attributes.js",
-		    		"modules/Classes.js",
-		    		"modules/Clone.js",
-		    		"modules/CSS.js",
-		    		"modules/Dimensions.js",
-		    		"modules/Display.js",
-		    		"modules/DoubleTap.js",	// Requires Events.js
-		    		"modules/Each.js",
-		    		"modules/Events.js",
-		    		"modules/HTML.js",
-		    		"modules/Insert.js",
-		    		"modules/Mouseable.js",	// Requires Classes.js, Events.js
-		    		"modules/NewEl.js",
-		    		"modules/Offset.js",
-		    		"modules/Prepend.js",
-		    		"modules/Ready.js",
-		    		"modules/Remove.js",
-		    		"modules/ReplaceWith.js",
-		    		"modules/Resize.js",	// Requires Events.js
-		    		"modules/Scroll.js",	// Requires Events.js
-		    		"modules/Trigger.js",
-		    		"modules/Value.js",		// Requires Attributes.js
-		    		"modules/WrapInner.js"	// Requires HTML.js
+				    "src/Core.js", // INCLUDE THIS FILE BEFORE ALL OTHERS
+		    		"src/Ajax.js",
+		    		"src/Append.js",
+		    		"src/Attributes.js",
+		    		"src/Classes.js",
+		    		"src/Clone.js",
+		    		"src/CSS.js",
+		    		"src/Dimensions.js",
+		    		"src/Display.js",
+		    		"src/DoubleTap.js",	// Requires Events.js
+		    		"src/Each.js",
+		    		"src/Events.js",
+		    		"src/HTML.js",
+		    		"src/Insert.js",
+		    		"src/Mouseable.js",	// Requires Classes.js, Events.js
+		    		"src/NewEl.js",
+		    		"src/Offset.js",
+		    		"src/Prepend.js",
+		    		"src/Ready.js",
+		    		"src/Remove.js",
+		    		"src/ReplaceWith.js",
+		    		"src/Resize.js",	// Requires Events.js
+		    		"src/Scroll.js",	// Requires Events.js
+		    		"src/Trigger.js",
+		    		"src/Value.js",		// Requires Attributes.js
+		    		"src/WrapInner.js"	// Requires HTML.js
 			    ],
-			    dest: "bin/<%= pkg.name %>-v<%= pkg.version %>.js"
+			    dest: "dist/<%= pkg.name %>-v<%= pkg.version %>.js"
 		    }
 		},
 		uglify: {
@@ -49,8 +49,8 @@ module.exports = function(grunt) {
 		    	banner: "/* Grindstone JavaScript Library v<%= pkg.version %> | Copyright (c) 2014, <%= grunt.template.today('yyyy') %> Dan Zervoudakes | https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE */\n"
 		    },
 		    build: {
-            	src: "bin/<%= pkg.name %>-v<%= pkg.version %>.js",
-				dest: "bin/<%= pkg.name %>-v<%= pkg.version %>.min.js"
+            	src: "dist/<%= pkg.name %>-v<%= pkg.version %>.js",
+				dest: "dist/<%= pkg.name %>-v<%= pkg.version %>.min.js"
         	}
 		}
 	});
