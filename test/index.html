@@ -46,7 +46,7 @@
 				top: 10px;
 			}
 			
-			#testDiv {
+			#test-div {
 				position: absolute;
 				left: 100px;
 				top: 100px;
@@ -56,21 +56,11 @@
 				margin-left: 10px; /* for offset() test */
 			}
 			
-			#testDiv_020 {
-				position: absolute;
-				left: 100px;
-				top: 100px;
-				height: 90px;
-				width: 60px;
-				border-radius: 35px;
-				background: #008088;
-			}
-			
-			#testDiv.over {
+			#test-div.over {
 				background: #333;
 			}
 			
-			#testDiv.down {
+			#test-div.down {
 				top: 104px;
 				left: 104px;
 			}
@@ -100,7 +90,7 @@
 				top: 210px;
 			}
 			
-			.emptyDiv {
+			.empty-div {
 				margin: 0;
 				padding: 0;
 				display: none;
@@ -110,24 +100,24 @@
 	</head>
 	<body>
 		<div>
-			<div id="testDiv" class="test" data-mouseable>
-				<div id="emptyDiv01" class="emptyDiv"></div>
-				<div id="emptyDiv02" class="emptyDiv"></div>
-				<div id="emptyDiv03" class="emptyDiv"></div>
-				<div id="emptyDiv04" class="emptyDiv"></div>
+			<div id="test-div" class="test" data-mouseable>
+				<div id="empty-div01" class="empty-div"></div>
+				<div id="empty-div02" class="empty-div"></div>
+				<div id="empty-div03" class="empty-div"></div>
+				<div id="empty-div04" class="empty-div"></div>
 			</div>
 		</div>
-		<article id="emptyArticle"></article>
+		<article id="empty-article"></article>
 		<button id="btn1" class="btns" data-mouseable></button>
 		<button id="btn2" class="btns" data-mouseable></button>
 		<script type="text/javascript">
 			
 			var el = $("#btn1"),
 				el2 = $("#btn2"),
-				test = $("#testDiv"),
+				test = $("#test-div"),
 				buttonsArray = $(".btns"),
 				divs = $("div"),
-				emptyDivs = $("div", "#testDiv");
+				empty-divs = $("div", "#test-div");
 			
 			el.on("click", function() {
 				test.css({background: "red", border: "1px solid #0f0"});
