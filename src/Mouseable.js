@@ -18,8 +18,10 @@
 		if (_classes) {
 			
 			if (typeof _classes === "object") {
+				
 				hoverClass  = (_classes.hasOwnProperty("hoverClass"))  ? _classes["hoverClass"]  : "over";
 				activeClass = (_classes.hasOwnProperty("activeClass")) ? _classes["activeClass"] : "down";
+			
 			} else {
 				throw new Error("Classes parameter for mouseable() must be an object with properties 'hoverClass' and/or 'activeClass'.");
 			}
@@ -35,19 +37,22 @@
 		evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
 		
 		this.init(function() {
-			$(this).on(evt_hover, function() {
-				$(this).addClass(hoverClass);
-			})
-			.on(evt_remove, function() {
-				$(this)
-					.removeClass(hoverClass + " " + activeClass)
-					.removeClass(hoverClass);
-			})
-			.on(evt_down, function() {
-				$(this).addClass(activeClass);
-			})
-			.on(evt_up, function() {
-				$(this).removeClass(activeClass);
-			});
+			
+			$(this)
+				.on(evt_hover, function() {
+					$(this).addClass(hoverClass);
+				})
+				.on(evt_remove, function() {
+					$(this)
+						.removeClass(hoverClass + " " + activeClass)
+						.removeClass(hoverClass);
+				})
+				.on(evt_down, function() {
+					$(this).addClass(activeClass);
+				})
+				.on(evt_up, function() {
+					$(this).removeClass(activeClass);
+				});
+			
 		});
 	};

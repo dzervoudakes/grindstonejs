@@ -12,11 +12,13 @@
 		var txt, toReturn;
 		
 		this.init(function() {
+			
 			if (_content) {
 				this.innerHTML = _content;
 			} else {
 				txt = this.innerHTML;
 			}
+			
 		});
 		
 		toReturn = (_content) ? this : txt;

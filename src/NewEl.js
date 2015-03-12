@@ -4,29 +4,21 @@
  * Creates a new DOM element
  *
  * Parameters:
- * -elType (type of DOM element)
- * -elId (ID of the new element - optional)
- * -elClass (className of the new element - optional)
- * -elInner (innerHTML to be added - optional)
+ * -type (type of DOM element)
+ * -id (ID of the new element - optional)
+ * -class (className of the new element - optional)
+ * -inner (innerHTML to be added - optional)
  */
 	
-	$.newEl = function(_elType, _elId, _elClass, _elInner) {
+	$.newEl = function(_type, _id, _class, _inner) {
 		
-		if (_elType) {
+		if (_type) {
 			
-			var newElement = document.createElement(_elType);
+			var newElement = document.createElement(_type);
 			
-			if (_elId) {
-				newElement.id = _elId;
-			}
-			
-			if (_elClass) {
-				newElement.className = _elClass;
-			}
-			
-			if (_elInner) {
-				newElement.innerHTML = _elInner;
-			}
+			newElement.id = (_id)			? _id 	 : "";
+			newElement.className = (_class) ? _class : "";
+			newElement.innerHTML = (_inner) ? _inner : "";
 			
 			return newElement;
 			

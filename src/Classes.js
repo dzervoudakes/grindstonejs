@@ -20,11 +20,13 @@
 		var classTrue;
 		
 		this.init(function() {
+			
 			if (_cls) {
 				classTrue = (this.className.match($.regxCls(_cls)) !== null) ? true : false;
 			} else {
 				throw new Error("Cannot determine if the element has undefined class.");
 			}
+			
 		});
 		
 		return classTrue;
@@ -35,13 +37,17 @@
 	$.fn.addClass = function(_cls) {
 		
 		this.init(function() {
+			
 			if (!$(this).hasClass(_cls)) {
+				
 				if (_cls) {
+					
 					if (this.className == "") {
 						this.className += _cls;
 					} else {
 						this.className += " " + _cls;
 					}
+					
 				} else {
 					throw new Error("Class to add is undefined.");
 				}
@@ -56,12 +62,15 @@
 	$.fn.removeClass = function(_cls) {
 		
 		this.init(function() {
+			
 			if ($(this).hasClass(_cls)) {
+				
 				if (_cls) {
 					this.className = this.className.replace($.regxCls(_cls), "");
 				} else {
 					throw new Error("Class to remove is undefined.");
 				}
+				
 			}
 		});
 		
@@ -73,11 +82,13 @@
 	$.fn.toggleClass = function(_cls) {
 		
 		this.init(function() {
+			
 			if (!$(this).hasClass(_cls)) {
 				$(this).addClass(_cls);
 			} else {
 				$(this).removeClass(_cls);
 			}
+			
 		});
 		
 		return this;

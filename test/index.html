@@ -117,10 +117,11 @@
 				test = $("#test-div"),
 				buttonsArray = $(".btns"),
 				divs = $("div"),
-				empty-divs = $("div", "#test-div");
+				emptyDivs = $("div", "#test-div");
 			
 			el.on("click", function() {
-				test.css({background: "red", border: "1px solid #0f0"});
+				var elem = $.newEl("p", "test-para", "cls", "Hey there...");
+				$("#test-div").append(elem);
 			});
 			
 			$("[data-mouseable]").mouseable();

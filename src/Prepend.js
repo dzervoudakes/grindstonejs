@@ -33,7 +33,7 @@
 					}
 					
 				} else {
-					this.insertBefore(_prependElement, self.firstChild);
+					this.insertBefore(_prependElement, this.firstChild);
 				}
 				
 			} else {

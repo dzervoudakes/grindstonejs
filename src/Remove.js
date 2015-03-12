@@ -18,7 +18,7 @@
 			parents = this.set;
 			
 			for (i = 0; i < parents.length; i++) {
-				$.forEach(elems,function() {
+				$.forEach(elems, function() {
 					parents[i].removeChild(this);
 				});
 			}

@@ -279,11 +279,13 @@
 		var classTrue;
 		
 		this.init(function() {
+			
 			if (_cls) {
 				classTrue = (this.className.match($.regxCls(_cls)) !== null) ? true : false;
 			} else {
 				throw new Error("Cannot determine if the element has undefined class.");
 			}
+			
 		});
 		
 		return classTrue;
@@ -294,13 +296,17 @@
 	$.fn.addClass = function(_cls) {
 		
 		this.init(function() {
+			
 			if (!$(this).hasClass(_cls)) {
+				
 				if (_cls) {
+					
 					if (this.className == "") {
 						this.className += _cls;
 					} else {
 						this.className += " " + _cls;
 					}
+					
 				} else {
 					throw new Error("Class to add is undefined.");
 				}
@@ -315,12 +321,15 @@
 	$.fn.removeClass = function(_cls) {
 		
 		this.init(function() {
+			
 			if ($(this).hasClass(_cls)) {
+				
 				if (_cls) {
 					this.className = this.className.replace($.regxCls(_cls), "");
 				} else {
 					throw new Error("Class to remove is undefined.");
 				}
+				
 			}
 		});
 		
@@ -332,11 +341,13 @@
 	$.fn.toggleClass = function(_cls) {
 		
 		this.init(function() {
+			
 			if (!$(this).hasClass(_cls)) {
 				$(this).addClass(_cls);
 			} else {
 				$(this).removeClass(_cls);
 			}
+			
 		});
 		
 		return this;
@@ -655,11 +666,13 @@
 		var txt, toReturn;
 		
 		this.init(function() {
+			
 			if (_content) {
 				this.innerHTML = _content;
 			} else {
 				txt = this.innerHTML;
 			}
+			
 		});
 		
 		toReturn = (_content) ? this : txt;
@@ -770,8 +783,10 @@
 		if (_classes) {
 			
 			if (typeof _classes === "object") {
+				
 				hoverClass  = (_classes.hasOwnProperty("hoverClass"))  ? _classes["hoverClass"]  : "over";
 				activeClass = (_classes.hasOwnProperty("activeClass")) ? _classes["activeClass"] : "down";
+			
 			} else {
 				throw new Error("Classes parameter for mouseable() must be an object with properties 'hoverClass' and/or 'activeClass'.");
 			}
@@ -787,20 +802,23 @@
 		evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
 		
 		this.init(function() {
-			$(this).on(evt_hover, function() {
-				$(this).addClass(hoverClass);
-			})
-			.on(evt_remove, function() {
-				$(this)
-					.removeClass(hoverClass + " " + activeClass)
-					.removeClass(hoverClass);
-			})
-			.on(evt_down, function() {
-				$(this).addClass(activeClass);
-			})
-			.on(evt_up, function() {
-				$(this).removeClass(activeClass);
-			});
+			
+			$(this)
+				.on(evt_hover, function() {
+					$(this).addClass(hoverClass);
+				})
+				.on(evt_remove, function() {
+					$(this)
+						.removeClass(hoverClass + " " + activeClass)
+						.removeClass(hoverClass);
+				})
+				.on(evt_down, function() {
+					$(this).addClass(activeClass);
+				})
+				.on(evt_up, function() {
+					$(this).removeClass(activeClass);
+				});
+			
 		});
 	};
 
@@ -810,29 +828,21 @@
  * Creates a new DOM element
  *
  * Parameters:
- * -elType (type of DOM element)
- * -elId (ID of the new element - optional)
- * -elClass (className of the new element - optional)
- * -elInner (innerHTML to be added - optional)
+ * -type (type of DOM element)
+ * -id (ID of the new element - optional)
+ * -class (className of the new element - optional)
+ * -inner (innerHTML to be added - optional)
  */
 	
-	$.newEl = function(_elType, _elId, _elClass, _elInner) {
+	$.newEl = function(_type, _id, _class, _inner) {
 		
-		if (_elType) {
+		if (_type) {
 			
-			var newElement = document.createElement(_elType);
+			var newElement = document.createElement(_type);
 			
-			if (_elId) {
-				newElement.id = _elId;
-			}
-			
-			if (_elClass) {
-				newElement.className = _elClass;
-			}
-			
-			if (_elInner) {
-				newElement.innerHTML = _elInner;
-			}
+			newElement.id = (_id)			? _id 	 : "";
+			newElement.className = (_class) ? _class : "";
+			newElement.innerHTML = (_inner) ? _inner : "";
 			
 			return newElement;
 			
@@ -928,7 +938,7 @@
 					}
 					
 				} else {
-					this.insertBefore(_prependElement, self.firstChild);
+					this.insertBefore(_prependElement, this.firstChild);
 				}
 				
 			} else {
@@ -992,7 +1002,7 @@
 			parents = this.set;
 			
 			for (i = 0; i < parents.length; i++) {
-				$.forEach(elems,function() {
+				$.forEach(elems, function() {
 					parents[i].removeChild(this);
 				});
 			}
