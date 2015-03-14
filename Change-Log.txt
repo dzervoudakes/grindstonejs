@@ -1,62 +1,74 @@
-/**
- * GrindstoneJS - Change Log
- * 
- * Current Version: 1.1.5
- */
+GrindstoneJS | Change Log
 
-==========================================================================================================
-==========================================================================================================
+Date: 1/29/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
 
- /* Version 1.0.0 - 1/29/15 */
+v1.0.0
  
- 	-Deployed initial library for field testing
+- Deployed initial library for field testing
 
-----------------------------------------------------------------------------------------------------------
+Date: 1/30/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
 
- /* Version 1.0.1 - 1/30/15 */
+v1.0.1
  
- 	-Slight bug fix for "hasClass()"
- 	-Classes.js: made Reg Exp more specific/semantic to the module
+- Slight bug fix for "hasClass()"
+- Classes.js: made Reg Exp more specific/semantic to the module
  
- ----------------------------------------------------------------------------------------------------------
+Date: 2/3/15
+Changes Current Version: YES
+Contributor(s): Dan Zervoudakes
 
- /* Version 1.1.0 - 2/3/15 */
+v1.1.0
  
- 	-Reformatted initialization - now to loop through collections, use "this.init()" format in all modules
- 	-Added "scrollTop()" method in "Scroll.js" module
- 	-Updated the following modules: (expanded range of selectors to be appended/prepended)
- 	  -Append.js
- 	  -Prepend.js
- 	  -Insert.js
+- Reformatted initialization - now to loop through collections, use "this.init()" format in all modules
+- Added "scrollTop()" method in "Scroll.js" module
+- Updated the following modules: (expanded range of selectors to be appended/prepended)
+ 	- Append.js
+ 	- Prepend.js
+ 	- Insert.js
 
- ----------------------------------------------------------------------------------------------------------
+Date: 2/10/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
 
- /* Version 1.1.1 - 2/10/15 */
+v1.1.1
  
- 	-Refactored variable layout/format within each module
+- Refactored variable layout/format within each module
 
- ----------------------------------------------------------------------------------------------------------
+Date: 2/11/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
 
- /* Version 1.1.2 - 2/11/15 */
+v1.1.2
  
- 	-Updated "querySelector" to "querySelectorAll" for _context in Core.js
+- Updated "querySelector" to "querySelectorAll" for _context in Core.js
 
- ----------------------------------------------------------------------------------------------------------
+Date: 2/12/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
 
- /* Version 1.1.3 - 2/12/15 */
+v1.1.3
  
- 	-Tightened up text parsing in Append / Prepend / Insert modules
+- Tightened up text parsing in Append / Prepend / Insert modules
 
- ----------------------------------------------------------------------------------------------------------
+Date: 2/16/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
 
- /* Version 1.1.4 - 2/16/15 */
+v1.1.4
  
- 	-Fixed bug in Dimensions module where inputting "0" returned null
- 	-Updated CSS module to accept single properties for altering; no longer just the object
+- Fixed bug in Dimensions module where inputting "0" returned null
+- Updated CSS module to accept single properties for altering; no longer just the object
 
- ----------------------------------------------------------------------------------------------------------
+Date: 3/5/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
 
- /* Version 1.1.5 - 3/5/15 */
+v1.1.5
  
- 	-Changed "evt()" and "dropEvt()" to "on()" and "off()", respectively
- 	-Per the changes above, edited mouseable(), doubleTap(), scroll() and resize()
+- Changed "evt()" and "dropEvt()" to "on()" and "off()", respectively
+- Per the changes above, edited mouseable(), doubleTap(), scroll() and resize()
+- Streamlined codebase in "NewEl.js"
