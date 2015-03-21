@@ -15,7 +15,7 @@
 		if (_position && typeof _position === "string") {
 			
 			if (_position !== "left" && _position !== "top") {
-				throw new Error("Offset position must be either 'left' or 'top'.");
+				throw new Error("offset() position must be either 'left' or 'top'.");
 			} else {
 				
 				elem = this.set[0];
@@ -46,6 +46,6 @@
 				}
 			}
 		} else {
-			throw new Error("Offset position must be a string: acceptable values are 'left' and 'top'.");
+			throw new Error("offset() position must be a string: acceptable values are 'left' and 'top'.");
 		}
 	};

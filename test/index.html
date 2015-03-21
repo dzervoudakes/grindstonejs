@@ -125,12 +125,7 @@
 			});
 			
 			el.on("click", function() {
-				var _val = test.getVal("junk");
-				console.log(_val);
-			});
-			
-			el2.on("click", function() {
-				test.removeVal("junk");
+				test.remove(".empty-div");
 			});
 			
 			$(".mouseable").mouseable();

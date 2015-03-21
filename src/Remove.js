@@ -10,7 +10,7 @@
 	
 	$.fn.remove = function(_target) {
 		
-		var elems, parents, i;
+		var elems, parents, i, j;
 		
 		if (_target) {
 			
@@ -18,16 +18,16 @@
 			parents = this.set;
 			
 			for (i = 0; i < parents.length; i++) {
-				$.forEach(elems, function() {
-					parents[i].removeChild(this);
-				});
+				for (j = 0; j < elems.length; j++) {
+					parents[i].removeChild(elems[j]);
+				}
 			}
 			
 		} else {
 			
-			$.forEach(this.set, function() {
-				this.parentNode.removeChild(this);
-			});
+			for (i = 0; i < this.set["length"]; i++) {
+				this.set[i].parentNode.removeChild(this.set[i]);
+			}
 			
 		}
 		

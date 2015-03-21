@@ -758,7 +758,7 @@
 		if (_position && typeof _position === "string") {
 			
 			if (_position !== "left" && _position !== "top") {
-				throw new Error("Offset position must be either 'left' or 'top'.");
+				throw new Error("offset() position must be either 'left' or 'top'.");
 			} else {
 				
 				elem = this.set[0];
@@ -789,7 +789,7 @@
 				}
 			}
 		} else {
-			throw new Error("Offset position must be a string: acceptable values are 'left' and 'top'.");
+			throw new Error("offset() position must be a string: acceptable values are 'left' and 'top'.");
 		}
 	};
 
@@ -878,7 +878,7 @@
 	
 	$.fn.remove = function(_target) {
 		
-		var elems, parents, i;
+		var elems, parents, i, j;
 		
 		if (_target) {
 			
@@ -886,16 +886,16 @@
 			parents = this.set;
 			
 			for (i = 0; i < parents.length; i++) {
-				$.forEach(elems, function() {
-					parents[i].removeChild(this);
-				});
+				for (j = 0; j < elems.length; j++) {
+					parents[i].removeChild(elems[j]);
+				}
 			}
 			
 		} else {
 			
-			$.forEach(this.set, function() {
-				this.parentNode.removeChild(this);
-			});
+			for (i = 0; i < this.set["length"]; i++) {
+				this.set[i].parentNode.removeChild(this.set[i]);
+			}
 			
 		}
 		
@@ -1054,7 +1054,7 @@
 				$(this).html(wrap + contents);
 				
 			} else {
-				throw new Error("wrapInner structure must be specified as a string.");
+				throw new Error("wrapInner() structure must be specified as a string.");
 			}
 			
 		});

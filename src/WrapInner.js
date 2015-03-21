@@ -21,7 +21,7 @@
 				$(this).html(wrap + contents);
 				
 			} else {
-				throw new Error("wrapInner structure must be specified as a string.");
+				throw new Error("wrapInner() structure must be specified as a string.");
 			}
 			
 		});
