@@ -12,9 +12,7 @@
 		this.init(function() {
 			
 			$(this).on("scroll", function() {
-				if (_callback) {
-					_callback();
-				}
+				_callback();
 			});
 			
 		});

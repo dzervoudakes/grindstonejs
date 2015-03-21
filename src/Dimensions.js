@@ -12,7 +12,7 @@
 	
 	$.fn.height = function(_num) {
 		
-		if (_num && typeof _num === "number" || _num === 0) {
+		if (typeof _num === "number" || _num === 0) {
 			
 			this.init(function() {
 				this.style.height = _num + "px";
@@ -27,7 +27,7 @@
 	
 	$.fn.width = function(_num) {
 		
-		if (_num && typeof _num === "number" || _num === 0) {
+		if (typeof _num === "number" || _num === 0) {
 			
 			this.init(function() {
 				this.style.width = _num + "px";

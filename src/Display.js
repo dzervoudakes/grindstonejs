@@ -13,22 +13,16 @@
 		
 		this.init(function() {
 			
-			var self = this;
-			
-			if (_delay) {
+			if (_delay && typeof _delay === "number") {
 				
-				if (typeof _delay === "number") {
-					
-					setTimeout(function() {
-						self.style.display = "block";
-					}, _delay);
-					
-				} else {
-					throw new Error("Display timeout parameter must be a number.");
-				}
+				var self = this;
+				
+				setTimeout(function() {
+					self.style.display = "block";
+				}, _delay);
 				
 			} else {
-				self.style.display = "block";
+				this.style.display = "block";
 			}
 			
 		});
@@ -40,22 +34,16 @@
 		
 		this.init(function() {
 			
-			var self = this;
-			
-			if (_delay) {
+			if (_delay && typeof _delay === "number") {
 				
-				if (typeof _delay === "number") {
-					
-					setTimeout(function() {
-						self.style.display = "none";
-					}, _delay);
-					
-				} else {
-					throw new Error("Display timeout parameter must be a number.");
-				}
+				var self = this;
+				
+				setTimeout(function() {
+					self.style.display = "none";
+				}, _delay);
 				
 			} else {
-				self.style.display = "none";
+				this.style.display = "none";
 			}
 			
 		});

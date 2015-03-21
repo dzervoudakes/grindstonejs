@@ -75,7 +75,7 @@
 				border: 1px solid #069;
 			}
 			
-			[data-mouseable] {
+			.mouseable {
 				cursor: pointer;
 			}
 			
@@ -101,7 +101,7 @@
 	</head>
 	<body>
 		<div>
-			<div id="test-div" class="test" data-mouseable>
+			<div id="test-div" class="test mouseable">
 				<div id="empty-div01" class="empty-div"></div>
 				<div id="empty-div02" class="empty-div"></div>
 				<div id="empty-div03" class="empty-div"></div>
@@ -109,8 +109,8 @@
 			</div>
 		</div>
 		<article id="empty-article"></article>
-		<button id="btn1" class="btns" data-mouseable></button>
-		<button id="btn2" class="btns" data-mouseable></button>
+		<button id="btn1" class="btns mouseable"></button>
+		<button id="btn2" class="btns mouseable"></button>
 		<script type="text/javascript">
 			
 			var el = $("#btn1"),
@@ -120,12 +120,20 @@
 				divs = $("div"),
 				emptyDivs = $("div", "#test-div");
 			
-			el.on("click", function() {
-				var elem = $.newEl("p", "test-para", "cls", "Hey there...");
-				$("#test-div").append(elem);
+			$(document).ready(function() {
+				test.val("junk", "IE");
 			});
 			
-			$("[data-mouseable]").mouseable();
+			el.on("click", function() {
+				var _val = test.getVal("junk");
+				console.log(_val);
+			});
+			
+			el2.on("click", function() {
+				test.removeVal("junk");
+			});
+			
+			$(".mouseable").mouseable();
 			
 		</script>
 	</body>

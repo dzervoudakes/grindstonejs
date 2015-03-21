@@ -9,12 +9,8 @@
 	
 	$.fn.each = function(_callback) {
 		
-		var results, i;
-		
-		results = this.set;
-		
-		for (i = 0; i < results.length; i++) {
-			_callback.call(results[i]);
+		for (var i = 0; i < this.set["length"]; i++) {
+			_callback.call(this.set[i]);
 		}
 		
 		return this;

@@ -15,26 +15,20 @@
 		
 		this.init(function() {
 			
-			if (_styles) {
+			if (typeof _styles === "object") {
 				
-				if (typeof _styles === "object") {
-					
-					for (i in _styles) {
-						this.style[i] = _styles[i];
-					}
-					
-				} else if (_styles && typeof _styles === "string" && !_value) {
-					
-					returnedStyle = this.style[_styles];
-					
-				} else if (_styles && typeof _styles === "string" && _value && typeof _value === "string") {
-					
-					this.style[_styles] = _value;
-					
+				for (i in _styles) {
+					this.style[i] = _styles[i];
 				}
 				
-			} else {
-				throw new Error("CSS properties are undefined.");
+			} else if (typeof _styles === "string" && !_value) {
+				
+				returnedStyle = this.style[_styles];
+				
+			} else if (typeof _styles === "string" && typeof _value === "string") {
+				
+				this.style[_styles] = _value;
+				
 			}
 			
 		});

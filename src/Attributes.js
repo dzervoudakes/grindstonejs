@@ -15,46 +15,34 @@
 		var elemAttribute, toReturn;
 		
 		this.init(function() {
-			if (_attribute) {
-				
-				if (_value) {
-					this.setAttribute(_attribute, _value);
-				} else {
-					elemAttribute = this.getAttribute(_attribute);
-				}
-				
+			
+			if (_value) {
+				this.setAttribute(_attribute, _value);
 			} else {
-				throw new Error("Please specify an attribute to either edit or return its value.");
+				elemAttribute = this.getAttribute(_attribute);
 			}
+			
 		});
 		
-		toReturn = (_value) ? this : elemAttribute;
+		toReturn = _value ? this : elemAttribute;
 		return toReturn;
 	};
 	
 	$.fn.hasAttr = function(_attribute) {
 		
-		var attr;
+		var exists;
 		
 		this.init(function() {
-			if (_attribute) {
-				attr = $(this).attr(_attribute) !== null;
-			} else {
-				throw new Error("Can't determine if the selected element has null attribute.");
-			}
+			if (_attribute) exists = $(this).attr(_attribute) !== null;
 		});
 		
-		return attr;
+		return exists;
 	};
 	
 	$.fn.removeAttr = function(_attribute) {
 		
 		this.init(function() {
-			if (_attribute) {
-				this.removeAttribute(_attribute);
-			} else {
-				throw new Error("Please specify an attribute to remove.");
-			}
+			if (_attribute) this.removeAttribute(_attribute);
 		});
 		
 		return this;

@@ -46,6 +46,6 @@
 				}
 			}
 		} else {
-			throw new Error("Please enter a string value, 'left' or 'top' for offset position.");
+			throw new Error("Offset position must be a string: acceptable values are 'left' and 'top'.");
 		}
 	};

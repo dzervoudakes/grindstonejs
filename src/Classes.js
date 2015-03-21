@@ -17,19 +17,13 @@
 	//
 	$.fn.hasClass = function(_cls) {
 		
-		var classTrue;
+		var hasCls;
 		
 		this.init(function() {
-			
-			if (_cls) {
-				classTrue = (this.className.match($.regxCls(_cls)) !== null) ? true : false;
-			} else {
-				throw new Error("Cannot determine if the element has undefined class.");
-			}
-			
+			hasCls = (this.className.match($.regxCls(_cls)) !== null) ? true : false;
 		});
 		
-		return classTrue;
+		return hasCls;
 	};
 	
 	// Add the specified class to the element if it doesn't already contain that class
@@ -40,18 +34,14 @@
 			
 			if (!$(this).hasClass(_cls)) {
 				
-				if (_cls) {
-					
-					if (this.className == "") {
-						this.className += _cls;
-					} else {
-						this.className += " " + _cls;
-					}
-					
+				if (this.className === "") {
+					this.className += _cls;
 				} else {
-					throw new Error("Class to add is undefined.");
+					this.className += " " + _cls;
 				}
+				
 			}
+			
 		});
 		
 		return this;
@@ -62,16 +52,7 @@
 	$.fn.removeClass = function(_cls) {
 		
 		this.init(function() {
-			
-			if ($(this).hasClass(_cls)) {
-				
-				if (_cls) {
-					this.className = this.className.replace($.regxCls(_cls), "");
-				} else {
-					throw new Error("Class to remove is undefined.");
-				}
-				
-			}
+			if ($(this).hasClass(_cls)) this.className = this.className.replace($.regxCls(_cls), "");
 		});
 		
 		return this;

@@ -14,30 +14,24 @@
 		
 		this.init(function() {
 			
-			if (_prependElement) {
-			
-				if (typeof _prependElement === "string") {
+			if (typeof _prependElement === "string") {
+				
+				if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3) {
 					
-					if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3) {
-						
-						this.insertAdjacentHTML("afterbegin", _prependElement);
+					this.insertAdjacentHTML("afterbegin", _prependElement);
+				
+				} else {
 					
-					} else {
-						
-						dom = document.querySelectorAll(_prependElement);
-						
-						for (i = 0; i < dom.length; i++) {
-							this.insertBefore(dom[i], this.firstChild);
-						}
-						
+					dom = document.querySelectorAll(_prependElement);
+					
+					for (i = 0; i < dom.length; i++) {
+						this.insertBefore(dom[i], this.firstChild);
 					}
 					
-				} else {
-					this.insertBefore(_prependElement, this.firstChild);
 				}
 				
 			} else {
-				throw new Error("Cannot prepend undefined element.");
+				this.insertBefore(_prependElement, this.firstChild);
 			}
 			
 		});

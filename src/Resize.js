@@ -12,9 +12,7 @@
 		this.init(function() {
 			
 			$(this).on("resize", function() {
-				if (_callback) {
-					_callback();
-				}
+				_callback();
 			});
 			
 		});

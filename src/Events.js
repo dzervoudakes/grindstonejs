@@ -15,23 +15,11 @@
 		var events, i;
 		
 		this.init(function() {
+					
+			events = _action.split(" ");
 			
-			if (_action) {
-				
-				if (typeof _action === "string") {
-					
-					events = _action.split(" ");
-					
-					for (i = 0; i < events.length; i++) {
-						this.addEventListener(events[i], _callback, false);
-					}
-					
-				} else {
-					throw new Error("Type of event action must be a string.");
-				}
-				
-			} else {
-				throw new Error("Event to handle is undefined.");
+			for (i = 0; i < events.length; i++) {
+				this.addEventListener(events[i], _callback, false);
 			}
 			
 		});
@@ -46,23 +34,11 @@
 		var events, i;
 		
 		this.init(function() {
+					
+			events = _action.split(" ");
 			
-			if (_action) {
-				
-				if (typeof _action === "string") {
-					
-					events = _action.split(" ");
-					
-					for (i = 0; i < events.length; i++) {
-						this.removeEventListener(events[i], _callback, false);
-					}
-					
-				} else {
-					throw new Error("Type of event action must be a string.");
-				}
-				
-			} else {
-				throw new Error("Event handler to drop is undefined.");
+			for (i = 0; i < events.length; i++) {
+				this.removeEventListener(events[i], _callback, false);
 			}
 			
 		});

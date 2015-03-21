@@ -13,31 +13,25 @@
 		var dom, i;
 		
 		this.init(function() {
-			
-			if (_content) {
 				
-				if (typeof _content === "string") {
+			if (typeof _content === "string") {
+				
+				if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
 					
-					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
-						
-						this.insertAdjacentHTML("beforebegin", _content);
-						
-					} else {
-						
-						dom = document.querySelectorAll(_content);
-						
-						for (i = 0; i < dom.length; i++) {
-							this.parentNode.insertBefore(dom[i], this);
-						}
-						
-					}
+					this.insertAdjacentHTML("beforebegin", _content);
 					
 				} else {
-					this.parentNode.insertBefore(_content, this);
+					
+					dom = document.querySelectorAll(_content);
+					
+					for (i = 0; i < dom.length; i++) {
+						this.parentNode.insertBefore(dom[i], this);
+					}
+					
 				}
 				
 			} else {
-				throw new Error("Cannot insert null after the specified element.");
+				this.parentNode.insertBefore(_content, this);
 			}
 			
 		});
@@ -50,31 +44,25 @@
 		var dom, i;
 		
 		this.init(function() {
-			
-			if (_content) {
 				
-				if (typeof _content === "string") {
+			if (typeof _content === "string") {
+				
+				if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
 					
-					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
-						
-						this.insertAdjacentHTML("afterend", _content);
-						
-					} else {
-						
-						dom = document.querySelectorAll(_content);
-						
-						for (i = 0; i < dom.length; i++) {
-							this.parentNode.insertBefore(dom[i], this.nextSibling);
-						}
-						
-					}
+					this.insertAdjacentHTML("afterend", _content);
 					
 				} else {
-					this.parentNode.insertBefore(_content, this.nextSibling);
+					
+					dom = document.querySelectorAll(_content);
+					
+					for (i = 0; i < dom.length; i++) {
+						this.parentNode.insertBefore(dom[i], this.nextSibling);
+					}
+					
 				}
 				
 			} else {
-				throw new Error("Cannot insert null after the specified element.");
+				this.parentNode.insertBefore(_content, this.nextSibling);
 			}
 			
 		});

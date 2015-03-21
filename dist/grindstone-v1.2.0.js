@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.1.5
+ * Grindstone JavaScript Library v1.2.0
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -50,12 +50,10 @@
 				
 			} else if (typeof _selector === "object") {
 				this.set = [_selector];
-			} else {
-				return null;
 			}
 			
 		} else {
-			return false;
+			throw new Error("Cannot create new instance of Grindstone without a selector.");
 		}
 	};
 	
@@ -63,17 +61,6 @@
 	//
 	var $ = function(_selector, _context) {
 		return new Grindstone(_selector, _context);
-	};
-	
-	/**
-	 * Custom forEach function to streamline the looping process throughout...
-	 * Since we are dealing with NodeLists, the Array.prototype.forEach() method will not work natively
-	 */
-	
-	$.forEach = function(_array, _callback) {
-		for (var i = 0; i < _array.length; i++) {
-			_callback.call(_array[i]);
-		}
 	};
 	
 	// Cut down on repetitive text throughout...
@@ -86,7 +73,10 @@
 	 */
 	
 	$.fn.init = function(_callback) {
-		$.forEach(this.set, _callback);
+		for (var i = 0; i < this.set["length"]; i++) {
+			_callback.call(this.set[i]);
+		}
+		
 	};
 	
 	// eq() - returns an element from the set as specified by the corresponding index value
@@ -132,7 +122,7 @@
 		
 		xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 				success(xmlhttp);
 			}
 		};
@@ -163,31 +153,25 @@
 		var dom, i;
 		
 		this.init(function() {
-			
-			if (_appendElement) {
 				
-				if (typeof _appendElement === "string") {
+			if (typeof _appendElement === "string") {
+				
+				if (_appendElement.charAt(0) === "<" && _appendElement.charAt(_appendElement.length - 1) === ">" && _appendElement.length >= 3) {
 					
-					if (_appendElement.charAt(0) === "<" && _appendElement.charAt(_appendElement.length - 1) === ">" && _appendElement.length >= 3) {
-						
-						this.innerHTML += _appendElement;
+					this.innerHTML += _appendElement;
+				
+				} else {
 					
-					} else {
-						
-						dom = document.querySelectorAll(_appendElement);
-						
-						for (i = 0; i < dom.length; i++) {
-							this.appendChild(dom[i]);
-						}
-						
+					dom = document.querySelectorAll(_appendElement);
+					
+					for (i = 0; i < dom.length; i++) {
+						this.appendChild(dom[i]);
 					}
 					
-				} else {
-					this.appendChild(_appendElement);
 				}
 				
 			} else {
-				throw new Error("Cannot append undefined element.");
+				this.appendChild(_appendElement);
 			}
 			
 		});
@@ -212,46 +196,34 @@
 		var elemAttribute, toReturn;
 		
 		this.init(function() {
-			if (_attribute) {
-				
-				if (_value) {
-					this.setAttribute(_attribute, _value);
-				} else {
-					elemAttribute = this.getAttribute(_attribute);
-				}
-				
+			
+			if (_value) {
+				this.setAttribute(_attribute, _value);
 			} else {
-				throw new Error("Please specify an attribute to either edit or return its value.");
+				elemAttribute = this.getAttribute(_attribute);
 			}
+			
 		});
 		
-		toReturn = (_value) ? this : elemAttribute;
+		toReturn = _value ? this : elemAttribute;
 		return toReturn;
 	};
 	
 	$.fn.hasAttr = function(_attribute) {
 		
-		var attr;
+		var exists;
 		
 		this.init(function() {
-			if (_attribute) {
-				attr = $(this).attr(_attribute) !== null;
-			} else {
-				throw new Error("Can't determine if the selected element has null attribute.");
-			}
+			if (_attribute) exists = $(this).attr(_attribute) !== null;
 		});
 		
-		return attr;
+		return exists;
 	};
 	
 	$.fn.removeAttr = function(_attribute) {
 		
 		this.init(function() {
-			if (_attribute) {
-				this.removeAttribute(_attribute);
-			} else {
-				throw new Error("Please specify an attribute to remove.");
-			}
+			if (_attribute) this.removeAttribute(_attribute);
 		});
 		
 		return this;
@@ -276,19 +248,13 @@
 	//
 	$.fn.hasClass = function(_cls) {
 		
-		var classTrue;
+		var hasCls;
 		
 		this.init(function() {
-			
-			if (_cls) {
-				classTrue = (this.className.match($.regxCls(_cls)) !== null) ? true : false;
-			} else {
-				throw new Error("Cannot determine if the element has undefined class.");
-			}
-			
+			hasCls = (this.className.match($.regxCls(_cls)) !== null) ? true : false;
 		});
 		
-		return classTrue;
+		return hasCls;
 	};
 	
 	// Add the specified class to the element if it doesn't already contain that class
@@ -299,18 +265,14 @@
 			
 			if (!$(this).hasClass(_cls)) {
 				
-				if (_cls) {
-					
-					if (this.className == "") {
-						this.className += _cls;
-					} else {
-						this.className += " " + _cls;
-					}
-					
+				if (this.className === "") {
+					this.className += _cls;
 				} else {
-					throw new Error("Class to add is undefined.");
+					this.className += " " + _cls;
 				}
+				
 			}
+			
 		});
 		
 		return this;
@@ -321,16 +283,7 @@
 	$.fn.removeClass = function(_cls) {
 		
 		this.init(function() {
-			
-			if ($(this).hasClass(_cls)) {
-				
-				if (_cls) {
-					this.className = this.className.replace($.regxCls(_cls), "");
-				} else {
-					throw new Error("Class to remove is undefined.");
-				}
-				
-			}
+			if ($(this).hasClass(_cls)) this.className = this.className.replace($.regxCls(_cls), "");
 		});
 		
 		return this;
@@ -380,26 +333,20 @@
 		
 		this.init(function() {
 			
-			if (_styles) {
+			if (typeof _styles === "object") {
 				
-				if (typeof _styles === "object") {
-					
-					for (i in _styles) {
-						this.style[i] = _styles[i];
-					}
-					
-				} else if (_styles && typeof _styles === "string" && !_value) {
-					
-					returnedStyle = this.style[_styles];
-					
-				} else if (_styles && typeof _styles === "string" && _value && typeof _value === "string") {
-					
-					this.style[_styles] = _value;
-					
+				for (i in _styles) {
+					this.style[i] = _styles[i];
 				}
 				
-			} else {
-				throw new Error("CSS properties are undefined.");
+			} else if (typeof _styles === "string" && !_value) {
+				
+				returnedStyle = this.style[_styles];
+				
+			} else if (typeof _styles === "string" && typeof _value === "string") {
+				
+				this.style[_styles] = _value;
+				
 			}
 			
 		});
@@ -422,7 +369,7 @@
 	
 	$.fn.height = function(_num) {
 		
-		if (_num && typeof _num === "number" || _num === 0) {
+		if (typeof _num === "number" || _num === 0) {
 			
 			this.init(function() {
 				this.style.height = _num + "px";
@@ -437,7 +384,7 @@
 	
 	$.fn.width = function(_num) {
 		
-		if (_num && typeof _num === "number" || _num === 0) {
+		if (typeof _num === "number" || _num === 0) {
 			
 			this.init(function() {
 				this.style.width = _num + "px";
@@ -465,22 +412,16 @@
 		
 		this.init(function() {
 			
-			var self = this;
-			
-			if (_delay) {
+			if (_delay && typeof _delay === "number") {
 				
-				if (typeof _delay === "number") {
-					
-					setTimeout(function() {
-						self.style.display = "block";
-					}, _delay);
-					
-				} else {
-					throw new Error("Display timeout parameter must be a number.");
-				}
+				var self = this;
+				
+				setTimeout(function() {
+					self.style.display = "block";
+				}, _delay);
 				
 			} else {
-				self.style.display = "block";
+				this.style.display = "block";
 			}
 			
 		});
@@ -492,22 +433,16 @@
 		
 		this.init(function() {
 			
-			var self = this;
-			
-			if (_delay) {
+			if (_delay && typeof _delay === "number") {
 				
-				if (typeof _delay === "number") {
-					
-					setTimeout(function() {
-						self.style.display = "none";
-					}, _delay);
-					
-				} else {
-					throw new Error("Display timeout parameter must be a number.");
-				}
+				var self = this;
+				
+				setTimeout(function() {
+					self.style.display = "none";
+				}, _delay);
 				
 			} else {
-				self.style.display = "none";
+				this.style.display = "none";
 			}
 			
 		});
@@ -532,27 +467,22 @@
 			
 			active = false;
 			interaction = ("createTouch" in document) ? "touchend" : "click";
-			
-			if (_callback) {
 				
-				$(this).on(interaction, function() {
-					
-					if (active) {
-						_callback();
-						return active = false;
-					}
-					
-					active = true;
-					
-					setTimeout(function() {
-						return active = false;
-					}, 350);
-					
-				});
+			$(this).on(interaction, function() {
 				
-			} else {
-				throw new Error("Double-tap/double-click callback is undefined.");
-			}
+				if (active) {
+					_callback();
+					return active = false;
+				}
+				
+				active = true;
+				
+				setTimeout(function() {
+					return active = false;
+				}, 350);
+				
+			});
+				
 		});
 		
 		return this;
@@ -569,12 +499,8 @@
 	
 	$.fn.each = function(_callback) {
 		
-		var results, i;
-		
-		results = this.set;
-		
-		for (i = 0; i < results.length; i++) {
-			_callback.call(results[i]);
+		for (var i = 0; i < this.set["length"]; i++) {
+			_callback.call(this.set[i]);
 		}
 		
 		return this;
@@ -597,23 +523,11 @@
 		var events, i;
 		
 		this.init(function() {
+					
+			events = _action.split(" ");
 			
-			if (_action) {
-				
-				if (typeof _action === "string") {
-					
-					events = _action.split(" ");
-					
-					for (i = 0; i < events.length; i++) {
-						this.addEventListener(events[i], _callback, false);
-					}
-					
-				} else {
-					throw new Error("Type of event action must be a string.");
-				}
-				
-			} else {
-				throw new Error("Event to handle is undefined.");
+			for (i = 0; i < events.length; i++) {
+				this.addEventListener(events[i], _callback, false);
 			}
 			
 		});
@@ -628,23 +542,11 @@
 		var events, i;
 		
 		this.init(function() {
+					
+			events = _action.split(" ");
 			
-			if (_action) {
-				
-				if (typeof _action === "string") {
-					
-					events = _action.split(" ");
-					
-					for (i = 0; i < events.length; i++) {
-						this.removeEventListener(events[i], _callback, false);
-					}
-					
-				} else {
-					throw new Error("Type of event action must be a string.");
-				}
-				
-			} else {
-				throw new Error("Event handler to drop is undefined.");
+			for (i = 0; i < events.length; i++) {
+				this.removeEventListener(events[i], _callback, false);
 			}
 			
 		});
@@ -675,7 +577,7 @@
 			
 		});
 		
-		toReturn = (_content) ? this : txt;
+		toReturn = _content ? this : txt;
 		return toReturn;
  	};
  
@@ -694,31 +596,25 @@
 		var dom, i;
 		
 		this.init(function() {
-			
-			if (_content) {
 				
-				if (typeof _content === "string") {
+			if (typeof _content === "string") {
+				
+				if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
 					
-					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
-						
-						this.insertAdjacentHTML("beforebegin", _content);
-						
-					} else {
-						
-						dom = document.querySelectorAll(_content);
-						
-						for (i = 0; i < dom.length; i++) {
-							this.parentNode.insertBefore(dom[i], this);
-						}
-						
-					}
+					this.insertAdjacentHTML("beforebegin", _content);
 					
 				} else {
-					this.parentNode.insertBefore(_content, this);
+					
+					dom = document.querySelectorAll(_content);
+					
+					for (i = 0; i < dom.length; i++) {
+						this.parentNode.insertBefore(dom[i], this);
+					}
+					
 				}
 				
 			} else {
-				throw new Error("Cannot insert null after the specified element.");
+				this.parentNode.insertBefore(_content, this);
 			}
 			
 		});
@@ -731,31 +627,25 @@
 		var dom, i;
 		
 		this.init(function() {
-			
-			if (_content) {
 				
-				if (typeof _content === "string") {
+			if (typeof _content === "string") {
+				
+				if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
 					
-					if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
-						
-						this.insertAdjacentHTML("afterend", _content);
-						
-					} else {
-						
-						dom = document.querySelectorAll(_content);
-						
-						for (i = 0; i < dom.length; i++) {
-							this.parentNode.insertBefore(dom[i], this.nextSibling);
-						}
-						
-					}
+					this.insertAdjacentHTML("afterend", _content);
 					
 				} else {
-					this.parentNode.insertBefore(_content, this.nextSibling);
+					
+					dom = document.querySelectorAll(_content);
+					
+					for (i = 0; i < dom.length; i++) {
+						this.parentNode.insertBefore(dom[i], this.nextSibling);
+					}
+					
 				}
 				
 			} else {
-				throw new Error("Cannot insert null after the specified element.");
+				this.parentNode.insertBefore(_content, this.nextSibling);
 			}
 			
 		});
@@ -899,7 +789,7 @@
 				}
 			}
 		} else {
-			throw new Error("Please enter a string value, 'left' or 'top' for offset position.");
+			throw new Error("Offset position must be a string: acceptable values are 'left' and 'top'.");
 		}
 	};
 
@@ -919,30 +809,24 @@
 		
 		this.init(function() {
 			
-			if (_prependElement) {
-			
-				if (typeof _prependElement === "string") {
+			if (typeof _prependElement === "string") {
+				
+				if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3) {
 					
-					if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3) {
-						
-						this.insertAdjacentHTML("afterbegin", _prependElement);
+					this.insertAdjacentHTML("afterbegin", _prependElement);
+				
+				} else {
 					
-					} else {
-						
-						dom = document.querySelectorAll(_prependElement);
-						
-						for (i = 0; i < dom.length; i++) {
-							this.insertBefore(dom[i], this.firstChild);
-						}
-						
+					dom = document.querySelectorAll(_prependElement);
+					
+					for (i = 0; i < dom.length; i++) {
+						this.insertBefore(dom[i], this.firstChild);
 					}
 					
-				} else {
-					this.insertBefore(_prependElement, this.firstChild);
 				}
 				
 			} else {
-				throw new Error("Cannot prepend undefined element.");
+				this.insertBefore(_prependElement, this.firstChild);
 			}
 			
 		});
@@ -1030,13 +914,7 @@
 	$.fn.replaceWith = function(_content) {
 		
 		this.init(function() {
-			
-			if (_content) {
-				this.outerHTML = _content;
-			} else {
-				throw new Error("Cannot replace element with null.");
-			}
-			
+			if (_content) this.outerHTML = _content;
 		});
 		
 		return this;
@@ -1056,9 +934,7 @@
 		this.init(function() {
 			
 			$(this).on("resize", function() {
-				if (_callback) {
-					_callback();
-				}
+				_callback();
 			});
 			
 		});
@@ -1080,9 +956,7 @@
 		this.init(function() {
 			
 			$(this).on("scroll", function() {
-				if (_callback) {
-					_callback();
-				}
+				_callback();
 			});
 			
 		});
@@ -1100,20 +974,12 @@
  */
 	
 	$.fn.trigger = function(_event) {
+			
+		var customEvent = new Event(_event);
 		
-		var customEvent;
-		
-		if (_event) {
-			
-			customEvent = new Event(_event);
-			
-			this.init(function() {
-				this.dispatchEvent(customEvent);
-			});
-			
-		} else {
-			throw new Error("Cannot trigger undefined event.");
-		}
+		this.init(function() {
+			this.dispatchEvent(customEvent);
+		});
 		
 		return this;
  	};
@@ -1135,19 +1001,7 @@
 	$.fn.val = function(_valueName, _valueContent) {
 		
 		this.init(function() {
-			
-			if (_valueName && _valueContent) {
-				
-				if (typeof _valueName === "string") {
-					$(this).attr("data-value-" + _valueName, _valueContent);
-				} else {
-					throw new Error("The name of the value to assign must be a string.");
-				}
-				
-			} else {
-				throw new Error("Both value name and value content must be defined in order to assign a value.");
-			}
-			
+			$(this).attr("data-value-" + _valueName, _valueContent);
 		});
 		
 		return this;
@@ -1160,19 +1014,7 @@
 		var elemValue;
 		
 		this.init(function() {
-			
-			if (_valueName) {
-				
-				if (typeof _valueName === "string") {
-					elemValue = $(this).attr("data-value-" + _valueName);
-				} else {
-					throw new Error("The name of the value to return must be a string.");
-				}
-				
-			} else {
-				throw new Error("Please specify the value to return.");
-			}
-			
+			elemValue = $(this).attr("data-value-" + _valueName);
 		});
 		
 		return elemValue;
@@ -1183,19 +1025,7 @@
 	$.fn.removeVal = function(_valueName) {
 		
 		this.init(function() {
-			
-			if (_valueName) {
-				
-				if (typeof _valueName === "string") {
-					$(this).removeAttr("data-value-" + _valueName);
-				} else {
-					throw new Error("The name of the value to remove must be a string.");
-				}
-				
-			} else {
-				throw new Error("Please specify the value to remove.");
-			}
-			
+			$(this).removeAttr("data-value-" + _valueName);
 		});
 		
 		return this;
@@ -1216,21 +1046,15 @@
 		
 		this.init(function() {
 			
-			if (_structure) {
+			if (typeof _structure === "string") {
 				
-				if (typeof _structure === "string") {
-					
-					contents = $(this).html();
-					wrap = _structure;
-					
-					$(this).html(wrap + contents);
-					
-				} else {
-					throw new Error("wrapInner structure must be specified as a string.");
-				}
+				contents = $(this).html();
+				wrap = _structure;
+				
+				$(this).html(wrap + contents);
 				
 			} else {
-				throw new Error("Cannot wrap the innerHTML of the selected element with null.");
+				throw new Error("wrapInner structure must be specified as a string.");
 			}
 			
 		});

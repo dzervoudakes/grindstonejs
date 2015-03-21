@@ -13,31 +13,25 @@
 		var dom, i;
 		
 		this.init(function() {
-			
-			if (_appendElement) {
 				
-				if (typeof _appendElement === "string") {
+			if (typeof _appendElement === "string") {
+				
+				if (_appendElement.charAt(0) === "<" && _appendElement.charAt(_appendElement.length - 1) === ">" && _appendElement.length >= 3) {
 					
-					if (_appendElement.charAt(0) === "<" && _appendElement.charAt(_appendElement.length - 1) === ">" && _appendElement.length >= 3) {
-						
-						this.innerHTML += _appendElement;
+					this.innerHTML += _appendElement;
+				
+				} else {
 					
-					} else {
-						
-						dom = document.querySelectorAll(_appendElement);
-						
-						for (i = 0; i < dom.length; i++) {
-							this.appendChild(dom[i]);
-						}
-						
+					dom = document.querySelectorAll(_appendElement);
+					
+					for (i = 0; i < dom.length; i++) {
+						this.appendChild(dom[i]);
 					}
 					
-				} else {
-					this.appendChild(_appendElement);
 				}
 				
 			} else {
-				throw new Error("Cannot append undefined element.");
+				this.appendChild(_appendElement);
 			}
 			
 		});

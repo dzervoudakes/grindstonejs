@@ -15,27 +15,22 @@
 			
 			active = false;
 			interaction = ("createTouch" in document) ? "touchend" : "click";
-			
-			if (_callback) {
 				
-				$(this).on(interaction, function() {
-					
-					if (active) {
-						_callback();
-						return active = false;
-					}
-					
-					active = true;
-					
-					setTimeout(function() {
-						return active = false;
-					}, 350);
-					
-				});
+			$(this).on(interaction, function() {
 				
-			} else {
-				throw new Error("Double-tap/double-click callback is undefined.");
-			}
+				if (active) {
+					_callback();
+					return active = false;
+				}
+				
+				active = true;
+				
+				setTimeout(function() {
+					return active = false;
+				}, 350);
+				
+			});
+				
 		});
 		
 		return this;

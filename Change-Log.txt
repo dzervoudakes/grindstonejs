@@ -72,3 +72,11 @@ v1.1.5
 - Changed "evt()" and "dropEvt()" to "on()" and "off()", respectively
 - Per the changes above, edited mouseable(), doubleTap(), scroll() and resize()
 - Streamlined codebase in "NewEl.js"
+
+Date: 3/20/15
+Changes Current Version: YES
+Contributor(s): Dan Zervoudakes
+
+v1.2.0
+ 
+- Streamlined codebase throughout the library

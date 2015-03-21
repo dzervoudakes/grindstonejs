@@ -21,7 +21,7 @@
 			
 		});
 		
-		toReturn = (_content) ? this : txt;
+		toReturn = _content ? this : txt;
 		return toReturn;
  	};
  

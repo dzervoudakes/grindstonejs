@@ -8,20 +8,12 @@
  */
 	
 	$.fn.trigger = function(_event) {
+			
+		var customEvent = new Event(_event);
 		
-		var customEvent;
-		
-		if (_event) {
-			
-			customEvent = new Event(_event);
-			
-			this.init(function() {
-				this.dispatchEvent(customEvent);
-			});
-			
-		} else {
-			throw new Error("Cannot trigger undefined event.");
-		}
+		this.init(function() {
+			this.dispatchEvent(customEvent);
+		});
 		
 		return this;
  	};

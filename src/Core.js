@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.1.5
+ * Grindstone JavaScript Library v1.2.0
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -50,12 +50,10 @@
 				
 			} else if (typeof _selector === "object") {
 				this.set = [_selector];
-			} else {
-				return null;
 			}
 			
 		} else {
-			return false;
+			throw new Error("Cannot create new instance of Grindstone without a selector.");
 		}
 	};
 	
@@ -63,17 +61,6 @@
 	//
 	var $ = function(_selector, _context) {
 		return new Grindstone(_selector, _context);
-	};
-	
-	/**
-	 * Custom forEach function to streamline the looping process throughout...
-	 * Since we are dealing with NodeLists, the Array.prototype.forEach() method will not work natively
-	 */
-	
-	$.forEach = function(_array, _callback) {
-		for (var i = 0; i < _array.length; i++) {
-			_callback.call(_array[i]);
-		}
 	};
 	
 	// Cut down on repetitive text throughout...
@@ -86,7 +73,10 @@
 	 */
 	
 	$.fn.init = function(_callback) {
-		$.forEach(this.set, _callback);
+		for (var i = 0; i < this.set["length"]; i++) {
+			_callback.call(this.set[i]);
+		}
+		
 	};
 	
 	// eq() - returns an element from the set as specified by the corresponding index value
