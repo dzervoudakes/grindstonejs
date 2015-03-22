@@ -16,7 +16,7 @@
 			
 			var newElement = document.createElement(_type);
 			
-			newElement.id = (_id)			? _id 	 : "";
+			newElement.id 		 = (_id)	? _id 	 : "";
 			newElement.className = (_class) ? _class : "";
 			newElement.innerHTML = (_inner) ? _inner : "";
 			
