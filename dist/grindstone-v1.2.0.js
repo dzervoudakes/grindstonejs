@@ -22,6 +22,7 @@
 			var selectedElements, ctx, els, i, j;
 			
 			if (typeof _selector === "string") {
+				
 				if (_context) {
 					
 					ctx = document.querySelectorAll(_context);
