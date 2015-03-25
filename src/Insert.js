@@ -17,20 +17,21 @@
 			if (typeof _content === "string") {
 				
 				if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
-					
 					this.insertAdjacentHTML("beforebegin", _content);
-					
-				} else {
+				}
+				
+				else {
 					
 					dom = document.querySelectorAll(_content);
 					
 					for (i = 0; i < dom.length; i++) {
 						this.parentNode.insertBefore(dom[i], this);
 					}
-					
 				}
 				
-			} else {
+			}
+			
+			else {
 				this.parentNode.insertBefore(_content, this);
 			}
 			
@@ -48,20 +49,21 @@
 			if (typeof _content === "string") {
 				
 				if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
-					
 					this.insertAdjacentHTML("afterend", _content);
-					
-				} else {
+				}
+				
+				else {
 					
 					dom = document.querySelectorAll(_content);
 					
 					for (i = 0; i < dom.length; i++) {
 						this.parentNode.insertBefore(dom[i], this.nextSibling);
 					}
-					
 				}
 				
-			} else {
+			}
+			
+			else {
 				this.parentNode.insertBefore(_content, this.nextSibling);
 			}
 			

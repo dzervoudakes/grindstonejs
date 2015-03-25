@@ -15,7 +15,9 @@
 			
 			if (_content) {
 				this.innerHTML = _content;
-			} else {
+			}
+			
+			else {
 				txt = this.innerHTML;
 			}
 			

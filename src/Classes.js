@@ -36,7 +36,9 @@
 				
 				if (this.className === "") {
 					this.className += _cls;
-				} else {
+				}
+				
+				else {
 					this.className += " " + _cls;
 				}
 				
@@ -66,7 +68,9 @@
 			
 			if (!$(this).hasClass(_cls)) {
 				$(this).addClass(_cls);
-			} else {
+			}
+			
+			else {
 				$(this).removeClass(_cls);
 			}
 			

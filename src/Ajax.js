@@ -29,7 +29,9 @@
 			success  = (prop("success"))  ? _obj.success  : null;
 			sendStr  = (prop("str"))      ? _obj.sendStr  : null;
 			
-		} else {
+		}
+		
+		else {
 			throw new Error("Ajax request cannot be sent.");
 		}
 		
@@ -43,7 +45,9 @@
 		
 		if (prop("header") && prop("headerValue")) {
 			xmlhttp.setRequestHeader(header, headerValue);
-		} else {
+		}
+		
+		else {
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		}
 		

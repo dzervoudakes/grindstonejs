@@ -36,23 +36,31 @@
 						}
 					}
 					
-				} else {
+				}
+				
+				else {
 					selectedElements = document.querySelectorAll(_selector);
 				}
 				
 				if (selectedElements.length > 0) {
 					this.set = selectedElements;
-				} else {
+				}
+				
+				else {
 					return [];
 				}
 				
 				return this;
 				
-			} else if (typeof _selector === "object") {
+			}
+			
+			else if (typeof _selector === "object") {
 				this.set = [_selector];
 			}
 			
-		} else {
+		}
+		
+		else {
 			throw new Error("Cannot create new instance of Grindstone without a selector.");
 		}
 	};
@@ -76,7 +84,6 @@
 		for (var i = 0; i < this.set["length"]; i++) {
 			_callback.call(this.set[i]);
 		}
-		
 	};
 	
 	// eq() - returns an element from the set as specified by the corresponding index value
@@ -116,7 +123,9 @@
 			success  = (prop("success"))  ? _obj.success  : null;
 			sendStr  = (prop("str"))      ? _obj.sendStr  : null;
 			
-		} else {
+		}
+		
+		else {
 			throw new Error("Ajax request cannot be sent.");
 		}
 		
@@ -130,7 +139,9 @@
 		
 		if (prop("header") && prop("headerValue")) {
 			xmlhttp.setRequestHeader(header, headerValue);
-		} else {
+		}
+		
+		else {
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		}
 		
@@ -157,20 +168,21 @@
 			if (typeof _appendElement === "string") {
 				
 				if (_appendElement.charAt(0) === "<" && _appendElement.charAt(_appendElement.length - 1) === ">" && _appendElement.length >= 3) {
-					
 					this.innerHTML += _appendElement;
+				}
 				
-				} else {
+				else {
 					
 					dom = document.querySelectorAll(_appendElement);
 					
 					for (i = 0; i < dom.length; i++) {
 						this.appendChild(dom[i]);
 					}
-					
 				}
 				
-			} else {
+			}
+			
+			else {
 				this.appendChild(_appendElement);
 			}
 			
@@ -199,7 +211,9 @@
 			
 			if (_value) {
 				this.setAttribute(_attribute, _value);
-			} else {
+			}
+			
+			else {
 				elemAttribute = this.getAttribute(_attribute);
 			}
 			
@@ -267,7 +281,9 @@
 				
 				if (this.className === "") {
 					this.className += _cls;
-				} else {
+				}
+				
+				else {
 					this.className += " " + _cls;
 				}
 				
@@ -297,7 +313,9 @@
 			
 			if (!$(this).hasClass(_cls)) {
 				$(this).addClass(_cls);
-			} else {
+			}
+			
+			else {
 				$(this).removeClass(_cls);
 			}
 			
@@ -334,19 +352,17 @@
 		this.init(function() {
 			
 			if (typeof _styles === "object") {
-				
 				for (i in _styles) {
 					this.style[i] = _styles[i];
 				}
-				
-			} else if (typeof _styles === "string" && !_value) {
-				
+			}
+			
+			else if (typeof _styles === "string" && !_value) {
 				returnedStyle = this.style[_styles];
-				
-			} else if (typeof _styles === "string" && typeof _value === "string") {
-				
+			}
+			
+			else if (typeof _styles === "string" && typeof _value === "string") {
 				this.style[_styles] = _value;
-				
 			}
 			
 		});
@@ -375,7 +391,9 @@
 				this.style.height = _num + "px";
 			});
 			
-		} else {
+		}
+		
+		else {
 			return this.set[0].offsetHeight;
 		}
 		
@@ -390,7 +408,9 @@
 				this.style.width = _num + "px";
 			});
 			
-		} else {
+		}
+		
+		else {
 			return this.set[0].offsetWidth;
 		}
 		
@@ -412,7 +432,7 @@
 		
 		this.init(function() {
 			
-			if (_delay && typeof _delay === "number") {
+			if (typeof _delay === "number") {
 				
 				var self = this;
 				
@@ -420,7 +440,9 @@
 					self.style.display = "block";
 				}, _delay);
 				
-			} else {
+			}
+			
+			else {
 				this.style.display = "block";
 			}
 			
@@ -433,7 +455,7 @@
 		
 		this.init(function() {
 			
-			if (_delay && typeof _delay === "number") {
+			if (typeof _delay === "number") {
 				
 				var self = this;
 				
@@ -441,7 +463,9 @@
 					self.style.display = "none";
 				}, _delay);
 				
-			} else {
+			}
+			
+			else {
 				this.style.display = "none";
 			}
 			
@@ -571,7 +595,9 @@
 			
 			if (_content) {
 				this.innerHTML = _content;
-			} else {
+			}
+			
+			else {
 				txt = this.innerHTML;
 			}
 			
@@ -600,20 +626,21 @@
 			if (typeof _content === "string") {
 				
 				if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
-					
 					this.insertAdjacentHTML("beforebegin", _content);
-					
-				} else {
+				}
+				
+				else {
 					
 					dom = document.querySelectorAll(_content);
 					
 					for (i = 0; i < dom.length; i++) {
 						this.parentNode.insertBefore(dom[i], this);
 					}
-					
 				}
 				
-			} else {
+			}
+			
+			else {
 				this.parentNode.insertBefore(_content, this);
 			}
 			
@@ -631,20 +658,21 @@
 			if (typeof _content === "string") {
 				
 				if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
-					
 					this.insertAdjacentHTML("afterend", _content);
-					
-				} else {
+				}
+				
+				else {
 					
 					dom = document.querySelectorAll(_content);
 					
 					for (i = 0; i < dom.length; i++) {
 						this.parentNode.insertBefore(dom[i], this.nextSibling);
 					}
-					
 				}
 				
-			} else {
+			}
+			
+			else {
 				this.parentNode.insertBefore(_content, this.nextSibling);
 			}
 			
@@ -673,15 +701,17 @@
 		if (_classes) {
 			
 			if (typeof _classes === "object") {
-				
 				hoverClass  = (_classes.hasOwnProperty("hoverClass"))  ? _classes["hoverClass"]  : "over";
 				activeClass = (_classes.hasOwnProperty("activeClass")) ? _classes["activeClass"] : "down";
+			}
 			
-			} else {
+			else {
 				throw new Error("Classes parameter for mouseable() must be an object with properties 'hoverClass' and/or 'activeClass'.");
 			}
 			
-		} else {
+		}
+		
+		else {
 			hoverClass = "over";
 			activeClass = "down";
 		}
@@ -736,9 +766,12 @@
 			
 			return newElement;
 			
-		} else {
+		}
+		
+		else {
 			throw new Error("New element type is undefined.");
 		}
+		
 	};
 
 /**
@@ -759,7 +792,9 @@
 			
 			if (_position !== "left" && _position !== "top") {
 				throw new Error("offset() position must be either 'left' or 'top'.");
-			} else {
+			}
+			
+			else {
 				
 				elem = this.set[0];
 				
@@ -774,8 +809,9 @@
 				    } while (elem = elem.offsetParent);
 				   
 				    return offsetLeft;
-				    
-				} else if (_position === "top") {
+				}
+				
+				else if (_position === "top") {
 					
 					offsetTop = 0;
 				  
@@ -788,7 +824,9 @@
 				    return offsetTop;
 				}
 			}
-		} else {
+		}
+		
+		else {
 			throw new Error("offset() position must be a string: acceptable values are 'left' and 'top'.");
 		}
 	};
@@ -812,10 +850,10 @@
 			if (typeof _prependElement === "string") {
 				
 				if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3) {
-					
 					this.insertAdjacentHTML("afterbegin", _prependElement);
+				}
 				
-				} else {
+				else {
 					
 					dom = document.querySelectorAll(_prependElement);
 					
@@ -825,7 +863,9 @@
 					
 				}
 				
-			} else {
+			}
+			
+			else {
 				this.insertBefore(_prependElement, this.firstChild);
 			}
 			
@@ -891,12 +931,12 @@
 				}
 			}
 			
-		} else {
-			
+		}
+		
+		else {
 			for (i = 0; i < this.set["length"]; i++) {
 				this.set[i].parentNode.removeChild(this.set[i]);
 			}
-			
 		}
 		
 		return this;
@@ -1053,7 +1093,9 @@
 				
 				$(this).html(wrap + contents);
 				
-			} else {
+			}
+			
+			else {
 				throw new Error("wrapInner() structure must be specified as a string.");
 			}
 			

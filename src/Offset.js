@@ -16,7 +16,9 @@
 			
 			if (_position !== "left" && _position !== "top") {
 				throw new Error("offset() position must be either 'left' or 'top'.");
-			} else {
+			}
+			
+			else {
 				
 				elem = this.set[0];
 				
@@ -31,8 +33,9 @@
 				    } while (elem = elem.offsetParent);
 				   
 				    return offsetLeft;
-				    
-				} else if (_position === "top") {
+				}
+				
+				else if (_position === "top") {
 					
 					offsetTop = 0;
 				  
@@ -45,7 +48,9 @@
 				    return offsetTop;
 				}
 			}
-		} else {
+		}
+		
+		else {
 			throw new Error("offset() position must be a string: acceptable values are 'left' and 'top'.");
 		}
 	};

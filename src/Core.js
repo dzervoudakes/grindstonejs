@@ -36,23 +36,31 @@
 						}
 					}
 					
-				} else {
+				}
+				
+				else {
 					selectedElements = document.querySelectorAll(_selector);
 				}
 				
 				if (selectedElements.length > 0) {
 					this.set = selectedElements;
-				} else {
+				}
+				
+				else {
 					return [];
 				}
 				
 				return this;
 				
-			} else if (typeof _selector === "object") {
+			}
+			
+			else if (typeof _selector === "object") {
 				this.set = [_selector];
 			}
 			
-		} else {
+		}
+		
+		else {
 			throw new Error("Cannot create new instance of Grindstone without a selector.");
 		}
 	};
@@ -76,7 +84,6 @@
 		for (var i = 0; i < this.set["length"]; i++) {
 			_callback.call(this.set[i]);
 		}
-		
 	};
 	
 	// eq() - returns an element from the set as specified by the corresponding index value

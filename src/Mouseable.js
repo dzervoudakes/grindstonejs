@@ -18,15 +18,17 @@
 		if (_classes) {
 			
 			if (typeof _classes === "object") {
-				
 				hoverClass  = (_classes.hasOwnProperty("hoverClass"))  ? _classes["hoverClass"]  : "over";
 				activeClass = (_classes.hasOwnProperty("activeClass")) ? _classes["activeClass"] : "down";
+			}
 			
-			} else {
+			else {
 				throw new Error("Classes parameter for mouseable() must be an object with properties 'hoverClass' and/or 'activeClass'.");
 			}
 			
-		} else {
+		}
+		
+		else {
 			hoverClass = "over";
 			activeClass = "down";
 		}

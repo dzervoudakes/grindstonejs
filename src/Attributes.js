@@ -18,7 +18,9 @@
 			
 			if (_value) {
 				this.setAttribute(_attribute, _value);
-			} else {
+			}
+			
+			else {
 				elemAttribute = this.getAttribute(_attribute);
 			}
 			

@@ -13,7 +13,7 @@
 		
 		this.init(function() {
 			
-			if (_delay && typeof _delay === "number") {
+			if (typeof _delay === "number") {
 				
 				var self = this;
 				
@@ -21,7 +21,9 @@
 					self.style.display = "block";
 				}, _delay);
 				
-			} else {
+			}
+			
+			else {
 				this.style.display = "block";
 			}
 			
@@ -34,7 +36,7 @@
 		
 		this.init(function() {
 			
-			if (_delay && typeof _delay === "number") {
+			if (typeof _delay === "number") {
 				
 				var self = this;
 				
@@ -42,7 +44,9 @@
 					self.style.display = "none";
 				}, _delay);
 				
-			} else {
+			}
+			
+			else {
 				this.style.display = "none";
 			}
 			

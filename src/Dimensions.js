@@ -18,7 +18,9 @@
 				this.style.height = _num + "px";
 			});
 			
-		} else {
+		}
+		
+		else {
 			return this.set[0].offsetHeight;
 		}
 		
@@ -33,7 +35,9 @@
 				this.style.width = _num + "px";
 			});
 			
-		} else {
+		}
+		
+		else {
 			return this.set[0].offsetWidth;
 		}
 		

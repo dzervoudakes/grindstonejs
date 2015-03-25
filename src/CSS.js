@@ -16,19 +16,17 @@
 		this.init(function() {
 			
 			if (typeof _styles === "object") {
-				
 				for (i in _styles) {
 					this.style[i] = _styles[i];
 				}
-				
-			} else if (typeof _styles === "string" && !_value) {
-				
+			}
+			
+			else if (typeof _styles === "string" && !_value) {
 				returnedStyle = this.style[_styles];
-				
-			} else if (typeof _styles === "string" && typeof _value === "string") {
-				
+			}
+			
+			else if (typeof _styles === "string" && typeof _value === "string") {
 				this.style[_styles] = _value;
-				
 			}
 			
 		});

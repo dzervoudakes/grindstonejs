@@ -22,7 +22,10 @@
 			
 			return newElement;
 			
-		} else {
+		}
+		
+		else {
 			throw new Error("New element type is undefined.");
 		}
+		
 	};

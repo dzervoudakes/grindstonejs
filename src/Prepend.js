@@ -17,10 +17,10 @@
 			if (typeof _prependElement === "string") {
 				
 				if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3) {
-					
 					this.insertAdjacentHTML("afterbegin", _prependElement);
+				}
 				
-				} else {
+				else {
 					
 					dom = document.querySelectorAll(_prependElement);
 					
@@ -30,7 +30,9 @@
 					
 				}
 				
-			} else {
+			}
+			
+			else {
 				this.insertBefore(_prependElement, this.firstChild);
 			}
 			

@@ -23,12 +23,12 @@
 				}
 			}
 			
-		} else {
-			
+		}
+		
+		else {
 			for (i = 0; i < this.set["length"]; i++) {
 				this.set[i].parentNode.removeChild(this.set[i]);
 			}
-			
 		}
 		
 		return this;
