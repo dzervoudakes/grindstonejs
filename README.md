@@ -1,8 +1,8 @@
 # GrindstoneJS
 
-##### A lightweight jQuery alternative for modern browsers with familiar syntax.
+_A lightweight jQuery alternative for the driven._
 
-This library does not aim to "replace" jQuery: it is merely an ensemble of the functions I use most often, and a few of my own...
+This library does not aim to "replace" jQuery or reinvent the wheel... it is merely an ensemble of the functions I use most often, along with a few of my own.
 
 ##### Browser Support:
 
