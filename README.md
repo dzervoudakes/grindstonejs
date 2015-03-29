@@ -1,16 +1,16 @@
 # GrindstoneJS
 
-_A lightweight jQuery alternative for the driven._
+_A lightweight jQuery alternative for those who mean business._
 
 This library does not aim to "replace" jQuery or reinvent the wheel... it is merely an ensemble of the functions I use most often, along with a few of my own.
 
 ##### Browser Support:
 
 * IE 9+
-* Firefox
-* Chrome
-* Safari
-* Opera
+* Firefox 1.0+
+* Chrome 1.0+
+* Safari 1.0+
+* Opera 7.0+
 * Mobile
 
 Full documentation and examples: http://grindstonejs.drzwebdev.com/
