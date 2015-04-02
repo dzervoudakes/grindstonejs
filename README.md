@@ -2,7 +2,13 @@
 
 _A lightweight jQuery alternative for those who mean business._
 
-This library does not aim to "replace" jQuery or reinvent the wheel... it is merely an ensemble of the functions I use most often, along with a few of my own.
+Full documentation and examples: http://grindstonejs.drzwebdev.com/
+
+```
+npm install grindstone
+```
+
+GrindstoneJS does not aim to "replace" jQuery or reinvent the wheel... it is merely an ensemble of the functions I use most often, along with a few of my own.
 
 ##### Browser Support:
 
@@ -12,8 +18,6 @@ This library does not aim to "replace" jQuery or reinvent the wheel... it is mer
 * Safari 1.0+
 * Opera 7.0+
 * Mobile
-
-Full documentation and examples: http://grindstonejs.drzwebdev.com/
 
 ##### For Custom Builds:
 
