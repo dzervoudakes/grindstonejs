@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.2.0
+ * Grindstone JavaScript Library v1.2.1
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -1073,13 +1073,37 @@
 	};
 
 /**
- * wrapInner(structure)
+ * wrap() / wrapInner()
  * 
- * Wraps the innerHTML of the selected element(s) within the specified structure
+ * Wraps the outer/innerHTML of the selected element(s) within the specified structure
  *
  * Parameter:
  * -structure
  */
+	
+	$.fn.wrap = function(_structure) {
+		
+		var contents, wrap;
+		
+		this.init(function() {
+			
+			if (typeof _structure === "string") {
+				
+				contents = this.outerHTML;
+				wrap = _structure;
+				
+				this.outerHTML = wrap + contents;
+				
+			}
+			
+			else {
+				throw new Error("wrap() structure must be specified as a string.");
+			}
+			
+		});
+		
+		return this;
+ 	};
 	
 	$.fn.wrapInner = function(_structure) {
 		

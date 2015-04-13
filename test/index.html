@@ -28,7 +28,7 @@
 		<script src="../src/Scroll.js"></script>
 		<script src="../src/Trigger.js"></script>
 		<script src="../src/Value.js"></script>
-		<script src="../src/WrapInner.js"></script>
+		<script src="../src/Wrap.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -120,12 +120,8 @@
 				divs = $("div"),
 				emptyDivs = $("div", "#test-div");
 			
-			$(document).ready(function() {
-				test.val("junk", "IE");
-			});
-			
 			el.on("click", function() {
-				test.remove(".empty-div");
+				test.wrap("<section class='wrap-test'>");
 			});
 			
 			$(".mouseable").mouseable();

@@ -39,7 +39,7 @@ module.exports = function(grunt) {
 		    		"src/Scroll.js",	// Requires Events.js
 		    		"src/Trigger.js",
 		    		"src/Value.js",		// Requires Attributes.js
-		    		"src/WrapInner.js"	// Requires HTML.js
+		    		"src/Wrap.js"	// Requires HTML.js
 			    ],
 			    dest: "dist/<%= pkg.name %>-v<%= pkg.version %>.js"
 		    }
