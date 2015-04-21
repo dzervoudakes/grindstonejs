@@ -37,6 +37,7 @@ module.exports = function(grunt) {
 		    		"src/ReplaceWith.js",
 		    		"src/Resize.js",	// Requires Events.js
 		    		"src/Scroll.js",	// Requires Events.js
+		    		"src/ScrollTop.js",
 		    		"src/Trigger.js",
 		    		"src/Value.js",		// Requires Attributes.js
 		    		"src/Wrap.js"	// Requires HTML.js

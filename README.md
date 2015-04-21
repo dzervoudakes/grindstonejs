@@ -336,6 +336,16 @@ _Captures the native "onscroll" event and executes a function each time the even
 $(window).scroll(_callback);
 ```
 
+##### scrollTop()
+
+_Returns the pageYOffset of the given scrollable element if the "top" argument is not supplied._
+_Scrolls the element to a specific pixel value if the "top" argument is supplied._
+
+```
+$(window).scrollTop(); => Returns pageYOffset value of the window.
+$(window).scrollTop(_top); => Scrolls the window down to the _top pixel value.
+```
+
 ##### trigger()
 
 _Dispatches custom event listeners._

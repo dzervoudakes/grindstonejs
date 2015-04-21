@@ -26,6 +26,7 @@
 		<script src="../src/ReplaceWith.js"></script>
 		<script src="../src/Resize.js"></script>
 		<script src="../src/Scroll.js"></script>
+		<script src="../src/ScrollTop.js"></script>
 		<script src="../src/Trigger.js"></script>
 		<script src="../src/Value.js"></script>
 		<script src="../src/Wrap.js"></script>
@@ -45,6 +46,7 @@
 				position: relative;
 				left: 30px;
 				top: 10px;
+				height: 1000px; /* for scrollTop() test */
 			}
 			
 			#test-div {
@@ -121,7 +123,12 @@
 				emptyDivs = $("div", "#test-div");
 			
 			el.on("click", function() {
-				test.wrap("<section class='wrap-test'>");
+				var windowScrollTop = $(window).scrollTop();
+				console.log(windowScrollTop);
+			});
+			
+			el2.on("click", function() {
+				$(window).scrollTop(122);
 			});
 			
 			$(".mouseable").mouseable();

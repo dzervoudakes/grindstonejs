@@ -88,3 +88,11 @@ Contributor(s): Dan Zervoudakes
 v1.2.1
  
 - Added "wrap()" method, effectively changing "WrapInner.js" module to just "Wrap.js"
+
+Date: 4/20/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+v1.2.2
+ 
+- Added "scrollTop()" method

@@ -1,7 +1,7 @@
 {
   "name": "grindstone",
-  "version": "1.2.1",
-  "main": "dist/grindstone-v1.2.1.min.js",
+  "version": "1.2.2",
+  "main": "dist/grindstone-v1.2.2.min.js",
   "homepage": "http://grindstonejs.drzwebdev.com/",
   "author": {
     "name": "Dan Zervoudakes",
@@ -16,6 +16,6 @@
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-uglify": "^0.7.0"
   },
-  "keywords": ["grindstone", "javascript", "library"],
+  "keywords": ["grindstone", "javascript", "library", "jquery"],
   "license": "MIT"
 }
