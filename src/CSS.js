@@ -11,7 +11,7 @@
 	
 	$.fn.css = function(_styles, _value) {
 		
-		var returnedStyle, i, toReturn;
+		var returnedStyle, i;
 		
 		this.init(function() {
 			
@@ -31,6 +31,5 @@
 			
 		});
 		
-		toReturn = (typeof _styles === "object" || typeof _styles === "string" && _value) ? this : returnedStyle;
-		return toReturn;
+		return (typeof _styles === "object" || typeof _styles === "string" && _value) ? this : returnedStyle;
 	};

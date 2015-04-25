@@ -9,7 +9,7 @@
 	
 	$.fn.html = function(_content) {
 		
-		var txt, toReturn;
+		var txt;
 		
 		this.init(function() {
 			
@@ -23,7 +23,6 @@
 			
 		});
 		
-		toReturn = _content ? this : txt;
-		return toReturn;
+		return _content ? this : txt;
  	};
  

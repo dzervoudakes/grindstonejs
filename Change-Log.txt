@@ -96,3 +96,11 @@ Contributor(s): Dan Zervoudakes
 v1.2.2
  
 - Added "scrollTop()" method
+
+Date: 4/24/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+v1.2.3
+ 
+- Increased support for "scrollTop()" method; originally this only worked on the "window" object

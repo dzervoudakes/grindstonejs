@@ -12,7 +12,7 @@
 	
 	$.fn.attr = function(_attribute, _value) {
 		
-		var elemAttribute, toReturn;
+		var elemAttribute;
 		
 		this.init(function() {
 			
@@ -26,8 +26,7 @@
 			
 		});
 		
-		toReturn = _value ? this : elemAttribute;
-		return toReturn;
+		return _value ? this : elemAttribute;
 	};
 	
 	$.fn.hasAttr = function(_attribute) {

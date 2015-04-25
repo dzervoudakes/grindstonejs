@@ -1,6 +1,6 @@
 # GrindstoneJS
 
-_A lightweight jQuery alternative for those who mean business._
+A lightweight jQuery alternative for those who mean business.
 
 Full documentation and examples: http://grindstonejs.drzwebdev.com/
 
@@ -293,7 +293,7 @@ $(_selector).prepend(_content);
 _Triggers when the DOM structure of the selected element is ready._
 
 ```
-$(document).ready(_callback);
+$(_selector).ready(_callback);
 ```
 
 ##### load()
@@ -301,7 +301,7 @@ $(document).ready(_callback);
 _Triggers when the full DOM content of the selected element is loaded._
 
 ```
-$(window).load(_callback);
+$(_selector).load(_callback);
 ```
 
 ##### remove()
@@ -325,7 +325,7 @@ $(_selector).replaceWith(_content);
 _Captures the native "onresize" event and executes a function each time the event triggers._
 
 ```
-$(window).resize(_callback);
+$(_selector).resize(_callback);
 ```
 
 ##### scroll()
@@ -333,17 +333,18 @@ $(window).resize(_callback);
 _Captures the native "onscroll" event and executes a function each time the event triggers._
 
 ```
-$(window).scroll(_callback);
+$(_selector).scroll(_callback);
 ```
 
 ##### scrollTop()
 
-_Returns the pageYOffset of the given scrollable element if the "top" argument is not supplied._
+_Returns the scrollTop value of the given scrollable element if the "top" argument is not supplied._
 _Scrolls the element to a specific pixel value if the "top" argument is supplied._
+_Scrolling overflow must be enabled on the selector._
 
 ```
-$(window).scrollTop(); => Returns pageYOffset value of the window.
-$(window).scrollTop(_top); => Scrolls the window down to the _top pixel value.
+$(_selector).scrollTop();
+$(_selector).scrollTop(_top);
 ```
 
 ##### trigger()

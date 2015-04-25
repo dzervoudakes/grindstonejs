@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.2.2
+ * Grindstone JavaScript Library v1.2.3
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -206,7 +206,7 @@
 	
 	$.fn.attr = function(_attribute, _value) {
 		
-		var elemAttribute, toReturn;
+		var elemAttribute;
 		
 		this.init(function() {
 			
@@ -220,8 +220,7 @@
 			
 		});
 		
-		toReturn = _value ? this : elemAttribute;
-		return toReturn;
+		return _value ? this : elemAttribute;
 	};
 	
 	$.fn.hasAttr = function(_attribute) {
@@ -348,7 +347,7 @@
 	
 	$.fn.css = function(_styles, _value) {
 		
-		var returnedStyle, i, toReturn;
+		var returnedStyle, i;
 		
 		this.init(function() {
 			
@@ -368,8 +367,7 @@
 			
 		});
 		
-		toReturn = (typeof _styles === "object" || typeof _styles === "string" && _value) ? this : returnedStyle;
-		return toReturn;
+		return (typeof _styles === "object" || typeof _styles === "string" && _value) ? this : returnedStyle;
 	};
 
 /**
@@ -590,7 +588,7 @@
 	
 	$.fn.html = function(_content) {
 		
-		var txt, toReturn;
+		var txt;
 		
 		this.init(function() {
 			
@@ -604,8 +602,7 @@
 			
 		});
 		
-		toReturn = _content ? this : txt;
-		return toReturn;
+		return _content ? this : txt;
  	};
  
 /**
@@ -1014,19 +1011,35 @@
  * Parameter: (optional)
  * -top (number; document top position)
  */
-	
-	$.fn.scrollTop = function(_top) {
+ 	
+ 	$.fn.scrollTop = function(_top) {
 		
 		var topOffset;
 		
 		this.init(function() {
 			
-			if (typeof _top === "number") {
-				this.scrollTo(0, _top);
+			if (this === window) {
+			
+				if (typeof _top === "number") {
+					this.scrollTo(0, _top);
+				}
+				
+				else {
+					topOffset = this.pageYOffset;
+				}
+			
 			}
 			
 			else {
-				topOffset = this.pageYOffset;
+				
+				if (typeof _top === "number") {
+					this.scrollTop = _top;
+				}
+				
+				else {
+					topOffset = this.scrollTop;
+				}
+				
 			}
 			
 		});

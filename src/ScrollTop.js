@@ -7,19 +7,35 @@
  * Parameter: (optional)
  * -top (number; document top position)
  */
-	
-	$.fn.scrollTop = function(_top) {
+ 	
+ 	$.fn.scrollTop = function(_top) {
 		
 		var topOffset;
 		
 		this.init(function() {
 			
-			if (typeof _top === "number") {
-				this.scrollTo(0, _top);
+			if (this === window) {
+			
+				if (typeof _top === "number") {
+					this.scrollTo(0, _top);
+				}
+				
+				else {
+					topOffset = this.pageYOffset;
+				}
+			
 			}
 			
 			else {
-				topOffset = this.pageYOffset;
+				
+				if (typeof _top === "number") {
+					this.scrollTop = _top;
+				}
+				
+				else {
+					topOffset = this.scrollTop;
+				}
+				
 			}
 			
 		});
