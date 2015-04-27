@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.2.3
+ * Grindstone JavaScript Library v1.2.4
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes
@@ -116,7 +116,7 @@
 			return _obj.hasOwnProperty(_property);
 		};
 		
-		if (_obj && typeof _obj === "object") {
+		if (typeof _obj === "object") {
 			
 			method   = (prop("method"))   ? _obj.method   : null;
 			url      = (prop("url"))      ? _obj.url      : null;
@@ -132,7 +132,7 @@
 		
 		xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+			if (xmlhttp.readyState === 4 && xmlhttp.status !== 404) {
 				success(xmlhttp);
 			}
 		};

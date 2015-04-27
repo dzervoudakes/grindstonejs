@@ -104,3 +104,11 @@ Contributor(s): Dan Zervoudakes
 v1.2.3
  
 - Increased support for "scrollTop()" method; originally this only worked on the "window" object
+
+Date: 4/27/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+v1.2.4
+ 
+- Increased support for "$.ajax()" method in the case of no server or localhost

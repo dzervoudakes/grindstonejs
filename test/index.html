@@ -46,7 +46,7 @@
 				position: relative;
 				left: 30px;
 				top: 10px;
-				height: 1000px; /* for scrollTop() test */
+				/* height: 1000px; */ /* for scrollTop() test */
 			}
 			
 			#test-div {
@@ -128,9 +128,9 @@
 		<article id="empty-article"></article>
 		<button id="btn1" class="btns mouseable"></button>
 		<button id="btn2" class="btns mouseable"></button>
-		<div id="scroll-box">
+		<!--<div id="scroll-box">
 			<div></div>
-		</div>
+		</div>-->
 		<script type="text/javascript">
 			
 			var el = $("#btn1"),
@@ -141,13 +141,20 @@
 				emptyDivs = $("div", "#test-div");
 			
 			el.on("click", function() {
-				var scroll = $("#scroll-box").scrollTop();
-				console.log(scroll);
+				$.ajax({
+					method: "GET",
+					url: "ajax-test.html",
+					async: true,
+					success: function(xmlhttp) {
+						var txt = xmlhttp.responseText;
+						$("#empty-article").html(txt);
+					}
+				});
 			});
 			
-			el2.on("click", function() {
+			/*el2.on("click", function() {
 				$("#scroll-box").scrollTop(650);
-			});
+			});*/
 			
 			$(".mouseable").mouseable();
 			
