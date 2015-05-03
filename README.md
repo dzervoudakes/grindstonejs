@@ -273,7 +273,7 @@ $.newEl(_type, _id, _class, _innerHTML);
 
 ##### offset()
 
-_Returns the left/top offset value of the specified selector relative to the document (as an integer). This will only apply to the first match in the set and includes margins._
+_Returns the left/top offset value of the specified selector relative to the document (as a number). This will only apply to the first match in the set and includes margins._
 
 ```
 $(_selector).offset("left");
