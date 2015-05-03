@@ -306,7 +306,7 @@ $(_selector).load(_callback);
 
 ##### remove()
 
-_Appends the specified child element from the current object if the target is specified. If no target is specified, the parent of the current node will remove the node from the DOM._
+_Removes the specified child element from the current object if the target is specified. If no target is specified, the parent of the current node will remove the node from the DOM._
 
 ```
 $(_selector).remove(_child);	
