@@ -357,7 +357,7 @@ $(_selector).trigger(_customEvent);
 
 ##### val()
 
-_Assigns an arbitrary value (defined by the developer) to a specified element._
+_Assigns an arbitrary value to a specified element._
 
 ```
 $(_selector).val(_valueName, _content);
