@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v1.2.4
+ * Grindstone JavaScript Library v1.2.5
  * https://github.com/DanZiti/GrindstoneJS
  *
  * Copyright (c) 2014, 2015 Dan Zervoudakes

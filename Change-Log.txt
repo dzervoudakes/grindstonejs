@@ -112,3 +112,11 @@ Contributor(s): Dan Zervoudakes
 v1.2.4
  
 - Increased support for "$.ajax()" method in the case of no server or localhost
+
+Date: 5/12/15
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+v1.2.5
+ 
+- Updated browser support and fixed README errors
