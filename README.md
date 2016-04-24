@@ -377,5 +377,5 @@ $(selector).removeVal(valueName);
 _Wraps the innerHTML of the selected element(s) within the specified structure._
 
 ```
-$(selector).wrapInner(structure); => use opening tags only for _structure
+$(selector).wrapInner(structure); => use opening tags only for "structure"
 ```

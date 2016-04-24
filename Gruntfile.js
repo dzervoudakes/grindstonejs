@@ -18,6 +18,12 @@ module.exports = function(grunt) {
 		
 		pkg: grunt.file.readJSON("package.json"),
 		
+		clean: {
+			build: {
+		    	src: ["dist"]
+			}
+		},
+		
 		concat: {
 		    dist: {
 			    src: [
@@ -65,13 +71,12 @@ module.exports = function(grunt) {
 		
 	});
 	
-	/* ADD "CLEAN" TASK HERE */
-	
 	/* ADD GRUNT WATCH TASK AND JUST HAVE THE TEST HTML FILE REFERENCE THE OUTPUT */
 	
+	grunt.loadNpmTasks("grunt-contrib-clean");
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	
-	grunt.registerTask("build", ["concat", "uglify"]);
+	grunt.registerTask("build", ["clean", "concat", "uglify"]);
 	
 };
