@@ -13,8 +13,10 @@ module.exports = function(grunt) {
 		concat: {
 		    dist: {
 			    src: [
+				    "src/templates/Intro.js",
 				    "src/Core.js",
-		    		"src/modules/*.js"
+		    		"src/modules/*.js",
+		    		"src/templates/Outro.js"
 			    ],
 			    dest: "dist/<%= pkg.name %>-v<%= pkg.version %>.js"
 		    }

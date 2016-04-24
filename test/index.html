@@ -107,30 +107,48 @@
 		</div>-->
 		<script type="text/javascript">
 			
-			var el = $("#btn1"),
-				el2 = $("#btn2"),
-				test = $("#test-div"),
-				buttonsArray = $(".btns"),
-				divs = $("div"),
-				emptyDivs = $("div", "#test-div");
-			
-			el.on("click", function() {
-				$.ajax({
-					method: "GET",
-					url: "ajax-test.html",
-					async: true,
-					success: function(xmlhttp) {
-						var txt = xmlhttp.responseText;
-						$("#empty-article").html(txt);
-					}
+			(function(w, d, $) {
+				
+				var state = {};
+				state.dom = {};
+				state.dom.btn1 = d.getElementById("btn1");
+				state.dom.btn2 = d.getElementById("btn2");
+				
+				var el = $(state.dom.btn1);
+				var el2 = $(state.dom.btn2);
+				var test = $("#test-div");
+				var buttonsArray = $(".btns");
+				var divs = $("div");
+				var emptyDivs = $("div", "#test-div");
+				
+				el.on("click", function() {
+					$.ajax({
+						method: "GET",
+						url: "ajax-test.html",
+						async: true,
+						success: function(xmlhttp) {
+							var txt = xmlhttp.responseText;
+							$("#empty-article").html(txt);
+						}
+					});
 				});
-			});
+				
+				el2.on("click", function() {
+					el2.youLose();
+				});
+				
+				$(".mouseable").mouseable();
+				
+			})(window, document, Grindstone);
 			
-			/*el2.on("click", function() {
-				$("#scroll-box").scrollTop(650);
-			});*/
-			
-			$(".mouseable").mouseable();
+			(function(z) {
+				
+				z.fn.youLose = function() {
+					this.css("border", "2px solid red");
+					return this;
+				};
+				
+			})(Grindstone);
 			
 		</script>
 	</body>

@@ -5,75 +5,66 @@
  * Copyright (c) 2014, 2016 Dan Zervoudakes
  * Released under the MIT license
  * https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE
- *
+ */
+
+"use strict";
+
+(function(w, d) {
+
+/**
  * Library Core
  *
  * Includes:
- * -Constructor "Grindstone" and selector functions
- * -Any tertiary functions as necessary
+ * - Constructor "Grindstone" and selector functions
+ * - Any tertiary functions as necessary
  */
 	
-	// Constructor - gathers the set
-	//
-	var Grindstone = function(_selector, _context) {
+	
+	var Grindstone = function(selector, context) {
 		
-		if (_selector) {
+		if (selector) {
 			
 			var selectedElements, ctx, els, i, j;
 			
-			if (typeof _selector === "string") {
+			if (typeof selector === "string") {
 				
-				if (_context) {
+				if (context) {
 					
-					ctx = document.querySelectorAll(_context);
+					ctx = d.querySelectorAll(context);
 					selectedElements = [];
 					
 					for (i = 0; i < ctx.length; i++) {
-						
-						els = ctx[i].querySelectorAll(_selector);
-						
+						els = ctx[i].querySelectorAll(selector);
 						for (j = 0; j < els.length; j++) {
 							selectedElements.push(els[j]);
 						}
 					}
 					
-				}
-				
-				else {
-					selectedElements = document.querySelectorAll(_selector);
+				} else {
+					selectedElements = d.querySelectorAll(selector);
 				}
 				
 				if (selectedElements.length > 0) {
 					this.set = selectedElements;
-				}
-				
-				else {
+				} else {
 					return [];
 				}
 				
 				return this;
 				
+			} else if (typeof selector === "object") {
+				this.set = [selector];
 			}
 			
-			else if (typeof _selector === "object") {
-				this.set = [_selector];
-			}
-			
-		}
-		
-		else {
+		} else {
 			throw new Error("Cannot create new instance of Grindstone without a selector.");
 		}
 	};
 	
-	// Shorthand for the above...
-	//
-	var $ = function(_selector, _context) {
-		return new Grindstone(_selector, _context);
+	var $ = function(selector, context) {
+		return new Grindstone(selector, context);
 	};
 	
-	// Cut down on repetitive text throughout...
-	//
 	$.fn = Grindstone.prototype;
 	
 	/**
@@ -81,16 +72,10 @@
 	 * Use this throughout each module to collect and loop through the set
 	 */
 	
-	$.fn.init = function(_callback) {
+	$.fn.init = function(callback) {
 		for (var i = 0; i < this.set["length"]; i++) {
-			_callback.call(this.set[i]);
+			callback.call(this.set[i]);
 		}
-	};
-	
-	// eq() - returns an element from the set as specified by the corresponding index value
-	//
-	$.fn.eq = function(_index) {
-		return $(this.set[_index]);
 	};
 
 /**
@@ -529,6 +514,16 @@
 		return this;
  	};
  
+/**
+ * eq()
+ *
+ * Returns an element from the set as specified by the corresponding index value
+ */
+	
+	$.fn.eq = function(index) {
+		return $(this.set[index]);
+	};
+
 /**
  * on() / off()
  * 
@@ -1171,3 +1166,6 @@
 		return this;
  	};
  
+	return w.Grindstone = w.$ = $;
+ 	
+})(window, document);
