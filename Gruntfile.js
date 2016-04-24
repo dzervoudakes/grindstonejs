@@ -5,12 +5,19 @@
  * These dependencies are commented below...
  * 
  * By default, all modules require the library Core.
+ 
+ /////////////////////////////////////////////////////
+ 
+ * TODO: SCRAP THE CUSTOM BUILD PROCESS IN FAVOR OF MAKING THE GRUNT FILE REALLY SMALL WITH WILDCARDS
+ 
  */
 
 module.exports = function(grunt) {
 
 	grunt.initConfig({
+		
 		pkg: grunt.file.readJSON("package.json"),
+		
 		concat: {
 		    dist: {
 			    src: [
@@ -45,6 +52,7 @@ module.exports = function(grunt) {
 			    dest: "dist/<%= pkg.name %>-v<%= pkg.version %>.js"
 		    }
 		},
+		
 		uglify: {
 		    options: {
 		    	banner: "/* Grindstone JavaScript Library v<%= pkg.version %> | Copyright (c) 2014, <%= grunt.template.today('yyyy') %> Dan Zervoudakes | https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE */\n"
@@ -54,11 +62,16 @@ module.exports = function(grunt) {
 				dest: "dist/<%= pkg.name %>-v<%= pkg.version %>.min.js"
         	}
 		}
+		
 	});
+	
+	/* ADD "CLEAN" TASK HERE */
+	
+	/* ADD GRUNT WATCH TASK AND JUST HAVE THE TEST HTML FILE REFERENCE THE OUTPUT */
 	
 	grunt.loadNpmTasks("grunt-contrib-concat");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
 	
-	grunt.registerTask("default", ["concat", "uglify"]);
+	grunt.registerTask("build", ["concat", "uglify"]);
 	
 };
