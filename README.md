@@ -28,13 +28,6 @@ GrindstoneJS does not aim to "replace" jQuery or reinvent the wheel... it is mer
 * Within "Gruntfile.js", you will see an array of all the specific modules which are being concatenated and minified: simply add and remove modules as you see fit, and feel free to rename the resultant uncompressed/compressed files as you please
 * If everything went smoothly, you should be able to simply navigate to your local project in the CLI and type in "grunt" > enter/return...
 
-##### Links to Necessary Dependencies
-
-* Node.js installation: https://github.com/joyent/node/wiki/installing-node.js-via-package-manager/
-* Grunt.js install via npm: http://gruntjs.com/installing-grunt/
-* grunt-contrib-concat: https://github.com/gruntjs/grunt-contrib-concat/
-* grunt-contrib-uglify: https://github.com/gruntjs/grunt-contrib-uglify/
-
 ### Abbreviated Documentation/Examples
 
 For full documentation/examples, navigate to the official site. (link provided above)
