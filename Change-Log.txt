@@ -121,10 +121,7 @@ v1.2.5
  
 - Updated browser support and fixed README errors
 
-—————
-
 VERSION NUMBER PENDING
 
-- asdf
-- asdf
-- asdf
+- Broke out eq() into its own module
+- Restructured the source folder/file structure
