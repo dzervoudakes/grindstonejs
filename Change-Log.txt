@@ -120,3 +120,11 @@ Contributor(s): Dan Zervoudakes
 v1.2.5
  
 - Updated browser support and fixed README errors
+
+—————
+
+VERSION NUMBER PENDING
+
+- asdf
+- asdf
+- asdf
