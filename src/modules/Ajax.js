@@ -13,21 +13,21 @@
  * -sendStr (string to be sent for POST requests)
  */
 	
-	$.ajax = function(_obj) {
+	$.ajax = function(options) {
 		
 		var method, url, async, success, header, headerValue, sendStr, xmlhttp;
 		
-		function prop(_property) {
-			return _obj.hasOwnProperty(_property);
+		function prop(property) {
+			return options.hasOwnProperty(property);
 		};
 		
-		if (typeof _obj === "object") {
+		if (typeof options === "object") {
 			
-			method   = (prop("method"))   ? _obj.method   : null;
-			url      = (prop("url"))      ? _obj.url      : null;
-			async    = (prop("async"))    ? _obj.async    : true;
-			success  = (prop("success"))  ? _obj.success  : null;
-			sendStr  = (prop("str"))      ? _obj.sendStr  : null;
+			method   = (prop("method"))   ? options.method   : null;
+			url      = (prop("url"))      ? options.url      : null;
+			async    = (prop("async"))    ? options.async    : true;
+			success  = (prop("success"))  ? options.success  : null;
+			sendStr  = (prop("str"))      ? options.sendStr  : null;
 			
 		}
 		

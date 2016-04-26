@@ -1,9 +1,8 @@
 /**
- * Library Core
- *
- * Includes:
- * - Constructor "Grindstone" and selector functions
- * - Any tertiary functions as necessary
+ * Library core: constructor, prototype
+ * @param {string|object} selector
+ * @param {context} context
+ * @returns {array} Grindstone.set
  */
 	
 	

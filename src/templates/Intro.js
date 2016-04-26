@@ -7,6 +7,6 @@
  * https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE
  */
 
-"use strict";
-
 (function(w, d) {
+	
+"use strict";

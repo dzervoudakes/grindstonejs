@@ -7,16 +7,15 @@
  * https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE
  */
 
+(function(w, d) {
+	
 "use strict";
 
-(function(w, d) {
-
 /**
- * Library Core
- *
- * Includes:
- * - Constructor "Grindstone" and selector functions
- * - Any tertiary functions as necessary
+ * Library core: constructor, prototype
+ * @param {string|object} selector
+ * @param {context} context
+ * @returns {array} Grindstone.set
  */
 	
 	
@@ -93,21 +92,21 @@
  * -sendStr (string to be sent for POST requests)
  */
 	
-	$.ajax = function(_obj) {
+	$.ajax = function(options) {
 		
 		var method, url, async, success, header, headerValue, sendStr, xmlhttp;
 		
-		function prop(_property) {
-			return _obj.hasOwnProperty(_property);
+		function prop(property) {
+			return options.hasOwnProperty(property);
 		};
 		
-		if (typeof _obj === "object") {
+		if (typeof options === "object") {
 			
-			method   = (prop("method"))   ? _obj.method   : null;
-			url      = (prop("url"))      ? _obj.url      : null;
-			async    = (prop("async"))    ? _obj.async    : true;
-			success  = (prop("success"))  ? _obj.success  : null;
-			sendStr  = (prop("str"))      ? _obj.sendStr  : null;
+			method   = (prop("method"))   ? options.method   : null;
+			url      = (prop("url"))      ? options.url      : null;
+			async    = (prop("async"))    ? options.async    : true;
+			success  = (prop("success"))  ? options.success  : null;
+			sendStr  = (prop("str"))      ? options.sendStr  : null;
 			
 		}
 		
@@ -136,40 +135,30 @@
 	};
 
 /**
- * append()
- *
- * Appends a new child element to the current object
- * New content can be either HTML input as a string or existing DOM elements
- *
- * Parameter:
- * -appendElement
+ * Append a new child element to the current object
+ * @param {string|object} element
+ * @returns {object} current instance of Grindstone
  */
 	
-	$.fn.append = function(_appendElement) {
+	$.fn.append = function(element) {
 		
 		var dom, i;
 		
 		this.init(function() {
 				
-			if (typeof _appendElement === "string") {
+			if (typeof element === "string") {
 				
-				if (_appendElement.charAt(0) === "<" && _appendElement.charAt(_appendElement.length - 1) === ">" && _appendElement.length >= 3) {
-					this.innerHTML += _appendElement;
-				}
-				
-				else {
-					
-					dom = document.querySelectorAll(_appendElement);
-					
+				if (element.match(/(<).+(>)/)) {
+					this.innerHTML += element;
+				} else {
+					dom = document.querySelectorAll(element);
 					for (i = 0; i < dom.length; i++) {
 						this.appendChild(dom[i]);
 					}
 				}
 				
-			}
-			
-			else {
-				this.appendChild(_appendElement);
+			} else {
+				this.appendChild(element);
 			}
 			
 		});
