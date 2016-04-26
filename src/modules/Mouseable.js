@@ -13,7 +13,7 @@
 	
 	$.fn.mouseable = function(_classes) {
 		
-		var hoverClass, activeClass, evt_hover, evt_remove, evt_down, evt_up;
+		var hoverClass, activeClass, evt_hover, evt_remove, evt_down, evt_up; // TODO: SEE JQUERY PLUGIN IMPLEMENTATION
 		
 		if (_classes) {
 			

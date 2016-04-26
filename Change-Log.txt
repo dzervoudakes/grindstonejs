@@ -125,3 +125,4 @@ VERSION NUMBER PENDING
 
 - Broke out eq() into its own module
 - Restructured the source folder/file structure
+- Refactored all code and comments

@@ -14,7 +14,7 @@
 		this.init(function() {
 			
 			active = false;
-			interaction = ("createTouch" in document) ? "touchend" : "click";
+			interaction = ("createTouch" in document) ? "touchend" : "click"; // TODO: SEE JQUERY PLUGIN IMPLEMENTATION
 				
 			$(this).on(interaction, function() {
 				

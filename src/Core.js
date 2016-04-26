@@ -1,7 +1,7 @@
 /**
  * Library core: constructor, prototype
  * @param {string|object} selector
- * @param {context} context
+ * @param {string} context
  * @returns {array} Grindstone.set
  */
 	
@@ -30,11 +30,7 @@
 					selectedElements = d.querySelectorAll(selector);
 				}
 				
-				if (selectedElements.length > 0) {
-					this.set = selectedElements;
-				} else {
-					return [];
-				}
+				this.set = (selectedElements.length > 0) ? selectedElements : [];
 				
 				return this;
 				
@@ -59,7 +55,7 @@
 	 */
 	
 	$.fn.init = function(callback) {
-		for (var i = 0; i < this.set["length"]; i++) {
+		for (var i = 0; i < this.set.length; i++) { // TODO: MAKE ALL METHODS LOOP THROUGH THE SET AUTOMATICALLY
 			callback.call(this.set[i]);
 		}
 	};
