@@ -10,7 +10,7 @@
 	// Regular expression specific to this module
 	//
 	$.regxCls = function(_cls) {
-		return new RegExp("(\\s|^)" + _cls + "(\\s|$)");
+		return new RegExp("(\\s|^)" + _cls + "(\\s|$)"); // TODO: FIX THIS!!!
 	};
 	
 	// Detect if a given element has a particular class

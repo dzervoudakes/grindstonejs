@@ -48,14 +48,3 @@
 	};
 	
 	$.fn = Grindstone.prototype;
-	
-	/**
-	 * The init() method:
-	 * Use this throughout each module to collect and loop through the set
-	 */
-	
-	$.fn.init = function(callback) {
-		for (var i = 0; i < this.set.length; i++) { // TODO: MAKE ALL METHODS LOOP THROUGH THE SET AUTOMATICALLY
-			callback.call(this.set[i]);
-		}
-	};

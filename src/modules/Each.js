@@ -1,18 +1,13 @@
 /**
- * each()
- * 
- * Iterates through each item in the set and executes the callback
- *
- * Parameter:
- * -callback (function called once for each item in the set)
+ * Iterate through each item in the set and execute the callback
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
 	
-	$.fn.each = function(_callback) {
-		
+	$.fn.each = function(callback) {
 		for (var i = 0; i < this.set["length"]; i++) {
-			_callback.call(this.set[i]);
+			callback.call(this.set[i]);
 		}
-		
 		return this;
  	};
  

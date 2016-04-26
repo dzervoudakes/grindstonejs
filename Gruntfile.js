@@ -13,8 +13,8 @@ module.exports = function(grunt) {
 		concat: {
 		    dist: {
 			    src: [
-				    "src/templates/Intro.js",
-				    "src/Core.js",
+		    		"src/templates/Intro.js",
+		    		"src/Core.js",
 		    		"src/modules/*.js",
 		    		"src/templates/Outro.js"
 			    ],
@@ -24,11 +24,11 @@ module.exports = function(grunt) {
 		
 		uglify: {
 		    options: {
-		    	banner: "/* Grindstone JavaScript Library v<%= pkg.version %> | Copyright (c) 2014, <%= grunt.template.today('yyyy') %> Dan Zervoudakes | https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE */\n"
+		    	banner: "/* Grindstone JavaScript Library v<%= pkg.version %> | Copyright (c) 2014, <%= grunt.template.today('yyyy') %> Dan Zervoudakes | https://github.com/dzervoudakes/GrindstoneJS/blob/master/LICENSE */\n"
 		    },
 		    build: {
-            	src: "dist/<%= pkg.name %>-v<%= pkg.version %>.js",
-				dest: "dist/<%= pkg.name %>-v<%= pkg.version %>.min.js"
+			    src: "dist/<%= pkg.name %>-v<%= pkg.version %>.js",
+			    dest: "dist/<%= pkg.name %>-v<%= pkg.version %>.min.js"
         	}
 		},
 		

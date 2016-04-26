@@ -1,50 +1,45 @@
 /**
- * attr() / hasAttr() / removeAttr()
- *
- * Sets or returns the value of the specified attribute; Checks to see if the specified element has the specified attribute;
- * Removes the specified attribute
- *
- * Parameters:
- * -attribute
- * -value (optional - if included, the specified attribute will be set to this value...
- *         otherwise, the current value of the specified value will be returned)
+ * Set or return the value of the specified attribute
+ * @param {string} attribute
+ * @param {string} value, optional
+ * @returns {object|string} current instance of Grindstone or attribute value
  */
 	
-	$.fn.attr = function(_attribute, _value) {
-		
+	$.fn.attr = function(attribute, value) {
 		var elemAttribute;
-		
-		this.init(function() {
-			
-			if (_value) {
-				this.setAttribute(_attribute, _value);
+		this.each(function() {
+			if (value) {
+				this.setAttribute(attribute, value);
+			} else {
+				elemAttribute = this.getAttribute(attribute);
 			}
-			
-			else {
-				elemAttribute = this.getAttribute(_attribute);
-			}
-			
 		});
-		
-		return _value ? this : elemAttribute;
+		return value ? this : elemAttribute;
 	};
+
+/**
+ * Determine if the current element has the specified attribute
+ * @param {string} attribute
+ * @returns {boolean} true or false
+ */
 	
-	$.fn.hasAttr = function(_attribute) {
-		
+	$.fn.hasAttr = function(attribute) {
 		var exists;
-		
-		this.init(function() {
-			if (_attribute) exists = $(this).attr(_attribute) !== null;
+		this.each(function() {
+			if (attribute) exists = $(this).attr(attribute) !== null;
 		});
-		
 		return exists;
 	};
-	
-	$.fn.removeAttr = function(_attribute) {
-		
-		this.init(function() {
-			if (_attribute) this.removeAttribute(_attribute);
+
+/**
+ * Removes the the specified attribute
+ * @param {string} attribute
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.removeAttr = function(attribute) {
+		this.each(function() {
+			if (attribute) this.removeAttribute(attribute);
 		});
-		
 		return this;
 	};

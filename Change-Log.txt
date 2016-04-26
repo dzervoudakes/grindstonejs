@@ -121,7 +121,11 @@ v1.2.5
  
 - Updated browser support and fixed README errors
 
-VERSION NUMBER PENDING
+v2.0.0
+
+Date: 5/xx/16
+Changes Current Version: YES
+Contributor(s): Dan Zervoudakes
 
 - Broke out eq() into its own module
 - Restructured the source folder/file structure

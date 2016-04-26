@@ -8,7 +8,7 @@
 		
 		var dom, i;
 		
-		this.init(function() {
+		this.each(function() {
 				
 			if (typeof element === "string") {
 				

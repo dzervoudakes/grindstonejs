@@ -1,10 +1,10 @@
 /**
- * Grindstone JavaScript Library v1.2.5
- * https://github.com/DanZiti/GrindstoneJS
+ * Grindstone JavaScript Library v2.0.0
+ * https://github.com/dzervoudakes/GrindstoneJS
  *
  * Copyright (c) 2014, 2016 Dan Zervoudakes
  * Released under the MIT license
- * https://github.com/DanZiti/GrindstoneJS/blob/master/LICENSE
+ * https://github.com/dzervoudakes/GrindstoneJS/blob/master/LICENSE
  */
 
 (function(w, d) {
@@ -61,17 +61,6 @@
 	};
 	
 	$.fn = Grindstone.prototype;
-	
-	/**
-	 * The init() method:
-	 * Use this throughout each module to collect and loop through the set
-	 */
-	
-	$.fn.init = function(callback) {
-		for (var i = 0; i < this.set.length; i++) { // TODO: MAKE ALL METHODS LOOP THROUGH THE SET AUTOMATICALLY
-			callback.call(this.set[i]);
-		}
-	};
 
 /**
  * Submit a GET or POST AJAX request
@@ -132,7 +121,7 @@
 		
 		var dom, i;
 		
-		this.init(function() {
+		this.each(function() {
 				
 			if (typeof element === "string") {
 				
@@ -155,53 +144,48 @@
 	};
 
 /**
- * attr() / hasAttr() / removeAttr()
- *
- * Sets or returns the value of the specified attribute; Checks to see if the specified element has the specified attribute;
- * Removes the specified attribute
- *
- * Parameters:
- * -attribute
- * -value (optional - if included, the specified attribute will be set to this value...
- *         otherwise, the current value of the specified value will be returned)
+ * Set or return the value of the specified attribute
+ * @param {string} attribute
+ * @param {string} value, optional
+ * @returns {object|string} current instance of Grindstone or attribute value
  */
 	
-	$.fn.attr = function(_attribute, _value) {
-		
+	$.fn.attr = function(attribute, value) {
 		var elemAttribute;
-		
-		this.init(function() {
-			
-			if (_value) {
-				this.setAttribute(_attribute, _value);
+		this.each(function() {
+			if (value) {
+				this.setAttribute(attribute, value);
+			} else {
+				elemAttribute = this.getAttribute(attribute);
 			}
-			
-			else {
-				elemAttribute = this.getAttribute(_attribute);
-			}
-			
 		});
-		
-		return _value ? this : elemAttribute;
+		return value ? this : elemAttribute;
 	};
+
+/**
+ * Determine if the current element has the specified attribute
+ * @param {string} attribute
+ * @returns {boolean} true or false
+ */
 	
-	$.fn.hasAttr = function(_attribute) {
-		
+	$.fn.hasAttr = function(attribute) {
 		var exists;
-		
-		this.init(function() {
-			if (_attribute) exists = $(this).attr(_attribute) !== null;
+		this.each(function() {
+			if (attribute) exists = $(this).attr(attribute) !== null;
 		});
-		
 		return exists;
 	};
-	
-	$.fn.removeAttr = function(_attribute) {
-		
-		this.init(function() {
-			if (_attribute) this.removeAttribute(_attribute);
+
+/**
+ * Removes the the specified attribute
+ * @param {string} attribute
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.removeAttr = function(attribute) {
+		this.each(function() {
+			if (attribute) this.removeAttribute(attribute);
 		});
-		
 		return this;
 	};
 
@@ -253,7 +237,7 @@
 	// Regular expression specific to this module
 	//
 	$.regxCls = function(_cls) {
-		return new RegExp("(\\s|^)" + _cls + "(\\s|$)");
+		return new RegExp("(\\s|^)" + _cls + "(\\s|$)"); // TODO: FIX THIS!!!
 	};
 	
 	// Detect if a given element has a particular class
@@ -474,20 +458,15 @@
  	};
  
 /**
- * each()
- * 
- * Iterates through each item in the set and executes the callback
- *
- * Parameter:
- * -callback (function called once for each item in the set)
+ * Iterate through each item in the set and execute the callback
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
 	
-	$.fn.each = function(_callback) {
-		
+	$.fn.each = function(callback) {
 		for (var i = 0; i < this.set["length"]; i++) {
-			_callback.call(this.set[i]);
+			callback.call(this.set[i]);
 		}
-		
 		return this;
  	};
  
