@@ -9,7 +9,7 @@
 	
 	$.fn.replaceWith = function(_content) {
 		
-		this.init(function() {
+		this.each(function() {
 			if (_content) this.outerHTML = _content;
 		});
 		

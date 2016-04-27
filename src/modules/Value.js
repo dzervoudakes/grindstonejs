@@ -14,7 +14,7 @@
 	//
 	$.fn.val = function(_valueName, _valueContent) {
 		
-		this.init(function() {
+		this.each(function() {
 			$(this).attr("data-value-" + _valueName, _valueContent);
 		});
 		
@@ -27,7 +27,7 @@
 		
 		var elemValue;
 		
-		this.init(function() {
+		this.each(function() {
 			elemValue = $(this).attr("data-value-" + _valueName);
 		});
 		
@@ -38,7 +38,7 @@
 	//
 	$.fn.removeVal = function(_valueName) {
 		
-		this.init(function() {
+		this.each(function() {
 			$(this).removeAttr("data-value-" + _valueName);
 		});
 		

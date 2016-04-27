@@ -14,7 +14,7 @@
 /**
  * Library core: constructor, prototype
  * @param {string|object} selector
- * @param {string} context
+ * @param {string} context, optional
  * @returns {array} Grindstone.set
  */
 	
@@ -76,7 +76,7 @@
  * - headerValue (value of the custom HTTP header)
  * - sendStr (string to be sent for POST requests)
  */
-	
+
 	$.ajax = function(options) {
 		
 		var method, url, async, success, header, headerValue, sendStr, xmlhttp;
@@ -99,6 +99,7 @@
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status !== 404) success(xmlhttp);
 		};
+		
 		xmlhttp.open(method, url, async);
 		
 		if (prop("header") && prop("headerValue")) {
@@ -106,8 +107,8 @@
 		} else {
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		}
-		
 		xmlhttp.send(sendStr);
+		
 		return xmlhttp;
 	};
 
@@ -116,30 +117,23 @@
  * @param {string|object} element
  * @returns {object} current instance of Grindstone
  */
-	
+
 	$.fn.append = function(element) {
-		
 		var dom, i;
-		
 		this.each(function() {
-				
 			if (typeof element === "string") {
-				
 				if (element.match(/(<).+(>)/)) {
 					this.innerHTML += element;
 				} else {
-					dom = document.querySelectorAll(element);
+					dom = d.querySelectorAll(element);
 					for (i = 0; i < dom.length; i++) {
 						this.appendChild(dom[i]);
 					}
-				}
-				
+				}	
 			} else {
 				this.appendChild(element);
 			}
-			
 		});
-		
 		return this;
 	};
 
@@ -149,7 +143,7 @@
  * @param {string} value, optional
  * @returns {object|string} current instance of Grindstone or attribute value
  */
-	
+
 	$.fn.attr = function(attribute, value) {
 		var elemAttribute;
 		this.each(function() {
@@ -167,7 +161,7 @@
  * @param {string} attribute
  * @returns {boolean} true or false
  */
-	
+
 	$.fn.hasAttr = function(attribute) {
 		var exists;
 		this.each(function() {
@@ -177,7 +171,7 @@
 	};
 
 /**
- * Removes the the specified attribute
+ * Remove the the specified attribute
  * @param {string} attribute
  * @returns {object} current instance of Grindstone
  */
@@ -190,232 +184,173 @@
 	};
 
 /**
- * css()
- *
- * Adjusts the CSS styles of a selected element if an object is passed as the argument or if both the styles and value arguments are passed as strings
- * Returns the specified CSS value if a string is passed as the styles argument and the value argument is null
- *
- * Parameter:
- * -styles (can be programmed as an object or a string)
- * -value (optional; the new value of the styles argument, assuming styles is a string with a valid CSS property)
+ * Adjust the styles of selected elements or return the requested value
+ * @param {object|string} style properties
+ * @param {string} style value
+ * @returns {object|string} current instance of Grindstone or style value
  */
-	
-	$.fn.css = function(_styles, _value) {
-		
-		var returnedStyle, i;
-		
-		this.init(function() {
-			
-			if (typeof _styles === "object") {
-				for (i in _styles) {
-					this.style[i] = _styles[i];
+
+	$.fn.css = function(styles, value) {
+		var returnedStyle;
+		this.each(function() {
+			if (typeof styles === "object") {
+				for (var i in styles) {
+					this.style[i] = styles[i];
 				}
+			} else if (typeof styles === "string" && !value) {
+				returnedStyle = this.style[styles];
+			} else if (typeof styles === "string" && typeof value === "string") {
+				this.style[styles] = value;
 			}
-			
-			else if (typeof _styles === "string" && !_value) {
-				returnedStyle = this.style[_styles];
-			}
-			
-			else if (typeof _styles === "string" && typeof _value === "string") {
-				this.style[_styles] = _value;
-			}
-			
 		});
-		
-		return (typeof _styles === "object" || typeof _styles === "string" && _value) ? this : returnedStyle;
+		return (typeof styles === "object" || typeof styles === "string" && value) ? this : returnedStyle;
 	};
 
 /**
- * hasClass() / addClass() / removeClass() / toggleClass()
- *
- * Detects whether or not the target element has the specified class; Adds/removes the specified class; Toggles the specified class
- *
- * Parameter:
- * -cls (the className being specified)
+ * Determine if the elements have the specified class
+ * @param {string} class
+ * @returns {boolean} true or false
  */
-	
-	// Regular expression specific to this module
-	//
-	$.regxCls = function(_cls) {
-		return new RegExp("(\\s|^)" + _cls + "(\\s|$)"); // TODO: FIX THIS!!!
-	};
-	
-	// Detect if a given element has a particular class
-	//
-	$.fn.hasClass = function(_cls) {
-		
+
+	$.fn.hasClass = function(cls) {
+		var regx = new RegExp("(\\s|^)" + cls + "(\\s|$)");
 		var hasCls;
-		
-		this.init(function() {
-			hasCls = (this.className.match($.regxCls(_cls)) !== null) ? true : false;
+		this.each(function() {
+			hasCls = (this.className.match(regx) !== null) ? true : false;
 		});
-		
 		return hasCls;
 	};
-	
-	// Add the specified class to the element if it doesn't already contain that class
-	//
-	$.fn.addClass = function(_cls) {
-		
-		this.init(function() {
-			
-			if (!$(this).hasClass(_cls)) {
-				
+
+/**
+ * Add a class to the current set of elements
+ * @param {string} class
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.addClass = function(cls) {
+		this.each(function() {
+			if (!$(this).hasClass(cls)) {
 				if (this.className === "") {
-					this.className += _cls;
+					this.className += cls;
+				} else {
+					this.className += " " + cls;
 				}
-				
-				else {
-					this.className += " " + _cls;
-				}
-				
 			}
-			
 		});
-		
-		return this;
-	};
-	
-	// Remove the specified class from the element if it contains that class
-	//
-	$.fn.removeClass = function(_cls) {
-		
-		this.init(function() {
-			if ($(this).hasClass(_cls)) this.className = this.className.replace($.regxCls(_cls), "");
-		});
-		
-		return this;
-	};
-	
-	// Toggle the specified class
-	//
-	$.fn.toggleClass = function(_cls) {
-		
-		this.init(function() {
-			
-			if (!$(this).hasClass(_cls)) {
-				$(this).addClass(_cls);
-			}
-			
-			else {
-				$(this).removeClass(_cls);
-			}
-			
-		});
-		
 		return this;
 	};
 
 /**
- * clone()
- *
- * Returns an exact duplicate of the first element matching the selector, including its children
+ * Remove a class from the current set of elements
+ * @param {string} class
+ * @returns {object} current instance of Grindstone
  */
-	
+
+	$.fn.removeClass = function(cls) {
+		var regx = new RegExp("(\\s|^)" + cls + "(\\s|$)");
+		this.each(function() {
+			if ($(this).hasClass(cls)) this.className = this.className.replace(regx, "");
+		});
+		return this;
+	};
+
+/**
+ * Toggle the specified class
+ * @param {string} class
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.toggleClass = function(cls) {
+		this.each(function() {
+			if (!$(this).hasClass(cls)) {
+				$(this).addClass(cls);
+			} else {
+				$(this).removeClass(cls);
+			}
+		});
+		return this;
+	};
+
+/**
+ * Clone the first element in the set
+ * @returns {object} a cloned instance of Grindstone
+ */
+ 
 	$.fn.clone = function() {
 		return this.set[0].cloneNode(true);
 	};
 
 /**
- * height() / width()
- *
- * Returns the height/width value of the specified selector as an integer
- * To change the height and/or width (in px), enter in the "num" parameter
- * If simply returning the current height/width, this will only apply to the first match in the set and includes padding
- * Setting the height/width will apply to all elements in the set
- *
- * Parameter: (optional)
- * -num (integer; number of pixels)
+ * Adjust the height of the selected elements or return the current height value of the first element in the set
+ * @param {number} new height in px, optional
+ * @returns {object|number} current instance of Grindstone or current height of the first element
  */
-	
-	$.fn.height = function(_num) {
-		
-		if (typeof _num === "number" || _num === 0) {
-			
-			this.init(function() {
-				this.style.height = _num + "px";
+
+	$.fn.height = function(num) {
+		if (typeof num === "number" || num === 0) {
+			this.each(function() {
+				this.style.height = num + "px";
 			});
-			
-		}
-		
-		else {
+		} else {
 			return this.set[0].offsetHeight;
 		}
-		
-		return this;
-	};
-	
-	$.fn.width = function(_num) {
-		
-		if (typeof _num === "number" || _num === 0) {
-			
-			this.init(function() {
-				this.style.width = _num + "px";
-			});
-			
-		}
-		
-		else {
-			return this.set[0].offsetWidth;
-		}
-		
 		return this;
 	};
 
 /**
- * show() / hide()
- *
- * Shows a hidden element
- * Hides a visible element
- * May be instant or delayed
- *
- * Parameter: (optional)
- * -delay (miliseconds)
+ * Adjust the width of the selected elements or return the current width value of the first element in the set
+ * @param {number} new width in px, optional
+ * @returns {object|number} current instance of Grindstone or current width of the first element in the set
  */
-	
-	$.fn.show = function(_delay) {
-		
-		this.init(function() {
-			
-			if (typeof _delay === "number") {
-				
-				var self = this;
-				
-				setTimeout(function() {
-					self.style.display = "block";
-				}, _delay);
-				
-			}
-			
-			else {
-				this.style.display = "block";
-			}
-			
-		});
-		
+
+	$.fn.width = function(num) {
+		if (typeof num === "number" || num === 0) {
+			this.each(function() {
+				this.style.width = num + "px";
+			});
+		} else {
+			return this.set[0].offsetWidth;
+		}
 		return this;
 	};
-	
-	$.fn.hide = function(_delay) {
-		
-		this.init(function() {
-			
-			if (typeof _delay === "number") {
-				
+
+/**
+ * Show a set of hidden elements
+ * @param {delay} delay in milliseconds, optional
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.show = function(delay) {
+		this.each(function() {
+			if (typeof delay === "number") {
 				var self = this;
-				
+				setTimeout(function() {
+					self.style.display = "block";
+				}, delay);
+			} else {
+				this.style.display = "block";
+			}
+		});
+		return this;
+	};
+
+/**
+ * Hide a set of elements
+ * @param {delay} delay in milliseconds, optional
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.hide = function(delay) {
+		this.each(function() {
+			if (typeof delay === "number") {
+				var self = this;
 				setTimeout(function() {
 					self.style.display = "none";
-				}, _delay);
-				
-			}
-			
-			else {
+				}, delay);
+			} else {
 				this.style.display = "none";
 			}
-			
 		});
-		
 		return this;
 	};
 
@@ -427,33 +362,29 @@
  * Parameter:
  * -callback (triggered if the double-click/double-tap event is completed in time)
  */
-	
-	$.fn.doubleTap = function(_callback) {
-		
+
+/**
+ * Trigger a function by double-tapping or double-clicking
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.doubleTap = function(callback) {
 		var active, interaction;
-		
-		this.init(function() {
-			
+		this.each(function() {
 			active = false;
-			interaction = ("createTouch" in document) ? "touchend" : "click"; // TODO: SEE JQUERY PLUGIN IMPLEMENTATION
-				
+			interaction = ("ontouchend" in d) ? "touchend" : "click";
 			$(this).on(interaction, function() {
-				
 				if (active) {
-					_callback();
+					callback();
 					return active = false;
 				}
-				
 				active = true;
-				
 				setTimeout(function() {
 					return active = false;
 				}, 350);
-				
 			});
-				
 		});
-		
 		return this;
  	};
  
@@ -464,169 +395,123 @@
  */
 	
 	$.fn.each = function(callback) {
-		for (var i = 0; i < this.set["length"]; i++) {
+		for (var i = 0; i < this.set.length; i++) {
 			callback.call(this.set[i]);
 		}
 		return this;
  	};
  
 /**
- * eq()
- *
- * Returns an element from the set as specified by the corresponding index value
+ * Return the element at the specified index of the current set
+ * @param {number} index
+ * @returns {object} new instance of Grindstone specific to one element
  */
-	
+
 	$.fn.eq = function(index) {
 		return $(this.set[index]);
 	};
 
 /**
- * on() / off()
- * 
- * Adding and removing event listeners
- *
- * Parameters:
- * -action (the event(s) to handle)
- * -callback (the event handler)
+ * Assign an event listener
+ * @param {string} event(s)
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
-	
-	// Assign the eventListener
-	//
-	$.fn.on = function(_action, _callback) {
-		
+
+	$.fn.on = function(action, callback) {
 		var events, i;
-		
-		this.init(function() {
-					
-			events = _action.split(" ");
-			
+		this.each(function() {
+			events = action.split(" ");
 			for (i = 0; i < events.length; i++) {
-				this.addEventListener(events[i], _callback, false);
+				this.addEventListener(events[i], callback, false);
 			}
-			
 		});
-		
-		return this;
- 	};
-	
-	// Drop the eventListener
-	//
-	$.fn.off = function(_action, _callback) {
-		
-		var events, i;
-		
-		this.init(function() {
-					
-			events = _action.split(" ");
-			
-			for (i = 0; i < events.length; i++) {
-				this.removeEventListener(events[i], _callback, false);
-			}
-			
-		});
-		
 		return this;
 	};
 
 /**
- * html()
- * 
- * Returns the selected element's innerHTML, or replaces it if the "content" argument is entered
- *
- * Parameter: (optional)
- * -content
+ * Remove an event listener
+ * @param {string} event(s)
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
-	
-	$.fn.html = function(_content) {
-		
-		var txt;
-		
-		this.init(function() {
-			
-			if (_content) {
-				this.innerHTML = _content;
+
+	$.fn.off = function(action, callback) {
+		var events, i;
+		this.each(function() {
+			events = action.split(" ");
+			for (i = 0; i < events.length; i++) {
+				this.removeEventListener(events[i], callback, false);
 			}
-			
-			else {
-				txt = this.innerHTML;
-			}
-			
 		});
-		
-		return _content ? this : txt;
+		return this;
+	};
+
+/**
+ * Replace an element's inner HTML or return the current value
+ * @param {string} content, optional
+ * @returns {object|string} current instance of Grindstone or current value of an element's inner HTML
+ */
+
+	$.fn.html = function(content) {
+		var text;
+		this.each(function() {
+			if (content) {
+				this.innerHTML = content;
+			} else {
+				text = this.innerHTML;
+			}
+		});
+		return content ? this : text;
  	};
  
 /**
- * before() / after()
- *
- * Inserts new content either before or after the target element
- * New content can be either HTML input as a string or existing DOM elements
- *
- * Parameter:
- * -content
+ * Insert new content before a target element
+ * @param {string|object} content
+ * @returns {object} current instance of Grindstone
  */
-	
-	$.fn.before = function(_content) {
-		
+
+	$.fn.before = function(content) {
 		var dom, i;
-		
-		this.init(function() {
-				
-			if (typeof _content === "string") {
-				
-				if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
-					this.insertAdjacentHTML("beforebegin", _content);
-				}
-				
-				else {
-					
-					dom = document.querySelectorAll(_content);
-					
+		this.each(function() {
+			if (typeof content === "string") {
+				if (content.match(/(<).+(>)/)) {
+					this.insertAdjacentHTML("beforebegin", content);
+				} else {	
+					dom = d.querySelectorAll(content);
 					for (i = 0; i < dom.length; i++) {
 						this.parentNode.insertBefore(dom[i], this);
 					}
 				}
-				
+			} else {
+				this.parentNode.insertBefore(content, this);
 			}
-			
-			else {
-				this.parentNode.insertBefore(_content, this);
-			}
-			
 		});
-		
 		return this;
 	};
-	
-	$.fn.after = function(_content) {
-		
+
+/**
+ * Insert new content after a target element
+ * @param {string|object} content
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.after = function(content) {
 		var dom, i;
-		
-		this.init(function() {
-				
-			if (typeof _content === "string") {
-				
-				if (_content.charAt(0) === "<" && _content.charAt(_content.length - 1) === ">" && _content.length >= 3) {
-					this.insertAdjacentHTML("afterend", _content);
-				}
-				
-				else {
-					
-					dom = document.querySelectorAll(_content);
-					
+		this.each(function() {
+			if (typeof content === "string") {
+				if (content.match(/(<).+(>)/)) {
+					this.insertAdjacentHTML("afterend", content);
+				} else {	
+					dom = d.querySelectorAll(content);
 					for (i = 0; i < dom.length; i++) {
 						this.parentNode.insertBefore(dom[i], this.nextSibling);
 					}
 				}
-				
+			} else {
+				this.parentNode.insertBefore(content, this.nextSibling);
 			}
-			
-			else {
-				this.parentNode.insertBefore(_content, this.nextSibling);
-			}
-			
 		});
-		
 		return this;
 	};
 
@@ -642,140 +527,91 @@
  * Parameter:
  * -classes (object with properties "hoverClass" and "activeClass")
  */
-	
-	$.fn.mouseable = function(_classes) {
+
+/**
+ * Create hover and active states
+ * @param {object} hoverClass => value, activeClass => value
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.mouseable = function(classes) {
 		
-		var hoverClass, activeClass, evt_hover, evt_remove, evt_down, evt_up; // TODO: SEE JQUERY PLUGIN IMPLEMENTATION
+		var hoverClass, activeClass;
 		
-		if (_classes) {
-			
-			if (typeof _classes === "object") {
-				hoverClass  = (_classes.hasOwnProperty("hoverClass"))  ? _classes["hoverClass"]  : "over";
-				activeClass = (_classes.hasOwnProperty("activeClass")) ? _classes["activeClass"] : "down";
-			}
-			
-			else {
+		if (classes) {
+			if (typeof classes === "object") {
+				hoverClass  = (classes.hasOwnProperty("hoverClass"))  ? classes["hoverClass"]  : "over";
+				activeClass = (classes.hasOwnProperty("activeClass")) ? classes["activeClass"] : "down";
+			} else {
 				throw new Error("Classes parameter for mouseable() must be an object with properties 'hoverClass' and/or 'activeClass'.");
 			}
-			
-		}
-		
-		else {
-			hoverClass = "over";
+		} else {
+			hoverClass  = "over";
 			activeClass = "down";
 		}
+		function createInteraction(touchEvt, mouseEvt) {
+			return ("ontouchend" in d) ? touchEvt : mouseEvt;
+		};
 		
-		evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseenter";
-		evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave";
-		evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown";
-		evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
+		var events = {
+			hover:  createInteraction("touchstart", "mouseenter"),
+			remove: createInteraction("touchend", "mouseleave"),
+			down:   createInteraction("touchstart", "mousedown"),
+			up: 	createInteraction("touchend", "mouseup mouseleave")
+		};
 		
-		this.init(function() {
+		this.each(function() {
 			
 			$(this)
-				.on(evt_hover, function() {
-					$(this).addClass(hoverClass);
+				.on(events.hover, function() {
+					$(this).addClass(hoverClass); // .on([evtHover, evtDown], function() {});
 				})
-				.on(evt_remove, function() {
-					$(this)
-						.removeClass(hoverClass + " " + activeClass)
-						.removeClass(hoverClass);
+				.on(events.remove, function() {
+					$(this).removeClass(hoverClass);
 				})
-				.on(evt_down, function() {
+				.on(events.down, function() {
 					$(this).addClass(activeClass);
 				})
-				.on(evt_up, function() {
+				.on(events.up, function() {
 					$(this).removeClass(activeClass);
 				});
-			
 		});
+		
+		return this;
 	};
 
 /**
- * newEl()
- *
- * Creates a new DOM element
- *
- * Parameters:
- * -type (type of DOM element)
- * -id (ID of the new element - optional)
- * -class (className of the new element - optional)
- * -inner (innerHTML to be added - optional)
+ * Return the left or top value of the selector, relative to the document
+ * @param {string} position, "left" or "top"
+ * @returns {number} offset value in px
  */
-	
-	$.newEl = function(_type, _id, _class, _inner) {
-		
-		if (_type) {
-			
-			var newElement = document.createElement(_type);
-			
-			newElement.id 		 = (_id)	? _id 	 : "";
-			newElement.className = (_class) ? _class : "";
-			newElement.innerHTML = (_inner) ? _inner : "";
-			
-			return newElement;
-			
-		}
-		
-		else {
-			throw new Error("New element type is undefined.");
-		}
-		
-	};
 
-/**
- * offset()
- *
- * Returns the left/top offset value of the specified selector relative to the document (as an integer)
- * This will only apply to the first match in the set and includes margins
- *
- * Parameter:
- * -position (string; either "left" or "top")
- */
-	
-	$.fn.offset = function(_position) {
-		
+	$.fn.offset = function(position) {
 		var elem, offsetLeft, offsetTop;
-		
-		if (_position && typeof _position === "string") {
-			
-			if (_position !== "left" && _position !== "top") {
+		if (position && typeof position === "string") {
+			if (position !== "left" && position !== "top") {
 				throw new Error("offset() position must be either 'left' or 'top'.");
-			}
-			
-			else {
-				
+			} else {	
 				elem = this.set[0];
-				
-				if (_position === "left") {
-					
+				if (position === "left") {
 					offsetLeft = 0;
-				   
 				    do {
 				        if (!isNaN(elem.offsetLeft)) {
 				          offsetLeft += elem.offsetLeft;
 				        }
 				    } while (elem = elem.offsetParent);
-				   
 				    return offsetLeft;
-				}
-				
-				else if (_position === "top") {
-					
+				} else if (position === "top") {
 					offsetTop = 0;
-				  
 				    do {
 				        if (!isNaN(elem.offsetTop)) {
 				          offsetTop += elem.offsetTop;
 				        }
 				    } while (elem = elem.offsetParent);
-				    
 				    return offsetTop;
 				}
 			}
-		}
-		
-		else {
+		} else {
 			throw new Error("offset() position must be a string: acceptable values are 'left' and 'top'.");
 		}
 	};
@@ -789,69 +625,55 @@
  * Parameter:
  * -prependElement
  */
-	
-	$.fn.prepend = function(_prependElement) {
-		
+
+/**
+ * Prepend a new element or new content
+ * @param {object|string} element
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.prepend = function(element) {
 		var dom, i;
-		
-		this.init(function() {
-			
-			if (typeof _prependElement === "string") {
-				
-				if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3) {
-					this.insertAdjacentHTML("afterbegin", _prependElement);
-				}
-				
-				else {
-					
-					dom = document.querySelectorAll(_prependElement);
-					
+		this.each(function() {
+			if (typeof element === "string") {
+				if (element.match(/(<).+(>)/)) {
+					this.insertAdjacentHTML("afterbegin", element);
+				} else {
+					dom = d.querySelectorAll(element);
 					for (i = 0; i < dom.length; i++) {
 						this.insertBefore(dom[i], this.firstChild);
 					}
-					
 				}
-				
+			} else {
+				this.insertBefore(element, this.firstChild);
 			}
-			
-			else {
-				this.insertBefore(_prependElement, this.firstChild);
-			}
-			
 		});
-		
 		return this;
 	};
 
 /**
- * ready() / load()
- *
- * Ready: triggers when the DOM structure of the selected element is ready
- * Load: triggers when the full DOM content of the selected element is loaded
- *
- * Parameter:
- * -callback
+ * Trigger a function when the DOM content is loaded
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
-	
-	// DOM structure ready
-	//
-	$.fn.ready = function(_callback) {
-		
-		this.init(function() {
-			this.addEventListener("DOMContentLoaded", _callback, false);
+
+	$.fn.ready = function(callback) {
+		this.each(function() {
+			this.addEventListener("DOMContentLoaded", callback, false);
 		});
-		
 		return this;
 	};
-	
-	// DOM structure and content fully loaded
-	//
-	$.fn.load = function(_callback) {
-		
-		this.init(function() {
-			this.addEventListener("load", _callback, false);
+
+/**
+ * Trigger a function when the selector's contents have loaded
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.load = function(callback) {
+		this.each(function() {
+			this.addEventListener("load", callback, false);
 		});
-		
 		return this;
 	};
 
@@ -883,7 +705,7 @@
 		}
 		
 		else {
-			for (i = 0; i < this.set["length"]; i++) {
+			for (i = 0; i < this.set.length; i++) {
 				this.set[i].parentNode.removeChild(this.set[i]);
 			}
 		}
@@ -902,7 +724,7 @@
 	
 	$.fn.replaceWith = function(_content) {
 		
-		this.init(function() {
+		this.each(function() {
 			if (_content) this.outerHTML = _content;
 		});
 		
@@ -920,7 +742,7 @@
 	
 	$.fn.resize = function(_callback) {
 	
-		this.init(function() {
+		this.each(function() {
 			
 			$(this).on("resize", function() {
 				_callback();
@@ -942,7 +764,7 @@
 	
 	$.fn.scroll = function(_callback) {
 		
-		this.init(function() {
+		this.each(function() {
 			
 			$(this).on("scroll", function() {
 				_callback();
@@ -967,7 +789,7 @@
 		
 		var topOffset;
 		
-		this.init(function() {
+		this.each(function() {
 			
 			if (this === window) {
 			
@@ -1011,7 +833,7 @@
 			
 		var customEvent = new Event(_event);
 		
-		this.init(function() {
+		this.each(function() {
 			this.dispatchEvent(customEvent);
 		});
 		
@@ -1034,7 +856,7 @@
 	//
 	$.fn.val = function(_valueName, _valueContent) {
 		
-		this.init(function() {
+		this.each(function() {
 			$(this).attr("data-value-" + _valueName, _valueContent);
 		});
 		
@@ -1047,7 +869,7 @@
 		
 		var elemValue;
 		
-		this.init(function() {
+		this.each(function() {
 			elemValue = $(this).attr("data-value-" + _valueName);
 		});
 		
@@ -1058,7 +880,7 @@
 	//
 	$.fn.removeVal = function(_valueName) {
 		
-		this.init(function() {
+		this.each(function() {
 			$(this).removeAttr("data-value-" + _valueName);
 		});
 		
@@ -1078,7 +900,7 @@
 		
 		var contents, wrap;
 		
-		this.init(function() {
+		this.each(function() {
 			
 			if (typeof _structure === "string") {
 				
@@ -1102,7 +924,7 @@
 		
 		var contents, wrap;
 		
-		this.init(function() {
+		this.each(function() {
 			
 			if (typeof _structure === "string") {
 				

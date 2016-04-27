@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 		
 		clean: {
 			build: {
-		    	src: ["dist"]
+				src: ["dist"]
 			}
 		},
 		

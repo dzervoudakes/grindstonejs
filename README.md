@@ -28,7 +28,7 @@ For full documentation/examples, navigate to the official site. (link provided a
 _Creates a new instance of the "Grindstone" object and allows method chaining on DOM elements._
 
 ```
-$(selector, [context]);
+$(selector [, context]);
 ```
 
 ##### $.fn
@@ -252,7 +252,7 @@ $(selector).mouseable({hoverClass: "hover", activeClass: "active"});
 _Creates a new DOM element._
 
 ```
-$.newEl(type, [id, class, innerHTML]);
+$.newEl(type [, id, class, innerHTML]);
 ```
 
 ##### offset()

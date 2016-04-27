@@ -7,36 +7,28 @@
  * Parameter:
  * -prependElement
  */
-	
-	$.fn.prepend = function(_prependElement) {
-		
+
+/**
+ * Prepend a new element or new content
+ * @param {object|string} element
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.prepend = function(element) {
 		var dom, i;
-		
-		this.init(function() {
-			
-			if (typeof _prependElement === "string") {
-				
-				if (_prependElement.charAt(0) === "<" && _prependElement.charAt(_prependElement.length - 1) === ">" && _prependElement.length >= 3) {
-					this.insertAdjacentHTML("afterbegin", _prependElement);
-				}
-				
-				else {
-					
-					dom = document.querySelectorAll(_prependElement);
-					
+		this.each(function() {
+			if (typeof element === "string") {
+				if (element.match(/(<).+(>)/)) {
+					this.insertAdjacentHTML("afterbegin", element);
+				} else {
+					dom = d.querySelectorAll(element);
 					for (i = 0; i < dom.length; i++) {
 						this.insertBefore(dom[i], this.firstChild);
 					}
-					
 				}
-				
+			} else {
+				this.insertBefore(element, this.firstChild);
 			}
-			
-			else {
-				this.insertBefore(_prependElement, this.firstChild);
-			}
-			
 		});
-		
 		return this;
 	};

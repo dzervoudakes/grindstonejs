@@ -10,51 +10,55 @@
  * Parameter:
  * -classes (object with properties "hoverClass" and "activeClass")
  */
-	
-	$.fn.mouseable = function(_classes) {
+
+/**
+ * Create hover and active states
+ * @param {object} hoverClass => value, activeClass => value
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.mouseable = function(classes) {
 		
-		var hoverClass, activeClass, evt_hover, evt_remove, evt_down, evt_up; // TODO: SEE JQUERY PLUGIN IMPLEMENTATION
+		var hoverClass, activeClass;
 		
-		if (_classes) {
-			
-			if (typeof _classes === "object") {
-				hoverClass  = (_classes.hasOwnProperty("hoverClass"))  ? _classes["hoverClass"]  : "over";
-				activeClass = (_classes.hasOwnProperty("activeClass")) ? _classes["activeClass"] : "down";
-			}
-			
-			else {
+		if (classes) {
+			if (typeof classes === "object") {
+				hoverClass  = (classes.hasOwnProperty("hoverClass"))  ? classes["hoverClass"]  : "over";
+				activeClass = (classes.hasOwnProperty("activeClass")) ? classes["activeClass"] : "down";
+			} else {
 				throw new Error("Classes parameter for mouseable() must be an object with properties 'hoverClass' and/or 'activeClass'.");
 			}
-			
-		}
-		
-		else {
-			hoverClass = "over";
+		} else {
+			hoverClass  = "over";
 			activeClass = "down";
 		}
+		function createInteraction(touchEvt, mouseEvt) {
+			return ("ontouchend" in d) ? touchEvt : mouseEvt;
+		};
 		
-		evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseenter";
-		evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave";
-		evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown";
-		evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
+		var events = {
+			hover:  createInteraction("touchstart", "mouseenter"),
+			remove: createInteraction("touchend", "mouseleave"),
+			down:   createInteraction("touchstart", "mousedown"),
+			up: 	createInteraction("touchend", "mouseup mouseleave")
+		};
 		
-		this.init(function() {
+		this.each(function() {
 			
 			$(this)
-				.on(evt_hover, function() {
-					$(this).addClass(hoverClass);
+				.on(events.hover, function() {
+					$(this).addClass(hoverClass); // .on([evtHover, evtDown], function() {});
 				})
-				.on(evt_remove, function() {
-					$(this)
-						.removeClass(hoverClass + " " + activeClass)
-						.removeClass(hoverClass);
+				.on(events.remove, function() {
+					$(this).removeClass(hoverClass);
 				})
-				.on(evt_down, function() {
+				.on(events.down, function() {
 					$(this).addClass(activeClass);
 				})
-				.on(evt_up, function() {
+				.on(events.up, function() {
 					$(this).removeClass(activeClass);
 				});
-			
 		});
+		
+		return this;
 	};

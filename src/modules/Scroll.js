@@ -9,7 +9,7 @@
 	
 	$.fn.scroll = function(_callback) {
 		
-		this.init(function() {
+		this.each(function() {
 			
 			$(this).on("scroll", function() {
 				_callback();

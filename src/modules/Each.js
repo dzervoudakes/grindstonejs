@@ -5,7 +5,7 @@
  */
 	
 	$.fn.each = function(callback) {
-		for (var i = 0; i < this.set["length"]; i++) {
+		for (var i = 0; i < this.set.length; i++) {
 			callback.call(this.set[i]);
 		}
 		return this;

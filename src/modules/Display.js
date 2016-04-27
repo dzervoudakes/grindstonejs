@@ -1,56 +1,39 @@
 /**
- * show() / hide()
- *
- * Shows a hidden element
- * Hides a visible element
- * May be instant or delayed
- *
- * Parameter: (optional)
- * -delay (miliseconds)
+ * Show a set of hidden elements
+ * @param {delay} delay in milliseconds, optional
+ * @returns {object} current instance of Grindstone
  */
-	
-	$.fn.show = function(_delay) {
-		
-		this.init(function() {
-			
-			if (typeof _delay === "number") {
-				
+
+	$.fn.show = function(delay) {
+		this.each(function() {
+			if (typeof delay === "number") {
 				var self = this;
-				
 				setTimeout(function() {
 					self.style.display = "block";
-				}, _delay);
-				
-			}
-			
-			else {
+				}, delay);
+			} else {
 				this.style.display = "block";
 			}
-			
 		});
-		
 		return this;
 	};
-	
-	$.fn.hide = function(_delay) {
-		
-		this.init(function() {
-			
-			if (typeof _delay === "number") {
-				
+
+/**
+ * Hide a set of elements
+ * @param {delay} delay in milliseconds, optional
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.hide = function(delay) {
+		this.each(function() {
+			if (typeof delay === "number") {
 				var self = this;
-				
 				setTimeout(function() {
 					self.style.display = "none";
-				}, _delay);
-				
-			}
-			
-			else {
+				}, delay);
+			} else {
 				this.style.display = "none";
 			}
-			
 		});
-		
 		return this;
 	};

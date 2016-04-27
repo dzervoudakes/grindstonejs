@@ -1,47 +1,35 @@
 /**
- * on() / off()
- * 
- * Adding and removing event listeners
- *
- * Parameters:
- * -action (the event(s) to handle)
- * -callback (the event handler)
+ * Assign an event listener
+ * @param {string} event(s)
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
-	
-	// Assign the eventListener
-	//
-	$.fn.on = function(_action, _callback) {
-		
+
+	$.fn.on = function(action, callback) {
 		var events, i;
-		
-		this.init(function() {
-					
-			events = _action.split(" ");
-			
+		this.each(function() {
+			events = action.split(" ");
 			for (i = 0; i < events.length; i++) {
-				this.addEventListener(events[i], _callback, false);
+				this.addEventListener(events[i], callback, false);
 			}
-			
 		});
-		
 		return this;
- 	};
-	
-	// Drop the eventListener
-	//
-	$.fn.off = function(_action, _callback) {
-		
+	};
+
+/**
+ * Remove an event listener
+ * @param {string} event(s)
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.off = function(action, callback) {
 		var events, i;
-		
-		this.init(function() {
-					
-			events = _action.split(" ");
-			
+		this.each(function() {
+			events = action.split(" ");
 			for (i = 0; i < events.length; i++) {
-				this.removeEventListener(events[i], _callback, false);
+				this.removeEventListener(events[i], callback, false);
 			}
-			
 		});
-		
 		return this;
 	};

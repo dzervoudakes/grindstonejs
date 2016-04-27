@@ -4,7 +4,7 @@
  * @param {string} value, optional
  * @returns {object|string} current instance of Grindstone or attribute value
  */
-	
+
 	$.fn.attr = function(attribute, value) {
 		var elemAttribute;
 		this.each(function() {
@@ -22,7 +22,7 @@
  * @param {string} attribute
  * @returns {boolean} true or false
  */
-	
+
 	$.fn.hasAttr = function(attribute) {
 		var exists;
 		this.each(function() {
@@ -32,7 +32,7 @@
 	};
 
 /**
- * Removes the the specified attribute
+ * Remove the the specified attribute
  * @param {string} attribute
  * @returns {object} current instance of Grindstone
  */

@@ -6,33 +6,29 @@
  * Parameter:
  * -callback (triggered if the double-click/double-tap event is completed in time)
  */
-	
-	$.fn.doubleTap = function(_callback) {
-		
+
+/**
+ * Trigger a function by double-tapping or double-clicking
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.doubleTap = function(callback) {
 		var active, interaction;
-		
-		this.init(function() {
-			
+		this.each(function() {
 			active = false;
-			interaction = ("createTouch" in document) ? "touchend" : "click"; // TODO: SEE JQUERY PLUGIN IMPLEMENTATION
-				
+			interaction = ("ontouchend" in d) ? "touchend" : "click";
 			$(this).on(interaction, function() {
-				
 				if (active) {
-					_callback();
+					callback();
 					return active = false;
 				}
-				
 				active = true;
-				
 				setTimeout(function() {
 					return active = false;
 				}, 350);
-				
 			});
-				
 		});
-		
 		return this;
  	};
  

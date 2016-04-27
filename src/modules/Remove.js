@@ -26,7 +26,7 @@
 		}
 		
 		else {
-			for (i = 0; i < this.set["length"]; i++) {
+			for (i = 0; i < this.set.length; i++) {
 				this.set[i].parentNode.removeChild(this.set[i]);
 			}
 		}

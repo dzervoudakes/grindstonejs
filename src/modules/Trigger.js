@@ -11,7 +11,7 @@
 			
 		var customEvent = new Event(_event);
 		
-		this.init(function() {
+		this.each(function() {
 			this.dispatchEvent(customEvent);
 		});
 		

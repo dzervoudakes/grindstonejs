@@ -1,7 +1,7 @@
 /**
  * Library core: constructor, prototype
  * @param {string|object} selector
- * @param {string} context
+ * @param {string} context, optional
  * @returns {array} Grindstone.set
  */
 	

@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/dzervoudakes/GrindstoneJS/"
+    "url": "https://github.com/dzervoudakes/GrindstoneJS/"
   },
   "dependencies": {
     "grunt": "0.x.x",

@@ -12,7 +12,7 @@
 		
 		var topOffset;
 		
-		this.init(function() {
+		this.each(function() {
 			
 			if (this === window) {
 			

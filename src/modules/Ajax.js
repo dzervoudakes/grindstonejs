@@ -12,7 +12,7 @@
  * - headerValue (value of the custom HTTP header)
  * - sendStr (string to be sent for POST requests)
  */
-	
+
 	$.ajax = function(options) {
 		
 		var method, url, async, success, header, headerValue, sendStr, xmlhttp;
@@ -35,6 +35,7 @@
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState === 4 && xmlhttp.status !== 404) success(xmlhttp);
 		};
+		
 		xmlhttp.open(method, url, async);
 		
 		if (prop("header") && prop("headerValue")) {
@@ -42,7 +43,7 @@
 		} else {
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		}
-		
 		xmlhttp.send(sendStr);
+		
 		return xmlhttp;
 	};

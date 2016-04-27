@@ -127,14 +127,24 @@
 							url: "ajax-test.html",
 							async: true,
 							success: function(xmlhttp) {
-								var txt = xmlhttp.responseText;
-								state.dom.$emptyArticle.html(txt);
+								var text = xmlhttp.responseText;
+								state.dom.$emptyArticle.html(text);
 							}
 						});
 					};
 					
 					state.eventHandlers.appendTest = function() {
 						state.dom.$emptyArticle.append("<div class='append-test'>");
+					};
+					
+					state.eventHandlers.cloneTest = function() {
+						var el = $("#btn1").clone();
+						$("#test-div").append(el);
+						$(el).addClass("CLONED");
+					};
+					
+					state.eventHandlers.htmlTest = function() {
+						$(this).html("<p style='font-size: 24px;'>test</p>");
 					};
 				};
 				
@@ -148,7 +158,7 @@
 					var emptyDivs = $("div", "#test-div");
 					
 					el.on("click", state.eventHandlers.ajaxTest);
-					el2.on("click", state.eventHandlers.appendTest);
+					el2.on("click", state.eventHandlers.htmlTest);
 					
 					$(".mouseable").mouseable();
 					

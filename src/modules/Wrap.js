@@ -11,7 +11,7 @@
 		
 		var contents, wrap;
 		
-		this.init(function() {
+		this.each(function() {
 			
 			if (typeof _structure === "string") {
 				
@@ -35,7 +35,7 @@
 		
 		var contents, wrap;
 		
-		this.init(function() {
+		this.each(function() {
 			
 			if (typeof _structure === "string") {
 				

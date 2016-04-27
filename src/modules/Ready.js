@@ -1,31 +1,25 @@
 /**
- * ready() / load()
- *
- * Ready: triggers when the DOM structure of the selected element is ready
- * Load: triggers when the full DOM content of the selected element is loaded
- *
- * Parameter:
- * -callback
+ * Trigger a function when the DOM content is loaded
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
-	
-	// DOM structure ready
-	//
-	$.fn.ready = function(_callback) {
-		
-		this.init(function() {
-			this.addEventListener("DOMContentLoaded", _callback, false);
+
+	$.fn.ready = function(callback) {
+		this.each(function() {
+			this.addEventListener("DOMContentLoaded", callback, false);
 		});
-		
 		return this;
 	};
-	
-	// DOM structure and content fully loaded
-	//
-	$.fn.load = function(_callback) {
-		
-		this.init(function() {
-			this.addEventListener("load", _callback, false);
+
+/**
+ * Trigger a function when the selector's contents have loaded
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.load = function(callback) {
+		this.each(function() {
+			this.addEventListener("load", callback, false);
 		});
-		
 		return this;
 	};
