@@ -1,18 +1,12 @@
 /**
- * replaceWith()
- * 
- * Replaces the selected element contents with the specified content
- *
- * Parameter:
- * -content
+ * Replace an element with some other content
+ * @param {object|string} content
+ * @returns {object} current instance of Grindstone
  */
-	
-	$.fn.replaceWith = function(_content) {
-		
+
+	$.fn.replaceWith = function(content) {
 		this.each(function() {
-			if (_content) this.outerHTML = _content;
+			if (content) this.outerHTML = content;
 		});
-		
 		return this;
- 	};
- 
+	};

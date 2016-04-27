@@ -1,14 +1,4 @@
 /**
- * prepend()
- *
- * Inserts a new element or content to the front of the target's childNode list
- * New content can be either HTML input as a string or existing DOM elements
- *
- * Parameter:
- * -prependElement
- */
-
-/**
  * Prepend a new element or new content
  * @param {object|string} element
  * @returns {object} current instance of Grindstone

@@ -355,15 +355,6 @@
 	};
 
 /**
- * doubleTap()
- * 
- * Custom double-tapping/double-clicking method
- *
- * Parameter:
- * -callback (triggered if the double-click/double-tap event is completed in time)
- */
-
-/**
  * Trigger a function by double-tapping or double-clicking
  * @param {function} callback
  * @returns {object} current instance of Grindstone
@@ -516,21 +507,8 @@
 	};
 
 /**
- * mouseable()
- *
- * Dynamically adds class "over" to elements as a hover state (default)
- * Dynamically adds class "down" to elements as an active state (default)
- * Removes the need for applicable CSS pseudo-states
- * Handles both standard mouse events and touch events
- * Developers may define their own hover/active classes with the optional "classes" object
- * 
- * Parameter:
- * -classes (object with properties "hoverClass" and "activeClass")
- */
-
-/**
  * Create hover and active states
- * @param {object} hoverClass => value, activeClass => value
+ * @param {object} hoverClass => value, activeClass => value; optional
  * @returns {object} current instance of Grindstone
  */
 
@@ -617,16 +595,6 @@
 	};
 
 /**
- * prepend()
- *
- * Inserts a new element or content to the front of the target's childNode list
- * New content can be either HTML input as a string or existing DOM elements
- *
- * Parameter:
- * -prependElement
- */
-
-/**
  * Prepend a new element or new content
  * @param {object|string} element
  * @returns {object} current instance of Grindstone
@@ -678,100 +646,69 @@
 	};
 
 /**
- * remove()
- *
- * Appends the specified child element from the current object if the target is specified
- * If no target is specified, the parent of the current node will remove the node from the DOM
- *
- * Parameter: (optional)
- * -target
+ * Remove elements from the DOM
+ * @param {object} target element(s), optional: if omitted, the element(s) invoking this method will be removed
+ * @returns {object} current instance of Grindstone
  */
-	
-	$.fn.remove = function(_target) {
-		
+
+	$.fn.remove = function(target) {
 		var elems, parents, i, j;
-		
-		if (_target) {
-			
-			elems = document.querySelectorAll(_target);
+		if (target) {
+			elems = d.querySelectorAll(target);
 			parents = this.set;
-			
 			for (i = 0; i < parents.length; i++) {
 				for (j = 0; j < elems.length; j++) {
 					parents[i].removeChild(elems[j]);
 				}
 			}
-			
-		}
-		
-		else {
+		} else {
 			for (i = 0; i < this.set.length; i++) {
 				this.set[i].parentNode.removeChild(this.set[i]);
 			}
 		}
-		
 		return this;
 	};
 
 /**
- * replaceWith()
- * 
- * Replaces the selected element contents with the specified content
- *
- * Parameter:
- * -content
+ * Replace an element with some other content
+ * @param {object|string} content
+ * @returns {object} current instance of Grindstone
  */
-	
-	$.fn.replaceWith = function(_content) {
-		
+
+	$.fn.replaceWith = function(content) {
 		this.each(function() {
-			if (_content) this.outerHTML = _content;
+			if (content) this.outerHTML = content;
 		});
-		
 		return this;
- 	};
- 
+	};
+
 /**
- * resize()
- * 
- * Captures the native "onresize" event and executes a function each time the event triggers
- * 
- * Parameter:
- * -callback
+ * Capture the resize event from a set of elements and execute a function
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
-	
-	$.fn.resize = function(_callback) {
-	
+
+	$.fn.resize = function(callback) {
 		this.each(function() {
-			
 			$(this).on("resize", function() {
-				_callback();
+				callback();
 			});
-			
 		});
-		
 		return this;
  	};
  
 /**
- * scroll()
- * 
- * Captures the native "onscroll" event and executes a function each time the event triggers
- * 
- * Parameter:
- * -callback
+ * Capture the scroll event and execute a function
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
-	
-	$.fn.scroll = function(_callback) {
-		
+
+	$.fn.scroll = function(callback) {
 		this.each(function() {
-			
 			$(this).on("scroll", function() {
-				_callback();
+				callback();
 			});
-			
 		});
-		
 		return this;
  	};
  
@@ -784,8 +721,14 @@
  * Parameter: (optional)
  * -top (number; document top position)
  */
- 	
- 	$.fn.scrollTop = function(_top) {
+
+/**
+ * Capture the resize event from a set of elements and execute a callback
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
+ */
+
+ 	$.fn.scrollTop = function(top) {
 		
 		var topOffset;
 		
@@ -793,8 +736,8 @@
 			
 			if (this === window) {
 			
-				if (typeof _top === "number") {
-					this.scrollTo(0, _top);
+				if (typeof top === "number") {
+					this.scrollTo(0, top);
 				}
 				
 				else {
@@ -805,8 +748,8 @@
 			
 			else {
 				
-				if (typeof _top === "number") {
-					this.scrollTop = _top;
+				if (typeof top === "number") {
+					this.scrollTop = top;
 				}
 				
 				else {
@@ -817,7 +760,7 @@
 			
 		});
 		
-		return (typeof _top === "number") ? this : topOffset;
+		return (typeof top === "number") ? this : topOffset;
  	};
  
 /**

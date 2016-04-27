@@ -7,8 +7,14 @@
  * Parameter: (optional)
  * -top (number; document top position)
  */
- 	
- 	$.fn.scrollTop = function(_top) {
+
+/**
+ * Capture the resize event from a set of elements and execute a callback
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
+ */
+
+ 	$.fn.scrollTop = function(top) {
 		
 		var topOffset;
 		
@@ -16,8 +22,8 @@
 			
 			if (this === window) {
 			
-				if (typeof _top === "number") {
-					this.scrollTo(0, _top);
+				if (typeof top === "number") {
+					this.scrollTo(0, top);
 				}
 				
 				else {
@@ -28,8 +34,8 @@
 			
 			else {
 				
-				if (typeof _top === "number") {
-					this.scrollTop = _top;
+				if (typeof top === "number") {
+					this.scrollTop = top;
 				}
 				
 				else {
@@ -40,6 +46,6 @@
 			
 		});
 		
-		return (typeof _top === "number") ? this : topOffset;
+		return (typeof top === "number") ? this : topOffset;
  	};
  

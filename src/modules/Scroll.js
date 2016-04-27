@@ -1,22 +1,15 @@
 /**
- * scroll()
- * 
- * Captures the native "onscroll" event and executes a function each time the event triggers
- * 
- * Parameter:
- * -callback
+ * Capture the scroll event and execute a function
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
-	
-	$.fn.scroll = function(_callback) {
-		
+
+	$.fn.scroll = function(callback) {
 		this.each(function() {
-			
 			$(this).on("scroll", function() {
-				_callback();
+				callback();
 			});
-			
 		});
-		
 		return this;
  	};
  

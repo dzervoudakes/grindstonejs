@@ -1,22 +1,15 @@
 /**
- * resize()
- * 
- * Captures the native "onresize" event and executes a function each time the event triggers
- * 
- * Parameter:
- * -callback
+ * Capture the resize event from a set of elements and execute a function
+ * @param {function} callback
+ * @returns {object} current instance of Grindstone
  */
-	
-	$.fn.resize = function(_callback) {
-	
+
+	$.fn.resize = function(callback) {
 		this.each(function() {
-			
 			$(this).on("resize", function() {
-				_callback();
+				callback();
 			});
-			
 		});
-		
 		return this;
  	};
  
