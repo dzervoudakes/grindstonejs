@@ -2,7 +2,7 @@
  * Assign a data-value to a set of elements or return the current value of an element
  * @param {string} valueName - data property
  * @param {string} valueContent - new value, optional
- * @returns {(object|number)} current instance of Grindstone or the current data-value of an element
+ * @returns {object|number} current instance of Grindstone or the current data-value of an element
  */
 
 	$.fn.data = function(valueName, valueContent) {

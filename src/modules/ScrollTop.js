@@ -2,7 +2,7 @@
  * Scroll an element to a specific top position relative to its another parent container
  * Return the current top offset of an element, relative to its parent container
  * @param {number} top - offset in px, optional
- * @returns {(object|number)} current instance of Grindstone or top offset
+ * @returns {object|number} current instance of Grindstone or top offset
  */
 
 	$.fn.scrollTop = function(top) {
@@ -35,7 +35,7 @@
  * Scroll an element to a specific left position relative to its another parent container
  * Return the current left offset of an element, relative to its parent container
  * @param {number} left - offset in px, optional
- * @returns {(object|number)} current instance of Grindstone or left offset
+ * @returns {object|number} current instance of Grindstone or left offset
  */
 
 	$.fn.scrollLeft = function(left) {

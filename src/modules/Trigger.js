@@ -1,7 +1,7 @@
 /**
  * Dispatch a custom event
  * @param {number} evt - custom event
- * @returns {(object|number)} current instance of Grindstone or top offset
+ * @returns {object|number} current instance of Grindstone or top offset
  */
 
 	$.fn.trigger = function(evt) {

@@ -13,7 +13,7 @@
 
 /**
  * Library core: constructor, prototype
- * @param {(string|object)} selector
+ * @param {string|object} selector
  * @param {string} context - optional
  * @returns {array} Grindstone.set
  */
@@ -114,7 +114,7 @@
 
 /**
  * Append a new child element to the current object
- * @param {(string|object)} element
+ * @param {string|object} element
  * @returns {object} current instance of Grindstone
  */
 
@@ -141,7 +141,7 @@
  * Set or return the value of the specified attribute
  * @param {string} attribute
  * @param {string} value - optional
- * @returns {(object|string)} current instance of Grindstone or attribute value
+ * @returns {object|string} current instance of Grindstone or attribute value
  */
 
 	$.fn.attr = function(attribute, value) {
@@ -185,9 +185,9 @@
 
 /**
  * Adjust the styles of selected elements or return the requested value
- * @param {(object|string)} styles - style properties
+ * @param {object|string} styles - style properties
  * @param {string} value - style value
- * @returns {(object|string)} current instance of Grindstone or style value
+ * @returns {object|string} current instance of Grindstone or style value
  */
 
 	$.fn.css = function(styles, value) {
@@ -284,7 +284,7 @@
  * Assign a data-value to a set of elements or return the current value of an element
  * @param {string} valueName - data property
  * @param {string} valueContent - new value, optional
- * @returns {(object|number)} current instance of Grindstone or the current data-value of an element
+ * @returns {object|number} current instance of Grindstone or the current data-value of an element
  */
 
 	$.fn.data = function(valueName, valueContent) {
@@ -350,7 +350,7 @@
 /**
  * Adjust the height of the selected elements or return the current height value of the first element in the set
  * @param {number} num - new height in px, optional
- * @returns {(object|number)} current instance of Grindstone or current height of the first element
+ * @returns {object|number} current instance of Grindstone or current height of the first element
  */
 
 	$.fn.height = function(num) {
@@ -374,7 +374,7 @@
 /**
  * Adjust the width of the selected elements or return the current width value of the first element in the set
  * @param {number} num - new width in px, optional
- * @returns {(object|number)} current instance of Grindstone or current width of the first element in the set
+ * @returns {object|number} current instance of Grindstone or current width of the first element in the set
  */
 
 	$.fn.width = function(num) {
@@ -532,7 +532,7 @@
 /**
  * Replace an element's inner HTML or return the current value
  * @param {string} content - optional
- * @returns {(object|string)} current instance of Grindstone or current value of an element's inner HTML
+ * @returns {object|string} current instance of Grindstone or current value of an element's inner HTML
  */
 
 	$.fn.html = function(content) {
@@ -549,7 +549,7 @@
  
 /**
  * Insert new content before a target element
- * @param {(string|object)} content
+ * @param {string|object} content
  * @returns {object} current instance of Grindstone
  */
 
@@ -574,7 +574,7 @@
 
 /**
  * Insert new content after a target element
- * @param {(string|object)} content
+ * @param {string|object} content
  * @returns {object} current instance of Grindstone
  */
 
@@ -687,7 +687,7 @@
 
 /**
  * Prepend a new element or new content
- * @param {(object|string)} element
+ * @param {object|string} element
  * @returns {object} current instance of Grindstone
  */
 
@@ -762,7 +762,7 @@
 
 /**
  * Replace an element with some other content
- * @param {(object|string)} content
+ * @param {object|string} content
  * @returns {object} current instance of Grindstone
  */
 
@@ -803,7 +803,7 @@
  * Scroll an element to a specific top position relative to its another parent container
  * Return the current top offset of an element, relative to its parent container
  * @param {number} top - offset in px, optional
- * @returns {(object|number)} current instance of Grindstone or top offset
+ * @returns {object|number} current instance of Grindstone or top offset
  */
 
 	$.fn.scrollTop = function(top) {
@@ -836,7 +836,7 @@
  * Scroll an element to a specific left position relative to its another parent container
  * Return the current left offset of an element, relative to its parent container
  * @param {number} left - offset in px, optional
- * @returns {(object|number)} current instance of Grindstone or left offset
+ * @returns {object|number} current instance of Grindstone or left offset
  */
 
 	$.fn.scrollLeft = function(left) {
@@ -868,7 +868,7 @@
 /**
  * Dispatch a custom event
  * @param {number} evt - custom event
- * @returns {(object|number)} current instance of Grindstone or top offset
+ * @returns {object|number} current instance of Grindstone or top offset
  */
 
 	$.fn.trigger = function(evt) {
@@ -882,7 +882,7 @@
 /**
  * Return or assign the value of an element
  * @param {string} newValue - optional
- * @returns {(object|string)} current instance of Grindstone or the value of the first element in the set
+ * @returns {object|string} current instance of Grindstone or the value of the first element in the set
  */
 
 	$.fn.val = function(newValue) {

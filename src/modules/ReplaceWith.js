@@ -1,6 +1,6 @@
 /**
  * Replace an element with some other content
- * @param {(object|string)} content
+ * @param {object|string} content
  * @returns {object} current instance of Grindstone
  */
 
