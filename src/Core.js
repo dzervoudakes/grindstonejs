@@ -34,7 +34,7 @@
 				
 				return this;
 				
-			} else if (typeof selector === "object") {
+			} else if (typeof selector === "object" || selector === w || selector === d) {
 				this.set = [selector];
 			}
 			

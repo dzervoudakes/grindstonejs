@@ -9,10 +9,17 @@
 			this.each(function() {
 				this.style.height = num + "px";
 			});
+			return this;
 		} else {
-			return this.set[0].offsetHeight;
+			var self = this.set[0];
+			if (self === d) {
+				return d.body.clientHeight;
+			} else if (self === w) {
+				return w.innerHeight;
+			} else {
+				return this.set[0].offsetHeight;
+			}
 		}
-		return this;
 	};
 
 /**
@@ -26,8 +33,15 @@
 			this.each(function() {
 				this.style.width = num + "px";
 			});
+			return this;
 		} else {
-			return this.set[0].offsetWidth;
+			var self = this.set[0];
+			if (self === d) {
+				return d.body.clientWidth;
+			} else if (self === w) {
+				return w.innerWidth;
+			} else {
+				return this.set[0].offsetWidth;
+			}
 		}
-		return this;
 	};

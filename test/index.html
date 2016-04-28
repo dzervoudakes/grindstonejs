@@ -157,8 +157,11 @@
 					};
 					
 					state.eventHandlers.debounceTest = $.debounce(function() {
-						$(window).on("resize", function() {
-							console.log($(this).width());
+						$(w).on("resize", function() {
+							var curHeight = $(this).height();
+							var curWidth = $(this).width();
+							console.log(curHeight);
+							console.log(curWidth);
 						});
 					});
 				};
