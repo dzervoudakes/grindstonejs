@@ -6,9 +6,7 @@
 
 	$.fn.resize = function(callback) {
 		this.each(function() {
-			$(this).on("resize", function() {
-				callback();
-			});
+			$(this).on("resize", callback);
 		});
 		return this;
  	};

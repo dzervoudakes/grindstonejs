@@ -520,6 +520,16 @@
 	};
 
 /**
+ * Focus on the first element in the set
+ * @returns {object} current instance of Grindstone
+ */
+	
+	$.fn.focus = function() {
+		this.set[0].focus();
+		return this;
+ 	};
+ 
+/**
  * Replace an element's inner HTML or return the current value
  * @param {string} content, optional
  * @returns {object|string} current instance of Grindstone or current value of an element's inner HTML
@@ -771,9 +781,7 @@
 
 	$.fn.resize = function(callback) {
 		this.each(function() {
-			$(this).on("resize", function() {
-				callback();
-			});
+			$(this).on("resize", callback);
 		});
 		return this;
  	};
@@ -786,28 +794,32 @@
 
 	$.fn.scroll = function(callback) {
 		this.each(function() {
-			$(this).on("scroll", function() {
-				callback();
-			});
+			$(this).on("scroll", callback);
 		});
 		return this;
  	};
  
 /**
- * Scroll an element to a specific position relative to its another parent container
+ * Scroll an element to a specific top position relative to its another parent container
  * Return the current top offset of an element, relative to its parent container
  * @param {number} top offset in px
  * @returns {object|number} current instance of Grindstone or top offset
  */
 
- 	$.fn.scrollTop = function(top) {
+	$.fn.scrollTop = function(top) {
 		var topOffset;
 		this.each(function() {
-			if (this === window) {
+			if (this === w) {
 				if (typeof top === "number") {
 					this.scrollTo(0, top);
 				} else {
 					topOffset = this.pageYOffset;
+				}
+			} else if (this === d) {
+				if (typeof top === "number") {
+					this.body.scrollTop = top;
+				} else {
+					topOffset = this.body.scrollTop;
 				}
 			} else {
 				if (typeof top === "number") {
@@ -818,8 +830,41 @@
 			}
 		});
 		return (typeof top === "number") ? this : topOffset;
- 	};
- 
+	};
+
+/**
+ * Scroll an element to a specific left position relative to its another parent container
+ * Return the current left offset of an element, relative to its parent container
+ * @param {number} left offset in px
+ * @returns {object|number} current instance of Grindstone or left offset
+ */
+
+	$.fn.scrollLeft = function(left) {
+		var leftOffset;
+		this.each(function() {
+			if (this === w) {
+				if (typeof left === "number") {
+					this.scrollTo(left, 0);
+				} else {
+					leftOffset = this.pageXOffset;
+				}
+			} else if (this === d) {
+				if (typeof left === "number") {
+					this.body.scrollLeft = left;
+				} else {
+					leftOffset = this.body.scrollLeft;
+				}
+			} else {
+				if (typeof left === "number") {
+					this.scrollTop = left;
+				} else {
+					leftOffset = this.scrollLeft;
+				}
+			}
+		});
+		return (typeof left === "number") ? this : leftOffset;
+	};
+
 /**
  * Dispatch a custom event
  * Return the current top offset of an element, relative to its parent container
@@ -835,6 +880,23 @@
 		return this;
 	};
  
+/**
+ * Return or assign the value of an element
+ * @param {string} new value, optional
+ * @returns {object|string} current instance of Grindstone or the value of the first element in the set
+ */
+
+	$.fn.val = function(newValue) {
+		if (newValue) {
+			this.each(function() {
+				this.value = newValue;
+			});
+			return this;
+		} else {
+			return this.set[0].value;
+		}
+	};
+
 /**
  * Wrap the outer structure of the set of elements
  * @param {string} HTML structure, opening tags only

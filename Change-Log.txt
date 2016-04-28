@@ -127,9 +127,14 @@ Date: 5/xx/16
 Changes Current Version: YES
 Contributor(s): Dan Zervoudakes
 
+- Updated documentation
 - Broke out eq() into its own module
 - Restructured the source folder/file structure
 - Refactored all code and comments
 - Removed $.newEl()
-- Replaced val() methods with data() and removeData()
+- Removed code redundancies
+- Replaced original val() methods with data() and removeData()
+- Implemented a more appropriate rendition of val()
 - Added $.debounce()
+- Added focus()
+- Added scrollLeft()
