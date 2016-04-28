@@ -132,3 +132,4 @@ Contributor(s): Dan Zervoudakes
 - Refactored all code and comments
 - Removed $.newEl()
 - Replaced val() methods with data() and removeData()
+- Added $.debounce()
