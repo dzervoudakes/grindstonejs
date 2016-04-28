@@ -146,6 +146,15 @@
 					state.eventHandlers.htmlTest = function() {
 						$(this).html("<p style='font-size: 24px;'>test</p>");
 					};
+					
+					state.eventHandlers.dataTest1 = function() {
+						$(this).data("clicked", "oh ya");
+						alert($(this).data("clicked"));
+					};
+					
+					state.eventHandlers.dataTest2 = function() {
+						$(state.dom.btn2).removeData("clicked");
+					};
 				};
 				
 				var runTests = function() {
@@ -157,8 +166,8 @@
 					var divs = $("div");
 					var emptyDivs = $("div", "#test-div");
 					
-					el.on("click", state.eventHandlers.ajaxTest);
-					el2.on("click", state.eventHandlers.htmlTest);
+					el.on("click", state.eventHandlers.dataTest2);
+					el2.on("click", state.eventHandlers.dataTest1);
 					
 					$(".mouseable").mouseable();
 					

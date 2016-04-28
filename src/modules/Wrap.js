@@ -1,57 +1,40 @@
 /**
- * wrap() / wrapInner()
- * 
- * Wraps the outer/innerHTML of the selected element(s) within the specified structure
- *
- * Parameter:
- * -structure
+ * Wrap the outer structure of the set of elements
+ * @param {string} HTML structure, opening tags only
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.wrap = function(structure) {
+		var contents, wrap;
+		this.each(function() {
+			if (typeof structure === "string") {
+				contents = this.outerHTML;
+				wrap = structure;
+				this.outerHTML = wrap + contents;
+			} else {
+				throw new Error("wrap() structure must be a string.");
+			}
+		});
+		return this;
+	};
+
+/**
+ * Wrap the inner structure of the set of elements
+ * @param {string} HTML structure, opening tags only
+ * @returns {object} current instance of Grindstone
  */
 	
-	$.fn.wrap = function(_structure) {
-		
+	$.fn.wrapInner = function(structure) {
 		var contents, wrap;
-		
 		this.each(function() {
-			
-			if (typeof _structure === "string") {
-				
-				contents = this.outerHTML;
-				wrap = _structure;
-				
-				this.outerHTML = wrap + contents;
-				
-			}
-			
-			else {
-				throw new Error("wrap() structure must be specified as a string.");
-			}
-			
-		});
-		
-		return this;
- 	};
-	
-	$.fn.wrapInner = function(_structure) {
-		
-		var contents, wrap;
-		
-		this.each(function() {
-			
-			if (typeof _structure === "string") {
-				
+			if (typeof structure === "string") {
 				contents = $(this).html();
-				wrap = _structure;
-				
+				wrap = structure;
 				$(this).html(wrap + contents);
-				
+			} else {
+				throw new Error("wrapInner() structure must be a string.");
 			}
-			
-			else {
-				throw new Error("wrapInner() structure must be specified as a string.");
-			}
-			
 		});
-		
 		return this;
  	};
  

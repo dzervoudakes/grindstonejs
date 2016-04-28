@@ -1,51 +1,27 @@
 /**
- * scrollTop()
- * 
- * Returns the pageYOffset of the given scrollable element if the "top" argument is not supplied.
- * Scrolls the element to a specific pixel value if the "top" argument is supplied.
- * 
- * Parameter: (optional)
- * -top (number; document top position)
- */
-
-/**
- * Capture the resize event from a set of elements and execute a callback
- * @param {function} callback
- * @returns {object} current instance of Grindstone
+ * Scroll an element to a specific position relative to its another parent container
+ * Return the current top offset of an element, relative to its parent container
+ * @param {number} top offset in px
+ * @returns {object|number} current instance of Grindstone or top offset
  */
 
  	$.fn.scrollTop = function(top) {
-		
 		var topOffset;
-		
 		this.each(function() {
-			
 			if (this === window) {
-			
 				if (typeof top === "number") {
 					this.scrollTo(0, top);
-				}
-				
-				else {
+				} else {
 					topOffset = this.pageYOffset;
 				}
-			
-			}
-			
-			else {
-				
+			} else {
 				if (typeof top === "number") {
 					this.scrollTop = top;
-				}
-				
-				else {
+				} else {
 					topOffset = this.scrollTop;
 				}
-				
 			}
-			
 		});
-		
 		return (typeof top === "number") ? this : topOffset;
  	};
  

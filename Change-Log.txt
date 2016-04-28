@@ -131,3 +131,4 @@ Contributor(s): Dan Zervoudakes
 - Restructured the source folder/file structure
 - Refactored all code and comments
 - Removed $.newEl()
+- Replaced val() methods with data() and removeData()

@@ -281,6 +281,41 @@
 	};
 
 /**
+ * Assign a data-value to a set of elements or return the current value of an element
+ * @param {string} data property
+ * @param {string} new value, optional
+ * @returns {object|number} current instance of Grindstone or the current data-value of an element
+ */
+
+	$.fn.data = function(valueName, valueContent) {
+		if (valueContent) {
+			this.each(function() {
+				$(this).attr("data-" + valueName, valueContent);
+			});
+			return this;
+		} else {
+			var elemValue;
+			this.each(function() {
+				elemValue = $(this).attr("data-" + valueName);
+			});
+			return elemValue;
+		}
+	};
+
+/**
+ * Remove a data-value from a set of elements
+ * @param {string} data property
+ * @returns {object} current instance of Grindstone
+ */
+
+	$.fn.removeData = function(valueName) {
+		this.each(function() {
+			$(this).removeAttr("data-" + valueName);
+		});
+		return this;
+	};
+
+/**
  * Adjust the height of the selected elements or return the current height value of the first element in the set
  * @param {number} new height in px, optional
  * @returns {object|number} current instance of Grindstone or current height of the first element
@@ -713,177 +748,84 @@
  	};
  
 /**
- * scrollTop()
- * 
- * Returns the pageYOffset of the given scrollable element if the "top" argument is not supplied.
- * Scrolls the element to a specific pixel value if the "top" argument is supplied.
- * 
- * Parameter: (optional)
- * -top (number; document top position)
- */
-
-/**
- * Capture the resize event from a set of elements and execute a callback
- * @param {function} callback
- * @returns {object} current instance of Grindstone
+ * Scroll an element to a specific position relative to its another parent container
+ * Return the current top offset of an element, relative to its parent container
+ * @param {number} top offset in px
+ * @returns {object|number} current instance of Grindstone or top offset
  */
 
  	$.fn.scrollTop = function(top) {
-		
 		var topOffset;
-		
 		this.each(function() {
-			
 			if (this === window) {
-			
 				if (typeof top === "number") {
 					this.scrollTo(0, top);
-				}
-				
-				else {
+				} else {
 					topOffset = this.pageYOffset;
 				}
-			
-			}
-			
-			else {
-				
+			} else {
 				if (typeof top === "number") {
 					this.scrollTop = top;
-				}
-				
-				else {
+				} else {
 					topOffset = this.scrollTop;
 				}
-				
 			}
-			
 		});
-		
 		return (typeof top === "number") ? this : topOffset;
  	};
  
 /**
- * trigger()
- * 
- * Dispatches custom event listeners
- * 
- * Parameter:
- * -event
+ * Dispatch a custom event
+ * Return the current top offset of an element, relative to its parent container
+ * @param {number} top offset in px
+ * @returns {object|number} current instance of Grindstone or top offset
  */
-	
-	$.fn.trigger = function(_event) {
-			
-		var customEvent = new Event(_event);
-		
+
+	$.fn.trigger = function(evt) {
+		var customEvent = new Event(evt);
 		this.each(function() {
 			this.dispatchEvent(customEvent);
 		});
-		
 		return this;
- 	};
+	};
  
 /**
- * val() / getVal() / removeVal()
- *
- * val(): Assigns an arbitrary value (defined by the developer) to a specified element
- * getVal(): Returns the arbitrary value defined by val()
- * removeVal(): Removes the arbitrary value defined by val()
- * 
- * Parameters:
- * -valueName (defined by the developer)
- * -valueContent (specified in the .val() method only)
+ * Wrap the outer structure of the set of elements
+ * @param {string} HTML structure, opening tags only
+ * @returns {object} current instance of Grindstone
  */
-	
-	// Set the arbitrary value
-	//
-	$.fn.val = function(_valueName, _valueContent) {
-		
+
+	$.fn.wrap = function(structure) {
+		var contents, wrap;
 		this.each(function() {
-			$(this).attr("data-value-" + _valueName, _valueContent);
+			if (typeof structure === "string") {
+				contents = this.outerHTML;
+				wrap = structure;
+				this.outerHTML = wrap + contents;
+			} else {
+				throw new Error("wrap() structure must be a string.");
+			}
 		});
-		
-		return this;
-	};
-	
-	// Call the arbitrary value
-	//
-	$.fn.getVal = function(_valueName) {
-		
-		var elemValue;
-		
-		this.each(function() {
-			elemValue = $(this).attr("data-value-" + _valueName);
-		});
-		
-		return elemValue;
-	};
-	
-	// Remove the arbitrary value
-	//
-	$.fn.removeVal = function(_valueName) {
-		
-		this.each(function() {
-			$(this).removeAttr("data-value-" + _valueName);
-		});
-		
 		return this;
 	};
 
 /**
- * wrap() / wrapInner()
- * 
- * Wraps the outer/innerHTML of the selected element(s) within the specified structure
- *
- * Parameter:
- * -structure
+ * Wrap the inner structure of the set of elements
+ * @param {string} HTML structure, opening tags only
+ * @returns {object} current instance of Grindstone
  */
 	
-	$.fn.wrap = function(_structure) {
-		
+	$.fn.wrapInner = function(structure) {
 		var contents, wrap;
-		
 		this.each(function() {
-			
-			if (typeof _structure === "string") {
-				
-				contents = this.outerHTML;
-				wrap = _structure;
-				
-				this.outerHTML = wrap + contents;
-				
-			}
-			
-			else {
-				throw new Error("wrap() structure must be specified as a string.");
-			}
-			
-		});
-		
-		return this;
- 	};
-	
-	$.fn.wrapInner = function(_structure) {
-		
-		var contents, wrap;
-		
-		this.each(function() {
-			
-			if (typeof _structure === "string") {
-				
+			if (typeof structure === "string") {
 				contents = $(this).html();
-				wrap = _structure;
-				
+				wrap = structure;
 				$(this).html(wrap + contents);
-				
+			} else {
+				throw new Error("wrapInner() structure must be a string.");
 			}
-			
-			else {
-				throw new Error("wrapInner() structure must be specified as a string.");
-			}
-			
 		});
-		
 		return this;
  	};
  
