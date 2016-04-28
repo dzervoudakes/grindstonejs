@@ -1,8 +1,8 @@
 /**
  * Debounce a given function
- * @param {function} function to debounce
- * @param {number} wait time in milliseconds
- * @param {boolean} invoke immediately?
+ * @param {function} fn - function to debounce
+ * @param {number} wait - wait time in milliseconds
+ * @param {boolean} immediate - invoke immediately?
  * @returns {function} invoke debounce
  */
 

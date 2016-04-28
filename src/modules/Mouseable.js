@@ -1,6 +1,6 @@
 /**
  * Create hover and active states
- * @param {object} hoverClass => value, activeClass => value; optional
+ * @param {object} classes - hoverClass => value, activeClass => value, optional
  * @returns {object} current instance of Grindstone
  */
 

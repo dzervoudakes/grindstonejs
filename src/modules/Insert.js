@@ -1,6 +1,6 @@
 /**
  * Insert new content before a target element
- * @param {string|object} content
+ * @param {(string|object)} content
  * @returns {object} current instance of Grindstone
  */
 
@@ -25,7 +25,7 @@
 
 /**
  * Insert new content after a target element
- * @param {string|object} content
+ * @param {(string|object)} content
  * @returns {object} current instance of Grindstone
  */
 

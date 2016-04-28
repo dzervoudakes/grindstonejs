@@ -1,7 +1,7 @@
 /**
  * Replace an element's inner HTML or return the current value
- * @param {string} content, optional
- * @returns {object|string} current instance of Grindstone or current value of an element's inner HTML
+ * @param {string} content - optional
+ * @returns {(object|string)} current instance of Grindstone or current value of an element's inner HTML
  */
 
 	$.fn.html = function(content) {

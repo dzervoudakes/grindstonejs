@@ -1,6 +1,6 @@
 /**
  * Wrap the outer structure of the set of elements
- * @param {string} HTML structure, opening tags only
+ * @param {string} structure - HTML structure, opening tags only
  * @returns {object} current instance of Grindstone
  */
 
@@ -20,7 +20,7 @@
 
 /**
  * Wrap the inner structure of the set of elements
- * @param {string} HTML structure, opening tags only
+ * @param {string} structure - HTML structure, opening tags only
  * @returns {object} current instance of Grindstone
  */
 	

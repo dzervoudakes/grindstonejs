@@ -1,6 +1,6 @@
 /**
  * Assign an event listener
- * @param {string} event(s)
+ * @param {string} action - event(s)
  * @param {function} callback
  * @returns {object} current instance of Grindstone
  */
@@ -18,7 +18,7 @@
 
 /**
  * Remove an event listener
- * @param {string} event(s)
+ * @param {string} action - event(s)
  * @param {function} callback
  * @returns {object} current instance of Grindstone
  */

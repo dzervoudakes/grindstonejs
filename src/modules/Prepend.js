@@ -1,6 +1,6 @@
 /**
  * Prepend a new element or new content
- * @param {object|string} element
+ * @param {(object|string)} element
  * @returns {object} current instance of Grindstone
  */
 

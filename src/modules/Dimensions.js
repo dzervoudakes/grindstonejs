@@ -1,7 +1,7 @@
 /**
  * Adjust the height of the selected elements or return the current height value of the first element in the set
- * @param {number} new height in px, optional
- * @returns {object|number} current instance of Grindstone or current height of the first element
+ * @param {number} num - new height in px, optional
+ * @returns {(object|number)} current instance of Grindstone or current height of the first element
  */
 
 	$.fn.height = function(num) {
@@ -24,8 +24,8 @@
 
 /**
  * Adjust the width of the selected elements or return the current width value of the first element in the set
- * @param {number} new width in px, optional
- * @returns {object|number} current instance of Grindstone or current width of the first element in the set
+ * @param {number} num - new width in px, optional
+ * @returns {(object|number)} current instance of Grindstone or current width of the first element in the set
  */
 
 	$.fn.width = function(num) {

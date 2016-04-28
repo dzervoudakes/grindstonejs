@@ -1,6 +1,6 @@
 /**
  * Return the left or top value of the selector, relative to the document
- * @param {string} position, "left" or "top"
+ * @param {string} position - "left" or "top"
  * @returns {number} offset value in px
  */
 

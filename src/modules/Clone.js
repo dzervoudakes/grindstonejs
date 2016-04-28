@@ -1,6 +1,6 @@
 /**
  * Clone the first element in the set
- * @returns {object} a cloned instance of Grindstone
+ * @returns {object} a cloned element as a new instance of Grindstone
  */
  
 	$.fn.clone = function() {

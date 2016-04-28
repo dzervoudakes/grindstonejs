@@ -1,8 +1,8 @@
 /**
  * Adjust the styles of selected elements or return the requested value
- * @param {object|string} style properties
- * @param {string} style value
- * @returns {object|string} current instance of Grindstone or style value
+ * @param {(object|string)} styles - style properties
+ * @param {string} value - style value
+ * @returns {(object|string)} current instance of Grindstone or style value
  */
 
 	$.fn.css = function(styles, value) {

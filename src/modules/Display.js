@@ -1,6 +1,6 @@
 /**
  * Show a set of hidden elements
- * @param {delay} delay in milliseconds, optional
+ * @param {delay} delay - in milliseconds, optional
  * @returns {object} current instance of Grindstone
  */
 
@@ -20,7 +20,7 @@
 
 /**
  * Hide a set of elements
- * @param {delay} delay in milliseconds, optional
+ * @param {delay} delay - in milliseconds, optional
  * @returns {object} current instance of Grindstone
  */
 

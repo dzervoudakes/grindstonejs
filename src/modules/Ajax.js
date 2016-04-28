@@ -1,6 +1,6 @@
 /**
  * Submit a GET or POST AJAX request
- * @param {object} options
+ * @param {object} options - object
  * @returns {object} xmlhttp
  * 
  * Acceptable properties of "options" are:

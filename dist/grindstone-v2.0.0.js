@@ -13,8 +13,8 @@
 
 /**
  * Library core: constructor, prototype
- * @param {string|object} selector
- * @param {string} context, optional
+ * @param {(string|object)} selector
+ * @param {string} context - optional
  * @returns {array} Grindstone.set
  */
 	
@@ -64,7 +64,7 @@
 
 /**
  * Submit a GET or POST AJAX request
- * @param {object} options
+ * @param {object} options - object
  * @returns {object} xmlhttp
  * 
  * Acceptable properties of "options" are:
@@ -114,7 +114,7 @@
 
 /**
  * Append a new child element to the current object
- * @param {string|object} element
+ * @param {(string|object)} element
  * @returns {object} current instance of Grindstone
  */
 
@@ -140,8 +140,8 @@
 /**
  * Set or return the value of the specified attribute
  * @param {string} attribute
- * @param {string} value, optional
- * @returns {object|string} current instance of Grindstone or attribute value
+ * @param {string} value - optional
+ * @returns {(object|string)} current instance of Grindstone or attribute value
  */
 
 	$.fn.attr = function(attribute, value) {
@@ -185,9 +185,9 @@
 
 /**
  * Adjust the styles of selected elements or return the requested value
- * @param {object|string} style properties
- * @param {string} style value
- * @returns {object|string} current instance of Grindstone or style value
+ * @param {(object|string)} styles - style properties
+ * @param {string} value - style value
+ * @returns {(object|string)} current instance of Grindstone or style value
  */
 
 	$.fn.css = function(styles, value) {
@@ -208,7 +208,7 @@
 
 /**
  * Determine if the elements have the specified class
- * @param {string} class
+ * @param {string} cls - className
  * @returns {boolean} true or false
  */
 
@@ -223,7 +223,7 @@
 
 /**
  * Add a class to the current set of elements
- * @param {string} class
+ * @param {string} cls - className
  * @returns {object} current instance of Grindstone
  */
 
@@ -242,7 +242,7 @@
 
 /**
  * Remove a class from the current set of elements
- * @param {string} class
+ * @param {string} cls - className
  * @returns {object} current instance of Grindstone
  */
 
@@ -256,7 +256,7 @@
 
 /**
  * Toggle the specified class
- * @param {string} class
+ * @param {string} cls - className
  * @returns {object} current instance of Grindstone
  */
 
@@ -273,7 +273,7 @@
 
 /**
  * Clone the first element in the set
- * @returns {object} a cloned instance of Grindstone
+ * @returns {object} a cloned element as a new instance of Grindstone
  */
  
 	$.fn.clone = function() {
@@ -282,9 +282,9 @@
 
 /**
  * Assign a data-value to a set of elements or return the current value of an element
- * @param {string} data property
- * @param {string} new value, optional
- * @returns {object|number} current instance of Grindstone or the current data-value of an element
+ * @param {string} valueName - data property
+ * @param {string} valueContent - new value, optional
+ * @returns {(object|number)} current instance of Grindstone or the current data-value of an element
  */
 
 	$.fn.data = function(valueName, valueContent) {
@@ -304,7 +304,7 @@
 
 /**
  * Remove a data-value from a set of elements
- * @param {string} data property
+ * @param {string} valueName - data property
  * @returns {object} current instance of Grindstone
  */
 
@@ -317,9 +317,9 @@
 
 /**
  * Debounce a given function
- * @param {function} function to debounce
- * @param {number} wait time in milliseconds
- * @param {boolean} invoke immediately?
+ * @param {function} fn - function to debounce
+ * @param {number} wait - wait time in milliseconds
+ * @param {boolean} immediate - invoke immediately?
  * @returns {function} invoke debounce
  */
 
@@ -349,8 +349,8 @@
 
 /**
  * Adjust the height of the selected elements or return the current height value of the first element in the set
- * @param {number} new height in px, optional
- * @returns {object|number} current instance of Grindstone or current height of the first element
+ * @param {number} num - new height in px, optional
+ * @returns {(object|number)} current instance of Grindstone or current height of the first element
  */
 
 	$.fn.height = function(num) {
@@ -373,8 +373,8 @@
 
 /**
  * Adjust the width of the selected elements or return the current width value of the first element in the set
- * @param {number} new width in px, optional
- * @returns {object|number} current instance of Grindstone or current width of the first element in the set
+ * @param {number} num - new width in px, optional
+ * @returns {(object|number)} current instance of Grindstone or current width of the first element in the set
  */
 
 	$.fn.width = function(num) {
@@ -397,7 +397,7 @@
 
 /**
  * Show a set of hidden elements
- * @param {delay} delay in milliseconds, optional
+ * @param {delay} delay - in milliseconds, optional
  * @returns {object} current instance of Grindstone
  */
 
@@ -417,7 +417,7 @@
 
 /**
  * Hide a set of elements
- * @param {delay} delay in milliseconds, optional
+ * @param {delay} delay - in milliseconds, optional
  * @returns {object} current instance of Grindstone
  */
 
@@ -485,7 +485,7 @@
 
 /**
  * Assign an event listener
- * @param {string} event(s)
+ * @param {string} action - event(s)
  * @param {function} callback
  * @returns {object} current instance of Grindstone
  */
@@ -503,7 +503,7 @@
 
 /**
  * Remove an event listener
- * @param {string} event(s)
+ * @param {string} action - event(s)
  * @param {function} callback
  * @returns {object} current instance of Grindstone
  */
@@ -531,8 +531,8 @@
  
 /**
  * Replace an element's inner HTML or return the current value
- * @param {string} content, optional
- * @returns {object|string} current instance of Grindstone or current value of an element's inner HTML
+ * @param {string} content - optional
+ * @returns {(object|string)} current instance of Grindstone or current value of an element's inner HTML
  */
 
 	$.fn.html = function(content) {
@@ -549,7 +549,7 @@
  
 /**
  * Insert new content before a target element
- * @param {string|object} content
+ * @param {(string|object)} content
  * @returns {object} current instance of Grindstone
  */
 
@@ -574,7 +574,7 @@
 
 /**
  * Insert new content after a target element
- * @param {string|object} content
+ * @param {(string|object)} content
  * @returns {object} current instance of Grindstone
  */
 
@@ -599,7 +599,7 @@
 
 /**
  * Create hover and active states
- * @param {object} hoverClass => value, activeClass => value; optional
+ * @param {object} classes - hoverClass => value, activeClass => value, optional
  * @returns {object} current instance of Grindstone
  */
 
@@ -651,7 +651,7 @@
 
 /**
  * Return the left or top value of the selector, relative to the document
- * @param {string} position, "left" or "top"
+ * @param {string} position - "left" or "top"
  * @returns {number} offset value in px
  */
 
@@ -687,7 +687,7 @@
 
 /**
  * Prepend a new element or new content
- * @param {object|string} element
+ * @param {(object|string)} element
  * @returns {object} current instance of Grindstone
  */
 
@@ -738,7 +738,7 @@
 
 /**
  * Remove elements from the DOM
- * @param {object} target element(s), optional: if omitted, the element(s) invoking this method will be removed
+ * @param {object} target - target element(s), optional: if omitted, the element(s) invoking this method will be removed
  * @returns {object} current instance of Grindstone
  */
 
@@ -762,7 +762,7 @@
 
 /**
  * Replace an element with some other content
- * @param {object|string} content
+ * @param {(object|string)} content
  * @returns {object} current instance of Grindstone
  */
 
@@ -802,8 +802,8 @@
 /**
  * Scroll an element to a specific top position relative to its another parent container
  * Return the current top offset of an element, relative to its parent container
- * @param {number} top offset in px
- * @returns {object|number} current instance of Grindstone or top offset
+ * @param {number} top - offset in px, optional
+ * @returns {(object|number)} current instance of Grindstone or top offset
  */
 
 	$.fn.scrollTop = function(top) {
@@ -835,8 +835,8 @@
 /**
  * Scroll an element to a specific left position relative to its another parent container
  * Return the current left offset of an element, relative to its parent container
- * @param {number} left offset in px
- * @returns {object|number} current instance of Grindstone or left offset
+ * @param {number} left - offset in px, optional
+ * @returns {(object|number)} current instance of Grindstone or left offset
  */
 
 	$.fn.scrollLeft = function(left) {
@@ -867,9 +867,8 @@
 
 /**
  * Dispatch a custom event
- * Return the current top offset of an element, relative to its parent container
- * @param {number} top offset in px
- * @returns {object|number} current instance of Grindstone or top offset
+ * @param {number} evt - custom event
+ * @returns {(object|number)} current instance of Grindstone or top offset
  */
 
 	$.fn.trigger = function(evt) {
@@ -882,8 +881,8 @@
  
 /**
  * Return or assign the value of an element
- * @param {string} new value, optional
- * @returns {object|string} current instance of Grindstone or the value of the first element in the set
+ * @param {string} newValue - optional
+ * @returns {(object|string)} current instance of Grindstone or the value of the first element in the set
  */
 
 	$.fn.val = function(newValue) {
@@ -899,7 +898,7 @@
 
 /**
  * Wrap the outer structure of the set of elements
- * @param {string} HTML structure, opening tags only
+ * @param {string} structure - HTML structure, opening tags only
  * @returns {object} current instance of Grindstone
  */
 
@@ -919,7 +918,7 @@
 
 /**
  * Wrap the inner structure of the set of elements
- * @param {string} HTML structure, opening tags only
+ * @param {string} structure - HTML structure, opening tags only
  * @returns {object} current instance of Grindstone
  */
 	

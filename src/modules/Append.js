@@ -1,6 +1,6 @@
 /**
  * Append a new child element to the current object
- * @param {string|object} element
+ * @param {(string|object)} element
  * @returns {object} current instance of Grindstone
  */
 

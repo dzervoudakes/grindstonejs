@@ -1,6 +1,6 @@
 /**
  * Determine if the elements have the specified class
- * @param {string} class
+ * @param {string} cls - className
  * @returns {boolean} true or false
  */
 
@@ -15,7 +15,7 @@
 
 /**
  * Add a class to the current set of elements
- * @param {string} class
+ * @param {string} cls - className
  * @returns {object} current instance of Grindstone
  */
 
@@ -34,7 +34,7 @@
 
 /**
  * Remove a class from the current set of elements
- * @param {string} class
+ * @param {string} cls - className
  * @returns {object} current instance of Grindstone
  */
 
@@ -48,7 +48,7 @@
 
 /**
  * Toggle the specified class
- * @param {string} class
+ * @param {string} cls - className
  * @returns {object} current instance of Grindstone
  */
 

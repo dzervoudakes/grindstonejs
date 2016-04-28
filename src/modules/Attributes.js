@@ -1,8 +1,8 @@
 /**
  * Set or return the value of the specified attribute
  * @param {string} attribute
- * @param {string} value, optional
- * @returns {object|string} current instance of Grindstone or attribute value
+ * @param {string} value - optional
+ * @returns {(object|string)} current instance of Grindstone or attribute value
  */
 
 	$.fn.attr = function(attribute, value) {
