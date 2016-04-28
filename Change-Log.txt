@@ -138,3 +138,11 @@ Contributor(s): Dan Zervoudakes
 - Added $.debounce()
 - Added focus()
 - Added scrollLeft()
+
+v2.0.1
+
+Date: 5/28/16
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+- Removed node_modules from npm package
