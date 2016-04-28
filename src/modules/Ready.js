@@ -12,7 +12,7 @@
 	};
 
 /**
- * Trigger a function when the selector's contents have loaded
+ * Trigger a function on the load event
  * @param {function} callback
  * @returns {object} current instance of Grindstone
  */

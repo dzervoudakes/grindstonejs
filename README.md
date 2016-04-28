@@ -21,11 +21,11 @@ GrindstoneJS does not aim to "replace" jQuery or reinvent the wheel... it is mer
 
 ### Abbreviated Documentation/Examples
 
-For full documentation/examples, navigate to the official site. (link provided above)
+For full documentation/examples, navigate to the official site.
 
 ##### $()
 
-_Creates a new instance of the "Grindstone" object and allows method chaining on DOM elements._
+_Create a new instance of the "Grindstone" object and allows method chaining on DOM elements._
 
 ```
 $(selector [, context]);
@@ -36,20 +36,26 @@ $(selector [, context]);
 _"Grindstone.prototype": Use this to create new methods/modules._
 
 ```
-$.fn.newMethod = function() {};
-```
-
-##### eq()
-
-_Returns an element from the set as specified by the corresponding index value._
-
-```
-$(selector).eq(index);
+(function($) {
+	
+	$.fn.newMethod = function() {
+		
+		// vars go up here
+		
+		this.each(function() {
+			// loop through the current set of elements
+			// within this loop, "this" now refers to the current element
+		});
+		
+		return this;
+	};
+	
+})(Grindstone);
 ```
 
 ##### ajax()
 
-_Basic AJAX call for pulling external data into the DOM and sending data to external servers._
+_Basic AJAX call for POST and GET requests._
 
 * method
 * url
@@ -65,7 +71,7 @@ $.ajax({ properties: values });
 
 ##### append()
 
-_Appends a new child element to the current object. New content can be either HTML input as a string or existing DOM elements._
+_Append a new child element to the current object. New content can be either HTML input as a string or existing DOM elements._
 
 ```
 $(selector).append(content);
@@ -73,7 +79,7 @@ $(selector).append(content);
 
 ##### attr()
 
-_Sets or returns the value of the specified attribute._
+_Set or return the value of the specified attribute._
 
 ```
 $(selector).attr(attribute, value);
@@ -81,7 +87,7 @@ $(selector).attr(attribute, value);
 
 ##### hasAttr()
 
-_Checks to see if the specified element has the specified attribute._
+_Check to see if the specified element has the specified attribute._
 
 ```
 $(selector).hasAttr(attribute); => returns "true" or "false"
@@ -89,7 +95,7 @@ $(selector).hasAttr(attribute); => returns "true" or "false"
 
 ##### removeAttr()
 
-_Removes the specified attribute._
+_Remove the specified attribute._
 
 ```
 $(selector).removeAttr(attribute);
@@ -97,7 +103,7 @@ $(selector).removeAttr(attribute);
 
 ##### hasClass()
 
-_Detects whether or not the target element has the specified class._
+_Detect whether or not the target element has the specified class._
 
 ```
 $(selector).hasClass(class); => returns "true" or "false"
@@ -105,7 +111,7 @@ $(selector).hasClass(class); => returns "true" or "false"
 
 ##### addClass()
 
-_Adds the specified class._
+_Add the specified class._
 
 ```
 $(selector).addClass(class);
@@ -113,7 +119,7 @@ $(selector).addClass(class);
 
 ##### removeClass()
 
-_Removes the specified class._
+_Remove the specified class._
 
 ```
 $(selector).removeClass(class);
@@ -121,7 +127,7 @@ $(selector).removeClass(class);
 
 ##### toggleClass()
 
-_Removes the specified class._
+_Toggle the specified class._
 
 ```
 $(selector).toggleClass(class);
@@ -129,7 +135,7 @@ $(selector).toggleClass(class);
 
 ##### clone()
 
-_Returns an exact duplicate of the first element matching the selector, including its children._
+_Return an exact duplicate of the first element matching the selector, including its children._
 
 ```
 $(selector).clone();
@@ -137,7 +143,8 @@ $(selector).clone();
 
 ##### css()
 
-_Adjusts the CSS styles of a selected element if an object is passed as the argument or if both the styles and value arguments are passed as strings. Returns the specified CSS value if a string is passed as the styles argument and the value argument is null._
+_Adjust the CSS styles of a selected element if an object is passed as the argument or if both the styles and value arguments are passed as strings._
+_Return the specified CSS value if a string is passed as the styles argument and the value argument is null._
 
 ```
 $(selector).css({ properties: values });
@@ -145,9 +152,34 @@ $(selector).css(property, value);
 $(selector).css(property);
 ```
 
+##### data()
+
+_Assign a data-value to a set of elements or return the current value of an element._
+
+```
+$(selector).data(valueName [, valueContent]);
+```
+
+##### removeData()
+
+_Remove a data-value from a set of elements._
+
+```
+$(selector).removeData(valueName);
+```
+
+##### $.debounce()
+
+_Debounce a given function._
+
+```
+$.debounce(fn [, wait, immediate]);
+```
+
 ##### height()
 
-_Returns the height value of the specified selector as an integer. To change the height (in px), enter in the "num" parameter. If simply returning the current height, this will only apply to the first match in the set and includes padding. Setting the height will apply to all elements in the set._
+_Return the height value of the specified selector as an integer. To change the height (in px), enter in the "num" parameter._
+_If simply returning the current height, this will only apply to the first match in the set and includes padding. Setting the height will apply to all elements in the set._
 
 ```
 $(selector).height();
@@ -156,7 +188,8 @@ $(selector).height(number);
 
 ##### width()
 
-_Returns the width value of the specified selector as an integer. To change the width (in px), enter in the "num" parameter. If simply returning the current width, this will only apply to the first match in the set and includes padding. Setting the width will apply to all elements in the set._
+_Return the width value of the specified selector as an integer. To change the width (in px), enter in the "num" parameter._
+_If simply returning the current width, this will only apply to the first match in the set and includes padding. Setting the width will apply to all elements in the set._
 
 ```
 $(selector).width();
@@ -165,7 +198,7 @@ $(selector).width(number);
 
 ##### show()
 
-_Shows a hidden element. May be instant or delayed._
+_Show a hidden element, instantly or delayed._
 
 ```
 $(selector).show();
@@ -174,7 +207,7 @@ $(selector).show(delay);
 
 ##### hide()
 
-_Hides a visible element. May be instant or delayed._
+_Hide a visible element, instantly or delayed._
 
 ```
 $(selector).hide();
@@ -191,15 +224,23 @@ $(selector).doubleTap(callback);
 
 ##### each()
 
-_Iterates through each item in the set and executes the callback._
+_Iterate through each item in the set and execute the callback._
 
 ```
 $(selector).each(callback);
 ```
 
+##### eq()
+
+_Return an element from the set as specified by the corresponding index value._
+
+```
+$(selector).eq(index);
+```
+
 ##### on()
 
-_Adding event listeners._
+_Add event listeners._
 
 ```
 $(selector).on(event[s], callback);
@@ -207,15 +248,23 @@ $(selector).on(event[s], callback);
 
 ##### off()
 
-_Removing event listeners._
+_Remove event listeners._
 
 ```
 $(selector).off(event[s], callback);
 ```
 
+##### focus()
+
+_Focus on the first element in the set._
+
+```
+$(selector).focus();
+```
+
 ##### html()
 
-_Returns the selected element's innerHTML, or replaces it if the "content" argument is entered._
+_Return the selected element's innerHTML, or replace it if the "content" argument is entered._
 
 ```
 $(selector).html();
@@ -224,7 +273,7 @@ $(selector).html(content);
 
 ##### before()
 
-_Inserts new content before the target element. New content can be either HTML input as a string or existing DOM elements._
+_Insert new content before the target element. New content can be either HTML input as a string or existing DOM elements._
 
 ```
 $(selector).before(content);
@@ -232,7 +281,7 @@ $(selector).before(content);
 
 ##### after()
 
-_Inserts new content after the target element. New content can be either HTML input as a string or existing DOM elements._
+_Insert new content after the target element. New content can be either HTML input as a string or existing DOM elements._
 
 ```
 $(selector).after(content);
@@ -240,24 +289,19 @@ $(selector).after(content);
 
 ##### mouseable()
 
-_Dynamically adds class "over" to elements as a hover state (default). Dynamically adds class "down" to elements as an active state (default). Removes the need for applicable CSS pseudo-states. Handles both standard mouse events and touch events. Developers may define their own hover/active classes with the optional "classes" object._
+_Dynamically add class "over" to elements as a hover state (default). Dynamically add class "down" to elements as an active state (default)._
+_This removes the need for applicable CSS pseudo-states, and handles both standard mouse events and touch events._
+_Developers may define their own hover/active classes with the optional "classes" object._
 
 ```
 $(selector).mouseable();
 $(selector).mouseable({hoverClass: "hover", activeClass: "active"});
 ```
 
-##### newEl()
-
-_Creates a new DOM element._
-
-```
-$.newEl(type [, id, class, innerHTML]);
-```
-
 ##### offset()
 
-_Returns the left/top offset value of the specified selector relative to the document (as a number). This will only apply to the first match in the set and includes margins._
+_Return the left/top offset value of the specified selector relative to the document (as a number)._
+_This will only apply to the first match in the set and includes margins._
 
 ```
 $(selector).offset("left");
@@ -266,7 +310,8 @@ $(selector).offset("top");
 
 ##### prepend()
 
-_Inserts a new element or content to the front of the target's childNode list. New content can be either HTML input as a string or existing DOM elements._
+_Insert a new element or content to the front of the target's childNode list._
+_New content can be either HTML input as a string or existing DOM elements._
 
 ```
 $(selector).prepend(content);
@@ -274,7 +319,7 @@ $(selector).prepend(content);
 
 ##### ready()
 
-_Triggers when the DOM structure of the selected element is ready._
+_Trigger a callback when the DOM content of the selected element is loaded._
 
 ```
 $(selector).ready(callback);
@@ -282,7 +327,7 @@ $(selector).ready(callback);
 
 ##### load()
 
-_Triggers when the full DOM content of the selected element is loaded._
+_Trigger a callback when the load event fires._
 
 ```
 $(selector).load(callback);
@@ -290,7 +335,8 @@ $(selector).load(callback);
 
 ##### remove()
 
-_Removes the specified child element from the current object if the target is specified. If no target is specified, the parent of the current node will remove the node from the DOM._
+_Remove the specified child element from the current object if the target is specified._
+_If no target is specified, the parent of the current node will remove the node from the DOM._
 
 ```
 $(selector).remove(child);	
@@ -298,7 +344,7 @@ $(selector).remove(child);
 
 ##### replaceWith()
 
-_Replaces the selected element contents with the specified content._
+_Replace the selected element contents with the specified content._
 
 ```
 $(selector).replaceWith(content);
@@ -306,7 +352,7 @@ $(selector).replaceWith(content);
 
 ##### resize()
 
-_Captures the native resize event and executes a function each time the event triggers._
+_Capture the native resize event and execute a function each time the event triggers._
 
 ```
 $(selector).resize(callback);
@@ -314,7 +360,7 @@ $(selector).resize(callback);
 
 ##### scroll()
 
-_Captures the native scroll event and executes a function each time the event triggers._
+_Capture the native scroll event and execute a function each time the event triggers._
 
 ```
 $(selector).scroll(callback);
@@ -322,8 +368,8 @@ $(selector).scroll(callback);
 
 ##### scrollTop()
 
-_Returns the scrollTop value of the given scrollable element if the "top" argument is not supplied._
-_Scrolls the element to a specific pixel value if the "top" argument is supplied._
+_Return the scrollTop value of the given scrollable element if the "top" argument is not supplied._
+_Scroll the element to a specific pixel value if the "top" argument is supplied._
 _Scrolling overflow must be enabled on the selector._
 
 ```
@@ -331,9 +377,20 @@ $(selector).scrollTop();
 $(selector).scrollTop(top);
 ```
 
+##### scrollLeft()
+
+_Return the scrollLeft value of the given scrollable element if the "left" argument is not supplied._
+_Scroll the element to a specific pixel value if the "left" argument is supplied._
+_Scrolling overflow must be enabled on the selector._
+
+```
+$(selector).scrollLeft();
+$(selector).scrollLeft(left);
+```
+
 ##### trigger()
 
-_Dispatches custom event listeners._
+_Dispatch custom event listeners._
 
 ```
 $(selector).trigger(customEvent);
@@ -341,32 +398,25 @@ $(selector).trigger(customEvent);
 
 ##### val()
 
-_Assigns an arbitrary value to a specified element._
+_Return or assign the value of an element - works best on form inputs._
 
 ```
-$(selector).val(valueName, content);
+$(selector).val();
+$(selector).val(newValue);
 ```
 
-##### getVal()
+##### wrap()
 
-_Returns the arbitrary value defined by val()._
-
-```
-$(selector).getVal(valueName);
-```
-
-##### 
-
-_Removes the arbitrary value defined by val()._
+_Wrap the outer structure of the selected element(s)._
 
 ```
-$(selector).removeVal(valueName);
+$(selector).wrap(structure); => use opening tags only
 ```
 
 ##### wrapInner()
 
-_Wraps the innerHTML of the selected element(s) within the specified structure._
+_Wrap the inner structure of the selected element(s)._
 
 ```
-$(selector).wrapInner(structure); => use opening tags only for "structure"
+$(selector).wrapInner(structure); => use opening tags only
 ```

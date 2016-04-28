@@ -18,6 +18,6 @@
     "grunt-contrib-uglify": "0.7.x",
     "grunt-contrib-watch": "1.0.x"
   },
-  "keywords": ["grindstone", "javascript", "library", "jquery"],
+  "keywords": ["grindstone", "javascript", "library", "jquery", "lightweight"],
   "license": "MIT"
 }
