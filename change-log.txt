@@ -146,3 +146,12 @@ Changes Current Version: NO
 Contributor(s): Dan Zervoudakes
 
 - Removed node_modules from npm package
+
+v2.0.2
+
+Date: 4/29/16
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+- Added callback functionality to focus()
+- Added submit()

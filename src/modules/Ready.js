@@ -5,9 +5,11 @@
  */
 
 	$.fn.ready = function(callback) {
-		this.each(function() {
-			this.addEventListener("DOMContentLoaded", callback, false);
-		});
+		if (typeof callback === "function") {
+			this.each(function() {
+				$(this).on("DOMContentLoaded", callback);
+			});
+		}
 		return this;
 	};
 
@@ -18,8 +20,10 @@
  */
 
 	$.fn.load = function(callback) {
-		this.each(function() {
-			this.addEventListener("load", callback, false);
-		});
+		if (typeof callback === "function") {
+			this.each(function() {
+				$(this).on("load", callback);
+			});
+		}
 		return this;
 	};

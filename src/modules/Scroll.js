@@ -5,9 +5,11 @@
  */
 
 	$.fn.scroll = function(callback) {
-		this.each(function() {
-			$(this).on("scroll", callback);
-		});
+		if (typeof callback === "function") {
+			this.each(function() {
+				$(this).on("scroll", callback);
+			});
+		}
 		return this;
  	};
  

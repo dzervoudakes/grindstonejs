@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v2.0.1
+ * Grindstone JavaScript Library v2.0.2
  * https://github.com/dzervoudakes/GrindstoneJS
  *
  * Copyright (c) 2014, 2016 Dan Zervoudakes
@@ -520,15 +520,22 @@
 	};
 
 /**
- * Focus on the first element in the set
+ * Focus on the first element in the set or trigger a callback when some element is focused on
+ * @param {function} callback - optional
  * @returns {object} current instance of Grindstone
  */
 	
-	$.fn.focus = function() {
-		this.set[0].focus();
+	$.fn.focus = function(callback) {
+		if (typeof callback === "function") {
+			this.each(function() {
+				$(this).on("focus", callback);
+			});
+		} else {
+			this.set[0].focus();
+		}
 		return this;
- 	};
- 
+	};
+
 /**
  * Replace an element's inner HTML or return the current value
  * @param {string} content - optional
@@ -717,9 +724,11 @@
  */
 
 	$.fn.ready = function(callback) {
-		this.each(function() {
-			this.addEventListener("DOMContentLoaded", callback, false);
-		});
+		if (typeof callback === "function") {
+			this.each(function() {
+				$(this).on("DOMContentLoaded", callback);
+			});
+		}
 		return this;
 	};
 
@@ -730,9 +739,11 @@
  */
 
 	$.fn.load = function(callback) {
-		this.each(function() {
-			this.addEventListener("load", callback, false);
-		});
+		if (typeof callback === "function") {
+			this.each(function() {
+				$(this).on("load", callback);
+			});
+		}
 		return this;
 	};
 
@@ -780,9 +791,11 @@
  */
 
 	$.fn.resize = function(callback) {
-		this.each(function() {
-			$(this).on("resize", callback);
-		});
+		if (typeof callback === "function") {
+			this.each(function() {
+				$(this).on("resize", callback);
+			});
+		}
 		return this;
  	};
  
@@ -793,9 +806,11 @@
  */
 
 	$.fn.scroll = function(callback) {
-		this.each(function() {
-			$(this).on("scroll", callback);
-		});
+		if (typeof callback === "function") {
+			this.each(function() {
+				$(this).on("scroll", callback);
+			});
+		}
 		return this;
  	};
  
@@ -866,6 +881,25 @@
 	};
 
 /**
+ * Submit a form or trigger a callback when a form is submitted
+ * @param {function} callback - optional
+ * @returns {object} current instance of Grindstone
+ */
+	
+	$.fn.submit = function(callback) {
+		if (typeof callback === "function") {
+			this.each(function() {
+				$(this).on("submit", callback);
+			});
+		} else {
+			this.each(function() {
+				this.submit();
+			});
+		}
+		return this;
+	};
+
+/**
  * Dispatch a custom event
  * @param {number} evt - custom event
  * @returns {object|number} current instance of Grindstone or top offset
@@ -886,7 +920,7 @@
  */
 
 	$.fn.val = function(newValue) {
-		if (newValue) {
+		if (typeof newValue === "string") {
 			this.each(function() {
 				this.value = newValue;
 			});

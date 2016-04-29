@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v2.0.0.js"></script>
+		<script src="../dist/grindstone-v2.0.2.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -112,10 +112,14 @@
 		<article id="empty-article"></article>
 		<button id="btn1" class="btns mouseable"></button>
 		<button id="btn2" class="btns mouseable"></button>
-		<input type="text" class="test-input" />
+		<input type="text" class="test-input">
 		<!--<div id="scroll-box" class="scroll-box">
 			<div></div>
 		</div>-->
+		<form class="test-form" method="POST" action="">
+			<input type="text">
+			<input type="submit" value="submit">
+		</form>
 		<script type="text/javascript">
 			
 			(function(w, d, $) {
@@ -177,7 +181,13 @@
 					});
 					
 					state.eventHandlers.focusTest = function() {
-						$(".test-input").focus();
+						//$(".test-input").focus();
+						$(".test-input").focus(function() { console.log("focus"); });
+					};
+					
+					state.eventHandlers.submitTest = function() {
+						//$(".test-form").submit();
+						$(".test-form").submit(function() { alert("form submitted"); });
 					};
 					
 					state.eventHandlers.valueTest1 = function() {
@@ -204,7 +214,7 @@
 					var emptyDivs = $("div", "#test-div");
 					
 					//el.on("click", state.eventHandlers.valueTest1);
-					el2.on("click", state.eventHandlers.scrollLeftTest);
+					el2.on("click", state.eventHandlers.submitTest);
 					
 					$(".mouseable").mouseable();
 					

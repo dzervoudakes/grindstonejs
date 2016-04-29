@@ -388,6 +388,15 @@ $(selector).scrollLeft();
 $(selector).scrollLeft(left);
 ```
 
+##### submit()
+
+_Submit a form or trigger a callback when a form is submitted._
+
+```
+$(selector).submit();
+$(selector).submit(callback);
+```
+
 ##### trigger()
 
 _Dispatch custom event listeners._
