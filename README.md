@@ -256,7 +256,7 @@ $(selector).off(event[s], callback);
 
 ##### focus()
 
-_Focus on the first element in the set._
+_Focus on the first element in the set or trigger a function when some element is focused upon._
 
 ```
 $(selector).focus();
@@ -390,7 +390,7 @@ $(selector).scrollLeft(left);
 
 ##### submit()
 
-_Submit a form or trigger a callback when a form is submitted._
+_Submit a form or trigger a function when a form is submitted._
 
 ```
 $(selector).submit();

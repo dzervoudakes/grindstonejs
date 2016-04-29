@@ -881,7 +881,7 @@
 	};
 
 /**
- * Submit a form or trigger a callback when a form is submitted
+ * Submit a form or trigger a function when a form is submitted
  * @param {function} callback - optional
  * @returns {object} current instance of Grindstone
  */
