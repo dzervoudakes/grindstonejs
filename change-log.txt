@@ -155,3 +155,11 @@ Contributor(s): Dan Zervoudakes
 
 - Added callback functionality to focus()
 - Added submit()
+
+v2.0.3
+
+Date: 5/1/16
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+- Debugged mouseable() errors

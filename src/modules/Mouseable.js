@@ -19,6 +19,7 @@
 			hoverClass  = "over";
 			activeClass = "down";
 		}
+		
 		function createInteraction(touchEvt, mouseEvt) {
 			return ("ontouchend" in d) ? touchEvt : mouseEvt;
 		};
@@ -34,16 +35,20 @@
 			
 			$(this)
 				.on(events.hover, function() {
-					$(this).addClass(hoverClass); // .on([evtHover, evtDown], function() {});
+					$(this).addClass(hoverClass);
 				})
 				.on(events.remove, function() {
-					$(this).removeClass(hoverClass);
+					$(this)
+						.removeClass(activeClass)
+						.removeClass(hoverClass);
 				})
 				.on(events.down, function() {
 					$(this).addClass(activeClass);
 				})
 				.on(events.up, function() {
-					$(this).removeClass(activeClass);
+					$(this)
+						.removeClass(activeClass)
+						.removeClass(hoverClass);
 				});
 		});
 		
