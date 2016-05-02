@@ -260,6 +260,7 @@ _Focus on the first element in the set or trigger a function when some element i
 
 ```
 $(selector).focus();
+$(selector).focus(callback);
 ```
 
 ##### html()
