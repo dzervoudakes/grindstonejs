@@ -25,7 +25,7 @@ For full documentation/examples, navigate to the official site.
 
 ##### $()
 
-_Create a new instance of the "Grindstone" object and allows method chaining on DOM elements._
+_Create a new instance of the "Grindstone" object and allow method chaining on DOM elements._
 
 ```
 $(selector [, context]);
