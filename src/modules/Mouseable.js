@@ -39,16 +39,14 @@
 				})
 				.on(events.remove, function() {
 					$(this)
-						.removeClass(activeClass)
+						.removeClass(hoverClass + " " + activeClass)
 						.removeClass(hoverClass);
 				})
 				.on(events.down, function() {
 					$(this).addClass(activeClass);
 				})
 				.on(events.up, function() {
-					$(this)
-						.removeClass(activeClass)
-						.removeClass(hoverClass);
+					$(this).removeClass(activeClass);
 				});
 		});
 		

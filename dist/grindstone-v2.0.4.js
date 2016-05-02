@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v2.0.3
+ * Grindstone JavaScript Library v2.0.4
  * https://github.com/dzervoudakes/GrindstoneJS
  *
  * Copyright (c) 2014, 2016 Dan Zervoudakes
@@ -645,16 +645,14 @@
 				})
 				.on(events.remove, function() {
 					$(this)
-						.removeClass(activeClass)
+						.removeClass(hoverClass + " " + activeClass)
 						.removeClass(hoverClass);
 				})
 				.on(events.down, function() {
 					$(this).addClass(activeClass);
 				})
 				.on(events.up, function() {
-					$(this)
-						.removeClass(activeClass)
-						.removeClass(hoverClass);
+					$(this).removeClass(activeClass);
 				});
 		});
 		
