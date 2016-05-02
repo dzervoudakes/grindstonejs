@@ -340,7 +340,8 @@ _Remove the specified child element from the current object if the target is spe
 _If no target is specified, the parent of the current node will remove the node from the DOM._
 
 ```
-$(selector).remove(child);	
+$(selector).remove(target);
+$(selector).remove();	
 ```
 
 ##### replaceWith()
