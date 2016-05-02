@@ -82,7 +82,7 @@ $(selector).append(content);
 _Set or return the value of the specified attribute._
 
 ```
-$(selector).attr(attribute, value);
+$(selector).attr(attribute [, value]);
 ```
 
 ##### hasAttr()
