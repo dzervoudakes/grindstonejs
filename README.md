@@ -148,7 +148,7 @@ _Return the specified CSS value if a string is passed as the styles argument and
 
 ```
 $(selector).css({ properties: values });
-$(selector).css(property, value);
+$(selector).css(property [, value]);
 $(selector).css(property);
 ```
 
