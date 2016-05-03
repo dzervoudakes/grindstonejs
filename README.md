@@ -12,7 +12,7 @@ GrindstoneJS does not aim to "replace" jQuery or reinvent the wheel... it is mer
 
 ##### Browser Support:
 
-* IE 9+
+* IE 10+
 * Firefox 3.5+
 * Chrome 4.0+
 * Safari 3.2+

@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v2.0.4.js"></script>
+		<script src="../dist/grindstone-v2.0.5.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -65,6 +65,10 @@
 			
 			#btn2 {
 				top: 210px;
+			}
+			
+			#btn2.TOGGLE {
+				background: #0f0;
 			}
 			
 			.empty-div {
@@ -202,6 +206,10 @@
 					state.eventHandlers.scrollLeftTest = function() {
 						$(d).scrollLeft(300);
 					};
+					
+					state.eventHandlers.toggleClassTest = function() {
+						$(state.dom.btn2).toggleClass("TOGGLE");
+					};
 				};
 				
 				var runTests = function() {
@@ -214,7 +222,7 @@
 					var emptyDivs = $("div", "#test-div");
 					
 					//el.on("click", state.eventHandlers.valueTest1);
-					el2.on("click", state.eventHandlers.submitTest);
+					el2.on("click", state.eventHandlers.toggleClassTest);
 					
 					$(".mouseable").mouseable();
 					

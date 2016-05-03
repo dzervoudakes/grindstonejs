@@ -171,3 +171,12 @@ Changes Current Version: NO
 Contributor(s): Dan Zervoudakes
 
 - Debugged more mouseable() errors
+
+v2.0.5
+
+Date: 5/2/16
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+- Updated classes module
+- Updated browser compatibility
