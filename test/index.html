@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v2.0.5.js"></script>
+		<script src="../dist/grindstone-v2.0.6.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -115,7 +115,7 @@
 		</div>
 		<article id="empty-article"></article>
 		<button id="btn1" class="btns mouseable"></button>
-		<button id="btn2" class="btns mouseable"></button>
+		<button id="btn2" class="btns mouseable bleh"></button>
 		<input type="text" class="test-input">
 		<!--<div id="scroll-box" class="scroll-box">
 			<div></div>
@@ -131,6 +131,10 @@
 				var state = {};
 				state.dom = {};
 				state.eventHandlers = {};
+				
+				state.interaction = function() {
+					return ("ontouchend" in d) ? "touchend" : "click";
+				};
 				
 				var collectDom = function() {
 					state.dom.btn1 = d.getElementById("btn1");
@@ -208,7 +212,7 @@
 					};
 					
 					state.eventHandlers.toggleClassTest = function() {
-						$(state.dom.btn2).toggleClass("TOGGLE");
+						$(state.dom.btn2).toggleClass("TOGGLE bleh");
 					};
 				};
 				
@@ -221,8 +225,8 @@
 					var divs = $("div");
 					var emptyDivs = $("div", "#test-div");
 					
-					//el.on("click", state.eventHandlers.valueTest1);
-					el2.on("click", state.eventHandlers.toggleClassTest);
+					//el.on(state.interaction(), state.eventHandlers.valueTest1);
+					el2.on(state.interaction(), state.eventHandlers.toggleClassTest);
 					
 					$(".mouseable").mouseable();
 					

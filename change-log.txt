@@ -180,3 +180,12 @@ Contributor(s): Dan Zervoudakes
 
 - Updated classes module
 - Updated browser compatibility
+
+v2.0.6
+
+Date: 5/3/16
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+- Updated classes module and fixed errors
+- Update mouseable() as a result of classes refactoring

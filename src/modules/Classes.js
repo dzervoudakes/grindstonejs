@@ -5,10 +5,9 @@
  */
 
 	$.fn.hasClass = function(cls) {
-		var regx = new RegExp("(\\s|^)" + cls + "(\\s|$)");
 		var hasCls;
 		this.each(function() {
-			hasCls = (this.className.match(regx) !== null) ? true : false;
+			hasCls = this.classList.contains(cls);
 		});
 		return hasCls;
 	};
@@ -58,11 +57,11 @@
  */
 
 	$.fn.toggleClass = function(cls) {
+		var classes, i;
 		this.each(function() {
-			if (!$(this).hasClass(cls)) {
-				$(this).addClass(cls);
-			} else {
-				$(this).removeClass(cls);
+			classes = cls.split(" ");
+			for (i = 0; i < classes.length; i++) {
+				this.classList.toggle(classes[i]);
 			}
 		});
 		return this;

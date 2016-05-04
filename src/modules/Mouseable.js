@@ -38,9 +38,7 @@
 					$(this).addClass(hoverClass);
 				})
 				.on(events.remove, function() {
-					$(this)
-						.removeClass(hoverClass + " " + activeClass)
-						.removeClass(hoverClass);
+					$(this).removeClass(hoverClass)
 				})
 				.on(events.down, function() {
 					$(this).addClass(activeClass);

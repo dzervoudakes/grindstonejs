@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v2.0.5
+ * Grindstone JavaScript Library v2.0.6
  * https://github.com/dzervoudakes/GrindstoneJS
  *
  * Copyright (c) 2014, 2016 Dan Zervoudakes
@@ -213,10 +213,9 @@
  */
 
 	$.fn.hasClass = function(cls) {
-		var regx = new RegExp("(\\s|^)" + cls + "(\\s|$)");
 		var hasCls;
 		this.each(function() {
-			hasCls = (this.className.match(regx) !== null) ? true : false;
+			hasCls = this.classList.contains(cls);
 		});
 		return hasCls;
 	};
@@ -266,11 +265,11 @@
  */
 
 	$.fn.toggleClass = function(cls) {
+		var classes, i;
 		this.each(function() {
-			if (!$(this).hasClass(cls)) {
-				$(this).addClass(cls);
-			} else {
-				$(this).removeClass(cls);
+			classes = cls.split(" ");
+			for (i = 0; i < classes.length; i++) {
+				this.classList.toggle(classes[i]);
 			}
 		});
 		return this;
@@ -649,9 +648,7 @@
 					$(this).addClass(hoverClass);
 				})
 				.on(events.remove, function() {
-					$(this)
-						.removeClass(hoverClass + " " + activeClass)
-						.removeClass(hoverClass);
+					$(this).removeClass(hoverClass)
 				})
 				.on(events.down, function() {
 					$(this).addClass(activeClass);

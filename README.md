@@ -2,7 +2,7 @@
 
 A lightweight jQuery alternative for modern browsers.
 
-Full documentation and examples: http://grindstonejs.drzwebdev.com/
+http://grindstonejs.drzwebdev.com/
 
 ```
 npm install grindstone
@@ -19,9 +19,7 @@ GrindstoneJS does not aim to "replace" jQuery or reinvent the wheel... it is mer
 * Opera 10.0+
 * Mobile
 
-### Abbreviated Documentation/Examples
-
-For full documentation/examples, navigate to the official site.
+### Documentation/Examples
 
 ##### $()
 
