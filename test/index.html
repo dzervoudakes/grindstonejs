@@ -136,7 +136,7 @@
 					return ("ontouchend" in d) ? "touchend" : "click";
 				};
 				
-				var collectDom = function() {
+				var collectDOM = function() {
 					state.dom.btn1 = d.getElementById("btn1");
 					state.dom.btn2 = d.getElementById("btn2");
 					state.dom.$emptyArticle = $("#empty-article");
@@ -233,7 +233,7 @@
 				};
 				
 				var init = function() {
-					collectDom();
+					collectDOM();
 					gatherEvents();
 					runTests();
 				};
