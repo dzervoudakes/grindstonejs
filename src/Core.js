@@ -12,7 +12,7 @@
 			
 			var selectedElements, ctx, els, i, j;
 			
-			if (typeof selector === "string") {
+			if (typeof selector === 'string') {
 				
 				if (context) {
 					
@@ -34,12 +34,12 @@
 				
 				return this;
 				
-			} else if (typeof selector === "object" || selector === w || selector === d) {
+			} else if (typeof selector === 'object' || selector === w || selector === d) {
 				this.set = [selector];
 			}
 			
 		} else {
-			throw new Error("Cannot create new instance of Grindstone without a selector.");
+			throw new Error('Cannot create new instance of Grindstone without a selector.');
 		}
 	};
 	

@@ -14,5 +14,5 @@
 			}
 		});
 		return content ? this : text;
- 	};
+	};
  

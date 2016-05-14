@@ -7,12 +7,12 @@
 	$.fn.wrap = function(structure) {
 		var contents, wrap;
 		this.each(function() {
-			if (typeof structure === "string") {
+			if (typeof structure === 'string') {
 				contents = this.outerHTML;
 				wrap = structure;
 				this.outerHTML = wrap + contents;
 			} else {
-				throw new Error("wrap() structure must be a string.");
+				throw new Error('wrap() structure must be a string.');
 			}
 		});
 		return this;
@@ -27,14 +27,14 @@
 	$.fn.wrapInner = function(structure) {
 		var contents, wrap;
 		this.each(function() {
-			if (typeof structure === "string") {
+			if (typeof structure === 'string') {
 				contents = $(this).html();
 				wrap = structure;
 				$(this).html(wrap + contents);
 			} else {
-				throw new Error("wrapInner() structure must be a string.");
+				throw new Error('wrapInner() structure must be a string.');
 			}
 		});
 		return this;
- 	};
+	};
  

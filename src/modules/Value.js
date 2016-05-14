@@ -5,7 +5,7 @@
  */
 
 	$.fn.val = function(newValue) {
-		if (typeof newValue === "string") {
+		if (typeof newValue === 'string') {
 			this.each(function() {
 				this.value = newValue;
 			});

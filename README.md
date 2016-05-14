@@ -294,7 +294,7 @@ _Developers may define their own hover/active classes with the optional "classes
 
 ```
 $(selector).mouseable();
-$(selector).mouseable({hoverClass: "hover", activeClass: "active"});
+$(selector).mouseable({hoverClass: 'hover', activeClass: 'active'});
 ```
 
 ##### offset()
@@ -303,8 +303,8 @@ _Return the left/top offset value of the specified selector relative to the docu
 _This will only apply to the first match in the set and includes margins._
 
 ```
-$(selector).offset("left");
-$(selector).offset("top");
+$(selector).offset('left');
+$(selector).offset('top');
 ```
 
 ##### prepend()

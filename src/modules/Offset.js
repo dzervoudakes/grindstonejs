@@ -6,12 +6,12 @@
 
 	$.fn.offset = function(position) {
 		var elem, offsetLeft, offsetTop;
-		if (position && typeof position === "string") {
-			if (position !== "left" && position !== "top") {
-				throw new Error("offset() position must be either 'left' or 'top'.");
+		if (position && typeof position === 'string') {
+			if (position !== 'left' && position !== 'top') {
+				throw new Error('offset() position must be either "left" or "top".');
 			} else {	
 				elem = this.set[0];
-				if (position === "left") {
+				if (position === 'left') {
 					offsetLeft = 0;
 				    do {
 				        if (!isNaN(elem.offsetLeft)) {
@@ -19,7 +19,7 @@
 				        }
 				    } while (elem = elem.offsetParent);
 				    return offsetLeft;
-				} else if (position === "top") {
+				} else if (position === 'top') {
 					offsetTop = 0;
 				    do {
 				        if (!isNaN(elem.offsetTop)) {
@@ -30,6 +30,6 @@
 				}
 			}
 		} else {
-			throw new Error("offset() position must be a string: acceptable values are 'left' and 'top'.");
+			throw new Error('offset() position must be a string: acceptable values are "left" and "top".');
 		}
 	};

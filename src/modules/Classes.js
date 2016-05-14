@@ -22,7 +22,7 @@
 		var classes, i;
 		this.each(function() {
 			if (!$(this).hasClass(cls)) {
-				classes = cls.split(" ");
+				classes = cls.split(' ');
 				for (i = 0; i < classes.length; i++) {
 					this.classList.add(classes[i]);
 				}
@@ -41,7 +41,7 @@
 		var classes, i;
 		this.each(function() {
 			if ($(this).hasClass(cls)) {
-				classes = cls.split(" ");
+				classes = cls.split(' ');
 				for (i = 0; i < classes.length; i++) {
 					this.classList.remove(classes[i]);
 				}
@@ -59,7 +59,7 @@
 	$.fn.toggleClass = function(cls) {
 		var classes, i;
 		this.each(function() {
-			classes = cls.split(" ");
+			classes = cls.split(' ');
 			for (i = 0; i < classes.length; i++) {
 				this.classList.toggle(classes[i]);
 			}

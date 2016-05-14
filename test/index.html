@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v2.0.6.js"></script>
+		<script src="../dist/grindstone-v2.0.7.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -133,21 +133,21 @@
 				state.eventHandlers = {};
 				
 				state.interaction = function() {
-					return ("ontouchend" in d) ? "touchend" : "click";
+					return ('ontouchend' in d) ? 'touchend' : 'click';
 				};
 				
 				var collectDOM = function() {
-					state.dom.btn1 = d.getElementById("btn1");
-					state.dom.btn2 = d.getElementById("btn2");
-					state.dom.$emptyArticle = $("#empty-article");
+					state.dom.btn1 = d.getElementById('btn1');
+					state.dom.btn2 = d.getElementById('btn2');
+					state.dom.$emptyArticle = $('#empty-article');
 				};
 				
 				var gatherEvents = function() {
 					
 					state.eventHandlers.ajaxTest = function() {
 						$.ajax({
-							method: "GET",
-							url: "ajax-test.html",
+							method: 'GET',
+							url: 'ajax-test.html',
 							async: true,
 							success: function(xmlhttp) {
 								var text = xmlhttp.responseText;
@@ -157,30 +157,30 @@
 					};
 					
 					state.eventHandlers.appendTest = function() {
-						state.dom.$emptyArticle.append("<div class='append-test'>");
+						state.dom.$emptyArticle.append('<div class="append-test">');
 					};
 					
 					state.eventHandlers.cloneTest = function() {
-						var el = $("#btn1").clone();
-						$("#test-div").append(el);
-						$(el).addClass("CLONED");
+						var el = $('#btn1').clone();
+						$('#test-div').append(el);
+						$(el).addClass('CLONED');
 					};
 					
 					state.eventHandlers.htmlTest = function() {
-						$(this).html("<p style='font-size: 24px;'>test</p>");
+						$(this).html('<p style="font-size: 24px;">test</p>');
 					};
 					
 					state.eventHandlers.dataTest1 = function() {
-						$(this).data("clicked", "oh ya");
-						alert($(this).data("clicked"));
+						$(this).data('clicked', 'oh ya');
+						alert($(this).data('clicked'));
 					};
 					
 					state.eventHandlers.dataTest2 = function() {
-						$(state.dom.btn2).removeData("clicked");
+						$(state.dom.btn2).removeData('clicked');
 					};
 					
 					state.eventHandlers.debounceTest = $.debounce(function() {
-						$(w).on("resize", function() {
+						$(w).on('resize', function() {
 							var curHeight = $(this).height();
 							var curWidth = $(this).width();
 							console.log(curHeight);
@@ -189,21 +189,21 @@
 					});
 					
 					state.eventHandlers.focusTest = function() {
-						//$(".test-input").focus();
-						$(".test-input").focus(function() { console.log("focus"); });
+						//$('.test-input').focus();
+						$('.test-input').focus(function() { console.log('focus'); });
 					};
 					
 					state.eventHandlers.submitTest = function() {
-						//$(".test-form").submit();
-						$(".test-form").submit(function() { alert("form submitted"); });
+						//$('.test-form').submit();
+						$('.test-form').submit(function() { alert('form submitted'); });
 					};
 					
 					state.eventHandlers.valueTest1 = function() {
-						$(".test-input").val("New Value");
+						$('.test-input').val('New Value');
 					};
 					
 					state.eventHandlers.valueTest2 = function() {
-						var value = $(".test-input").val();
+						var value = $('.test-input').val();
 						alert(value);
 					};
 					
@@ -211,8 +211,13 @@
 						$(d).scrollLeft(300);
 					};
 					
+					state.eventHandlers.scrollTopTest = function() {
+						var curScroll = $(w).scrollTop();
+						console.log(curScroll);
+					};
+					
 					state.eventHandlers.toggleClassTest = function() {
-						$(state.dom.btn2).toggleClass("TOGGLE bleh");
+						$(state.dom.btn2).toggleClass('TOGGLE bleh');
 					};
 				};
 				
@@ -220,15 +225,15 @@
 					
 					var el = $(state.dom.btn1);
 					var el2 = $(state.dom.btn2);
-					var test = $("#test-div");
-					var buttonsArray = $(".btns");
-					var divs = $("div");
-					var emptyDivs = $("div", "#test-div");
+					var test = $('#test-div');
+					var buttonsArray = $('.btns');
+					var divs = $('div');
+					var emptyDivs = $('div', '#test-div');
 					
-					//el.on(state.interaction(), state.eventHandlers.valueTest1);
-					el2.on(state.interaction(), state.eventHandlers.toggleClassTest);
+					el.on(state.interaction(), state.eventHandlers.scrollLeftTest);
+					el2.on(state.interaction(), state.eventHandlers.scrollTopTest);
 					
-					$(".mouseable").mouseable();
+					$('.mouseable').mouseable();
 					
 				};
 				

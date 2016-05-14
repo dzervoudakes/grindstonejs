@@ -7,7 +7,7 @@
 	$.fn.append = function(element) {
 		var dom, i;
 		this.each(function() {
-			if (typeof element === "string") {
+			if (typeof element === 'string') {
 				if (element.match(/(<).+(>)/)) {
 					this.innerHTML += element;
 				} else {

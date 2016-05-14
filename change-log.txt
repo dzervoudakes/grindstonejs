@@ -189,3 +189,12 @@ Contributor(s): Dan Zervoudakes
 
 - Updated classes module and fixed errors
 - Update mouseable() as a result of classes refactoring
+
+v2.0.7
+
+Date: 5/13/16
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+- No functionality updates: replaced "double quotes" with 'single quotes' throughout the codebase for readability
+- Merged all scrolling methods into one module

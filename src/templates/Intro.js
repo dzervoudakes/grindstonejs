@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v2.0.6
+ * Grindstone JavaScript Library v2.0.7
  * https://github.com/dzervoudakes/GrindstoneJS
  *
  * Copyright (c) 2014, 2016 Dan Zervoudakes
@@ -9,4 +9,4 @@
 
 (function(w, d) {
 	
-"use strict";
+'use strict';

@@ -5,9 +5,9 @@
  */
 
 	$.fn.height = function(num) {
-		if (typeof num === "number" || num === 0) {
+		if (typeof num === 'number' || num === 0) {
 			this.each(function() {
-				this.style.height = num + "px";
+				this.style.height = num + 'px';
 			});
 			return this;
 		} else {
@@ -29,9 +29,9 @@
  */
 
 	$.fn.width = function(num) {
-		if (typeof num === "number" || num === 0) {
+		if (typeof num === 'number' || num === 0) {
 			this.each(function() {
-				this.style.width = num + "px";
+				this.style.width = num + 'px';
 			});
 			return this;
 		} else {

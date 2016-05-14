@@ -8,7 +8,7 @@
 	$.fn.on = function(action, callback) {
 		var events, i;
 		this.each(function() {
-			events = action.split(" ");
+			events = action.split(' ');
 			for (i = 0; i < events.length; i++) {
 				this.addEventListener(events[i], callback, false);
 			}
@@ -26,7 +26,7 @@
 	$.fn.off = function(action, callback) {
 		var events, i;
 		this.each(function() {
-			events = action.split(" ");
+			events = action.split(' ');
 			for (i = 0; i < events.length; i++) {
 				this.removeEventListener(events[i], callback, false);
 			}

@@ -9,5 +9,5 @@
 			callback.call(this.set[i]);
 		}
 		return this;
- 	};
+	};
  

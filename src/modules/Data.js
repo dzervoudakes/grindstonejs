@@ -8,13 +8,13 @@
 	$.fn.data = function(valueName, valueContent) {
 		if (valueContent) {
 			this.each(function() {
-				$(this).attr("data-" + valueName, valueContent);
+				$(this).attr('data-' + valueName, valueContent);
 			});
 			return this;
 		} else {
 			var elemValue;
 			this.each(function() {
-				elemValue = $(this).attr("data-" + valueName);
+				elemValue = $(this).attr('data-' + valueName);
 			});
 			return elemValue;
 		}
@@ -28,7 +28,7 @@
 
 	$.fn.removeData = function(valueName) {
 		this.each(function() {
-			$(this).removeAttr("data-" + valueName);
+			$(this).removeAttr('data-' + valueName);
 		});
 		return this;
 	};

@@ -7,9 +7,9 @@
 	$.fn.before = function(content) {
 		var dom, i;
 		this.each(function() {
-			if (typeof content === "string") {
+			if (typeof content === 'string') {
 				if (content.match(/(<).+(>)/)) {
-					this.insertAdjacentHTML("beforebegin", content);
+					this.insertAdjacentHTML('beforebegin', content);
 				} else {	
 					dom = d.querySelectorAll(content);
 					for (i = 0; i < dom.length; i++) {
@@ -32,9 +32,9 @@
 	$.fn.after = function(content) {
 		var dom, i;
 		this.each(function() {
-			if (typeof content === "string") {
+			if (typeof content === 'string') {
 				if (content.match(/(<).+(>)/)) {
-					this.insertAdjacentHTML("afterend", content);
+					this.insertAdjacentHTML('afterend', content);
 				} else {	
 					dom = d.querySelectorAll(content);
 					for (i = 0; i < dom.length; i++) {

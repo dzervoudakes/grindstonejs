@@ -7,9 +7,9 @@
 	$.fn.prepend = function(element) {
 		var dom, i;
 		this.each(function() {
-			if (typeof element === "string") {
+			if (typeof element === 'string') {
 				if (element.match(/(<).+(>)/)) {
-					this.insertAdjacentHTML("afterbegin", element);
+					this.insertAdjacentHTML('afterbegin', element);
 				} else {
 					dom = d.querySelectorAll(element);
 					for (i = 0; i < dom.length; i++) {

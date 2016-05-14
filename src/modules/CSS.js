@@ -8,15 +8,15 @@
 	$.fn.css = function(styles, value) {
 		var returnedStyle;
 		this.each(function() {
-			if (typeof styles === "object") {
+			if (typeof styles === 'object') {
 				for (var i in styles) {
 					this.style[i] = styles[i];
 				}
-			} else if (typeof styles === "string" && !value) {
+			} else if (typeof styles === 'string' && !value) {
 				returnedStyle = this.style[styles];
-			} else if (typeof styles === "string" && typeof value === "string") {
+			} else if (typeof styles === 'string' && typeof value === 'string') {
 				this.style[styles] = value;
 			}
 		});
-		return (typeof styles === "object" || typeof styles === "string" && value) ? this : returnedStyle;
+		return (typeof styles === 'object' || typeof styles === 'string' && value) ? this : returnedStyle;
 	};

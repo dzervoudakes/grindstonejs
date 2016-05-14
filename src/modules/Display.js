@@ -6,13 +6,13 @@
 
 	$.fn.show = function(delay) {
 		this.each(function() {
-			if (typeof delay === "number") {
+			if (typeof delay === 'number') {
 				var self = this;
 				setTimeout(function() {
-					self.style.display = "block";
+					self.style.display = 'block';
 				}, delay);
 			} else {
-				this.style.display = "block";
+				this.style.display = 'block';
 			}
 		});
 		return this;
@@ -26,13 +26,13 @@
 
 	$.fn.hide = function(delay) {
 		this.each(function() {
-			if (typeof delay === "number") {
+			if (typeof delay === 'number') {
 				var self = this;
 				setTimeout(function() {
-					self.style.display = "none";
+					self.style.display = 'none';
 				}, delay);
 			} else {
-				this.style.display = "none";
+				this.style.display = 'none';
 			}
 		});
 		return this;

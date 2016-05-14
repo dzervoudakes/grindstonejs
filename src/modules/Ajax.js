@@ -21,14 +21,14 @@
 			return options.hasOwnProperty(property);
 		};
 		
-		if (typeof options === "object") {
-			method   = (prop("method"))   ? options.method   : null;
-			url      = (prop("url"))      ? options.url      : null;
-			async    = (prop("async"))    ? options.async    : true;
-			success  = (prop("success"))  ? options.success  : null;
-			sendStr  = (prop("str"))      ? options.sendStr  : null;
+		if (typeof options === 'object') {
+			method   = (prop('method'))   ? options.method   : null;
+			url      = (prop('url'))      ? options.url      : null;
+			async    = (prop('async'))    ? options.async    : true;
+			success  = (prop('success'))  ? options.success  : null;
+			sendStr  = (prop('str'))      ? options.sendStr  : null;
 		} else {
-			throw new Error("Ajax request cannot be sent.");
+			throw new Error('XHR properties are not properly defined.');
 		}
 		
 		xmlhttp = new XMLHttpRequest();
@@ -38,10 +38,10 @@
 		
 		xmlhttp.open(method, url, async);
 		
-		if (prop("header") && prop("headerValue")) {
+		if (prop('header') && prop('headerValue')) {
 			xmlhttp.setRequestHeader(header, headerValue);
 		} else {
-			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+			xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 		}
 		xmlhttp.send(sendStr);
 		

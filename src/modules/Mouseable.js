@@ -9,26 +9,26 @@
 		var hoverClass, activeClass;
 		
 		if (classes) {
-			if (typeof classes === "object") {
-				hoverClass  = (classes.hasOwnProperty("hoverClass"))  ? classes["hoverClass"]  : "over";
-				activeClass = (classes.hasOwnProperty("activeClass")) ? classes["activeClass"] : "down";
+			if (typeof classes === 'object') {
+				hoverClass  = (classes.hasOwnProperty('hoverClass'))  ? classes['hoverClass']  : 'over';
+				activeClass = (classes.hasOwnProperty('activeClass')) ? classes['activeClass'] : 'down';
 			} else {
-				throw new Error("Classes parameter for mouseable() must be an object with properties 'hoverClass' and/or 'activeClass'.");
+				throw new Error('Classes parameter for mouseable() must be an object with properties "hoverClass" and/or "activeClass".');
 			}
 		} else {
-			hoverClass  = "over";
-			activeClass = "down";
+			hoverClass  = 'over';
+			activeClass = 'down';
 		}
 		
 		function createInteraction(touchEvt, mouseEvt) {
-			return ("ontouchend" in d) ? touchEvt : mouseEvt;
+			return ('ontouchend' in d) ? touchEvt : mouseEvt;
 		};
 		
 		var events = {
-			hover:  createInteraction("touchstart", "mouseenter"),
-			remove: createInteraction("touchend", "mouseleave"),
-			down:   createInteraction("touchstart", "mousedown"),
-			up: 	createInteraction("touchend", "mouseup mouseleave")
+			hover:  createInteraction('touchstart', 'mouseenter'),
+			remove: createInteraction('touchend', 'mouseleave'),
+			down:   createInteraction('touchstart', 'mousedown'),
+			up: 	createInteraction('touchend', 'mouseup mouseleave')
 		};
 		
 		this.each(function() {
