@@ -121,11 +121,11 @@ v1.2.5
  
 - Updated browser support and fixed README errors
 
-v2.0.0
-
 Date: 4/28/16
 Changes Current Version: YES
 Contributor(s): Dan Zervoudakes
+
+v2.0.0
 
 - Updated documentation
 - Broke out eq() into its own module
@@ -139,62 +139,62 @@ Contributor(s): Dan Zervoudakes
 - Added focus()
 - Added scrollLeft()
 
-v2.0.1
-
 Date: 4/28/16
 Changes Current Version: NO
 Contributor(s): Dan Zervoudakes
 
-- Removed node_modules from npm package
+v2.0.1
 
-v2.0.2
+- Removed node_modules from npm package
 
 Date: 4/29/16
 Changes Current Version: NO
 Contributor(s): Dan Zervoudakes
 
+v2.0.2
+
 - Added callback functionality to focus()
 - Added submit()
-
-v2.0.3
 
 Date: 5/1/16
 Changes Current Version: NO
 Contributor(s): Dan Zervoudakes
 
+v2.0.3
+
 - Debugged mouseable() errors
+
+Date: 5/2/16
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
 
 v2.0.4
 
+- Debugged more mouseable() errors
+
 Date: 5/2/16
 Changes Current Version: NO
 Contributor(s): Dan Zervoudakes
-
-- Debugged more mouseable() errors
 
 v2.0.5
 
-Date: 5/2/16
-Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
-
 - Updated classes module
 - Updated browser compatibility
-
-v2.0.6
 
 Date: 5/3/16
 Changes Current Version: NO
 Contributor(s): Dan Zervoudakes
 
+v2.0.6
+
 - Updated classes module and fixed errors
 - Update mouseable() as a result of classes refactoring
-
-v2.0.7
 
 Date: 5/13/16
 Changes Current Version: NO
 Contributor(s): Dan Zervoudakes
+
+v2.0.7
 
 - No functionality updates: replaced "double quotes" with 'single quotes' throughout the codebase for readability
 - Merged all scrolling methods into one module
