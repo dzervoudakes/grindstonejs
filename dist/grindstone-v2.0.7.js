@@ -18,7 +18,6 @@
  * @returns {array} Grindstone.set
  */
 	
-	
 	var Grindstone = function(selector, context) {
 		
 		if (selector) {
