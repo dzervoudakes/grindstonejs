@@ -59,9 +59,9 @@ _Basic AJAX call for POST and GET requests._
 * url
 * async
 * success
+* error
 * header
-* header value
-* send string
+* headerValue
 
 ```
 $.ajax({ properties: values });

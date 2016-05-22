@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v2.0.7.js"></script>
+		<script src="../dist/grindstone-v2.0.8.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -152,6 +152,9 @@
 							success: function(xmlhttp) {
 								var text = xmlhttp.responseText;
 								state.dom.$emptyArticle.html(text);
+							},
+							error: function(xmlhttp) {
+								console.log(xmlhttp);
 							}
 						});
 					};
@@ -230,8 +233,8 @@
 					var divs = $('div');
 					var emptyDivs = $('div', '#test-div');
 					
-					el.on(state.interaction(), state.eventHandlers.scrollLeftTest);
-					el2.on(state.interaction(), state.eventHandlers.scrollTopTest);
+					el.on(state.interaction(), state.eventHandlers.ajaxTest);
+					//el2.on(state.interaction(), state.eventHandlers.scrollTopTest);
 					
 					$('.mouseable').mouseable();
 					

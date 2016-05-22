@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v2.0.7
+ * Grindstone JavaScript Library v2.0.8
  * https://github.com/dzervoudakes/GrindstoneJS
  *
  * Copyright (c) 2014, 2016 Dan Zervoudakes
@@ -71,14 +71,14 @@
  * - url (data path)
  * - async (true or false)
  * - success (callback to invoke if successful)
+ * - error (callback to invoke if unsuccessful)
  * - header (adds a custom HTTP header to the request)
  * - headerValue (value of the custom HTTP header)
- * - sendStr (string to be sent for POST requests)
  */
 
 	$.ajax = function(options) {
 		
-		var method, url, async, success, header, headerValue, sendStr, xmlhttp;
+		var method, url, async, success, error, header, headerValue, xmlhttp;
 		
 		function prop(property) {
 			return options.hasOwnProperty(property);
@@ -89,16 +89,21 @@
 			url      = (prop('url'))      ? options.url      : null;
 			async    = (prop('async'))    ? options.async    : true;
 			success  = (prop('success'))  ? options.success  : null;
-			sendStr  = (prop('str'))      ? options.sendStr  : null;
+			error    = (prop('error'))	  ? options.error	 : function(){};
 		} else {
 			throw new Error('XHR properties are not properly defined.');
 		}
 		
 		xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
-			if (xmlhttp.readyState === 4 && xmlhttp.status !== 404) success(xmlhttp);
+			if (xmlhttp.readyState === 4) {
+				if (xmlhttp.status === 200) {
+					success(xmlhttp);
+				} else {
+					error(xmlhttp);
+				}
+			}
 		};
-		
 		xmlhttp.open(method, url, async);
 		
 		if (prop('header') && prop('headerValue')) {
@@ -106,7 +111,8 @@
 		} else {
 			xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 		}
-		xmlhttp.send(sendStr);
+		
+		xmlhttp.send(null);
 		
 		return xmlhttp;
 	};
