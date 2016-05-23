@@ -4,7 +4,7 @@
   "main": "dist/grindstone-v2.0.8.min.js",
   "homepage": "http://grindstonejs.drzwebdev.com/",
   "author": {
-    "name": "Dan Zervoudakes",
+    "name": "Dan Zervoudakes <dan.zervoudakes@gmail.com>",
     "url": "http://drzwebdev.com/"
   },
   "repository": {
