@@ -18,6 +18,19 @@ module.exports = function(grunt) {
 		    		'src/modules/*.js',
 		    		'src/templates/Outro.js'
 			    ],
+			    options: {
+				    banner: [
+					    '/**',
+						' * Grindstone JavaScript Library v2.0.8',
+						' * https://github.com/dzervoudakes/GrindstoneJS',
+						' * ',
+						' * Copyright (c) 2014, <%= grunt.template.today("yyyy") %> Dan Zervoudakes',
+						' * Released under the MIT license',
+						' * https://github.com/dzervoudakes/GrindstoneJS/blob/master/LICENSE',
+						' */',
+						'\n'
+					].join('\n')
+			    },
 			    dest: 'dist/<%= pkg.name %>-v<%= pkg.version %>.js'
 		    }
 		},
