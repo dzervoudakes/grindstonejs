@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 			    options: {
 				    banner: [
 					    '/**',
-						' * Grindstone JavaScript Library v2.0.8',
+						' * Grindstone JavaScript Library v<%= pkg.version %>',
 						' * https://github.com/dzervoudakes/GrindstoneJS',
 						' * ',
 						' * Copyright (c) 2014, <%= grunt.template.today("yyyy") %> Dan Zervoudakes',
