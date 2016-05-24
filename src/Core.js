@@ -29,7 +29,7 @@
 					selectedElements = d.querySelectorAll(selector);
 				}
 				
-				this.set = (selectedElements.length > 0) ? selectedElements : [];
+				this.set = selectedElements.length > 0 ? selectedElements : [];
 				
 				return this;
 				

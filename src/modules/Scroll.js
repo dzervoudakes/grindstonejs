@@ -46,7 +46,7 @@
 					}
 			}
 		});
-		return (typeof top === 'number') ? this : topOffset;
+		return typeof top === 'number' ? this : topOffset;
 	};
 
 /**

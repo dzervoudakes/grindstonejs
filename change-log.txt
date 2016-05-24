@@ -206,3 +206,11 @@ Contributor(s): Dan Zervoudakes
 v2.0.8
 
 - Added better error handling in $.ajax()
+
+Date: 5/24/16
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+v2.0.9
+
+- Updated ternary syntax

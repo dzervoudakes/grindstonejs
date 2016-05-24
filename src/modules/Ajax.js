@@ -22,11 +22,11 @@
 		};
 		
 		if (typeof options === 'object') {
-			method   = (prop('method'))   ? options.method   : null;
-			url      = (prop('url'))      ? options.url      : null;
-			async    = (prop('async'))    ? options.async    : true;
-			success  = (prop('success'))  ? options.success  : null;
-			error    = (prop('error'))	  ? options.error	 : function(){};
+			method   = prop('method')   ? options.method   : null;
+			url      = prop('url')      ? options.url      : null;
+			async    = prop('async')    ? options.async    : true;
+			success  = prop('success')  ? options.success  : null;
+			error    = prop('error')	? options.error	   : function(){};
 		} else {
 			throw new Error('XHR properties are not properly defined.');
 		}

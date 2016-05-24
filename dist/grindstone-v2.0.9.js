@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v2.0.8
+ * Grindstone JavaScript Library v2.0.9
  * https://github.com/dzervoudakes/GrindstoneJS
  * 
  * Copyright (c) 2014, 2016 Dan Zervoudakes
@@ -42,7 +42,7 @@
 					selectedElements = d.querySelectorAll(selector);
 				}
 				
-				this.set = (selectedElements.length > 0) ? selectedElements : [];
+				this.set = selectedElements.length > 0 ? selectedElements : [];
 				
 				return this;
 				
@@ -85,11 +85,11 @@
 		};
 		
 		if (typeof options === 'object') {
-			method   = (prop('method'))   ? options.method   : null;
-			url      = (prop('url'))      ? options.url      : null;
-			async    = (prop('async'))    ? options.async    : true;
-			success  = (prop('success'))  ? options.success  : null;
-			error    = (prop('error'))	  ? options.error	 : function(){};
+			method   = prop('method')   ? options.method   : null;
+			url      = prop('url')      ? options.url      : null;
+			async    = prop('async')    ? options.async    : true;
+			success  = prop('success')  ? options.success  : null;
+			error    = prop('error')	? options.error	   : function(){};
 		} else {
 			throw new Error('XHR properties are not properly defined.');
 		}
@@ -454,7 +454,7 @@
 		var active, interaction;
 		this.each(function() {
 			active = false;
-			interaction = ('ontouchend' in d) ? 'touchend' : 'click';
+			interaction = 'ontouchend' in d ? 'touchend' : 'click';
 			$(this).on(interaction, function() {
 				if (active) {
 					callback();
@@ -625,8 +625,8 @@
 		
 		if (classes) {
 			if (typeof classes === 'object') {
-				hoverClass  = (classes.hasOwnProperty('hoverClass'))  ? classes['hoverClass']  : 'over';
-				activeClass = (classes.hasOwnProperty('activeClass')) ? classes['activeClass'] : 'down';
+				hoverClass  = classes.hasOwnProperty('hoverClass')  ? classes['hoverClass']  : 'over';
+				activeClass = classes.hasOwnProperty('activeClass') ? classes['activeClass'] : 'down';
 			} else {
 				throw new Error('Classes parameter for mouseable() must be an object with properties "hoverClass" and/or "activeClass".');
 			}
@@ -636,7 +636,7 @@
 		}
 		
 		function createInteraction(touchEvt, mouseEvt) {
-			return ('ontouchend' in d) ? touchEvt : mouseEvt;
+			return 'ontouchend' in d ? touchEvt : mouseEvt;
 		};
 		
 		var events = {
@@ -857,7 +857,7 @@
 					}
 			}
 		});
-		return (typeof top === 'number') ? this : topOffset;
+		return typeof top === 'number' ? this : topOffset;
 	};
 
 /**

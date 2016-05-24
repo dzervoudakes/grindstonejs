@@ -8,7 +8,7 @@
 		var active, interaction;
 		this.each(function() {
 			active = false;
-			interaction = ('ontouchend' in d) ? 'touchend' : 'click';
+			interaction = 'ontouchend' in d ? 'touchend' : 'click';
 			$(this).on(interaction, function() {
 				if (active) {
 					callback();
