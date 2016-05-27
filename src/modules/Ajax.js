@@ -1,9 +1,9 @@
 /**
  * Submit a GET or POST AJAX request
- * @param {object} options - object
+ * @param {object} - { properties => values }
  * @returns {object} xmlhttp
  * 
- * Acceptable properties of "options" are:
+ * Acceptable properties of "opts" are:
  * - method (GET or POST)
  * - url (data path)
  * - async (true or false)
@@ -13,20 +13,16 @@
  * - headerValue (value of the custom HTTP header)
  */
 
-	$.ajax = function(options) {
+	$.ajax = function(opts) {
 		
 		var method, url, async, success, error, header, headerValue, xmlhttp;
 		
-		function prop(property) {
-			return options.hasOwnProperty(property);
-		};
-		
-		if (typeof options === 'object') {
-			method   = prop('method')   ? options.method   : null;
-			url      = prop('url')      ? options.url      : null;
-			async    = prop('async')    ? options.async    : true;
-			success  = prop('success')  ? options.success  : null;
-			error    = prop('error')	? options.error	   : function(){};
+		if (typeof opts === 'object') {
+			method   = priv.prop(opts, 'method')   ? opts.method   : null;
+			url      = priv.prop(opts, 'url')      ? opts.url      : null;
+			async    = priv.prop(opts, 'async')    ? opts.async    : true;
+			success  = priv.prop(opts, 'success')  ? opts.success  : null;
+			error    = priv.prop(opts, 'error')	   ? opts.error	   : function(){};
 		} else {
 			throw new Error('XHR properties are not properly defined.');
 		}
@@ -43,7 +39,7 @@
 		};
 		xmlhttp.open(method, url, async);
 		
-		if (prop('header') && prop('headerValue')) {
+		if (priv.prop(opts, 'header') && priv.prop(opts, 'headerValue')) {
 			xmlhttp.setRequestHeader(header, headerValue);
 		} else {
 			xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');

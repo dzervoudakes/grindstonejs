@@ -1,6 +1,6 @@
 /**
- * Grindstone JavaScript Library v2.0.9
- * https://github.com/dzervoudakes/GrindstoneJS
+ * Grindstone JavaScript Library v2.1.0
+ * https://github.com/dzervoudakes/GrindstoneJS.git
  * 
  * Copyright (c) 2014, 2016 Dan Zervoudakes
  * Released under the MIT license
@@ -19,37 +19,26 @@
  */
 	
 	var Grindstone = function(selector, context) {
-		
 		if (selector) {
-			
-			var selectedElements, ctx, els, i, j;
-			
+			var selectedElements, ctx, els;
 			if (typeof selector === 'string') {
-				
 				if (context) {
-					
 					ctx = d.querySelectorAll(context);
 					selectedElements = [];
-					
-					for (i = 0; i < ctx.length; i++) {
-						els = ctx[i].querySelectorAll(selector);
-						for (j = 0; j < els.length; j++) {
-							selectedElements.push(els[j]);
-						}
-					}
-					
+					[].forEach.call(ctx, function(item) {
+						els = item.querySelectorAll(selector);
+						[].forEach.call(els, function(el) {
+							selectedElements.push(el);
+						});
+					});
 				} else {
 					selectedElements = d.querySelectorAll(selector);
 				}
-				
-				this.set = selectedElements.length > 0 ? selectedElements : [];
-				
+				this.set = selectedElements.length ? selectedElements : [];
 				return this;
-				
 			} else if (typeof selector === 'object' || selector === w || selector === d) {
 				this.set = [selector];
 			}
-			
 		} else {
 			throw new Error('Cannot create new instance of Grindstone without a selector.');
 		}
@@ -61,12 +50,19 @@
 	
 	$.fn = Grindstone.prototype;
 
+	// private functions
+	var priv = {};
+
+	priv.prop = function(obj, property) {
+		return obj.hasOwnProperty(property);
+	};
+
 /**
  * Submit a GET or POST AJAX request
- * @param {object} options - object
+ * @param {object} - { properties => values }
  * @returns {object} xmlhttp
  * 
- * Acceptable properties of "options" are:
+ * Acceptable properties of "opts" are:
  * - method (GET or POST)
  * - url (data path)
  * - async (true or false)
@@ -76,20 +72,16 @@
  * - headerValue (value of the custom HTTP header)
  */
 
-	$.ajax = function(options) {
+	$.ajax = function(opts) {
 		
 		var method, url, async, success, error, header, headerValue, xmlhttp;
 		
-		function prop(property) {
-			return options.hasOwnProperty(property);
-		};
-		
-		if (typeof options === 'object') {
-			method   = prop('method')   ? options.method   : null;
-			url      = prop('url')      ? options.url      : null;
-			async    = prop('async')    ? options.async    : true;
-			success  = prop('success')  ? options.success  : null;
-			error    = prop('error')	? options.error	   : function(){};
+		if (typeof opts === 'object') {
+			method   = priv.prop(opts, 'method')   ? opts.method   : null;
+			url      = priv.prop(opts, 'url')      ? opts.url      : null;
+			async    = priv.prop(opts, 'async')    ? opts.async    : true;
+			success  = priv.prop(opts, 'success')  ? opts.success  : null;
+			error    = priv.prop(opts, 'error')	   ? opts.error	   : function(){};
 		} else {
 			throw new Error('XHR properties are not properly defined.');
 		}
@@ -106,7 +98,7 @@
 		};
 		xmlhttp.open(method, url, async);
 		
-		if (prop('header') && prop('headerValue')) {
+		if (priv.prop(opts, 'header') && priv.prop(opts, 'headerValue')) {
 			xmlhttp.setRequestHeader(header, headerValue);
 		} else {
 			xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
@@ -131,9 +123,9 @@
 					this.innerHTML += element;
 				} else {
 					dom = d.querySelectorAll(element);
-					for (i = 0; i < dom.length; i++) {
-						this.appendChild(dom[i]);
-					}
+					[].forEach.call(dom, function(item) {
+						this.appendChild(item);
+					});
 				}	
 			} else {
 				this.appendChild(element);

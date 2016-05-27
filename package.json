@@ -1,29 +1,31 @@
 {
   "name": "grindstone",
-  "version": "2.0.9",
-  "main": "dist/grindstone-v2.0.9.min.js",
+  "version": "2.1.0",
+  "main": "dist/grindstone-v2.1.0.min.js",
   "homepage": "http://grindstonejs.drzwebdev.com/",
   "author": {
-    "name": "Dan Zervoudakes <dan.zervoudakes@gmail.com>",
+    "name": "Dan Zervoudakes",
     "url": "http://drzwebdev.com/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dzervoudakes/GrindstoneJS/"
+    "url": "https://github.com/dzervoudakes/GrindstoneJS.git"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-uglify": "^0.7.0",
-    "grunt-contrib-watch": "^0.6.1"
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-header": "^1.8.2",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3"
   },
   "keywords": [
-  	"grindstone",
-  	"javascript",
-  	"library",
-  	"jquery",
-  	"lightweight"
+    "grindstone",
+    "javascript",
+    "library",
+    "jquery",
+    "lightweight"
   ],
   "license": "MIT"
 }

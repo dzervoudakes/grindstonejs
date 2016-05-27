@@ -12,9 +12,9 @@
 					this.innerHTML += element;
 				} else {
 					dom = d.querySelectorAll(element);
-					for (i = 0; i < dom.length; i++) {
-						this.appendChild(dom[i]);
-					}
+					[].forEach.call(dom, function(item) {
+						this.appendChild(item);
+					});
 				}	
 			} else {
 				this.appendChild(element);
