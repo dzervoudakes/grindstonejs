@@ -12,9 +12,9 @@
 					this.insertAdjacentHTML('beforebegin', content);
 				} else {	
 					dom = d.querySelectorAll(content);
-					for (i = 0; i < dom.length; i++) {
-						this.parentNode.insertBefore(dom[i], this);
-					}
+					[].forEach.call(dom, function(item) {
+						this.parentNode.insertBefore(item, this);
+					});
 				}
 			} else {
 				this.parentNode.insertBefore(content, this);
@@ -37,9 +37,9 @@
 					this.insertAdjacentHTML('afterend', content);
 				} else {	
 					dom = d.querySelectorAll(content);
-					for (i = 0; i < dom.length; i++) {
-						this.parentNode.insertBefore(dom[i], this.nextSibling);
-					}
+					[].forEach.call(dom, function(item) {
+						this.parentNode.insertBefore(item, this.nextSibling);
+					});
 				}
 			} else {
 				this.parentNode.insertBefore(content, this.nextSibling);

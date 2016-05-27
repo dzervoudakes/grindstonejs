@@ -1,6 +1,6 @@
 /**
  * Grindstone JavaScript Library v2.1.0
- * https://github.com/dzervoudakes/GrindstoneJS.git
+ * https://github.com/dzervoudakes/GrindstoneJS
  * 
  * Copyright (c) 2014, 2016 Dan Zervoudakes
  * Released under the MIT license
@@ -8,7 +8,7 @@
  */
 
 (function(w, d) {
-	
+
 'use strict';
 
 /**
@@ -52,9 +52,13 @@
 
 	// private functions
 	var priv = {};
-
+	
 	priv.prop = function(obj, property) {
 		return obj.hasOwnProperty(property);
+	};
+	
+	priv.createInteraction = function(touchEvt, mouseEvt) {
+		return 'ontouchend' in d ? touchEvt : mouseEvt;
 	};
 
 /**
@@ -191,8 +195,8 @@
 		var returnedStyle;
 		this.each(function() {
 			if (typeof styles === 'object') {
-				for (var i in styles) {
-					this.style[i] = styles[i];
+				for (var key in styles) {
+					this.style[key] = styles[key];
 				}
 			} else if (typeof styles === 'string' && !value) {
 				returnedStyle = this.style[styles];
@@ -492,12 +496,13 @@
  */
 
 	$.fn.on = function(action, callback) {
-		var events, i;
+		var events, self;
 		this.each(function() {
+			self = this;
 			events = action.split(' ');
-			for (i = 0; i < events.length; i++) {
-				this.addEventListener(events[i], callback, false);
-			}
+			events.forEach(function(evt) {
+				self.addEventListener(evt, callback, false);
+			});
 		});
 		return this;
 	};
@@ -510,12 +515,13 @@
  */
 
 	$.fn.off = function(action, callback) {
-		var events, i;
+		var events, self;
 		this.each(function() {
+			self = this;
 			events = action.split(' ');
-			for (i = 0; i < events.length; i++) {
-				this.removeEventListener(events[i], callback, false);
-			}
+			events.forEach(function(evt) {
+				self.removeEventlistener(evt, callback, false);
+			});
 		});
 		return this;
 	};
@@ -569,9 +575,9 @@
 					this.insertAdjacentHTML('beforebegin', content);
 				} else {	
 					dom = d.querySelectorAll(content);
-					for (i = 0; i < dom.length; i++) {
-						this.parentNode.insertBefore(dom[i], this);
-					}
+					[].forEach.call(dom, function(item) {
+						this.parentNode.insertBefore(item, this);
+					});
 				}
 			} else {
 				this.parentNode.insertBefore(content, this);
@@ -594,9 +600,9 @@
 					this.insertAdjacentHTML('afterend', content);
 				} else {	
 					dom = d.querySelectorAll(content);
-					for (i = 0; i < dom.length; i++) {
-						this.parentNode.insertBefore(dom[i], this.nextSibling);
-					}
+					[].forEach.call(dom, function(item) {
+						this.parentNode.insertBefore(item, this.nextSibling);
+					});
 				}
 			} else {
 				this.parentNode.insertBefore(content, this.nextSibling);
@@ -617,8 +623,8 @@
 		
 		if (classes) {
 			if (typeof classes === 'object') {
-				hoverClass  = classes.hasOwnProperty('hoverClass')  ? classes['hoverClass']  : 'over';
-				activeClass = classes.hasOwnProperty('activeClass') ? classes['activeClass'] : 'down';
+				hoverClass  = priv.prop(classes, 'hoverClass')  ? classes['hoverClass']  : 'over';
+				activeClass = priv.prop(classes, 'activeClass') ? classes['activeClass'] : 'down';
 			} else {
 				throw new Error('Classes parameter for mouseable() must be an object with properties "hoverClass" and/or "activeClass".');
 			}
@@ -627,15 +633,11 @@
 			activeClass = 'down';
 		}
 		
-		function createInteraction(touchEvt, mouseEvt) {
-			return 'ontouchend' in d ? touchEvt : mouseEvt;
-		};
-		
 		var events = {
-			hover:  createInteraction('touchstart', 'mouseenter'),
-			remove: createInteraction('touchend', 'mouseleave'),
-			down:   createInteraction('touchstart', 'mousedown'),
-			up: 	createInteraction('touchend', 'mouseup mouseleave')
+			hover:  priv.createInteraction('touchstart', 'mouseenter'),
+			remove: priv.createInteraction('touchend', 'mouseleave'),
+			down:   priv.createInteraction('touchstart', 'mousedown'),
+			up: 	priv.createInteraction('touchend', 'mouseup mouseleave')
 		};
 		
 		this.each(function() {
@@ -708,9 +710,9 @@
 					this.insertAdjacentHTML('afterbegin', element);
 				} else {
 					dom = d.querySelectorAll(element);
-					for (i = 0; i < dom.length; i++) {
-						this.insertBefore(dom[i], this.firstChild);
-					}
+					[].forEach.call(dom, function(item) {
+						this.insertBefore(item, this.firstChild);
+					});
 				}
 			} else {
 				this.insertBefore(element, this.firstChild);
@@ -756,19 +758,18 @@
  */
 
 	$.fn.remove = function(target) {
-		var elems, parents, i, j;
 		if (target) {
-			elems = d.querySelectorAll(target);
-			parents = this.set;
-			for (i = 0; i < parents.length; i++) {
-				for (j = 0; j < elems.length; j++) {
-					parents[i].removeChild(elems[j]);
-				}
-			}
+			var elems = d.querySelectorAll(target);
+			this.each(function() {
+				var self = this;
+				[].forEach.call(elems, function(el) {
+					self.removeChild(el);
+				});
+			});
 		} else {
-			for (i = 0; i < this.set.length; i++) {
-				this.set[i].parentNode.removeChild(this.set[i]);
-			}
+			this.each(function() {
+				this.parentNode.removeChild(this);
+			});
 		}
 		return this;
 	};
@@ -979,5 +980,5 @@
 	};
  
 	return w.Grindstone = w.$ = $;
- 	
+ 
 })(window, document);

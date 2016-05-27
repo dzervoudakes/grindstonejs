@@ -215,10 +215,11 @@ v2.0.9
 
 - Updated ternary syntax
 
-Date: 5/26/16
+Date: 5/27/16
 Changes Current Version: YES
 Contributor(s): Dan Zervoudakes
 
 v2.1.0
 
 - Switched build tasks from Grunt to Gulp
+- Some code refactoring and better handling of private functions

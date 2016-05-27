@@ -2,14 +2,14 @@
   "name": "grindstone",
   "version": "2.1.0",
   "main": "dist/grindstone-v2.1.0.min.js",
-  "homepage": "http://grindstonejs.drzwebdev.com/",
+  "homepage": "http://grindstonejs.drzwebdev.com",
   "author": {
     "name": "Dan Zervoudakes",
-    "url": "http://drzwebdev.com/"
+    "url": "http://drzwebdev.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dzervoudakes/GrindstoneJS.git"
+    "url": "https://github.com/dzervoudakes/GrindstoneJS"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

@@ -5,19 +5,18 @@
  */
 
 	$.fn.remove = function(target) {
-		var elems, parents, i, j;
 		if (target) {
-			elems = d.querySelectorAll(target);
-			parents = this.set;
-			for (i = 0; i < parents.length; i++) {
-				for (j = 0; j < elems.length; j++) {
-					parents[i].removeChild(elems[j]);
-				}
-			}
+			var elems = d.querySelectorAll(target);
+			this.each(function() {
+				var self = this;
+				[].forEach.call(elems, function(el) {
+					self.removeChild(el);
+				});
+			});
 		} else {
-			for (i = 0; i < this.set.length; i++) {
-				this.set[i].parentNode.removeChild(this.set[i]);
-			}
+			this.each(function() {
+				this.parentNode.removeChild(this);
+			});
 		}
 		return this;
 	};

@@ -39,7 +39,11 @@
 
 	// private functions
 	var priv = {};
-
+	
 	priv.prop = function(obj, property) {
 		return obj.hasOwnProperty(property);
+	};
+	
+	priv.createInteraction = function(touchEvt, mouseEvt) {
+		return 'ontouchend' in d ? touchEvt : mouseEvt;
 	};

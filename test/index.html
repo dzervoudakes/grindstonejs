@@ -169,10 +169,6 @@
 						$(el).addClass('CLONED');
 					};
 					
-					state.eventHandlers.htmlTest = function() {
-						$(this).html('<p style="font-size: 24px;">test</p>');
-					};
-					
 					state.eventHandlers.dataTest1 = function() {
 						$(this).data('clicked', 'oh ya');
 						alert($(this).data('clicked'));
@@ -196,18 +192,13 @@
 						$('.test-input').focus(function() { console.log('focus'); });
 					};
 					
-					state.eventHandlers.submitTest = function() {
-						//$('.test-form').submit();
-						$('.test-form').submit(function() { alert('form submitted'); });
+					state.eventHandlers.htmlTest = function() {
+						$(this).html('<p style="font-size: 24px;">test</p>');
 					};
 					
-					state.eventHandlers.valueTest1 = function() {
-						$('.test-input').val('New Value');
-					};
-					
-					state.eventHandlers.valueTest2 = function() {
-						var value = $('.test-input').val();
-						alert(value);
+					state.eventHandlers.removeTest = function() {
+						$(state.dom.btn1).remove();
+						$('#test-div').remove('#empty-div01');
 					};
 					
 					state.eventHandlers.scrollLeftTest = function() {
@@ -222,6 +213,20 @@
 					state.eventHandlers.toggleClassTest = function() {
 						$(state.dom.btn2).toggleClass('TOGGLE bleh');
 					};
+					
+					state.eventHandlers.submitTest = function() {
+						//$('.test-form').submit();
+						$('.test-form').submit(function() { alert('form submitted'); });
+					};
+					
+					state.eventHandlers.valueTest1 = function() {
+						$('.test-input').val('New Value');
+					};
+					
+					state.eventHandlers.valueTest2 = function() {
+						var value = $('.test-input').val();
+						alert(value);
+					};
 				};
 				
 				var runTests = function() {
@@ -233,8 +238,8 @@
 					var divs = $('div');
 					var emptyDivs = $('div', '#test-div');
 					
-					el.on(state.interaction(), state.eventHandlers.ajaxTest);
-					//el2.on(state.interaction(), state.eventHandlers.scrollTopTest);
+					el.on(state.interaction(), state.eventHandlers.cloneTest);
+					el2.on(state.interaction(), state.eventHandlers.removeTest);
 					
 					$('.mouseable').mouseable();
 					

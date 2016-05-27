@@ -12,9 +12,9 @@
 					this.insertAdjacentHTML('afterbegin', element);
 				} else {
 					dom = d.querySelectorAll(element);
-					for (i = 0; i < dom.length; i++) {
-						this.insertBefore(dom[i], this.firstChild);
-					}
+					[].forEach.call(dom, function(item) {
+						this.insertBefore(item, this.firstChild);
+					});
 				}
 			} else {
 				this.insertBefore(element, this.firstChild);

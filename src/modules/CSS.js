@@ -9,8 +9,8 @@
 		var returnedStyle;
 		this.each(function() {
 			if (typeof styles === 'object') {
-				for (var i in styles) {
-					this.style[i] = styles[i];
+				for (var key in styles) {
+					this.style[key] = styles[key];
 				}
 			} else if (typeof styles === 'string' && !value) {
 				returnedStyle = this.style[styles];

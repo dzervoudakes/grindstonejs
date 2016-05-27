@@ -6,12 +6,13 @@
  */
 
 	$.fn.on = function(action, callback) {
-		var events, i;
+		var events, self;
 		this.each(function() {
+			self = this;
 			events = action.split(' ');
-			for (i = 0; i < events.length; i++) {
-				this.addEventListener(events[i], callback, false);
-			}
+			events.forEach(function(evt) {
+				self.addEventListener(evt, callback, false);
+			});
 		});
 		return this;
 	};
@@ -24,12 +25,13 @@
  */
 
 	$.fn.off = function(action, callback) {
-		var events, i;
+		var events, self;
 		this.each(function() {
+			self = this;
 			events = action.split(' ');
-			for (i = 0; i < events.length; i++) {
-				this.removeEventListener(events[i], callback, false);
-			}
+			events.forEach(function(evt) {
+				self.removeEventlistener(evt, callback, false);
+			});
 		});
 		return this;
 	};
