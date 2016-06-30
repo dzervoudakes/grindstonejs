@@ -223,3 +223,13 @@ v2.1.0
 
 - Switched build tasks from Grunt to Gulp
 - Some code refactoring and better handling of private functions
+
+Date: 6/29/16
+Changes Current Version: NO
+Contributor(s): Dan Zervoudakes
+
+v2.1.1
+
+- Refactored all for loops to forEach
+- Refactored [].forEach.call() functions to increase legibility
+- Minor variable cleanup throughout each module

@@ -7,14 +7,16 @@
 	
 	var Grindstone = function(selector, context) {
 		if (selector) {
-			var selectedElements, ctx, els;
+			var selectedElements, ctx, elems;
 			if (typeof selector === 'string') {
 				if (context) {
 					ctx = d.querySelectorAll(context);
+					ctx = Array.prototype.slice.call(ctx);
 					selectedElements = [];
-					[].forEach.call(ctx, function(item) {
-						els = item.querySelectorAll(selector);
-						[].forEach.call(els, function(el) {
+					ctx.forEach(function(item) {
+						elems = item.querySelectorAll(selector);
+						elems = Array.prototype.slice.call(elems);
+						elems.forEach(function(el) {
 							selectedElements.push(el);
 						});
 					});

@@ -28,7 +28,7 @@
 		};
 		
 		this.each(function() {
-			
+
 			$(this)
 				.on(events.hover, function() {
 					$(this).addClass(hoverClass);

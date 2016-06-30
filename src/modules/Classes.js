@@ -19,13 +19,13 @@
  */
 
 	$.fn.addClass = function(cls) {
-		var classes, i;
 		this.each(function() {
 			if (!$(this).hasClass(cls)) {
-				classes = cls.split(' ');
-				for (i = 0; i < classes.length; i++) {
-					this.classList.add(classes[i]);
-				}
+				var self = this;
+				var classes = cls.split(' ');
+				classes.forEach(function(clsName) {
+					self.classList.add(clsName);
+				});
 			}
 		});
 		return this;
@@ -38,13 +38,13 @@
  */
 
 	$.fn.removeClass = function(cls) {
-		var classes, i;
 		this.each(function() {
 			if ($(this).hasClass(cls)) {
-				classes = cls.split(' ');
-				for (i = 0; i < classes.length; i++) {
-					this.classList.remove(classes[i]);
-				}
+				var self = this;
+				var classes = cls.split(' ');
+				classes.forEach(function(clsName) {
+					self.classList.remove(clsName);
+				});
 			}
 		});
 		return this;
@@ -57,12 +57,12 @@
  */
 
 	$.fn.toggleClass = function(cls) {
-		var classes, i;
 		this.each(function() {
-			classes = cls.split(' ');
-			for (i = 0; i < classes.length; i++) {
-				this.classList.toggle(classes[i]);
-			}
+			var self = this;
+			var classes = cls.split(' ');
+			classes.forEach(function(clsName) {
+				self.classList.toggle(clsName);
+			});
 		});
 		return this;
 	};

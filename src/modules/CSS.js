@@ -9,9 +9,11 @@
 		var returnedStyle;
 		this.each(function() {
 			if (typeof styles === 'object') {
-				for (var key in styles) {
-					this.style[key] = styles[key];
-				}
+				var self = this;
+				var stl = Object.keys(styles);
+				stl.forEach(function(key) {
+					self.style[key] = styles[key];
+				});
 			} else if (typeof styles === 'string' && !value) {
 				returnedStyle = this.style[styles];
 			} else if (typeof styles === 'string' && typeof value === 'string') {

@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v2.1.0.js"></script>
+		<script src="../dist/grindstone-v2.1.1.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -160,13 +160,22 @@
 					};
 					
 					state.eventHandlers.appendTest = function() {
-						state.dom.$emptyArticle.append('<div class="append-test">');
+						//state.dom.$emptyArticle.append('<div class="append-test">');
+						state.dom.$emptyArticle.append('#btn2');
 					};
 					
 					state.eventHandlers.cloneTest = function() {
 						var el = $('#btn1').clone();
 						$('#test-div').append(el);
 						$(el).addClass('CLONED');
+					};
+
+					state.eventHandlers.cssTest = function() {
+						$(state.dom.btn1).css({
+							background: '#f00',
+							border: '3px solid blue',
+							borderRadius: '25px'
+						});
 					};
 					
 					state.eventHandlers.dataTest1 = function() {
@@ -194,6 +203,13 @@
 					
 					state.eventHandlers.htmlTest = function() {
 						$(this).html('<p style="font-size: 24px;">test</p>');
+					};
+
+					state.eventHandlers.prependTest = function() {
+						state.dom.$emptyArticle.html('<p>prepend</p>')
+						setTimeout(function() {
+							state.dom.$emptyArticle.append('#btn1').prepend('#btn2');
+						}, 200);
 					};
 					
 					state.eventHandlers.removeTest = function() {
@@ -238,7 +254,7 @@
 					var divs = $('div');
 					var emptyDivs = $('div', '#test-div');
 					
-					el.on(state.interaction(), state.eventHandlers.cloneTest);
+					el.on(state.interaction(), state.eventHandlers.prependTest);
 					el2.on(state.interaction(), state.eventHandlers.removeTest);
 					
 					$('.mouseable').mouseable();

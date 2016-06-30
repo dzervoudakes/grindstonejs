@@ -5,9 +5,11 @@
  */
 	
 	$.fn.each = function(callback) {
-		for (var i = 0; i < this.set.length; i++) {
-			callback.call(this.set[i]);
-		}
+		var set = this.set;
+		set = Array.prototype.slice.call(set);
+		set.forEach(function(item) {
+			callback.call(item);
+		});
 		return this;
 	};
  

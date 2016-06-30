@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v2.1.0
+ * Grindstone JavaScript Library v2.1.1
  * https://github.com/dzervoudakes/GrindstoneJS
  * 
  * Copyright (c) 2014, 2016 Dan Zervoudakes
@@ -20,14 +20,16 @@
 	
 	var Grindstone = function(selector, context) {
 		if (selector) {
-			var selectedElements, ctx, els;
+			var selectedElements, ctx, elems;
 			if (typeof selector === 'string') {
 				if (context) {
 					ctx = d.querySelectorAll(context);
+					ctx = Array.prototype.slice.call(ctx);
 					selectedElements = [];
-					[].forEach.call(ctx, function(item) {
-						els = item.querySelectorAll(selector);
-						[].forEach.call(els, function(el) {
+					ctx.forEach(function(item) {
+						elems = item.querySelectorAll(selector);
+						elems = Array.prototype.slice.call(elems);
+						elems.forEach(function(el) {
 							selectedElements.push(el);
 						});
 					});
@@ -120,15 +122,16 @@
  */
 
 	$.fn.append = function(element) {
-		var dom, i;
 		this.each(function() {
 			if (typeof element === 'string') {
 				if (element.match(/(<).+(>)/)) {
 					this.innerHTML += element;
 				} else {
-					dom = d.querySelectorAll(element);
-					[].forEach.call(dom, function(item) {
-						this.appendChild(item);
+					var self = this;
+					var dom = d.querySelectorAll(element);
+					dom = Array.prototype.slice.call(dom);
+					dom.forEach(function(item) {
+						self.appendChild(item);
 					});
 				}	
 			} else {
@@ -195,9 +198,11 @@
 		var returnedStyle;
 		this.each(function() {
 			if (typeof styles === 'object') {
-				for (var key in styles) {
-					this.style[key] = styles[key];
-				}
+				var self = this;
+				var stl = Object.keys(styles);
+				stl.forEach(function(key) {
+					self.style[key] = styles[key];
+				});
 			} else if (typeof styles === 'string' && !value) {
 				returnedStyle = this.style[styles];
 			} else if (typeof styles === 'string' && typeof value === 'string') {
@@ -228,13 +233,13 @@
  */
 
 	$.fn.addClass = function(cls) {
-		var classes, i;
 		this.each(function() {
 			if (!$(this).hasClass(cls)) {
-				classes = cls.split(' ');
-				for (i = 0; i < classes.length; i++) {
-					this.classList.add(classes[i]);
-				}
+				var self = this;
+				var classes = cls.split(' ');
+				classes.forEach(function(clsName) {
+					self.classList.add(clsName);
+				});
 			}
 		});
 		return this;
@@ -247,13 +252,13 @@
  */
 
 	$.fn.removeClass = function(cls) {
-		var classes, i;
 		this.each(function() {
 			if ($(this).hasClass(cls)) {
-				classes = cls.split(' ');
-				for (i = 0; i < classes.length; i++) {
-					this.classList.remove(classes[i]);
-				}
+				var self = this;
+				var classes = cls.split(' ');
+				classes.forEach(function(clsName) {
+					self.classList.remove(clsName);
+				});
 			}
 		});
 		return this;
@@ -266,12 +271,12 @@
  */
 
 	$.fn.toggleClass = function(cls) {
-		var classes, i;
 		this.each(function() {
-			classes = cls.split(' ');
-			for (i = 0; i < classes.length; i++) {
-				this.classList.toggle(classes[i]);
-			}
+			var self = this;
+			var classes = cls.split(' ');
+			classes.forEach(function(clsName) {
+				self.classList.toggle(clsName);
+			});
 		});
 		return this;
 	};
@@ -329,26 +334,19 @@
  */
 
 	$.debounce = function(fn, wait, immediate) {
-	    
 	    var timeout;
-	    
 	    var debounce = function() {
-	        
 	        var context = this;
 	        var args = arguments;
-	        
 	        var later = function() {
 	            timeout = null;
 	            if (!immediate) fn.apply(context, args);
 	        };
-	        
 	        var callNow = immediate && !timeout;
-	
 	        clearTimeout(timeout);
 	        timeout = setTimeout(later, wait);
 	        if (callNow) fn.apply(context, args);
 	    };
-	    
 	    return debounce;
 	};
 
@@ -472,9 +470,11 @@
  */
 	
 	$.fn.each = function(callback) {
-		for (var i = 0; i < this.set.length; i++) {
-			callback.call(this.set[i]);
-		}
+		var set = this.set;
+		set = Array.prototype.slice.call(set);
+		set.forEach(function(item) {
+			callback.call(item);
+		});
 		return this;
 	};
  
@@ -496,10 +496,9 @@
  */
 
 	$.fn.on = function(action, callback) {
-		var events, self;
 		this.each(function() {
-			self = this;
-			events = action.split(' ');
+			var self = this;
+			var events = action.split(' ');
 			events.forEach(function(evt) {
 				self.addEventListener(evt, callback, false);
 			});
@@ -515,10 +514,9 @@
  */
 
 	$.fn.off = function(action, callback) {
-		var events, self;
 		this.each(function() {
-			self = this;
-			events = action.split(' ');
+			var self = this;
+			var events = action.split(' ');
 			events.forEach(function(evt) {
 				self.removeEventlistener(evt, callback, false);
 			});
@@ -568,15 +566,16 @@
  */
 
 	$.fn.before = function(content) {
-		var dom, i;
 		this.each(function() {
 			if (typeof content === 'string') {
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('beforebegin', content);
-				} else {	
-					dom = d.querySelectorAll(content);
-					[].forEach.call(dom, function(item) {
-						this.parentNode.insertBefore(item, this);
+				} else {
+					var self = this;
+					var dom = d.querySelectorAll(content);
+					dom = Array.prototype.slice.call(dom);
+					dom.forEach(function(item) {
+						self.parentNode.insertBefore(item, self);
 					});
 				}
 			} else {
@@ -593,15 +592,16 @@
  */
 
 	$.fn.after = function(content) {
-		var dom, i;
 		this.each(function() {
 			if (typeof content === 'string') {
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterend', content);
-				} else {	
-					dom = d.querySelectorAll(content);
-					[].forEach.call(dom, function(item) {
-						this.parentNode.insertBefore(item, this.nextSibling);
+				} else {
+					var self = this;
+					var dom = d.querySelectorAll(content);
+					dom = Array.prototype.slice.call(dom);
+					dom.forEach(function(item) {
+						self.parentNode.insertBefore(item, self.nextSibling);
 					});
 				}
 			} else {
@@ -641,7 +641,7 @@
 		};
 		
 		this.each(function() {
-			
+
 			$(this)
 				.on(events.hover, function() {
 					$(this).addClass(hoverClass);
@@ -667,14 +667,13 @@
  */
 
 	$.fn.offset = function(position) {
-		var elem, offsetLeft, offsetTop;
 		if (position && typeof position === 'string') {
 			if (position !== 'left' && position !== 'top') {
 				throw new Error('offset() position must be either "left" or "top".');
 			} else {	
-				elem = this.set[0];
+				var elem = this.set[0];
 				if (position === 'left') {
-					offsetLeft = 0;
+					var offsetLeft = 0;
 				    do {
 				        if (!isNaN(elem.offsetLeft)) {
 				          offsetLeft += elem.offsetLeft;
@@ -682,7 +681,7 @@
 				    } while (elem = elem.offsetParent);
 				    return offsetLeft;
 				} else if (position === 'top') {
-					offsetTop = 0;
+					var offsetTop = 0;
 				    do {
 				        if (!isNaN(elem.offsetTop)) {
 				          offsetTop += elem.offsetTop;
@@ -703,15 +702,16 @@
  */
 
 	$.fn.prepend = function(element) {
-		var dom, i;
 		this.each(function() {
 			if (typeof element === 'string') {
 				if (element.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterbegin', element);
 				} else {
-					dom = d.querySelectorAll(element);
-					[].forEach.call(dom, function(item) {
-						this.insertBefore(item, this.firstChild);
+					var self = this;
+					var dom = d.querySelectorAll(element);
+					dom = Array.prototype.slice.call(dom);
+					dom.forEach(function(item) {
+						self.insertBefore(item, self.firstChild);
 					});
 				}
 			} else {
@@ -760,9 +760,10 @@
 	$.fn.remove = function(target) {
 		if (target) {
 			var elems = d.querySelectorAll(target);
+			elems = Array.prototype.slice.call(elems);
 			this.each(function() {
 				var self = this;
-				[].forEach.call(elems, function(el) {
+				elems.forEach(function(el) {
 					self.removeChild(el);
 				});
 			});
@@ -946,11 +947,10 @@
  */
 
 	$.fn.wrap = function(structure) {
-		var contents, wrap;
 		this.each(function() {
 			if (typeof structure === 'string') {
-				contents = this.outerHTML;
-				wrap = structure;
+				var contents = this.outerHTML;
+				var wrap = structure;
 				this.outerHTML = wrap + contents;
 			} else {
 				throw new Error('wrap() structure must be a string.');
@@ -966,11 +966,10 @@
  */
 	
 	$.fn.wrapInner = function(structure) {
-		var contents, wrap;
 		this.each(function() {
 			if (typeof structure === 'string') {
-				contents = $(this).html();
-				wrap = structure;
+				var contents = $(this).html();
+				var wrap = structure;
 				$(this).html(wrap + contents);
 			} else {
 				throw new Error('wrapInner() structure must be a string.');

@@ -5,14 +5,13 @@
  */
 
 	$.fn.offset = function(position) {
-		var elem, offsetLeft, offsetTop;
 		if (position && typeof position === 'string') {
 			if (position !== 'left' && position !== 'top') {
 				throw new Error('offset() position must be either "left" or "top".');
 			} else {	
-				elem = this.set[0];
+				var elem = this.set[0];
 				if (position === 'left') {
-					offsetLeft = 0;
+					var offsetLeft = 0;
 				    do {
 				        if (!isNaN(elem.offsetLeft)) {
 				          offsetLeft += elem.offsetLeft;
@@ -20,7 +19,7 @@
 				    } while (elem = elem.offsetParent);
 				    return offsetLeft;
 				} else if (position === 'top') {
-					offsetTop = 0;
+					var offsetTop = 0;
 				    do {
 				        if (!isNaN(elem.offsetTop)) {
 				          offsetTop += elem.offsetTop;

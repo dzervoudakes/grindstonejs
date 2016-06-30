@@ -5,11 +5,10 @@
  */
 
 	$.fn.wrap = function(structure) {
-		var contents, wrap;
 		this.each(function() {
 			if (typeof structure === 'string') {
-				contents = this.outerHTML;
-				wrap = structure;
+				var contents = this.outerHTML;
+				var wrap = structure;
 				this.outerHTML = wrap + contents;
 			} else {
 				throw new Error('wrap() structure must be a string.');
@@ -25,11 +24,10 @@
  */
 	
 	$.fn.wrapInner = function(structure) {
-		var contents, wrap;
 		this.each(function() {
 			if (typeof structure === 'string') {
-				contents = $(this).html();
-				wrap = structure;
+				var contents = $(this).html();
+				var wrap = structure;
 				$(this).html(wrap + contents);
 			} else {
 				throw new Error('wrapInner() structure must be a string.');

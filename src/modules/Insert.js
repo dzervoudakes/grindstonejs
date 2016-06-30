@@ -5,15 +5,16 @@
  */
 
 	$.fn.before = function(content) {
-		var dom, i;
 		this.each(function() {
 			if (typeof content === 'string') {
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('beforebegin', content);
-				} else {	
-					dom = d.querySelectorAll(content);
-					[].forEach.call(dom, function(item) {
-						this.parentNode.insertBefore(item, this);
+				} else {
+					var self = this;
+					var dom = d.querySelectorAll(content);
+					dom = Array.prototype.slice.call(dom);
+					dom.forEach(function(item) {
+						self.parentNode.insertBefore(item, self);
 					});
 				}
 			} else {
@@ -30,15 +31,16 @@
  */
 
 	$.fn.after = function(content) {
-		var dom, i;
 		this.each(function() {
 			if (typeof content === 'string') {
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterend', content);
-				} else {	
-					dom = d.querySelectorAll(content);
-					[].forEach.call(dom, function(item) {
-						this.parentNode.insertBefore(item, this.nextSibling);
+				} else {
+					var self = this;
+					var dom = d.querySelectorAll(content);
+					dom = Array.prototype.slice.call(dom);
+					dom.forEach(function(item) {
+						self.parentNode.insertBefore(item, self.nextSibling);
 					});
 				}
 			} else {

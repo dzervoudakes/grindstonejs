@@ -7,9 +7,10 @@
 	$.fn.remove = function(target) {
 		if (target) {
 			var elems = d.querySelectorAll(target);
+			elems = Array.prototype.slice.call(elems);
 			this.each(function() {
 				var self = this;
-				[].forEach.call(elems, function(el) {
+				elems.forEach(function(el) {
 					self.removeChild(el);
 				});
 			});

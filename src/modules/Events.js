@@ -6,10 +6,9 @@
  */
 
 	$.fn.on = function(action, callback) {
-		var events, self;
 		this.each(function() {
-			self = this;
-			events = action.split(' ');
+			var self = this;
+			var events = action.split(' ');
 			events.forEach(function(evt) {
 				self.addEventListener(evt, callback, false);
 			});
@@ -25,10 +24,9 @@
  */
 
 	$.fn.off = function(action, callback) {
-		var events, self;
 		this.each(function() {
-			self = this;
-			events = action.split(' ');
+			var self = this;
+			var events = action.split(' ');
 			events.forEach(function(evt) {
 				self.removeEventlistener(evt, callback, false);
 			});
