@@ -13,17 +13,13 @@
 				if (position === 'left') {
 					var offsetLeft = 0;
 				    do {
-				        if (!isNaN(elem.offsetLeft)) {
-				          offsetLeft += elem.offsetLeft;
-				        }
+				        if (!isNaN(elem.offsetLeft)) offsetLeft += elem.offsetLeft;
 				    } while (elem = elem.offsetParent);
 				    return offsetLeft;
 				} else if (position === 'top') {
 					var offsetTop = 0;
 				    do {
-				        if (!isNaN(elem.offsetTop)) {
-				          offsetTop += elem.offsetTop;
-				        }
+				        if (!isNaN(elem.offsetTop)) offsetTop += elem.offsetTop;
 				    } while (elem = elem.offsetParent);
 				    return offsetTop;
 				}
