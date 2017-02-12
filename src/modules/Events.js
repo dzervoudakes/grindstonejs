@@ -28,7 +28,7 @@
 			var self = this;
 			var events = action.split(' ');
 			events.forEach(function(evt) {
-				self.removeEventlistener(evt, callback, false);
+				self.removeEventListener(evt, callback, false);
 			});
 		});
 		return this;

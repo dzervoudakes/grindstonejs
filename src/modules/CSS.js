@@ -6,7 +6,7 @@
  */
 
 	$.fn.css = function(styles, value) {
-		var returnedStyle;
+		var returnedStyle, returnStyle;
 		this.each(function() {
 			if (typeof styles === 'object') {
 				var self = this;
@@ -14,11 +14,12 @@
 				stl.forEach(function(key) {
 					self.style[key] = styles[key];
 				});
-			} else if (typeof styles === 'string' && !value) {
+			} else if (typeof styles === 'string' && (value === undefined || value === null)) {
 				returnedStyle = this.style[styles];
-			} else if (typeof styles === 'string' && typeof value === 'string') {
+				returnStyle = true;
+			} else if (typeof styles === 'string') {
 				this.style[styles] = value;
 			}
 		});
-		return (typeof styles === 'object' || typeof styles === 'string' && value) ? this : returnedStyle;
+		return returnStyle ? returnedStyle : this;
 	};
