@@ -6,8 +6,8 @@
  */
 	
 	var Grindstone = function(selector, context) {
+		var set = this;
 		if (selector) {
-			var set = this;
 			var selectedElements, ctx, elems;
 			if (typeof selector === 'string') {
 				if (context) {
