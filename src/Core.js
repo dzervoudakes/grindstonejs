@@ -8,7 +8,7 @@
 	var Grindstone = function(selector, context) {
 		var set = this;
 		if (selector) {
-			var selectedElements, ctx, elems;
+			var ctx, elems;
 			if (typeof selector === 'string') {
 				if (context) {
 					if (typeof context === 'string') {
