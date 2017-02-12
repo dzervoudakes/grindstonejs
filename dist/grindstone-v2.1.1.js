@@ -2,7 +2,7 @@
  * Grindstone JavaScript Library v2.1.1
  * https://github.com/dzervoudakes/GrindstoneJS
  * 
- * Copyright (c) 2014, 2016 Dan Zervoudakes
+ * Copyright (c) 2014, 2017 Dan Zervoudakes
  * Released under the MIT license
  * https://github.com/dzervoudakes/GrindstoneJS/blob/master/LICENSE
  */
@@ -14,37 +14,51 @@
 /**
  * Library core: constructor, prototype
  * @param {string|object} selector
- * @param {string} context - optional
- * @returns {array} Grindstone.set
+ * @param {string|object} context - optional
+ * @returns {object} Grindstone
  */
 	
 	var Grindstone = function(selector, context) {
+		var set = this;
 		if (selector) {
 			var selectedElements, ctx, elems;
 			if (typeof selector === 'string') {
 				if (context) {
-					ctx = d.querySelectorAll(context);
-					ctx = Array.prototype.slice.call(ctx);
-					selectedElements = [];
-					ctx.forEach(function(item) {
+					if (typeof context === 'string') {
+						ctx = d.querySelectorAll(context);
+					} else if(typeof context === 'object') {
+						if (context !== w && typeof context.length === 'number') {
+							ctx = context
+						} else {
+							ctx = [context];
+						}
+					} else {
+						ctx = [];
+					}
+					Array.prototype.forEach.call(ctx, function(item) {
 						elems = item.querySelectorAll(selector);
-						elems = Array.prototype.slice.call(elems);
-						elems.forEach(function(el) {
-							selectedElements.push(el);
+						Array.prototype.forEach.call(elems, function(el) {
+							if (set.indexOf(el) === -1) {
+								set.push(el);
+							}
 						});
 					});
 				} else {
-					selectedElements = d.querySelectorAll(selector);
+					set.push.apply(set, d.querySelectorAll(selector));
 				}
-				this.set = selectedElements.length ? selectedElements : [];
-				return this;
-			} else if (typeof selector === 'object' || selector === w || selector === d) {
-				this.set = [selector];
+			} else if (typeof selector === 'object') {
+				if (selector !== w && typeof selector.length === 'number') {
+					set.push.apply(set, selector)
+				} else {
+					set.push(selector);
+				}
 			}
-		} else {
-			throw new Error('Cannot create new instance of Grindstone without a selector.');
 		}
+		this.set = set; // Backwards compatibility.
+		return this;
 	};
+
+	Grindstone.prototype = [];
 	
 	var $ = function(selector, context) {
 		return new Grindstone(selector, context);
@@ -195,7 +209,7 @@
  */
 
 	$.fn.css = function(styles, value) {
-		var returnedStyle;
+		var returnedStyle, returnStyle;
 		this.each(function() {
 			if (typeof styles === 'object') {
 				var self = this;
@@ -203,13 +217,14 @@
 				stl.forEach(function(key) {
 					self.style[key] = styles[key];
 				});
-			} else if (typeof styles === 'string' && !value) {
+			} else if (typeof styles === 'string' && (value === undefined || value === null)) {
 				returnedStyle = this.style[styles];
-			} else if (typeof styles === 'string' && typeof value === 'string') {
+				returnStyle = true;
+			} else if (typeof styles === 'string') {
 				this.style[styles] = value;
 			}
 		});
-		return (typeof styles === 'object' || typeof styles === 'string' && value) ? this : returnedStyle;
+		return returnStyle ? returnedStyle : this;
 	};
 
 /**
@@ -518,7 +533,7 @@
 			var self = this;
 			var events = action.split(' ');
 			events.forEach(function(evt) {
-				self.removeEventlistener(evt, callback, false);
+				self.removeEventListener(evt, callback, false);
 			});
 		});
 		return this;
@@ -539,6 +554,16 @@
 			this.set[0].focus();
 		}
 		return this;
+	};
+
+/**
+ * Return the DOM element at the specified index of the current set
+ * @param {number} index
+ * @returns {object} the DOM element
+ */
+
+	$.fn.get = function(index) {
+		return this.set[index];
 	};
 
 /**
@@ -779,7 +804,7 @@
 
 	$.fn.replaceWith = function(content) {
 		this.each(function() {
-			if (content) this.outerHTML = content;
+			this.outerHTML = content ? content : "";
 		});
 		return this;
 	};
@@ -904,6 +929,8 @@
 		}
 		return this;
 	};
+
+// parent, next, prev, children, ...
 
 /**
  * Dispatch a custom event
