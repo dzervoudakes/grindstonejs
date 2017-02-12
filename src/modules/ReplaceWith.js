@@ -6,7 +6,7 @@
 
 	$.fn.replaceWith = function(content) {
 		this.each(function() {
-			if (content) this.outerHTML = content;
+			this.outerHTML = content ? content : "";
 		});
 		return this;
 	};
