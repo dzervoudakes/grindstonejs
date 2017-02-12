@@ -1,37 +1,51 @@
 /**
  * Library core: constructor, prototype
  * @param {string|object} selector
- * @param {string} context - optional
- * @returns {array} Grindstone.set
+ * @param {string|object} context - optional
+ * @returns {object} Grindstone
  */
 	
 	var Grindstone = function(selector, context) {
 		if (selector) {
+			var set = this;
 			var selectedElements, ctx, elems;
 			if (typeof selector === 'string') {
 				if (context) {
-					ctx = d.querySelectorAll(context);
-					ctx = Array.prototype.slice.call(ctx);
-					selectedElements = [];
-					ctx.forEach(function(item) {
+					if (typeof context === 'string') {
+						ctx = d.querySelectorAll(context);
+					} else if(typeof context === 'object') {
+						if (context !== w && typeof context.length === 'number') {
+							ctx = context
+						} else {
+							ctx = [context];
+						}
+					} else {
+						ctx = [];
+					}
+					Array.prototype.forEach.call(ctx, function(item) {
 						elems = item.querySelectorAll(selector);
-						elems = Array.prototype.slice.call(elems);
-						elems.forEach(function(el) {
-							selectedElements.push(el);
+						Array.prototype.forEach.call(elems, function(el) {
+							if (set.indexOf(el) === -1) {
+								set.push(el);
+							}
 						});
 					});
 				} else {
-					selectedElements = d.querySelectorAll(selector);
+					set.push.apply(set, d.querySelectorAll(selector));
 				}
-				this.set = selectedElements.length ? selectedElements : [];
-				return this;
-			} else if (typeof selector === 'object' || selector === w || selector === d) {
-				this.set = [selector];
+			} else if (typeof selector === 'object') {
+				if (selector !== w && typeof selector.length === 'number') {
+					set.push.apply(set, selector)
+				} else {
+					set.push(selector);
+				}
 			}
-		} else {
-			throw new Error('Cannot create new instance of Grindstone without a selector.');
 		}
+		this.set = set; // Backwards compatibility.
+		return this;
 	};
+
+	Grindstone.prototype = [];
 	
 	var $ = function(selector, context) {
 		return new Grindstone(selector, context);
