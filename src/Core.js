@@ -13,14 +13,10 @@
 				if (context) {
 					if (typeof context === 'string') {
 						ctx = d.querySelectorAll(context);
-					} else if(typeof context === 'object') {
-						if (context !== w && typeof context.length === 'number') {
-							ctx = context
-						} else {
-							ctx = [context];
-						}
+					} else if(priv.isElementArray(context)) {
+						ctx = context;
 					} else {
-						ctx = [];
+						ctx = [context];
 					}
 					Array.prototype.forEach.call(ctx, function(item) {
 						elems = item.querySelectorAll(selector);
@@ -33,12 +29,10 @@
 				} else {
 					set.push.apply(set, d.querySelectorAll(selector));
 				}
-			} else if (typeof selector === 'object') {
-				if (selector !== w && typeof selector.length === 'number') {
-					set.push.apply(set, selector)
-				} else {
-					set.push(selector);
-				}
+			} else if (priv.isElementArray(selector)) {
+				set.push.apply(set, selector);
+			} else {
+				set.push(selector);
 			}
 		}
 		this.set = set; // Backwards compatibility.
@@ -62,4 +56,17 @@
 	
 	priv.createInteraction = function(touchEvt, mouseEvt) {
 		return 'ontouchend' in d ? touchEvt : mouseEvt;
+	};
+	
+	priv.isWindow = function(obj) {
+		if (typeof(window.constructor) === 'undefined') {
+			return obj instanceof window.constructor;
+		} else {
+			return obj.window === obj;
+		}
+	};
+
+	// This also returns true for Grindstone objects.
+	priv.isElementArray = function(obj) {
+		return !priv.isWindow(obj) && typeof obj.length === 'number';
 	};
