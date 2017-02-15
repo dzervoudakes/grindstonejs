@@ -5,16 +5,19 @@
  */
 
 	$.fn.show = function(delay) {
-		this.each(function() {
-			if (typeof delay === 'number') {
-				var self = this;
-				setTimeout(function() {
-					self.style.display = 'block';
-				}, delay);
-			} else {
-				this.style.display = 'block';
-			}
-		});
+		if (delay) {
+			var self = this;
+			setTimeout(function() {
+				$.fn.show.call(self);
+			}, delay);
+		} else {
+			this.each(function() {
+				if (this.style.display === 'none') {
+					this.style.display = $(this).data('_prevdisplay') || '';
+					$(this).removeData('_prevdisplay');
+				}
+			});
+		}
 		return this;
 	};
 
@@ -25,15 +28,20 @@
  */
 
 	$.fn.hide = function(delay) {
-		this.each(function() {
-			if (typeof delay === 'number') {
-				var self = this;
-				setTimeout(function() {
-					self.style.display = 'none';
-				}, delay);
-			} else {
-				this.style.display = 'none';
-			}
-		});
+		if (delay) {
+			var self = this;
+			setTimeout(function() {
+				$.fn.hide.call(self);
+			}, delay);
+		} else {
+			this.each(function() {
+				if (this.style.display !== 'none') {
+					if (this.style.display) {
+						$(this).data('_prevdisplay', this.style.display);
+					}
+					this.style.display = 'none';
+				}
+			});
+		}
 		return this;
 	};
