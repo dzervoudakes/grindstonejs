@@ -1,5 +1,5 @@
 /**
- * Append a new child element to the current object
+ * Append child elements to the current object
  * @param {string|object} element
  * @returns {object} current instance of Grindstone
  */
@@ -15,6 +15,18 @@
 				} else {
 					var textNode = document.createTextNode(element);
 					this.appendChild(textNode);
+				}
+			} else if (priv.isElementArray(element)) {
+				if (i == len - 1) {
+					// Append elements directly if last.
+					for (var j = 0; j < element.length; j++) {
+						this.appendChild(element[j]);
+					}
+				} else {
+					// Append cloned elements for all but the last.
+					for (var j = 0; j < element.length; j++) {
+						this.appendChild(element[j].cloneNode(true));
+					}
 				}
 			} else {
 				if (i == len - 1) {
