@@ -5,18 +5,15 @@
  */
 
 	$.fn.append = function(element) {
+		var isHTML = typeof element === 'string' && element.match(/(<).+(>)/);
 		this.each(function() {
 			if (typeof element === 'string') {
-				if (element.match(/(<).+(>)/)) {
+				if (isHTML) {
 					this.innerHTML += element;
 				} else {
-					var self = this;
-					var dom = d.querySelectorAll(element);
-					dom = Array.prototype.slice.call(dom);
-					dom.forEach(function(item) {
-						self.appendChild(item);
-					});
-				}	
+					var textNode = document.createTextNode(element);
+					this.appendChild(textNode);
+				}
 			} else {
 				this.appendChild(element);
 			}
