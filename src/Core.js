@@ -70,3 +70,10 @@
 	priv.isElementArray = function(obj) {
 		return !priv.isWindow(obj) && typeof obj.length === 'number';
 	};
+
+	priv.matchesFuncName = Element.prototype.matches ? 'matches' :
+		Element.prototype.matchesSelector ? 'matchesSelector' :
+		Element.prototype.webkitMatchesSelector ? 'webkitMatchesSelector' :
+		Element.prototype.mozMatchesSelector ? 'mozMatchesSelector' :
+		Element.prototype.msMatchesSelector ? 'msMatchesSelector' :
+		undefined;
