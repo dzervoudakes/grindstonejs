@@ -7,7 +7,7 @@
 	$.fn.html = function(content) {
 		var text;
 		this.each(function() {
-			if (content) {
+			if (content || content === '') {
 				this.innerHTML = content;
 			} else {
 				text = this.innerHTML;

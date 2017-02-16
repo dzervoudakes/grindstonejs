@@ -8,7 +8,7 @@
 	$.fn.attr = function(attribute, value) {
 		var elemAttribute;
 		this.each(function() {
-			if (value) {
+			if (value || value === '') {
 				this.setAttribute(attribute, value);
 			} else {
 				elemAttribute = this.getAttribute(attribute);
