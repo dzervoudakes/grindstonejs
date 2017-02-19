@@ -57,18 +57,10 @@
 	priv.createInteraction = function(touchEvt, mouseEvt) {
 		return 'ontouchend' in d ? touchEvt : mouseEvt;
 	};
-	
-	priv.isWindow = function(obj) {
-		if (typeof(window.constructor) === 'undefined') {
-			return obj instanceof window.constructor;
-		} else {
-			return obj.window === obj;
-		}
-	};
 
 	// This also returns true for Grindstone objects.
 	priv.isElementArray = function(obj) {
-		return !priv.isWindow(obj) && typeof obj.length === 'number';
+		return obj instanceof Array
 	};
 
 	priv.matchesFuncName = Element.prototype.matches ? 'matches' :
