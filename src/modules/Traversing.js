@@ -62,7 +62,7 @@
 	};
 
     priv.children = function(set, nodeType, selector) {
-        var newSet = [];
+        var newSet = $();
         for (var i = 0; i < set.length; i++) {
             for (var child = set[i].firstChild; child; child = child.nextSibling) {
                 if (nodeType === undefined || nodeType === child.nodeType) {
@@ -72,7 +72,7 @@
                 }
             }
         }
-        return $(newSet);
+        return newSet;
     };
 
 /**

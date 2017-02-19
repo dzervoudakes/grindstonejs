@@ -28,14 +28,14 @@
  */
 
 	$.fn.map = function(callback) {
-        var newSet = [];
+        var newSet = $();
         for (var i = 0; i < this.length; i++) {
             var ret = callback.call(this[i]);
             if (ret !== undefined && ret !== null) {
                 newSet.push(ret);
             }
         }
-        return $(newSet);
+        return newSet;
 	};
 
 /**
