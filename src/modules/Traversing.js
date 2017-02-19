@@ -21,9 +21,18 @@
 
 	$.fn.next = function(selector) {
         return $.fn.map.call(this, function() {
-            var element = this.nextSibling;
-            if (element && (!selector || $(element).is(selector))) {
-                return element;
+            while (true) {
+                var element = this.nextSibling;
+                if (!element) {
+                    break;
+                }
+                if (element.nodeType != 1) {
+                    continue;
+                }
+                if (!selector || $(element).is(selector)) {
+                    return element;
+                }
+                break;
             }
         });
 	};
@@ -36,9 +45,18 @@
 
 	$.fn.prev = function(selector) {
         return $.fn.map.call(this, function() {
-            var element = this.previousSibling;
-            if (element && (!selector || $(element).is(selector))) {
-                return element;
+            while (true) {
+                var element = this.previousSibling;
+                if (!element) {
+                    break;
+                }
+                if (element.nodeType != 1) {
+                    continue;
+                }
+                if (!selector || $(element).is(selector)) {
+                    return element;
+                }
+                break;
             }
         });
 	};
@@ -53,8 +71,10 @@
         var newSet = [];
         for (var i = 0; i < this.length; i++) {
             for (var child = this[i].firstChild; child; child = child.nextSibling) {
-                if (!selector || $(child).is(selector)) {
-                    newSet.push(child);
+                if (child.nodeType == 1) {
+                    if (!selector || $(child).is(selector)) {
+                        newSet.push(child);
+                    }
                 }
             }
         }
