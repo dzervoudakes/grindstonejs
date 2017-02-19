@@ -136,43 +136,26 @@
 	};
 
 /**
- * Append child elements to the current object
+ * Append a new child element to the current object
  * @param {string|object} element
  * @returns {object} current instance of Grindstone
  */
 
 	$.fn.append = function(element) {
-		var isHTML = typeof element === 'string' && element.match(/(<).+(>)/);
-		var i = -1, len = this.length;
 		this.each(function() {
-			i++;
 			if (typeof element === 'string') {
-				if (isHTML) {
+				if (element.match(/(<).+(>)/)) {
 					this.innerHTML += element;
 				} else {
-					var textNode = document.createTextNode(element);
-					this.appendChild(textNode);
-				}
-			} else if (priv.isElementArray(element)) {
-				if (i == len - 1) {
-					// Append elements directly if last.
-					for (var j = 0; j < element.length; j++) {
-						this.appendChild(element[j]);
-					}
-				} else {
-					// Append cloned elements for all but the last.
-					for (var j = 0; j < element.length; j++) {
-						this.appendChild(element[j].cloneNode(true));
-					}
-				}
+					var self = this;
+					var dom = d.querySelectorAll(element);
+					dom = Array.prototype.slice.call(dom);
+					dom.forEach(function(item) {
+						self.appendChild(item);
+					});
+				}	
 			} else {
-				if (i == len - 1) {
-					// Append element itself if last.
-					this.appendChild(element);
-				} else {
-					// Append a clone for all but the last.
-					this.appendChild(element.cloneNode(true));
-				}
+				this.appendChild(element);
 			}
 		});
 		return this;
