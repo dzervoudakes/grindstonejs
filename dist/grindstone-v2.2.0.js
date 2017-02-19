@@ -1046,19 +1046,35 @@
 		return this;
 	};
 
+
+    priv.elementProp = function(set, propName, selector) {
+        return $.fn.map.call(set, function() {
+            var find = this;
+            while (true) {
+                var element = find[propName];
+                if (!element) {
+                    break;
+                }
+                if (element.nodeType != 1) {
+                    find = element;
+                    continue;
+                }
+                if (!selector || $(element).is(selector)) {
+                    return element;
+                }
+                break;
+            }
+        });
+    };
+
 /**
- * Get the parent elements as a Grindstone object
- * @param {string} filterBy - only get the parent if it matches the selector, optional
+ * Get the parent element as a Grindstone object
+ * @param {string} selector - only get the parent if it matches the selector, optional
  * @returns {object} parents instance of Grindstone
  */
 
 	$.fn.parent = function(selector) {
-        return $.fn.map.call(this, function() {
-            var element = this.parentNode;
-            if (element && (!selector || $(element).is(selector))) {
-                return element;
-            }
-        });
+        return priv.elementProp(this, 'parentNode', selector);
 	};
 
 /**
@@ -1068,21 +1084,7 @@
  */
 
 	$.fn.next = function(selector) {
-        return $.fn.map.call(this, function() {
-            while (true) {
-                var element = this.nextSibling;
-                if (!element) {
-                    break;
-                }
-                if (element.nodeType != 1) {
-                    continue;
-                }
-                if (!selector || $(element).is(selector)) {
-                    return element;
-                }
-                break;
-            }
-        });
+        return priv.elementProp(this, 'nextSibling', selector);
 	};
 
 /**
@@ -1092,21 +1094,7 @@
  */
 
 	$.fn.prev = function(selector) {
-        return $.fn.map.call(this, function() {
-            while (true) {
-                var element = this.previousSibling;
-                if (!element) {
-                    break;
-                }
-                if (element.nodeType != 1) {
-                    continue;
-                }
-                if (!selector || $(element).is(selector)) {
-                    return element;
-                }
-                break;
-            }
-        });
+        return priv.elementProp(this, 'previousSibling', selector);
 	};
 
     priv.children = function(set, nodeType, selector) {
