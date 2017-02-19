@@ -70,18 +70,10 @@
 	priv.createInteraction = function(touchEvt, mouseEvt) {
 		return 'ontouchend' in d ? touchEvt : mouseEvt;
 	};
-	
-	priv.isWindow = function(obj) {
-		if (typeof(window.constructor) === 'undefined') {
-			return obj instanceof window.constructor;
-		} else {
-			return obj.window === obj;
-		}
-	};
 
 	// This also returns true for Grindstone objects.
 	priv.isElementArray = function(obj) {
-		return !priv.isWindow(obj) && typeof obj.length === 'number';
+		return obj instanceof Array
 	};
 
 	priv.matchesFuncName = Element.prototype.matches ? 'matches' :
@@ -606,14 +598,14 @@
  */
 
 	$.fn.map = function(callback) {
-        var newSet = [];
+        var newSet = $();
         for (var i = 0; i < this.length; i++) {
             var ret = callback.call(this[i]);
             if (ret !== undefined && ret !== null) {
                 newSet.push(ret);
             }
         }
-        return $(newSet);
+        return newSet;
 	};
 
 /**
@@ -1077,9 +1069,18 @@
 
 	$.fn.next = function(selector) {
         return $.fn.map.call(this, function() {
-            var element = this.nextSibling;
-            if (element && (!selector || $(element).is(selector))) {
-                return element;
+            while (true) {
+                var element = this.nextSibling;
+                if (!element) {
+                    break;
+                }
+                if (element.nodeType != 1) {
+                    continue;
+                }
+                if (!selector || $(element).is(selector)) {
+                    return element;
+                }
+                break;
             }
         });
 	};
@@ -1092,12 +1093,35 @@
 
 	$.fn.prev = function(selector) {
         return $.fn.map.call(this, function() {
-            var element = this.previousSibling;
-            if (element && (!selector || $(element).is(selector))) {
-                return element;
+            while (true) {
+                var element = this.previousSibling;
+                if (!element) {
+                    break;
+                }
+                if (element.nodeType != 1) {
+                    continue;
+                }
+                if (!selector || $(element).is(selector)) {
+                    return element;
+                }
+                break;
             }
         });
 	};
+
+    priv.children = function(set, nodeType, selector) {
+        var newSet = $();
+        for (var i = 0; i < set.length; i++) {
+            for (var child = set[i].firstChild; child; child = child.nextSibling) {
+                if (nodeType === undefined || nodeType === child.nodeType) {
+                    if (!selector || $(child).is(selector)) {
+                        newSet.push(child);
+                    }
+                }
+            }
+        }
+        return newSet;
+    };
 
 /**
  * Get the children elements as a Grindstone object
@@ -1106,15 +1130,16 @@
  */
 
 	$.fn.children = function(selector) {
-        var newSet = [];
-        for (var i = 0; i < this.length; i++) {
-            for (var child = this[i].firstChild; child; child = child.nextSibling) {
-                if (!selector || $(child).is(selector)) {
-                    newSet.push(child);
-                }
-            }
-        }
-        return $(newSet);
+        return priv.children(this, 1, selector);
+	};
+
+/**
+ * Get all the children as a Grindstone object, including text and comments.
+ * @returns {object} children instance of Grindstone
+ */
+
+	$.fn.contents = function() {
+        return priv.children(this);
 	};
 
 
