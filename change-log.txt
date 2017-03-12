@@ -2,7 +2,7 @@ Grindstone.js | Change Log
 
 Date: 1/29/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.0.0
  
@@ -10,7 +10,7 @@ v1.0.0
 
 Date: 1/30/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.0.1
  
@@ -19,7 +19,7 @@ v1.0.1
  
 Date: 2/3/15
 Changes Current Version: YES
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.1.0
  
@@ -32,7 +32,7 @@ v1.1.0
 
 Date: 2/10/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.1.1
  
@@ -40,7 +40,7 @@ v1.1.1
 
 Date: 2/11/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.1.2
  
@@ -48,7 +48,7 @@ v1.1.2
 
 Date: 2/12/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.1.3
  
@@ -56,7 +56,7 @@ v1.1.3
 
 Date: 2/16/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.1.4
  
@@ -65,7 +65,7 @@ v1.1.4
 
 Date: 3/5/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.1.5
  
@@ -75,7 +75,7 @@ v1.1.5
 
 Date: 3/20/15
 Changes Current Version: YES
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.2.0
  
@@ -83,7 +83,7 @@ v1.2.0
 
 Date: 4/13/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.2.1
  
@@ -91,7 +91,7 @@ v1.2.1
 
 Date: 4/20/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.2.2
  
@@ -99,7 +99,7 @@ v1.2.2
 
 Date: 4/24/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.2.3
  
@@ -107,7 +107,7 @@ v1.2.3
 
 Date: 4/27/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.2.4
  
@@ -115,7 +115,7 @@ v1.2.4
 
 Date: 5/12/15
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v1.2.5
  
@@ -123,7 +123,7 @@ v1.2.5
 
 Date: 4/28/16
 Changes Current Version: YES
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.0.0
 
@@ -141,7 +141,7 @@ v2.0.0
 
 Date: 4/28/16
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.0.1
 
@@ -149,7 +149,7 @@ v2.0.1
 
 Date: 4/29/16
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.0.2
 
@@ -158,7 +158,7 @@ v2.0.2
 
 Date: 5/1/16
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.0.3
 
@@ -166,7 +166,7 @@ v2.0.3
 
 Date: 5/2/16
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.0.4
 
@@ -174,7 +174,7 @@ v2.0.4
 
 Date: 5/2/16
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.0.5
 
@@ -183,7 +183,7 @@ v2.0.5
 
 Date: 5/3/16
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.0.6
 
@@ -192,7 +192,7 @@ v2.0.6
 
 Date: 5/13/16
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.0.7
 
@@ -201,7 +201,7 @@ v2.0.7
 
 Date: 5/21/16
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.0.8
 
@@ -209,7 +209,7 @@ v2.0.8
 
 Date: 5/24/16
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.0.9
 
@@ -217,7 +217,7 @@ v2.0.9
 
 Date: 5/27/16
 Changes Current Version: YES
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.1.0
 
@@ -226,10 +226,27 @@ v2.1.0
 
 Date: 6/29/16
 Changes Current Version: NO
-Contributor(s): Dan Zervoudakes
+Contributor(s): dzervoudakes
 
 v2.1.1
 
 - Refactored all for loops to forEach
 - Refactored [].forEach.call() functions to increase legibility
 - Minor variable cleanup throughout each module
+
+Date: 3/12/17
+Changes Current Version: YES
+Contributor(s): millerlogic | dzervoudakes
+
+v2.2.0
+
+- get()
+- Append text node like jQuery
+- Append clone of element if appending to more than one
+- Improve array and Grindstone object detection
+- Allow appending an array of elements or a Grindstone object
+- Fix adding and removing multiple classes
+- Show/hide should not change the display type when shown
+- Minimal filtering and traversal
+- Minor tweaks
+- Clone all the elements in the set, return the new Grindstone object
