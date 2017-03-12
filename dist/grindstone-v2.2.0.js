@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v2.1.1
+ * Grindstone JavaScript Library v2.2.0
  * https://github.com/dzervoudakes/GrindstoneJS
  * 
  * Copyright (c) 2014, 2017 Dan Zervoudakes
@@ -21,19 +21,15 @@
 	var Grindstone = function(selector, context) {
 		var set = this;
 		if (selector) {
-			var selectedElements, ctx, elems;
+			var ctx, elems;
 			if (typeof selector === 'string') {
 				if (context) {
 					if (typeof context === 'string') {
 						ctx = d.querySelectorAll(context);
-					} else if(typeof context === 'object') {
-						if (context !== w && typeof context.length === 'number') {
-							ctx = context
-						} else {
-							ctx = [context];
-						}
+					} else if(priv.isElementArray(context)) {
+						ctx = context;
 					} else {
-						ctx = [];
+						ctx = [context];
 					}
 					Array.prototype.forEach.call(ctx, function(item) {
 						elems = item.querySelectorAll(selector);
@@ -46,12 +42,10 @@
 				} else {
 					set.push.apply(set, d.querySelectorAll(selector));
 				}
-			} else if (typeof selector === 'object') {
-				if (selector !== w && typeof selector.length === 'number') {
-					set.push.apply(set, selector)
-				} else {
-					set.push(selector);
-				}
+			} else if (priv.isElementArray(selector)) {
+				set.push.apply(set, selector);
+			} else {
+				set.push(selector);
 			}
 		}
 		this.set = set; // Backwards compatibility.
@@ -76,6 +70,18 @@
 	priv.createInteraction = function(touchEvt, mouseEvt) {
 		return 'ontouchend' in d ? touchEvt : mouseEvt;
 	};
+
+	// This also returns true for Grindstone objects.
+	priv.isElementArray = function(obj) {
+		return obj instanceof Array
+	};
+
+	priv.matchesFuncName = Element.prototype.matches ? 'matches' :
+		Element.prototype.matchesSelector ? 'matchesSelector' :
+		Element.prototype.webkitMatchesSelector ? 'webkitMatchesSelector' :
+		Element.prototype.mozMatchesSelector ? 'mozMatchesSelector' :
+		Element.prototype.msMatchesSelector ? 'msMatchesSelector' :
+		undefined;
 
 /**
  * Submit a GET or POST AJAX request
@@ -165,7 +171,7 @@
 	$.fn.attr = function(attribute, value) {
 		var elemAttribute;
 		this.each(function() {
-			if (value) {
+			if (value || value === '') {
 				this.setAttribute(attribute, value);
 			} else {
 				elemAttribute = this.getAttribute(attribute);
@@ -248,14 +254,12 @@
  */
 
 	$.fn.addClass = function(cls) {
+		var classes = cls.split(' ');
 		this.each(function() {
-			if (!$(this).hasClass(cls)) {
-				var self = this;
-				var classes = cls.split(' ');
-				classes.forEach(function(clsName) {
-					self.classList.add(clsName);
-				});
-			}
+			var self = this;
+			classes.forEach(function(clsName) {
+				self.classList.add(clsName);
+			});
 		});
 		return this;
 	};
@@ -267,14 +271,12 @@
  */
 
 	$.fn.removeClass = function(cls) {
+		var classes = cls.split(' ');
 		this.each(function() {
-			if ($(this).hasClass(cls)) {
-				var self = this;
-				var classes = cls.split(' ');
-				classes.forEach(function(clsName) {
-					self.classList.remove(clsName);
-				});
-			}
+			var self = this;
+			classes.forEach(function(clsName) {
+				self.classList.remove(clsName);
+			});
 		});
 		return this;
 	};
@@ -286,9 +288,9 @@
  */
 
 	$.fn.toggleClass = function(cls) {
+		var classes = cls.split(' ');
 		this.each(function() {
 			var self = this;
-			var classes = cls.split(' ');
 			classes.forEach(function(clsName) {
 				self.classList.toggle(clsName);
 			});
@@ -297,12 +299,14 @@
 	};
 
 /**
- * Clone the first element in the set
- * @returns {object} a cloned element as a new instance of Grindstone
+ * Clone the elements in the set
+ * @returns {object} the cloned elements as a new instance of Grindstone
  */
  
 	$.fn.clone = function() {
-		return this.set[0].cloneNode(true);
+		return this.map(function() {
+			return this.cloneNode(true);
+		});
 	};
 
 /**
@@ -420,16 +424,19 @@
  */
 
 	$.fn.show = function(delay) {
-		this.each(function() {
-			if (typeof delay === 'number') {
-				var self = this;
-				setTimeout(function() {
-					self.style.display = 'block';
-				}, delay);
-			} else {
-				this.style.display = 'block';
-			}
-		});
+		if (delay) {
+			var self = this;
+			setTimeout(function() {
+				$.fn.show.call(self);
+			}, delay);
+		} else {
+			this.each(function() {
+				if (this.style.display === 'none') {
+					this.style.display = $(this).data('_prevdisplay') || '';
+					$(this).removeData('_prevdisplay');
+				}
+			});
+		}
 		return this;
 	};
 
@@ -440,16 +447,21 @@
  */
 
 	$.fn.hide = function(delay) {
-		this.each(function() {
-			if (typeof delay === 'number') {
-				var self = this;
-				setTimeout(function() {
-					self.style.display = 'none';
-				}, delay);
-			} else {
-				this.style.display = 'none';
-			}
-		});
+		if (delay) {
+			var self = this;
+			setTimeout(function() {
+				$.fn.hide.call(self);
+			}, delay);
+		} else {
+			this.each(function() {
+				if (this.style.display !== 'none') {
+					if (this.style.display) {
+						$(this).data('_prevdisplay', this.style.display);
+					}
+					this.style.display = 'none';
+				}
+			});
+		}
 		return this;
 	};
 
@@ -494,7 +506,7 @@
 	};
  
 /**
- * Return the element at the specified index of the current set
+ * Return the DOM element at the specified index of the current as a new instance of Grindstone
  * @param {number} index
  * @returns {object} new instance of Grindstone specific to one element
  */
@@ -540,6 +552,93 @@
 	};
 
 /**
+ * Check if any of the elements match the given selector or callback function
+ * @param {string|function} filterBy - selector or callback function, return true to include
+ * @returns {boolean} true if at least one of the elements matches the given selector
+ */
+
+	$.fn.is = function(filterBy) {
+		if (typeof filterBy === 'function') {
+            for (var i = 0; i < this.length; i++) {
+                if (filterBy.call(this[i], i, this[i])) {
+                    return true;
+                }
+            }
+		} else {
+            for (var i = 0; i < this.length; i++) {
+                if (this[i][priv.matchesFuncName](filterBy)) {
+                    return true;
+                }
+            }
+        }
+		return false;
+	};
+
+/**
+ * Map each element to an array of values
+ * @param {function} callback - return the value to be included, or null or undefined to skip
+ * @returns {object} Grindstone object of included values returned from the callback
+ */
+
+	$.fn.map = function(callback) {
+        var newSet = $();
+        for (var i = 0; i < this.length; i++) {
+            var ret = callback.call(this[i]);
+            if (ret !== undefined && ret !== null) {
+                newSet.push(ret);
+            }
+        }
+        return newSet;
+	};
+
+/**
+ * Filter the elements by the selector or callback function
+ * @param {string|function} filterBy - selector or callback function, return true to include
+ * @returns {object} new instance of Grindstone with the reduced set of matching elements
+ */
+
+	$.fn.filter = function(filterBy) {
+        return $.fn.map.call(this, function() {
+            if ($(this).is(filterBy)) {
+                return this;
+            }
+        });
+	};
+
+/**
+ * Excludes matching elements and includes not matching elements.
+ * @param {string|function} filterBy - selector or callback function, return true to include
+ * @returns {boolean} new instance of Grindstone with the reduced set of not matching elements
+ */
+
+	$.fn.not = function(filterBy) {
+        return $.fn.map.call(this, function() {
+            if (!$(this).is(filterBy)) {
+                return this;
+            }
+        });
+	};
+
+/**
+ * Get the first element
+ * @returns {object} new instance of Grindstone with the first element
+ */
+
+    $.fn.first = function() {
+        return $(this.set[0]);
+    }
+
+/**
+ * Get the last element
+ * @returns {object} new instance of Grindstone with the last element
+ */
+
+    $.fn.last = function() {
+        return $(this.set[this.set.length - 1]);
+    }
+
+
+/**
  * Focus on the first element in the set or trigger a callback when some element is focused on
  * @param {function} callback - optional
  * @returns {object} current instance of Grindstone
@@ -575,7 +674,7 @@
 	$.fn.html = function(content) {
 		var text;
 		this.each(function() {
-			if (content) {
+			if (content || content === '') {
 				this.innerHTML = content;
 			} else {
 				text = this.innerHTML;
@@ -930,7 +1029,90 @@
 		return this;
 	};
 
-// parent, next, prev, children, ...
+
+    priv.elementProp = function(set, propName, selector) {
+        return $.fn.map.call(set, function() {
+            var find = this;
+            while (true) {
+                var element = find[propName];
+                if (!element) {
+                    break;
+                }
+                if (element.nodeType != 1) {
+                    find = element;
+                    continue;
+                }
+                if (!selector || $(element).is(selector)) {
+                    return element;
+                }
+                break;
+            }
+        });
+    };
+
+/**
+ * Get the parent element as a Grindstone object
+ * @param {string} selector - only get the parent if it matches the selector, optional
+ * @returns {object} parents instance of Grindstone
+ */
+
+	$.fn.parent = function(selector) {
+        return priv.elementProp(this, 'parentNode', selector);
+	};
+
+/**
+ * Get the next element as a Grindstone object
+ * @param {string} selector - only get the element if it matches the selector, optional
+ * @returns {object} instance of Grindstone
+ */
+
+	$.fn.next = function(selector) {
+        return priv.elementProp(this, 'nextSibling', selector);
+	};
+
+/**
+ * Get the previous element as a Grindstone object
+ * @param {string} selector - only get the element if it matches the selector, optional
+ * @returns {object} instance of Grindstone
+ */
+
+	$.fn.prev = function(selector) {
+        return priv.elementProp(this, 'previousSibling', selector);
+	};
+
+    priv.children = function(set, nodeType, selector) {
+        var newSet = $();
+        for (var i = 0; i < set.length; i++) {
+            for (var child = set[i].firstChild; child; child = child.nextSibling) {
+                if (nodeType === undefined || nodeType === child.nodeType) {
+                    if (!selector || $(child).is(selector)) {
+                        newSet.push(child);
+                    }
+                }
+            }
+        }
+        return newSet;
+    };
+
+/**
+ * Get the children elements as a Grindstone object
+ * @param {string} selector - only get the element if it matches the selector, optional
+ * @returns {object} children instance of Grindstone
+ */
+
+	$.fn.children = function(selector) {
+        return priv.children(this, 1, selector);
+	};
+
+/**
+ * Get all the children as a Grindstone object, including text and comments.
+ * @returns {object} children instance of Grindstone
+ */
+
+	$.fn.contents = function() {
+        return priv.children(this);
+	};
+
 
 /**
  * Dispatch a custom event
