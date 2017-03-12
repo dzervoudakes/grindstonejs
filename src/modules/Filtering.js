@@ -53,7 +53,7 @@
 	};
 
 /**
- * Excludes matching elements and includes not matching elements.
+ * Excludes matching elements and includes not matching elements
  * @param {string|function} filterBy - selector or callback function, return true to include
  * @returns {boolean} new instance of Grindstone with the reduced set of not matching elements
  */

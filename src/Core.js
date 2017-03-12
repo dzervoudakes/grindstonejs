@@ -35,7 +35,7 @@
 				set.push(selector);
 			}
 		}
-		this.set = set; // Backwards compatibility.
+		this.set = set; // backwards compatibility
 		return this;
 	};
 
@@ -58,7 +58,7 @@
 		return 'ontouchend' in d ? touchEvt : mouseEvt;
 	};
 
-	// This also returns true for Grindstone objects.
+	// this also returns true for Grindstone objects
 	priv.isElementArray = function(obj) {
 		return obj instanceof Array
 	};

@@ -18,6 +18,20 @@
             }
         });
     };
+    
+    priv.children = function(set, nodeType, selector) {
+        var newSet = $();
+        for (var i = 0; i < set.length; i++) {
+            for (var child = set[i].firstChild; child; child = child.nextSibling) {
+                if (nodeType === undefined || nodeType === child.nodeType) {
+                    if (!selector || $(child).is(selector)) {
+                        newSet.push(child);
+                    }
+                }
+            }
+        }
+        return newSet;
+    };
 
 /**
  * Get the parent element as a Grindstone object
@@ -49,20 +63,6 @@
         return priv.elementProp(this, 'previousSibling', selector);
 	};
 
-    priv.children = function(set, nodeType, selector) {
-        var newSet = $();
-        for (var i = 0; i < set.length; i++) {
-            for (var child = set[i].firstChild; child; child = child.nextSibling) {
-                if (nodeType === undefined || nodeType === child.nodeType) {
-                    if (!selector || $(child).is(selector)) {
-                        newSet.push(child);
-                    }
-                }
-            }
-        }
-        return newSet;
-    };
-
 /**
  * Get the children elements as a Grindstone object
  * @param {string} selector - only get the element if it matches the selector, optional
@@ -74,7 +74,7 @@
 	};
 
 /**
- * Get all the children as a Grindstone object, including text and comments.
+ * Get all the children as a Grindstone object, including text and comments
  * @returns {object} children instance of Grindstone
  */
 
