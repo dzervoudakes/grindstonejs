@@ -10,7 +10,7 @@ const banners = {
 		` * Grindstone JavaScript Library v${pkg.version}`,
 		` * ${pkg.repository.url}`,
 		' * ',
-		` * Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name}`,
+		` * Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} and contributors`,
 		' * Released under the MIT license',
 		` * ${pkg.repository.url}/blob/master/LICENSE`,
 		' */',
@@ -18,7 +18,7 @@ const banners = {
 	].join('\n'),
 	min: [
 		`/* Grindstone JavaScript Library v${pkg.version} |`,
-		`Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} |`,
+		`Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} and contributors |`,
 		`${pkg.repository.url}/blob/master/LICENSE */\n`
 	].join(' ')
 };
