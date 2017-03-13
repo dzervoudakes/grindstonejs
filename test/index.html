@@ -169,6 +169,11 @@
 						$('#test-div').append(el);
 						$(el).addClass('CLONED');
 					};
+					
+					state.eventHandlers.contentsTest = function() {
+						var el = $('#test-div').contents();
+						console.log(el);
+					};
 
 					state.eventHandlers.cssTest = function() {
 						$(state.dom.btn1).css({
@@ -208,6 +213,18 @@
 					
 					state.eventHandlers.htmlTest = function() {
 						$(this).html('<p style="font-size: 24px;">test</p>');
+					};
+					
+					state.eventHandlers.mapTest = function() {
+						$('#test-div').children().map(function() {
+							console.log(this);
+						});
+					};
+					
+					state.eventHandlers.parentTest = function() {
+						var el = $('#empty-div03').parent();
+						var el2 = $('#empty-div03').parent('#test-div');
+						console.log(el + '\n' + el2);
 					};
 
 					state.eventHandlers.prependTest = function() {
@@ -259,7 +276,7 @@
 					var divs = $('div');
 					var emptyDivs = $('div', '#test-div');
 					
-					el.on(state.interaction(), state.eventHandlers.getTest);
+					el.on(state.interaction(), state.eventHandlers.mapTest);
 					el2.on(state.interaction(), state.eventHandlers.removeTest);
 					
 					$('.mouseable').mouseable();

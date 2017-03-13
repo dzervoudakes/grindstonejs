@@ -64,8 +64,8 @@
 	};
 
 /**
- * Get the children elements as a Grindstone object
- * @param {string} selector - only get the element if it matches the selector, optional
+ * Get the child elements as a Grindstone object
+ * @param {string} selector - only get the elements if they match the selector, optional
  * @returns {object} children instance of Grindstone
  */
 

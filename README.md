@@ -231,7 +231,7 @@ $(selector).each(callback);
 
 ##### eq()
 
-_Return an element from the set as specified by the corresponding index value._
+_Return the DOM element at the specified index of the current as a new instance of Grindstone._
 
 ```
 $(selector).eq(index);
@@ -253,6 +253,54 @@ _Remove event listeners._
 $(selector).off(event[s], callback);
 ```
 
+##### is()
+
+_Check if any of the elements match the given selector or callback function._
+
+```
+$(selector).is(filterBy);
+```
+
+##### map()
+
+_Map each element to an array of values._
+
+```
+$(selector).map(callback);
+```
+
+##### filter()
+
+_Filter the elements by the selector or callback function._
+
+```
+$(selector).filter(filterBy);
+```
+
+##### not()
+
+_Excludes matching elements and includes non-matching elements._
+
+```
+$(selector).not(filterBy);
+```
+
+##### first()
+
+_Get the first element._
+
+```
+$(selector).first();
+```
+
+##### last()
+
+_Get the last element._
+
+```
+$(selector).last();
+```
+
 ##### focus()
 
 _Focus on the first element in the set or trigger a function when some element is focused upon._
@@ -260,6 +308,14 @@ _Focus on the first element in the set or trigger a function when some element i
 ```
 $(selector).focus();
 $(selector).focus(callback);
+```
+
+##### get()
+
+_Return the DOM element at the specified index of the current set._
+
+```
+$(selector).get(index);
 ```
 
 ##### html()
@@ -396,6 +452,54 @@ _Submit a form or trigger a function when a form is submitted._
 ```
 $(selector).submit();
 $(selector).submit(callback);
+```
+
+##### parent()
+
+_Get the parent element as a Grindstone object._
+_Only get the parent if it matches the selector (optional)._
+
+```
+$(selector).parent();
+$(selector).parent(parentSelector);
+```
+
+##### next()
+
+_Get the next element as a Grindstone object._
+_Only get the element if it matches the selector (optional)._
+
+```
+$(selector).next();
+$(selector).next(nextSelector);
+```
+
+##### prev()
+
+_Get the previous element as a Grindstone object._
+_Only get the element if it matches the selector (optional)._
+
+```
+$(selector).prev();
+$(selector).prev(prevSelector);
+```
+
+##### children()
+
+_Get the child elements as a Grindstone object._
+_Only get the elements if they match the selector (optional)._
+
+```
+$(selector).children();
+$(selector).children(childSelector);
+```
+
+##### contents()
+
+_Get all the children as a Grindstone object, including text and comments._
+
+```
+$(selector).contents();
 ```
 
 ##### trigger()
