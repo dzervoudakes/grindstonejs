@@ -606,7 +606,7 @@
 	};
 
 /**
- * Excludes matching elements and includes not matching elements
+ * Excludes matching elements and includes non-matching elements
  * @param {string|function} filterBy - selector or callback function, return true to include
  * @returns {boolean} new instance of Grindstone with the reduced set of not matching elements
  */
@@ -1095,8 +1095,8 @@
 	};
 
 /**
- * Get the children elements as a Grindstone object
- * @param {string} selector - only get the element if it matches the selector, optional
+ * Get the child elements as a Grindstone object
+ * @param {string} selector - only get the elements if they match the selector, optional
  * @returns {object} children instance of Grindstone
  */
 
