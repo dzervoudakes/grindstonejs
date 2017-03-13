@@ -2,7 +2,7 @@
  * Grindstone JavaScript Library v2.2.0
  * https://github.com/dzervoudakes/GrindstoneJS
  * 
- * Copyright (c) 2014, 2017 Dan Zervoudakes
+ * Copyright (c) 2014, 2017 Dan Zervoudakes and contributors
  * Released under the MIT license
  * https://github.com/dzervoudakes/GrindstoneJS/blob/master/LICENSE
  */
@@ -48,7 +48,7 @@
 				set.push(selector);
 			}
 		}
-		this.set = set; // Backwards compatibility.
+		this.set = set; // backwards compatibility
 		return this;
 	};
 
@@ -71,7 +71,7 @@
 		return 'ontouchend' in d ? touchEvt : mouseEvt;
 	};
 
-	// This also returns true for Grindstone objects.
+	// this also returns true for Grindstone objects
 	priv.isElementArray = function(obj) {
 		return obj instanceof Array
 	};
@@ -606,7 +606,7 @@
 	};
 
 /**
- * Excludes matching elements and includes not matching elements.
+ * Excludes matching elements and includes not matching elements
  * @param {string|function} filterBy - selector or callback function, return true to include
  * @returns {boolean} new instance of Grindstone with the reduced set of not matching elements
  */
@@ -1049,6 +1049,20 @@
             }
         });
     };
+    
+    priv.children = function(set, nodeType, selector) {
+        var newSet = $();
+        for (var i = 0; i < set.length; i++) {
+            for (var child = set[i].firstChild; child; child = child.nextSibling) {
+                if (nodeType === undefined || nodeType === child.nodeType) {
+                    if (!selector || $(child).is(selector)) {
+                        newSet.push(child);
+                    }
+                }
+            }
+        }
+        return newSet;
+    };
 
 /**
  * Get the parent element as a Grindstone object
@@ -1080,20 +1094,6 @@
         return priv.elementProp(this, 'previousSibling', selector);
 	};
 
-    priv.children = function(set, nodeType, selector) {
-        var newSet = $();
-        for (var i = 0; i < set.length; i++) {
-            for (var child = set[i].firstChild; child; child = child.nextSibling) {
-                if (nodeType === undefined || nodeType === child.nodeType) {
-                    if (!selector || $(child).is(selector)) {
-                        newSet.push(child);
-                    }
-                }
-            }
-        }
-        return newSet;
-    };
-
 /**
  * Get the children elements as a Grindstone object
  * @param {string} selector - only get the element if it matches the selector, optional
@@ -1105,7 +1105,7 @@
 	};
 
 /**
- * Get all the children as a Grindstone object, including text and comments.
+ * Get all the children as a Grindstone object, including text and comments
  * @returns {object} children instance of Grindstone
  */
 

@@ -201,6 +201,11 @@
 						$('.test-input').focus(function() { console.log('focus'); });
 					};
 					
+					state.eventHandlers.getTest = function() {
+						var el = $('.empty-div').get(1);
+						console.log(el);
+					};
+					
 					state.eventHandlers.htmlTest = function() {
 						$(this).html('<p style="font-size: 24px;">test</p>');
 					};
@@ -254,7 +259,7 @@
 					var divs = $('div');
 					var emptyDivs = $('div', '#test-div');
 					
-					el.on(state.interaction(), state.eventHandlers.prependTest);
+					el.on(state.interaction(), state.eventHandlers.getTest);
 					el2.on(state.interaction(), state.eventHandlers.removeTest);
 					
 					$('.mouseable').mouseable();
