@@ -2,7 +2,7 @@
 
 A lightweight jQuery alternative for modern browsers.
 
-http://grindstonejs.drzwebdev.com/
+https://grindstonejs.drzwebdev.com/
 
 ```
 npm install grindstone
