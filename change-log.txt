@@ -14,7 +14,7 @@ Contributor(s): dzervoudakes
 
 v1.0.1
  
-- Slight bug fix for "hasClass()"
+- Slight bug fix for 'hasClass()'
 - Classes.js: made Reg Exp more specific/semantic to the module
  
 Date: 2/3/15
@@ -23,8 +23,8 @@ Contributor(s): dzervoudakes
 
 v1.1.0
  
-- Reformatted initialization - now to loop through collections, use "this.init()" format in all modules
-- Added "scrollTop()" method in "Scroll.js" module
+- Reformatted initialization - now to loop through collections, use 'this.init()' format in all modules
+- Added 'scrollTop()' method in 'Scroll.js' module
 - Updated the following modules: (expanded range of selectors to be appended/prepended)
  	- Append.js
  	- Prepend.js
@@ -44,7 +44,7 @@ Contributor(s): dzervoudakes
 
 v1.1.2
  
-- Updated "querySelector" to "querySelectorAll" for _context in Core.js
+- Updated 'querySelector' to 'querySelectorAll' for _context in Core.js
 
 Date: 2/12/15
 Changes Current Version: NO
@@ -60,7 +60,7 @@ Contributor(s): dzervoudakes
 
 v1.1.4
  
-- Fixed bug in Dimensions module where inputting "0" returned null
+- Fixed bug in Dimensions module where inputting '0' returned null
 - Updated CSS module to accept single properties for altering; no longer just the object
 
 Date: 3/5/15
@@ -69,9 +69,9 @@ Contributor(s): dzervoudakes
 
 v1.1.5
  
-- Changed "evt()" and "dropEvt()" to "on()" and "off()", respectively
+- Changed 'evt()' and 'dropEvt()' to 'on()' and 'off()', respectively
 - Per the changes above, edited mouseable(), doubleTap(), scroll() and resize()
-- Streamlined codebase in "NewEl.js"
+- Streamlined codebase in 'NewEl.js'
 
 Date: 3/20/15
 Changes Current Version: YES
@@ -87,7 +87,7 @@ Contributor(s): dzervoudakes
 
 v1.2.1
  
-- Added "wrap()" method, effectively changing "WrapInner.js" module to just "Wrap.js"
+- Added 'wrap()' method, effectively changing 'WrapInner.js' module to just 'Wrap.js'
 
 Date: 4/20/15
 Changes Current Version: NO
@@ -95,7 +95,7 @@ Contributor(s): dzervoudakes
 
 v1.2.2
  
-- Added "scrollTop()" method
+- Added 'scrollTop()' method
 
 Date: 4/24/15
 Changes Current Version: NO
@@ -103,7 +103,7 @@ Contributor(s): dzervoudakes
 
 v1.2.3
  
-- Increased support for "scrollTop()" method; originally this only worked on the "window" object
+- Increased support for 'scrollTop()' method; originally this only worked on the 'window' object
 
 Date: 4/27/15
 Changes Current Version: NO
@@ -111,7 +111,7 @@ Contributor(s): dzervoudakes
 
 v1.2.4
  
-- Increased support for "$.ajax()" method in the case of no server or localhost
+- Increased support for '$.ajax()' method in the case of no server or localhost
 
 Date: 5/12/15
 Changes Current Version: NO
@@ -196,7 +196,7 @@ Contributor(s): dzervoudakes
 
 v2.0.7
 
-- No functionality updates: replaced "double quotes" with 'single quotes' throughout the codebase for readability
+- No functionality updates: replaced double quotes with single quotes throughout the codebase for readability
 - Merged all scrolling methods into one module
 
 Date: 5/21/16
@@ -260,3 +260,11 @@ v3.0.0
 - rewrote each module in ES6
 - implemented transpiling with Babel
 - implemented JSDoc
+
+Date: 7/31/17
+Changes Current Version: NO
+Contributor(s): dzervoudakes
+
+v3.0.1
+
+- bug fix in 'offset'

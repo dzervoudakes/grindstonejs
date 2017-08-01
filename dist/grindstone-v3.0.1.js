@@ -1,5 +1,5 @@
 /**
- * Grindstone JavaScript Library v3.0.0
+ * Grindstone JavaScript Library v3.0.1
  * https://github.com/dzervoudakes/GrindstoneJS
  * 
  * Copyright (c) 2014, 2017 Dan Zervoudakes and contributors
@@ -982,13 +982,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					var offsetLeft = 0;
 					do {
 						if (!isNaN(el.offsetLeft)) offsetLeft += el.offsetLeft;
-					} while (el === el.offsetParent);
+					} while (el = el.offsetParent);
 					return offsetLeft;
 				} else if (position === 'top') {
 					var offsetTop = 0;
 					do {
 						if (!isNaN(el.offsetTop)) offsetTop += el.offsetTop;
-					} while (el === el.offsetParent);
+					} while (el = el.offsetParent);
 					return offsetTop;
 				}
 			}
