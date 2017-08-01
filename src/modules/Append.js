@@ -1,8 +1,15 @@
-/**
- * Append a new child element to the current object
- * @param {string|object} element
- * @returns {object} current instance of Grindstone
- */
+	/** @namespace Append */
+	
+	/**
+	 * @method append
+	 * @memberof Append
+	 * @param {object|string} element
+	 * @returns {object} current instance of Grindstone
+	 * @example
+	 * $('#selector').append('#element');
+	 * $('#selector').append('<p>Hello World</p>');
+	 * @description Append a new element or new content.
+	 */
 
 	$.fn.append = function(element) {
 		this.each(function() {
@@ -10,10 +17,10 @@
 				if (element.match(/(<).+(>)/)) {
 					this.innerHTML += element;
 				} else {
-					var self = this;
-					var dom = d.querySelectorAll(element);
+					const self = this;
+					let dom = d.querySelectorAll(element);
 					dom = Array.prototype.slice.call(dom);
-					dom.forEach(function(item) {
+					dom.forEach(item => {
 						self.appendChild(item);
 					});
 				}	

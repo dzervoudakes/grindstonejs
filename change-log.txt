@@ -250,3 +250,13 @@ v2.2.0
 - Minimal filtering and traversal
 - Minor tweaks
 - Clone all the elements in the set, return the new Grindstone object
+
+Date: 7/31/17
+Changes Current Version: YES
+Contributor(s): dzervoudakes
+
+v3.0.0
+
+- rewrote each module in ES6
+- implemented transpiling with Babel
+- implemented JSDoc

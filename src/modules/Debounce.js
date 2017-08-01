@@ -1,24 +1,29 @@
-/**
- * Debounce a given function
- * @param {function} fn - function to debounce
- * @param {number} wait - wait time in milliseconds
- * @param {boolean} immediate - invoke immediately?
- * @returns {function} invoke debounce
- */
+	/** @namespace Debounce */
+	
+	/**
+	 * @method debounce
+	 * @memberof Debounce
+	 * @param {function} fn function to debounce
+	 * @param {number} wait delay in ms
+	 * @param {boolean} immediate invoke immediately, optional
+	 * @returns {function}
+	 * @example $.debounce(function(){}, 300);
+	 * @description Debounce a given function.
+	 */
 
 	$.debounce = function(fn, wait, immediate) {
-	    var timeout;
-	    var debounce = function() {
-	        var context = this;
-	        var args = arguments;
-	        var later = function() {
-	            timeout = null;
-	            if (!immediate) fn.apply(context, args);
-	        };
-	        var callNow = immediate && !timeout;
-	        clearTimeout(timeout);
-	        timeout = setTimeout(later, wait);
-	        if (callNow) fn.apply(context, args);
-	    };
-	    return debounce;
+		let timeout;
+		const debounce = function() {
+			const context = this;
+			const args = arguments;
+			const later = () => {
+				timeout = null;
+				if (!immediate) fn.apply(context, args);
+			};
+			const callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if (callNow) fn.apply(context, args);
+		};
+		return debounce;
 	};

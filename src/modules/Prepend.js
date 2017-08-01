@@ -1,8 +1,15 @@
-/**
- * Prepend a new element or new content
- * @param {object|string} element
- * @returns {object} current instance of Grindstone
- */
+	/** @namespace Prepend */
+	
+	/**
+	 * @method prepend
+	 * @memberof Prepend
+	 * @param {object|string} element
+	 * @returns {object} current instance of Grindstone
+	 * @example
+	 * $('#selector').prepend('#element');
+	 * $('#selector').prepend('<p>Hello World</p>');
+	 * @description Prepend a new element or new content.
+	 */
 
 	$.fn.prepend = function(element) {
 		this.each(function() {
@@ -10,10 +17,10 @@
 				if (element.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterbegin', element);
 				} else {
-					var self = this;
-					var dom = d.querySelectorAll(element);
+					const self = this;
+					let dom = d.querySelectorAll(element);
 					dom = Array.prototype.slice.call(dom);
-					dom.forEach(function(item) {
+					dom.forEach(item => {
 						self.insertBefore(item, self.firstChild);
 					});
 				}

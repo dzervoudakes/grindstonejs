@@ -1,8 +1,13 @@
-/**
- * Insert new content before a target element
- * @param {string|object} content
- * @returns {object} current instance of Grindstone
- */
+	/** @namespace Insert */
+	
+	/**
+	 * @method before
+	 * @memberof Insert
+	 * @param {string|object} content
+	 * @returns {object} current instance of Grindstone
+	 * @example $('#selector').before('<p>Hello World</p>');
+	 * @description Insert new content before a target element.
+	 */
 
 	$.fn.before = function(content) {
 		this.each(function() {
@@ -10,10 +15,10 @@
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('beforebegin', content);
 				} else {
-					var self = this;
-					var dom = d.querySelectorAll(content);
+					const self = this;
+					let dom = d.querySelectorAll(content);
 					dom = Array.prototype.slice.call(dom);
-					dom.forEach(function(item) {
+					dom.forEach(item => {
 						self.parentNode.insertBefore(item, self);
 					});
 				}
@@ -24,11 +29,14 @@
 		return this;
 	};
 
-/**
- * Insert new content after a target element
- * @param {string|object} content
- * @returns {object} current instance of Grindstone
- */
+	/**
+	 * @method after
+	 * @memberof Insert
+	 * @param {string|object} content
+	 * @returns {object} current instance of Grindstone
+	 * @example $('#selector').after('<p>Hello World</p>');
+	 * @description Insert new content after a target element.
+	 */
 
 	$.fn.after = function(content) {
 		this.each(function() {
@@ -36,10 +44,10 @@
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterend', content);
 				} else {
-					var self = this;
-					var dom = d.querySelectorAll(content);
+					const self = this;
+					let dom = d.querySelectorAll(content);
 					dom = Array.prototype.slice.call(dom);
-					dom.forEach(function(item) {
+					dom.forEach(item => {
 						self.parentNode.insertBefore(item, self.nextSibling);
 					});
 				}

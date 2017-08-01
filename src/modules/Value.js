@@ -1,11 +1,18 @@
-/**
- * Return or assign the value of an element
- * @param {string} newValue - optional
- * @returns {object|string} current instance of Grindstone or the value of the first element in the set
- */
+	/** @namespace Value */
+	
+	/**
+	 * @method val
+	 * @memberof Value
+	 * @param {string} newValue optional
+	 * @returns {object|string} current instance of Grindstone or the value of the first element in the set
+	 * @example
+	 * $('#selector').val();
+	 * $('#selector').val('7');
+	 * @description Return or assign the value of an element.
+	 */
 
 	$.fn.val = function(newValue) {
-		if (typeof newValue === 'string') {
+		if (newValue && typeof newValue === 'string') {
 			this.each(function() {
 				this.value = newValue;
 			});

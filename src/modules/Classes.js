@@ -1,62 +1,76 @@
-/**
- * Determine if the elements have the specified class
- * @param {string} cls - className
- * @returns {boolean} true or false
- */
+	/** @namespace Classes */
+	
+	/**
+	 * @method hasClass
+	 * @memberof Classes
+	 * @param {string} cls className
+	 * @returns {boolean}
+	 * @example $('#selector').hasClass('example');
+	 * @description Determine if the elements have the specified class.
+	 */
 
 	$.fn.hasClass = function(cls) {
-		var hasCls;
+		let hasCls;
 		this.each(function() {
 			hasCls = this.classList.contains(cls);
 		});
 		return hasCls;
 	};
 
-/**
- * Add a class to the current set of elements
- * @param {string} cls - className
- * @returns {object} current instance of Grindstone
- */
+	/**
+	 * @method addClass
+	 * @memberof Classes
+	 * @param {string} cls className
+	 * @returns {object} current instance of Grindstone
+	 * @example $('#selector').addClass('example');
+	 * @description Add a class to the current set of elements.
+	 */
 
 	$.fn.addClass = function(cls) {
-		var classes = cls.split(' ');
+		const classes = cls.split(' ');
 		this.each(function() {
-			var self = this;
-			classes.forEach(function(clsName) {
+			const self = this;
+			classes.forEach(clsName => {
 				self.classList.add(clsName);
 			});
 		});
 		return this;
 	};
 
-/**
- * Remove a class from the current set of elements
- * @param {string} cls - className
- * @returns {object} current instance of Grindstone
- */
+	/**
+	 * @method removeClass
+	 * @memberof Classes
+	 * @param {string} cls className
+	 * @returns {object} current instance of Grindstone
+	 * @example $('#selector').removeClass('example');
+	 * @description Remove a class from the current set of elements.
+	 */
 
 	$.fn.removeClass = function(cls) {
-		var classes = cls.split(' ');
+		const classes = cls.split(' ');
 		this.each(function() {
-			var self = this;
-			classes.forEach(function(clsName) {
+			const self = this;
+			classes.forEach(clsName => {
 				self.classList.remove(clsName);
 			});
 		});
 		return this;
 	};
 
-/**
- * Toggle the specified class
- * @param {string} cls - className
- * @returns {object} current instance of Grindstone
- */
+	/**
+	 * @method toggleClass
+	 * @memberof Classes
+	 * @param {string} cls className
+	 * @returns {object} current instance of Grindstone
+	 * @example $('#selector').toggleClass('example');
+	 * @description Toggle the specified class.
+	 */
 
 	$.fn.toggleClass = function(cls) {
-		var classes = cls.split(' ');
+		const classes = cls.split(' ');
 		this.each(function() {
-			var self = this;
-			classes.forEach(function(clsName) {
+			const self = this;
+			classes.forEach(clsName => {
 				self.classList.toggle(clsName);
 			});
 		});

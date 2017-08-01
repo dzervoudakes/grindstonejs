@@ -1,15 +1,19 @@
-/**
- * Wrap the outer structure of the set of elements
- * @param {string} structure - HTML structure, opening tags only
- * @returns {object} current instance of Grindstone
- */
+	/** @namespace Wrap */
+	
+	/**
+	 * @method wrap
+	 * @memberof Wrap
+	 * @param {string} structure
+	 * @returns {object} current instance of Grindstone
+	 * @example $('#selector').wrap('<section class="outside"><div class="middle"><div class="inner">');
+	 * @description Wrap the outer structure of the set of elements.
+	 */
 
 	$.fn.wrap = function(structure) {
 		this.each(function() {
 			if (typeof structure === 'string') {
-				var contents = this.outerHTML;
-				var wrap = structure;
-				this.outerHTML = wrap + contents;
+				const contents = this.outerHTML;
+				this.outerHTML = structure + contents;
 			} else {
 				throw new Error('wrap() structure must be a string.');
 			}
@@ -17,18 +21,20 @@
 		return this;
 	};
 
-/**
- * Wrap the inner structure of the set of elements
- * @param {string} structure - HTML structure, opening tags only
- * @returns {object} current instance of Grindstone
- */
+	/**
+	 * @method wrapInner
+	 * @memberof Wrap
+	 * @param {string} structure
+	 * @returns {object} current instance of Grindstone
+	 * @example $('#selector').wrapInner('<section class="outside"><div class="middle"><div class="inner">');
+	 * @description Wrap the inner structure of the set of elements.
+	 */
 	
 	$.fn.wrapInner = function(structure) {
 		this.each(function() {
 			if (typeof structure === 'string') {
-				var contents = $(this).html();
-				var wrap = structure;
-				$(this).html(wrap + contents);
+				const contents = $(this).html();
+				$(this).html(structure + contents);
 			} else {
 				throw new Error('wrapInner() structure must be a string.');
 			}

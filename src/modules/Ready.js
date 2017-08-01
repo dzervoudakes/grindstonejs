@@ -1,8 +1,13 @@
-/**
- * Trigger a function when the DOM content is loaded
- * @param {function} callback
- * @returns {object} current instance of Grindstone
- */
+	/** @namespace Ready */
+	
+	/**
+	 * @method ready
+	 * @memberof Ready
+	 * @param {function} callback
+	 * @returns {object} current instance of Grindstone
+	 * @example $(document).ready(function(){});
+	 * @description Trigger a function when the DOM content is loaded.
+	 */
 
 	$.fn.ready = function(callback) {
 		if (typeof callback === 'function') {
@@ -13,11 +18,14 @@
 		return this;
 	};
 
-/**
- * Trigger a function on the load event
- * @param {function} callback
- * @returns {object} current instance of Grindstone
- */
+	/**
+	 * @method load
+	 * @memberof Ready
+	 * @param {function} callback
+	 * @returns {object} current instance of Grindstone
+	 * @example $(window).load(function(){});
+	 * @description Trigger a function on the load event.
+	 */
 
 	$.fn.load = function(callback) {
 		if (typeof callback === 'function') {

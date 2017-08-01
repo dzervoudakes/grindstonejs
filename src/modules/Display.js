@@ -1,45 +1,55 @@
-/**
- * Show a set of hidden elements
- * @param {delay} delay - in milliseconds, optional
- * @returns {object} current instance of Grindstone
- */
+	/** @namespace Display */
+	
+	/**
+	 * @method show
+	 * @memberof Display
+	 * @param {delay} delay ms, optional
+	 * @returns {object} current instance of Grindstone
+	 * @example
+	 * $('#selector').show();
+	 * $('#selector').show(100);
+	 * @description Show a set of hidden elements.
+	 */
 
 	$.fn.show = function(delay) {
 		if (delay) {
-			var self = this;
-			setTimeout(function() {
+			const self = this;
+			setTimeout(() => {
 				$.fn.show.call(self);
 			}, delay);
 		} else {
-			this.each(function() {
-				if (this.style.display === 'none') {
-					this.style.display = $(this).data('_prevdisplay') || '';
-					$(this).removeData('_prevdisplay');
+			this.each(item => {
+				if (item.style.display === 'none') {
+					item.style.display = $(item).data('_prevdisplay') || '';
+					$(item).removeData('_prevdisplay');
 				}
 			});
 		}
 		return this;
 	};
 
-/**
- * Hide a set of elements
- * @param {delay} delay - in milliseconds, optional
- * @returns {object} current instance of Grindstone
- */
+	/**
+	 * @method hide
+	 * @memberof Display
+	 * @param {delay} delay ms, optional
+	 * @returns {object} current instance of Grindstone
+	 * @example
+	 * $('#selector').hide();
+	 * $('#selector').hide(100);
+	 * @description Hide a set of elements.
+	 */
 
 	$.fn.hide = function(delay) {
 		if (delay) {
-			var self = this;
-			setTimeout(function() {
+			const self = this;
+			setTimeout(() => {
 				$.fn.hide.call(self);
 			}, delay);
 		} else {
-			this.each(function() {
-				if (this.style.display !== 'none') {
-					if (this.style.display) {
-						$(this).data('_prevdisplay', this.style.display);
-					}
-					this.style.display = 'none';
+			this.each(item => {
+				if (item.style.display !== 'none') {
+					if (item.style.display) $(item).data('_prevdisplay', item.style.display);
+					item.style.display = 'none';
 				}
 			});
 		}

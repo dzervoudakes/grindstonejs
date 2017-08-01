@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v2.2.0.js"></script>
+		<script src="../dist/grindstone-v3.0.0.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -149,25 +149,24 @@
 							method: 'GET',
 							url: 'ajax-test.html',
 							async: true,
-							success: function(xmlhttp) {
-								var text = xmlhttp.responseText;
+							success: function(xhr) {
+								var text = xhr.responseText;
 								state.dom.$emptyArticle.html(text);
 							},
-							error: function(xmlhttp) {
-								console.log(xmlhttp);
+							error: function(xhr) {
+								console.log(xhr);
 							}
 						});
 					};
 					
 					state.eventHandlers.appendTest = function() {
-						//state.dom.$emptyArticle.append('<div class="append-test">');
-						state.dom.$emptyArticle.append('#btn2');
+						state.dom.$emptyArticle.append('<div class="append-test">test</div>');
+						// state.dom.$emptyArticle.append('#btn2');
 					};
 					
 					state.eventHandlers.cloneTest = function() {
 						var el = $('#btn1').clone();
-						$('#test-div').append(el);
-						$(el).addClass('CLONED');
+						console.log(el);
 					};
 					
 					state.eventHandlers.contentsTest = function() {
@@ -189,7 +188,7 @@
 					};
 					
 					state.eventHandlers.dataTest2 = function() {
-						$(state.dom.btn2).removeData('clicked');
+						$(state.dom.btn1).removeData('clicked');
 					};
 					
 					state.eventHandlers.debounceTest = $.debounce(function() {
@@ -202,7 +201,7 @@
 					});
 					
 					state.eventHandlers.focusTest = function() {
-						//$('.test-input').focus();
+						// $('.test-input').focus();
 						$('.test-input').focus(function() { console.log('focus'); });
 					};
 					
@@ -253,8 +252,8 @@
 					};
 					
 					state.eventHandlers.submitTest = function() {
-						//$('.test-form').submit();
-						$('.test-form').submit(function() { alert('form submitted'); });
+						$('.test-form').submit();
+						// $('.test-form').submit(function() { alert('form submitted'); });
 					};
 					
 					state.eventHandlers.valueTest1 = function() {
@@ -264,6 +263,14 @@
 					state.eventHandlers.valueTest2 = function() {
 						var value = $('.test-input').val();
 						alert(value);
+					};
+
+					state.eventHandlers.wrapTest = function() {
+						$('#test-div').wrap('<section class="jeah"><div class="jeah">');
+					};
+
+					state.eventHandlers.wrapInnerTest = function() {
+						$('#test-div').wrapInner('<article class="jank">');
 					};
 				};
 				
@@ -276,11 +283,11 @@
 					var divs = $('div');
 					var emptyDivs = $('div', '#test-div');
 					
-					el.on(state.interaction(), state.eventHandlers.mapTest);
-					el2.on(state.interaction(), state.eventHandlers.removeTest);
+					el.on(state.interaction(), state.eventHandlers.cloneTest);
+					el2.on(state.interaction(), state.eventHandlers.wrapInnerTest);
 					
 					$('.mouseable').mouseable();
-					
+					// $('.mouseable').mouseable({ hoverClass: 'testing' });
 				};
 				
 				var init = function() {

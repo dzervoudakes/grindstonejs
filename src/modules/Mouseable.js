@@ -1,26 +1,24 @@
-/**
- * Create hover and active states
- * @param {object} classes - hoverClass => value, activeClass => value, optional
- * @returns {object} current instance of Grindstone
- */
+	/** @namespace Mouseable */
+	
+	/**
+	 * @method mouseable
+	 * @memberof Mouseable
+	 * @param {object} classes optional
+	 * @returns {object} current instance of Grindstone
+	 * @example
+	 * $('#selector').mouseable();
+	 * $('#selector').mouseable({ hoverClass: 'stuff', activeClass: 'things' });
+	 * @description Create hover and active states.
+	 */
 
 	$.fn.mouseable = function(classes) {
+
+		if (classes && typeof classes !== 'object') throw new Error('Classes parameter for mouseable() must be an object with properties "hoverClass" and/or "activeClass".');
+
+		const hoverClass  = classes && classes.hasOwnProperty('hoverClass')  ? classes['hoverClass']  : 'over';
+		const activeClass = classes && classes.hasOwnProperty('activeClass') ? classes['activeClass'] : 'down';
 		
-		var hoverClass, activeClass;
-		
-		if (classes) {
-			if (typeof classes === 'object') {
-				hoverClass  = priv.prop(classes, 'hoverClass')  ? classes['hoverClass']  : 'over';
-				activeClass = priv.prop(classes, 'activeClass') ? classes['activeClass'] : 'down';
-			} else {
-				throw new Error('Classes parameter for mouseable() must be an object with properties "hoverClass" and/or "activeClass".');
-			}
-		} else {
-			hoverClass  = 'over';
-			activeClass = 'down';
-		}
-		
-		var events = {
+		const events = {
 			hover:  priv.createInteraction('touchstart', 'mouseenter'),
 			remove: priv.createInteraction('touchend', 'mouseleave'),
 			down:   priv.createInteraction('touchstart', 'mousedown'),
@@ -28,18 +26,17 @@
 		};
 		
 		this.each(function() {
-
 			$(this)
-				.on(events.hover, function() {
+				.on(events.hover, () => {
 					$(this).addClass(hoverClass);
 				})
-				.on(events.remove, function() {
-					$(this).removeClass(hoverClass)
+				.on(events.remove, () => {
+					$(this).removeClass(hoverClass);
 				})
-				.on(events.down, function() {
+				.on(events.down, () => {
 					$(this).addClass(activeClass);
 				})
-				.on(events.up, function() {
+				.on(events.up, () => {
 					$(this).removeClass(activeClass);
 				});
 		});

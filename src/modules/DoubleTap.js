@@ -1,21 +1,26 @@
-/**
- * Trigger a function by double-tapping or double-clicking
- * @param {function} callback
- * @returns {object} current instance of Grindstone
- */
+	/** @namespace DoubleTap */
+	
+	/**
+	 * @method doubleTap
+	 * @memberof DoubleTap
+	 * @param {function} callback
+	 * @returns {object} current instance of Grindstone
+	 * @example $('#selector').doubleTap(function(){});
+	 * @description Trigger a function by double-tapping or double-clicking.
+	 */
 
 	$.fn.doubleTap = function(callback) {
-		var active, interaction;
+		let active, int;
 		this.each(function() {
 			active = false;
-			interaction = 'ontouchend' in d ? 'touchend' : 'click';
-			$(this).on(interaction, function() {
+			int = priv.createInteraction('touchend', 'click');
+			$(this).on(int, () => {
 				if (active) {
 					callback();
 					return active = false;
 				}
 				active = true;
-				setTimeout(function() {
+				setTimeout(() => {
 					return active = false;
 				}, 350);
 			});
