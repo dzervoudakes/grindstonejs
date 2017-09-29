@@ -1,5 +1,46 @@
-/**
- * Grindstone JavaScript Library v3.0.1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>grindstone-v3.0.2.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Ajax.html">Ajax</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Ajax.html#.ajax">ajax</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Append.html">Append</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Append.html#.append">append</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Attributes.html">Attributes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Attributes.html#.attr">attr</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Attributes.html#.hasAttr">hasAttr</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Attributes.html#.removeAttr">removeAttr</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Classes.html">Classes</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Classes.html#.addClass">addClass</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Classes.html#.hasClass">hasClass</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Classes.html#.removeClass">removeClass</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Classes.html#.toggleClass">toggleClass</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Clone.html">Clone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Clone.html#.clone">clone</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Core.html">Core</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Core.html#.Grindstone">Grindstone</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="CSS.html">CSS</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CSS.html#.css">css</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Data.html">Data</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Data.html#.data">data</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Data.html#.removeData">removeData</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Debounce.html">Debounce</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Debounce.html#.debounce">debounce</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Dimensions.html">Dimensions</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Dimensions.html#.height">height</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Dimensions.html#.width">width</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Display.html">Display</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Display.html#.hide">hide</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Display.html#.show">show</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="DoubleTap.html">DoubleTap</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="DoubleTap.html#.doubleTap">doubleTap</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Each.html">Each</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Each.html#.each">each</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Eq.html">Eq</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Eq.html#.eq">eq</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Events.html">Events</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Events.html#.off">off</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Events.html#.on">on</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Filtering.html">Filtering</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Filtering.html#.filter">filter</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Filtering.html#.first">first</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Filtering.html#.is">is</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Filtering.html#.last">last</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Filtering.html#.map">map</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Filtering.html#.not">not</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Focus.html">Focus</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Focus.html#.focus">focus</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Get.html">Get</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Get.html#.get">get</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="HTML.html">HTML</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="HTML.html#.html">html</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Insert.html">Insert</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Insert.html#.after">after</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Insert.html#.before">before</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Mouseable.html">Mouseable</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mouseable.html#.mouseable">mouseable</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Offset.html">Offset</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Offset.html#.offset">offset</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Prepend.html">Prepend</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Prepend.html#.prepend">prepend</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Ready.html">Ready</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Ready.html#.load">load</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Ready.html#.ready">ready</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Remove.html">Remove</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Remove.html#.remove">remove</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="ReplaceWith.html">ReplaceWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="ReplaceWith.html#.replaceWith">replaceWith</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Resize.html">Resize</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Resize.html#.resize">resize</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Scroll.html">Scroll</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Scroll.html#.scroll">scroll</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Scroll.html#.scrollLeft">scrollLeft</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Scroll.html#.scrollTop">scrollTop</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Submit.html">Submit</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Submit.html#.submit">submit</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Traversing.html">Traversing</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Traversing.html#.children">children</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Traversing.html#.contents">contents</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Traversing.html#.next">next</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Traversing.html#.parent">parent</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Traversing.html#.prev">prev</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Trigger.html">Trigger</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Trigger.html#.trigger">trigger</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Value.html">Value</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Value.html#.val">val</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Wrap.html">Wrap</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Wrap.html#.wrap">wrap</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Wrap.html#.wrapInner">wrapInner</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">grindstone-v3.0.2.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Grindstone JavaScript Library v3.0.2
  * https://github.com/dzervoudakes/GrindstoneJS
  * 
  * Copyright (c) 2014, 2017 Dan Zervoudakes and contributors
@@ -9,7 +50,7 @@
 
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" &amp;&amp; typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj &amp;&amp; typeof Symbol === "function" &amp;&amp; obj.constructor === Symbol &amp;&amp; obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 (function (w, d) {
 
@@ -74,7 +115,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	var priv = {
 		children: function children(set, nodeType, selector) {
 			var newSet = $();
-			for (var i = 0; i < set.length; i++) {
+			for (var i = 0; i &lt; set.length; i++) {
 				for (var child = set[i].firstChild; child; child = child.nextSibling) {
 					if (nodeType === undefined || nodeType === child.nodeType) {
 						if (!selector || $(child).is(selector)) newSet.push(child);
@@ -175,14 +216,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @returns {object} current instance of Grindstone
   * @example
   * $('#selector').append('#element');
-  * $('#selector').append('<p>Hello World</p>');
+  * $('#selector').append('&lt;p>Hello World&lt;/p>');
   * @description Append a new element or new content.
   */
 
 	$.fn.append = function (element) {
 		this.each(function () {
 			if (typeof element === 'string') {
-				if (element.match(/(<).+(>)/)) {
+				if (element.match(/(&lt;).+(>)/)) {
 					this.innerHTML += element;
 				} else {
 					var self = this;
@@ -283,7 +324,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				stl.forEach(function (key) {
 					self.style[key] = styles[key];
 				});
-			} else if (typeof styles === 'string' && (value === undefined || value === null)) {
+			} else if (typeof styles === 'string' &amp;&amp; (value === undefined || value === null)) {
 				returnedStyle = this.style[styles];
 				returnStyle = true;
 			} else if (typeof styles === 'string') {
@@ -455,7 +496,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				timeout = null;
 				if (!immediate) fn.apply(context, args);
 			};
-			var callNow = immediate && !timeout;
+			var callNow = immediate &amp;&amp; !timeout;
 			clearTimeout(timeout);
 			timeout = setTimeout(later, wait);
 			if (callNow) fn.apply(context, args);
@@ -594,11 +635,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	$.fn.doubleTap = function (callback) {
 		var active = void 0,
-		    int = void 0;
+		    interaction = void 0;
 		this.each(function () {
 			active = false;
-			int = priv.createInteraction('touchend', 'click');
-			$(this).on(int, function () {
+			interaction = priv.createInteraction('touchend', 'click');
+			$(this).on(interaction, function () {
 				if (active) {
 					callback();
 					return active = false;
@@ -708,11 +749,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	$.fn.is = function (filterBy) {
 		if (typeof filterBy === 'function') {
-			for (var i = 0; i < this.length; i++) {
+			for (var i = 0; i &lt; this.length; i++) {
 				if (filterBy.call(this[i], i, this[i])) return true;
 			}
 		} else {
-			for (var _i = 0; _i < this.length; _i++) {
+			for (var _i = 0; _i &lt; this.length; _i++) {
 				if (this[_i][priv.matchesFuncName](filterBy)) return true;
 			}
 		}
@@ -730,9 +771,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	$.fn.map = function (callback) {
 		var newSet = $();
-		for (var i = 0; i < this.length; i++) {
+		for (var i = 0; i &lt; this.length; i++) {
 			var ret = callback.call(this[i]);
-			if (ret !== undefined && ret !== null) newSet.push(ret);
+			if (ret !== undefined &amp;&amp; ret !== null) newSet.push(ret);
 		}
 		return newSet;
 	};
@@ -839,7 +880,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @returns {object|string} current instance of Grindstone or current innerHTML of an element
   * @example
   * $('#selector').html();
-  * $('#selector').html('<p>Hello World</p>');
+  * $('#selector').html('&lt;p>Hello World&lt;/p>');
   * @description Replace an element's innerHTML or return the current innerHTML.
   */
 
@@ -862,14 +903,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @memberof Insert
   * @param {string|object} content
   * @returns {object} current instance of Grindstone
-  * @example $('#selector').before('<p>Hello World</p>');
+  * @example $('#selector').before('&lt;p>Hello World&lt;/p>');
   * @description Insert new content before a target element.
   */
 
 	$.fn.before = function (content) {
 		this.each(function () {
 			if (typeof content === 'string') {
-				if (content.match(/(<).+(>)/)) {
+				if (content.match(/(&lt;).+(>)/)) {
 					this.insertAdjacentHTML('beforebegin', content);
 				} else {
 					var self = this;
@@ -891,14 +932,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @memberof Insert
   * @param {string|object} content
   * @returns {object} current instance of Grindstone
-  * @example $('#selector').after('<p>Hello World</p>');
+  * @example $('#selector').after('&lt;p>Hello World&lt;/p>');
   * @description Insert new content after a target element.
   */
 
 	$.fn.after = function (content) {
 		this.each(function () {
 			if (typeof content === 'string') {
-				if (content.match(/(<).+(>)/)) {
+				if (content.match(/(&lt;).+(>)/)) {
 					this.insertAdjacentHTML('afterend', content);
 				} else {
 					var self = this;
@@ -928,12 +969,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @description Create hover and active states.
   */
 
-	$.fn.mouseable = function (classes) {
+	$.fn.mouseable = function () {
+		var classes = arguments.length > 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : { hoverClass: 'over', activeClass: 'down' };
 
-		if (classes && (typeof classes === 'undefined' ? 'undefined' : _typeof(classes)) !== 'object') throw new Error('Classes parameter for mouseable() must be an object with properties "hoverClass" and/or "activeClass".');
 
-		var hoverClass = classes && classes.hasOwnProperty('hoverClass') ? classes['hoverClass'] : 'over';
-		var activeClass = classes && classes.hasOwnProperty('activeClass') ? classes['activeClass'] : 'down';
+		if (classes &amp;&amp; (typeof classes === 'undefined' ? 'undefined' : _typeof(classes)) !== 'object') throw new Error('Classes parameter for mouseable() must be an object with properties "hoverClass" and/or "activeClass".');
 
 		var events = {
 			hover: priv.createInteraction('touchstart', 'mouseenter'),
@@ -946,13 +986,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			var _this = this;
 
 			$(this).on(events.hover, function () {
-				$(_this).addClass(hoverClass);
+				$(_this).addClass(classes.hoverClass || 'over');
 			}).on(events.remove, function () {
-				$(_this).removeClass(hoverClass);
+				$(_this).removeClass(classes.hoverClass || 'over');
 			}).on(events.down, function () {
-				$(_this).addClass(activeClass);
+				$(_this).addClass(classes.activeClass || 'down');
 			}).on(events.up, function () {
-				$(_this).removeClass(activeClass);
+				$(_this).removeClass(classes.activeClass || 'down');
 			});
 		});
 
@@ -973,8 +1013,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   */
 
 	$.fn.offset = function (position) {
-		if (position && typeof position === 'string') {
-			if (position !== 'left' && position !== 'top') {
+		if (position &amp;&amp; typeof position === 'string') {
+			if (position !== 'left' &amp;&amp; position !== 'top') {
 				throw new Error('offset() position must be either "left" or "top".');
 			} else {
 				var el = this.set[0];
@@ -1006,14 +1046,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @returns {object} current instance of Grindstone
   * @example
   * $('#selector').prepend('#element');
-  * $('#selector').prepend('<p>Hello World</p>');
+  * $('#selector').prepend('&lt;p>Hello World&lt;/p>');
   * @description Prepend a new element or new content.
   */
 
 	$.fn.prepend = function (element) {
 		this.each(function () {
 			if (typeof element === 'string') {
-				if (element.match(/(<).+(>)/)) {
+				if (element.match(/(&lt;).+(>)/)) {
 					this.insertAdjacentHTML('afterbegin', element);
 				} else {
 					var self = this;
@@ -1106,7 +1146,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @memberof ReplaceWith
   * @param {object|string} content
   * @returns {object} current instance of Grindstone
-  * @example $('#selector').replaceWith('<p>Hello World</p>');
+  * @example $('#selector').replaceWith('&lt;p>Hello World&lt;/p>');
   * @description Replace an element with some other content.
   */
 
@@ -1374,7 +1414,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   */
 
 	$.fn.val = function (newValue) {
-		if (newValue && typeof newValue === 'string') {
+		if (newValue &amp;&amp; typeof newValue === 'string') {
 			this.each(function () {
 				this.value = newValue;
 			});
@@ -1391,7 +1431,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @memberof Wrap
   * @param {string} structure
   * @returns {object} current instance of Grindstone
-  * @example $('#selector').wrap('<section class="outside"><div class="middle"><div class="inner">');
+  * @example $('#selector').wrap('&lt;section class="outside">&lt;div class="middle">&lt;div class="inner">');
   * @description Wrap the outer structure of the set of elements.
   */
 
@@ -1412,7 +1452,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @memberof Wrap
   * @param {string} structure
   * @returns {object} current instance of Grindstone
-  * @example $('#selector').wrapInner('<section class="outside"><div class="middle"><div class="inner">');
+  * @example $('#selector').wrapInner('&lt;section class="outside">&lt;div class="middle">&lt;div class="inner">');
   * @description Wrap the inner structure of the set of elements.
   */
 
@@ -1429,4 +1469,22 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	return w.Grindstone = w.$ = $;
-})(window, document);
+})(window, document);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Sep 29 2017 17:56:38 GMT-0600 (MDT) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

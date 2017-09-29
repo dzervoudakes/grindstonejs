@@ -19,7 +19,7 @@
 			if (typeof styles === 'object') {
 				const self = this;
 				const stl = Object.keys(styles);
-				stl.forEach((key) => {
+				stl.forEach(key => {
 					self.style[key] = styles[key];
 				});
 			} else if (typeof styles === 'string' && (value === undefined || value === null)) {

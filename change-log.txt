@@ -268,3 +268,11 @@ Contributor(s): dzervoudakes
 v3.0.1
 
 - bug fix in 'offset'
+
+Date: 9/29/17
+Changes Current Version: NO
+Contributor(s): dzervoudakes
+
+v3.0.2
+
+- slight tweaks to variable and parameter declarations in CSS, Mouseable and DoubleTap modules

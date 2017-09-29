@@ -10,11 +10,11 @@
 	 */
 
 	$.fn.doubleTap = function(callback) {
-		let active, int;
+		let active, interaction;
 		this.each(function() {
 			active = false;
-			int = priv.createInteraction('touchend', 'click');
-			$(this).on(int, () => {
+			interaction = priv.createInteraction('touchend', 'click');
+			$(this).on(interaction, () => {
 				if (active) {
 					callback();
 					return active = false;

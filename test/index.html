@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v3.0.0.js"></script>
+		<script src="../dist/grindstone-v3.0.2.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -282,12 +282,14 @@
 					var buttonsArray = $('.btns');
 					var divs = $('div');
 					var emptyDivs = $('div', '#test-div');
+
+					// el.doubleTap(function() { alert('doubleTap works'); });
 					
-					el.on(state.interaction(), state.eventHandlers.cloneTest);
+					el.on(state.interaction(), state.eventHandlers.cssTest);
 					el2.on(state.interaction(), state.eventHandlers.wrapInnerTest);
 					
 					$('.mouseable').mouseable();
-					// $('.mouseable').mouseable({ hoverClass: 'testing' });
+					// $('.mouseable').mouseable({ hoverClass: 'test' });
 				};
 				
 				var init = function() {
