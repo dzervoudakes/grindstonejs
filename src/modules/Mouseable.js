@@ -1,6 +1,7 @@
 	/** @namespace Mouseable */
 	
 	/**
+	 * Create hover and active states.
 	 * @method mouseable
 	 * @memberof Mouseable
 	 * @param {object} classes optional
@@ -8,12 +9,9 @@
 	 * @example
 	 * $('#selector').mouseable();
 	 * $('#selector').mouseable({ hoverClass: 'stuff', activeClass: 'things' });
-	 * @description Create hover and active states.
 	 */
 
-	$.fn.mouseable = function(classes = { hoverClass: 'over', activeClass: 'down' }) {
-
-		if (classes && typeof classes !== 'object') throw new Error('Classes parameter for mouseable() must be an object with properties "hoverClass" and/or "activeClass".');
+	$.fn.mouseable = function({ hoverClass = 'over', activeClass = 'down' } = { hoverClass: 'over', activeClass: 'down' }) {
 		
 		const events = {
 			hover:  priv.createInteraction('touchstart', 'mouseenter'),
@@ -25,16 +23,16 @@
 		this.each(function() {
 			$(this)
 				.on(events.hover, () => {
-					$(this).addClass(classes.hoverClass || 'over');
+					$(this).addClass(hoverClass);
 				})
 				.on(events.remove, () => {
-					$(this).removeClass(classes.hoverClass || 'over');
+					$(this).removeClass(hoverClass);
 				})
 				.on(events.down, () => {
-					$(this).addClass(classes.activeClass || 'down');
+					$(this).addClass(activeClass);
 				})
 				.on(events.up, () => {
-					$(this).removeClass(classes.activeClass || 'down');
+					$(this).removeClass(activeClass);
 				});
 		});
 		

@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v3.0.2.js"></script>
+		<script src="../dist/grindstone-v3.0.3.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -160,8 +160,25 @@
 					};
 					
 					state.eventHandlers.appendTest = function() {
-						state.dom.$emptyArticle.append('<div class="append-test">test</div>');
-						// state.dom.$emptyArticle.append('#btn2');
+						// state.dom.$emptyArticle.append('<div class="append-test">test</div>');
+						state.dom.$emptyArticle.append('#btn2');
+					};
+
+					state.eventHandlers.attributesTest = function() {
+						console.log('has jank: ' + $('#btn1').hasAttr('jank'));
+						setTimeout(function() {
+							$('#btn1').attr('jank', 'clean all the things');
+						}, 1000);
+						setTimeout(function() {
+							console.log('has jank? ' + $('#btn1').hasAttr('jank') + ', ' + $('#btn1').attr('jank'));
+						}, 2000);
+						setTimeout(function() {
+							$('#btn1').removeAttr('jank');
+						}, 3000);
+					};
+
+					state.eventHandlers.childrenTest = function() {
+						console.log($('#test-div').children());
 					};
 					
 					state.eventHandlers.cloneTest = function() {
@@ -180,6 +197,9 @@
 							border: '3px solid blue',
 							borderRadius: '25px'
 						});
+						setTimeout(function() {
+							console.log($(state.dom.btn1).css('border'));
+						}, 500);
 					};
 					
 					state.eventHandlers.dataTest1 = function() {
@@ -199,6 +219,18 @@
 							console.log(curWidth);
 						});
 					});
+
+					state.eventHandlers.dimensionsTest = function() {
+						$('#btn1').width(400);
+						console.log('btn1 width: ' + $('#btn1').width());
+						$('#btn2').height(300);
+						console.log('btn2 height: ' + $('#btn2').height());
+					};
+
+					state.eventHandlers.displayTest = function() {
+						$('#btn1').hide();
+						$('#btn1').show(1000);
+					};
 					
 					state.eventHandlers.focusTest = function() {
 						// $('.test-input').focus();
@@ -213,10 +245,20 @@
 					state.eventHandlers.htmlTest = function() {
 						$(this).html('<p style="font-size: 24px;">test</p>');
 					};
+
+					state.eventHandlers.insertTest = function() {
+						$('#test-div').before('<p>Hello</p>').after('<p>World</p>')
+					};
+
+					state.eventHandlers.isTest = function() {
+						var test = $('.btns').is('#btn1');
+						var test2 = $('.btns').is('#btn3');
+						console.log(test, test2);
+					};
 					
 					state.eventHandlers.mapTest = function() {
 						$('#test-div').children().map(function() {
-							console.log(this);
+							$(this).attr('jank', 'mapped');
 						});
 					};
 					
@@ -285,11 +327,11 @@
 
 					// el.doubleTap(function() { alert('doubleTap works'); });
 					
-					el.on(state.interaction(), state.eventHandlers.cssTest);
+					el.on(state.interaction(), state.eventHandlers.wrapTest);
 					el2.on(state.interaction(), state.eventHandlers.wrapInnerTest);
 					
-					$('.mouseable').mouseable();
-					// $('.mouseable').mouseable({ hoverClass: 'test' });
+					// $('.mouseable').mouseable();
+					$('.mouseable').mouseable({ hoverClass: 'test' });
 				};
 				
 				var init = function() {

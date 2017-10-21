@@ -1,6 +1,7 @@
 	/** @namespace Append */
 	
 	/**
+	 * Append a new element or new content.
 	 * @method append
 	 * @memberof Append
 	 * @param {object|string} element
@@ -8,7 +9,6 @@
 	 * @example
 	 * $('#selector').append('#element');
 	 * $('#selector').append('<p>Hello World</p>');
-	 * @description Append a new element or new content.
 	 */
 
 	$.fn.append = function(element) {
@@ -17,11 +17,10 @@
 				if (element.match(/(<).+(>)/)) {
 					this.innerHTML += element;
 				} else {
-					const self = this;
 					let dom = d.querySelectorAll(element);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(item => {
-						self.appendChild(item);
+						this.appendChild(item);
 					});
 				}	
 			} else {

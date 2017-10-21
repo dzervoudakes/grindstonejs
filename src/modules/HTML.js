@@ -1,6 +1,7 @@
 	/** @namespace HTML */
 	
 	/**
+	 * Replace an element's innerHTML or return the current innerHTML.
 	 * @method html
 	 * @memberof HTML
 	 * @param {string} content optional
@@ -8,7 +9,6 @@
 	 * @example
 	 * $('#selector').html();
 	 * $('#selector').html('<p>Hello World</p>');
-	 * @description Replace an element's innerHTML or return the current innerHTML.
 	 */
 
 	$.fn.html = function(content) {

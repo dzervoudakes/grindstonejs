@@ -276,3 +276,12 @@ Contributor(s): dzervoudakes
 v3.0.2
 
 - slight tweaks to variable and parameter declarations in CSS, Mouseable and DoubleTap modules
+
+Date: 10/20/17
+Changes Current Version: NO
+Contributor(s): dzervoudakes
+
+v3.0.3
+
+- continued updating with ES6
+- removed @description tag from JSDoc comments

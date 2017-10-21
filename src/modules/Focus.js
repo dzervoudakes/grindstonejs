@@ -1,6 +1,7 @@
 	/** @namespace Focus */
 	
 	/**
+	 * Focus on the first element in the set or trigger a callback when some element is focused on.
 	 * @method focus
 	 * @memberof Focus
 	 * @param {function} callback optional
@@ -8,7 +9,6 @@
 	 * @example
 	 * $('#selector').focus();
 	 * $('#selector').focus(function(){});
-	 * @description Focus on the first element in the set or trigger a callback when some element is focused on.
 	 */
 	
 	$.fn.focus = function(callback) {

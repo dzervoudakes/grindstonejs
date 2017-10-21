@@ -1,6 +1,7 @@
 	/** @namespace Debounce */
 	
 	/**
+	 * Debounce a given function.
 	 * @method debounce
 	 * @memberof Debounce
 	 * @param {function} fn function to debounce
@@ -8,7 +9,6 @@
 	 * @param {boolean} immediate invoke immediately, optional
 	 * @returns {function}
 	 * @example $.debounce(function(){}, 300);
-	 * @description Debounce a given function.
 	 */
 
 	$.debounce = function(fn, wait, immediate) {

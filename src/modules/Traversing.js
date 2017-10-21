@@ -1,6 +1,7 @@
 	/** @namespace Traversing */
 	
 	/**
+	 * Get the parent element as a Grindstone object.
 	 * @method parent
 	 * @memberof Traversing
 	 * @param {string} selector only get the parent if it matches the selector, optional
@@ -8,7 +9,6 @@
 	 * @example
 	 * $('#selector').parent();
 	 * $('#selector').parent('.selector');
-	 * @description Get the parent element as a Grindstone object.
 	 */
 
 	$.fn.parent = function(selector) {
@@ -16,6 +16,7 @@
 	};
 
 	/**
+	 * Get the next element as a Grindstone object.
 	 * @method next
 	 * @memberof Traversing
 	 * @param {string} selector only get the element if it matches the selector, optional
@@ -23,7 +24,6 @@
 	 * @example
 	 * $('#selector').next();
 	 * $('#selector').next('.selector');
-	 * @description Get the next element as a Grindstone object.
 	 */
 
 	$.fn.next = function(selector) {
@@ -31,6 +31,7 @@
 	};
 
 	/**
+	 * Get the previous element as a Grindstone object.
 	 * @method prev
 	 * @memberof Traversing
 	 * @param {string} selector only get the element if it matches the selector, optional
@@ -38,7 +39,6 @@
 	 * @example
 	 * $('#selector').prev();
 	 * $('#selector').prev('.selector');
-	 * @description Get the previous element as a Grindstone object.
 	 */
 
 	$.fn.prev = function(selector) {
@@ -46,6 +46,7 @@
 	};
 
 	/**
+	 * Get the child elements as a Grindstone object.
 	 * @method children
 	 * @memberof Traversing
 	 * @param {string} selector only get the elements if they match the selector, optional
@@ -53,7 +54,6 @@
 	 * @example
 	 * $('#selector').children();
 	 * $('#selector').children('.selector');
-	 * @description Get the child elements as a Grindstone object.
 	 */
 
 	$.fn.children = function(selector) {
@@ -61,11 +61,11 @@
 	};
 
 	/**
+	 * Get all the children as a Grindstone object, including text and comments.
 	 * @method contents
 	 * @memberof Traversing
 	 * @returns {object} contents as a new instance of Grindstone
 	 * @example $('#selector').contents();
-	 * @description Get all the children as a Grindstone object, including text and comments.
 	 */
 
 	$.fn.contents = function() {

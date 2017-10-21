@@ -1,6 +1,7 @@
 	/** @namespace Dimensions */
 	
 	/**
+	 * Adjust the height of the selected elements or return the current height value of the first element in the set.
 	 * @method height
 	 * @memberof Dimensions
 	 * @param {number} num px, optional
@@ -8,7 +9,6 @@
 	 * @example
 	 * $('#selector').height();
 	 * $('#selector').height(30);
-	 * @description Adjust the height of the selected elements or return the current height value of the first element in the set.
 	 */
 
 	$.fn.height = function(num) {
@@ -18,10 +18,9 @@
 			});
 			return this;
 		} else {
-			const self = this.set[0];
-			if (self === d) {
+			if (this.set[0] === d) {
 				return d.body.clientHeight;
-			} else if (self === w) {
+			} else if (this.set[0] === w) {
 				return w.innerHeight;
 			} else {
 				return this.set[0].offsetHeight;
@@ -30,6 +29,7 @@
 	};
 
 	/**
+	 * Adjust the width of the selected elements or return the current width value of the first element in the set.
 	 * @method width
 	 * @memberof Dimensions
 	 * @param {number} num px, optional
@@ -37,7 +37,6 @@
 	 * @example
 	 * $('#selector').width();
 	 * $('#selector').width(30);
-	 * @description Adjust the width of the selected elements or return the current width value of the first element in the set.
 	 */
 
 	$.fn.width = function(num) {
@@ -47,10 +46,9 @@
 			});
 			return this;
 		} else {
-			const self = this.set[0];
-			if (self === d) {
+			if (this.set[0] === d) {
 				return d.body.clientWidth;
-			} else if (self === w) {
+			} else if (this.set[0] === w) {
 				return w.innerWidth;
 			} else {
 				return this.set[0].offsetWidth;

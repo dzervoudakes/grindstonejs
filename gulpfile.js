@@ -2,25 +2,21 @@ const gulp = require('gulp');
 const pkg = require('./package.json');
 const jsDocConf = require('./jsdoc.json');
 const $ = require('gulp-load-plugins')();
+const { stripIndents } = require('common-tags');
 
 // banners for output files
 const banners = {
-	max: [
-		'/**',
-		` * Grindstone JavaScript Library v${pkg.version}`,
-		` * ${pkg.repository.url}`,
-		' * ',
-		` * Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} and contributors`,
-		' * Released under the MIT license',
-		` * ${pkg.repository.url}/blob/master/LICENSE`,
-		' */',
-		'\n'
-	].join('\n'),
-	min: [
-		`/* Grindstone JavaScript Library v${pkg.version} |`,
-		`Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} and contributors |`,
-		`${pkg.repository.url}/blob/master/LICENSE */\n`
-	].join(' ')
+	max: stripIndents`
+		/**,
+		 * Grindstone JavaScript Library v${pkg.version}
+		 * ${pkg.repository.url}
+		 * 
+		 * Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} and contributors
+		 * Released under the MIT license
+		 * ${pkg.repository.url}/blob/master/LICENSE
+		 */
+	` + '\n\n',
+	min: `/* Grindstone JavaScript Library v${pkg.version} | Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} and contributors | ${pkg.repository.url}/blob/master/LICENSE */\n`
 };
 
 // clean output directory

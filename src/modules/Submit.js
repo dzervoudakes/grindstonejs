@@ -1,6 +1,7 @@
 	/** @namespace Submit */
 	
 	/**
+	 * Submit a form or trigger a function when a form is submitted.
 	 * @method submit
 	 * @memberof Submit
 	 * @param {function} callback optional
@@ -8,7 +9,6 @@
 	 * @example
 	 * $('#selector').submit();
 	 * $('#selector').submit(function(){});
-	 * @description Submit a form or trigger a function when a form is submitted.
 	 */
 	
 	$.fn.submit = function(callback) {

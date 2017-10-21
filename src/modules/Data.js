@@ -1,6 +1,7 @@
 	/** @namespace Data */
 	
 	/**
+	 * Assign a data-value to a set of elements or return the current value of an element.
 	 * @method data
 	 * @memberof Data
 	 * @param {string} valueName
@@ -9,7 +10,6 @@
 	 * @example
 	 * $('#selector').data('name');
 	 * $('#selector').data('name', 'value');
-	 * @description Assign a data-value to a set of elements or return the current value of an element.
 	 */
 
 	$.fn.data = function(valueName, newValue) {
@@ -28,12 +28,12 @@
 	};
 
 	/**
+	 * Remove a data-value from a set of elements.
 	 * @method removeData
 	 * @memberof Data
 	 * @param {string} valueName
 	 * @returns {object} current instance of Grindstone
 	 * @example $('#selector').removeData('name');
-	 * @description Remove a data-value from a set of elements.
 	 */
 
 	$.fn.removeData = function(valueName) {

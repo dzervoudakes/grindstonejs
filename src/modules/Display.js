@@ -1,6 +1,7 @@
 	/** @namespace Display */
 	
 	/**
+	 * Show a set of hidden elements.
 	 * @method show
 	 * @memberof Display
 	 * @param {delay} delay ms, optional
@@ -8,20 +9,18 @@
 	 * @example
 	 * $('#selector').show();
 	 * $('#selector').show(100);
-	 * @description Show a set of hidden elements.
 	 */
 
 	$.fn.show = function(delay) {
 		if (delay) {
-			const self = this;
 			setTimeout(() => {
-				$.fn.show.call(self);
+				$.fn.show.call(this);
 			}, delay);
 		} else {
-			this.each(item => {
-				if (item.style.display === 'none') {
-					item.style.display = $(item).data('_prevdisplay') || '';
-					$(item).removeData('_prevdisplay');
+			this.each(function() {
+				if (this.style.display === 'none') {
+					this.style.display = $(this).data('_prevdisplay') || '';
+					$(this).removeData('_prevdisplay');
 				}
 			});
 		}
@@ -29,6 +28,7 @@
 	};
 
 	/**
+	 * Hide a set of elements.
 	 * @method hide
 	 * @memberof Display
 	 * @param {delay} delay ms, optional
@@ -36,20 +36,18 @@
 	 * @example
 	 * $('#selector').hide();
 	 * $('#selector').hide(100);
-	 * @description Hide a set of elements.
 	 */
 
 	$.fn.hide = function(delay) {
 		if (delay) {
-			const self = this;
 			setTimeout(() => {
-				$.fn.hide.call(self);
+				$.fn.hide.call(this);
 			}, delay);
 		} else {
-			this.each(item => {
-				if (item.style.display !== 'none') {
-					if (item.style.display) $(item).data('_prevdisplay', item.style.display);
-					item.style.display = 'none';
+			this.each(function() {
+				if (this.style.display !== 'none') {
+					if (this.style.display) $(this).data('_prevdisplay', this.style.display);
+					this.style.display = 'none';
 				}
 			});
 		}

@@ -1,6 +1,7 @@
 	/** @namespace Attributes */
 	
 	/**
+	 * Set or return the value of the specified attribute.
 	 * @method attr
 	 * @memberof Attributes
 	 * @param {string} attribute
@@ -9,7 +10,6 @@
 	 * @example
 	 * $('#selector').attr('example');
 	 * $('#selector').attr('example', 'test');
-	 * @description Set or return the value of the specified attribute.
 	 */
 
 	$.fn.attr = function(attribute, value) {
@@ -25,12 +25,12 @@
 	};
 
 	/**
+	 * Determine if the current element has the specified attribute.
 	 * @method hasAttr
 	 * @memberof Attributes
 	 * @param {string} attribute
 	 * @returns {boolean}
 	 * @example $('#selector').hasAttr('example');
-	 * @description Determine if the current element has the specified attribute.
 	 */
 
 	$.fn.hasAttr = function(attribute) {
@@ -42,12 +42,12 @@
 	};
 
 	/**
+	 * Remove the the specified attribute.
 	 * @method removeAttr
 	 * @memberof Attributes
 	 * @param {string} attribute
 	 * @returns {object} current instance of Grindstone
 	 * @example $('#selector').removeAttr('example');
-	 * @description Remove the the specified attribute.
 	 */
 
 	$.fn.removeAttr = function(attribute) {

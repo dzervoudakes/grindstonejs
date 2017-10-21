@@ -1,11 +1,11 @@
-/**
- * Grindstone JavaScript Library v3.0.2
- * https://github.com/dzervoudakes/GrindstoneJS
- * 
- * Copyright (c) 2014, 2017 Dan Zervoudakes and contributors
- * Released under the MIT license
- * https://github.com/dzervoudakes/GrindstoneJS/blob/master/LICENSE
- */
+/**,
+* Grindstone JavaScript Library v3.0.3
+* https://github.com/dzervoudakes/GrindstoneJS
+* 
+* Copyright (c) 2014, 2017 Dan Zervoudakes and contributors
+* Released under the MIT license
+* https://github.com/dzervoudakes/GrindstoneJS/blob/master/LICENSE
+*/
 
 'use strict';
 
@@ -16,6 +16,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Core */
 
 	/**
+  * Create new instances of our constructor using familiar, jQuery-style syntax.
   * @function Grindstone
   * @memberof Core
   * @param {string|object} selector
@@ -24,7 +25,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('.selector');
   * $('.selector', '#container');
-  * @description Create new instances of our constructor using familiar, jQuery-style syntax.
   */
 
 	var Grindstone = function Grindstone(selector, context) {
@@ -74,13 +74,35 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	var priv = {
 		children: function children(set, nodeType, selector) {
 			var newSet = $();
-			for (var i = 0; i < set.length; i++) {
-				for (var child = set[i].firstChild; child; child = child.nextSibling) {
-					if (nodeType === undefined || nodeType === child.nodeType) {
-						if (!selector || $(child).is(selector)) newSet.push(child);
+			var _iteratorNormalCompletion = true;
+			var _didIteratorError = false;
+			var _iteratorError = undefined;
+
+			try {
+				for (var _iterator = set[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+					var item = _step.value;
+
+					for (var child = item.firstChild; child; child = child.nextSibling) {
+						if (nodeType === undefined || nodeType === child.nodeType) {
+							if (!selector || $(child).is(selector)) newSet.push(child);
+						}
+					}
+				}
+			} catch (err) {
+				_didIteratorError = true;
+				_iteratorError = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion && _iterator.return) {
+						_iterator.return();
+					}
+				} finally {
+					if (_didIteratorError) {
+						throw _iteratorError;
 					}
 				}
 			}
+
 			return newSet;
 		},
 		createInteraction: function createInteraction(touchEvt, mouseEvt) {
@@ -91,16 +113,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				var find = this;
 				while (true) {
 					var element = find[propName];
-					if (!element) {
-						break;
-					}
+					if (!element) break;
 					if (element.nodeType != 1) {
 						find = element;
 						continue;
 					}
-					if (!selector || $(element).is(selector)) {
-						return element;
-					}
+					if (!selector || $(element).is(selector)) return element;
 					break;
 				}
 			});
@@ -114,14 +132,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Ajax */
 
 	/**
-  * @method ajax
-  * @memberof Ajax
-  * @param {object} opts required, you may adhere to the default properties by passing in a blank object
-  * @returns {object} XMLHttpRequest
-  * @example
-  * $.ajax({});
-  * $.ajax({ opts: 'values' });
-  * @description
   * Submit a GET or POST AJAX request.
   * Acceptable properties of "opts" are:
   * - method (GET or POST)
@@ -131,16 +141,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * - error (callback to invoke if unsuccessful)
   * - header (adds a custom HTTP header to the request)
   * - headerValue (value of the custom HTTP header)
+  * @method ajax
+  * @memberof Ajax
+  * @param {object} opts "method" and "url" properties are required here
+  * @returns {object} XMLHttpRequest
+  * @example
+  * $.ajax({ method: 'GET', url: 'data/data.txt' });
   */
 
 	$.ajax = function (opts) {
 
 		if ((typeof opts === 'undefined' ? 'undefined' : _typeof(opts)) !== 'object') throw new Error('XHR properties are not properly defined.');
 
-		var _opts$method = opts.method,
-		    method = _opts$method === undefined ? null : _opts$method,
-		    _opts$url = opts.url,
-		    url = _opts$url === undefined ? null : _opts$url,
+		var method = opts.method,
+		    url = opts.url,
 		    _opts$async = opts.async,
 		    async = _opts$async === undefined ? true : _opts$async,
 		    _opts$success = opts.success,
@@ -169,6 +183,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Append */
 
 	/**
+  * Append a new element or new content.
   * @method append
   * @memberof Append
   * @param {object|string} element
@@ -176,20 +191,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').append('#element');
   * $('#selector').append('<p>Hello World</p>');
-  * @description Append a new element or new content.
   */
 
 	$.fn.append = function (element) {
 		this.each(function () {
+			var _this = this;
+
 			if (typeof element === 'string') {
 				if (element.match(/(<).+(>)/)) {
 					this.innerHTML += element;
 				} else {
-					var self = this;
 					var dom = d.querySelectorAll(element);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
-						self.appendChild(item);
+						_this.appendChild(item);
 					});
 				}
 			} else {
@@ -202,6 +217,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Attributes */
 
 	/**
+  * Set or return the value of the specified attribute.
   * @method attr
   * @memberof Attributes
   * @param {string} attribute
@@ -210,7 +226,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').attr('example');
   * $('#selector').attr('example', 'test');
-  * @description Set or return the value of the specified attribute.
   */
 
 	$.fn.attr = function (attribute, value) {
@@ -226,12 +241,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Determine if the current element has the specified attribute.
   * @method hasAttr
   * @memberof Attributes
   * @param {string} attribute
   * @returns {boolean}
   * @example $('#selector').hasAttr('example');
-  * @description Determine if the current element has the specified attribute.
   */
 
 	$.fn.hasAttr = function (attribute) {
@@ -243,12 +258,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Remove the the specified attribute.
   * @method removeAttr
   * @memberof Attributes
   * @param {string} attribute
   * @returns {object} current instance of Grindstone
   * @example $('#selector').removeAttr('example');
-  * @description Remove the the specified attribute.
   */
 
 	$.fn.removeAttr = function (attribute) {
@@ -261,6 +276,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace CSS */
 
 	/**
+  * Adjust the styles of selected elements or return the requested value.
   * @method css
   * @memberof CSS
   * @param {object|string} styles object with style properties or single style in a string
@@ -270,18 +286,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * $('#selector').style('display');
   * $('#selector').style('display', 'block');
   * $('#selector').style({ display: 'block', color: 'red' });
-  * @description Adjust the styles of selected elements or return the requested value.
   */
 
 	$.fn.css = function (styles, value) {
 		var returnedStyle = void 0,
 		    returnStyle = void 0;
 		this.each(function () {
+			var _this2 = this;
+
 			if ((typeof styles === 'undefined' ? 'undefined' : _typeof(styles)) === 'object') {
-				var self = this;
 				var stl = Object.keys(styles);
 				stl.forEach(function (key) {
-					self.style[key] = styles[key];
+					_this2.style[key] = styles[key];
 				});
 			} else if (typeof styles === 'string' && (value === undefined || value === null)) {
 				returnedStyle = this.style[styles];
@@ -296,12 +312,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Classes */
 
 	/**
+  * Determine if the elements have the specified class.
   * @method hasClass
   * @memberof Classes
   * @param {string} cls className
   * @returns {boolean}
   * @example $('#selector').hasClass('example');
-  * @description Determine if the elements have the specified class.
   */
 
 	$.fn.hasClass = function (cls) {
@@ -313,60 +329,63 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Add a class to the current set of elements.
   * @method addClass
   * @memberof Classes
   * @param {string} cls className
   * @returns {object} current instance of Grindstone
   * @example $('#selector').addClass('example');
-  * @description Add a class to the current set of elements.
   */
 
 	$.fn.addClass = function (cls) {
 		var classes = cls.split(' ');
 		this.each(function () {
-			var self = this;
+			var _this3 = this;
+
 			classes.forEach(function (clsName) {
-				self.classList.add(clsName);
+				_this3.classList.add(clsName);
 			});
 		});
 		return this;
 	};
 
 	/**
+  * Remove a class from the current set of elements.
   * @method removeClass
   * @memberof Classes
   * @param {string} cls className
   * @returns {object} current instance of Grindstone
   * @example $('#selector').removeClass('example');
-  * @description Remove a class from the current set of elements.
   */
 
 	$.fn.removeClass = function (cls) {
 		var classes = cls.split(' ');
 		this.each(function () {
-			var self = this;
+			var _this4 = this;
+
 			classes.forEach(function (clsName) {
-				self.classList.remove(clsName);
+				_this4.classList.remove(clsName);
 			});
 		});
 		return this;
 	};
 
 	/**
+  * Toggle the specified class.
   * @method toggleClass
   * @memberof Classes
   * @param {string} cls className
   * @returns {object} current instance of Grindstone
   * @example $('#selector').toggleClass('example');
-  * @description Toggle the specified class.
   */
 
 	$.fn.toggleClass = function (cls) {
 		var classes = cls.split(' ');
 		this.each(function () {
-			var self = this;
+			var _this5 = this;
+
 			classes.forEach(function (clsName) {
-				self.classList.toggle(clsName);
+				_this5.classList.toggle(clsName);
 			});
 		});
 		return this;
@@ -375,11 +394,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Clone */
 
 	/**
+  * Clone the elements in the set.
   * @method clone
   * @memberof Clone
   * @returns {object} current instance of Grindstone
   * @example $('#selector').clone();
-  * @description Clone the elements in the set.
   */
 
 	$.fn.clone = function () {
@@ -391,6 +410,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Data */
 
 	/**
+  * Assign a data-value to a set of elements or return the current value of an element.
   * @method data
   * @memberof Data
   * @param {string} valueName
@@ -399,7 +419,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').data('name');
   * $('#selector').data('name', 'value');
-  * @description Assign a data-value to a set of elements or return the current value of an element.
   */
 
 	$.fn.data = function (valueName, newValue) {
@@ -418,12 +437,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Remove a data-value from a set of elements.
   * @method removeData
   * @memberof Data
   * @param {string} valueName
   * @returns {object} current instance of Grindstone
   * @example $('#selector').removeData('name');
-  * @description Remove a data-value from a set of elements.
   */
 
 	$.fn.removeData = function (valueName) {
@@ -436,6 +455,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Debounce */
 
 	/**
+  * Debounce a given function.
   * @method debounce
   * @memberof Debounce
   * @param {function} fn function to debounce
@@ -443,7 +463,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @param {boolean} immediate invoke immediately, optional
   * @returns {function}
   * @example $.debounce(function(){}, 300);
-  * @description Debounce a given function.
   */
 
 	$.debounce = function (fn, wait, immediate) {
@@ -466,6 +485,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Dimensions */
 
 	/**
+  * Adjust the height of the selected elements or return the current height value of the first element in the set.
   * @method height
   * @memberof Dimensions
   * @param {number} num px, optional
@@ -473,7 +493,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').height();
   * $('#selector').height(30);
-  * @description Adjust the height of the selected elements or return the current height value of the first element in the set.
   */
 
 	$.fn.height = function (num) {
@@ -483,10 +502,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			});
 			return this;
 		} else {
-			var self = this.set[0];
-			if (self === d) {
+			if (this.set[0] === d) {
 				return d.body.clientHeight;
-			} else if (self === w) {
+			} else if (this.set[0] === w) {
 				return w.innerHeight;
 			} else {
 				return this.set[0].offsetHeight;
@@ -495,6 +513,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Adjust the width of the selected elements or return the current width value of the first element in the set.
   * @method width
   * @memberof Dimensions
   * @param {number} num px, optional
@@ -502,7 +521,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').width();
   * $('#selector').width(30);
-  * @description Adjust the width of the selected elements or return the current width value of the first element in the set.
   */
 
 	$.fn.width = function (num) {
@@ -512,10 +530,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			});
 			return this;
 		} else {
-			var self = this.set[0];
-			if (self === d) {
+			if (this.set[0] === d) {
 				return d.body.clientWidth;
-			} else if (self === w) {
+			} else if (this.set[0] === w) {
 				return w.innerWidth;
 			} else {
 				return this.set[0].offsetWidth;
@@ -526,6 +543,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Display */
 
 	/**
+  * Show a set of hidden elements.
   * @method show
   * @memberof Display
   * @param {delay} delay ms, optional
@@ -533,20 +551,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').show();
   * $('#selector').show(100);
-  * @description Show a set of hidden elements.
   */
 
 	$.fn.show = function (delay) {
+		var _this6 = this;
+
 		if (delay) {
-			var self = this;
 			setTimeout(function () {
-				$.fn.show.call(self);
+				$.fn.show.call(_this6);
 			}, delay);
 		} else {
-			this.each(function (item) {
-				if (item.style.display === 'none') {
-					item.style.display = $(item).data('_prevdisplay') || '';
-					$(item).removeData('_prevdisplay');
+			this.each(function () {
+				if (this.style.display === 'none') {
+					this.style.display = $(this).data('_prevdisplay') || '';
+					$(this).removeData('_prevdisplay');
 				}
 			});
 		}
@@ -554,6 +572,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Hide a set of elements.
   * @method hide
   * @memberof Display
   * @param {delay} delay ms, optional
@@ -561,20 +580,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').hide();
   * $('#selector').hide(100);
-  * @description Hide a set of elements.
   */
 
 	$.fn.hide = function (delay) {
+		var _this7 = this;
+
 		if (delay) {
-			var self = this;
 			setTimeout(function () {
-				$.fn.hide.call(self);
+				$.fn.hide.call(_this7);
 			}, delay);
 		} else {
-			this.each(function (item) {
-				if (item.style.display !== 'none') {
-					if (item.style.display) $(item).data('_prevdisplay', item.style.display);
-					item.style.display = 'none';
+			this.each(function () {
+				if (this.style.display !== 'none') {
+					if (this.style.display) $(this).data('_prevdisplay', this.style.display);
+					this.style.display = 'none';
 				}
 			});
 		}
@@ -584,12 +603,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace DoubleTap */
 
 	/**
+  * Trigger a function by double-tapping or double-clicking.
   * @method doubleTap
   * @memberof DoubleTap
   * @param {function} callback
   * @returns {object} current instance of Grindstone
   * @example $('#selector').doubleTap(function(){});
-  * @description Trigger a function by double-tapping or double-clicking.
   */
 
 	$.fn.doubleTap = function (callback) {
@@ -615,12 +634,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Each */
 
 	/**
+  * Iterate through each item in the set and execute the callback.
   * @method each
   * @memberof Each
   * @param {function} callback
   * @returns {object} current instance of Grindstone
   * @example $('.selector').each(function(){});
-  * @description Iterate through each item in the set and execute the callback.
   */
 
 	$.fn.each = function (callback) {
@@ -635,12 +654,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Eq */
 
 	/**
+  * Return the DOM element at the specified index of the current as a new instance of Grindstone.
   * @method eq
   * @memberof Eq
   * @param {number} index
   * @returns {object} new set in a Grindstone instance containing the specified element
   * @example $('.selector').eq(2);
-  * @description Return the DOM element at the specified index of the current as a new instance of Grindstone.
   */
 
 	$.fn.eq = function (index) {
@@ -650,6 +669,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Events */
 
 	/**
+  * Assign an event listener.
   * @method on
   * @memberof Events
   * @param {string} action event(s)
@@ -658,21 +678,22 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').on('change', function(){});
   * $('#selector').on('click touchend', function(){});
-  * @description Assign an event listener.
   */
 
 	$.fn.on = function (action, callback) {
 		this.each(function () {
-			var self = this;
+			var _this8 = this;
+
 			var events = action.split(' ');
 			events.forEach(function (evt) {
-				self.addEventListener(evt, callback, false);
+				_this8.addEventListener(evt, callback, false);
 			});
 		});
 		return this;
 	};
 
 	/**
+  * Remove an event listener.
   * @method off
   * @memberof Events
   * @param {string} action event(s)
@@ -681,15 +702,15 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').off('change', function(){});
   * $('#selector').off('click touchend', function(){});
-  * @description Remove an event listener.
   */
 
 	$.fn.off = function (action, callback) {
 		this.each(function () {
-			var self = this;
+			var _this9 = this;
+
 			var events = action.split(' ');
 			events.forEach(function (evt) {
-				self.removeEventListener(evt, callback, false);
+				_this9.removeEventListener(evt, callback, false);
 			});
 		});
 		return this;
@@ -698,52 +719,116 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Filtering */
 
 	/**
+  * Check if any of the elements match the given selector or callback function.
   * @method is
   * @memberof Filtering
   * @param {string|function} filterBy selector or callback function, return true to include
   * @returns {boolean} true if at least one of the elements matches the given selector
   * @example $('.selector').is('.visible');
-  * @description Check if any of the elements match the given selector or callback function.
   */
 
 	$.fn.is = function (filterBy) {
 		if (typeof filterBy === 'function') {
-			for (var i = 0; i < this.length; i++) {
-				if (filterBy.call(this[i], i, this[i])) return true;
+			var _iteratorNormalCompletion2 = true;
+			var _didIteratorError2 = false;
+			var _iteratorError2 = undefined;
+
+			try {
+				for (var _iterator2 = this[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+					var item = _step2.value;
+
+					if (filterBy.call(item, this.indexOf(item), item)) return true;
+				}
+			} catch (err) {
+				_didIteratorError2 = true;
+				_iteratorError2 = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion2 && _iterator2.return) {
+						_iterator2.return();
+					}
+				} finally {
+					if (_didIteratorError2) {
+						throw _iteratorError2;
+					}
+				}
 			}
 		} else {
-			for (var _i = 0; _i < this.length; _i++) {
-				if (this[_i][priv.matchesFuncName](filterBy)) return true;
+			var _iteratorNormalCompletion3 = true;
+			var _didIteratorError3 = false;
+			var _iteratorError3 = undefined;
+
+			try {
+				for (var _iterator3 = this[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+					var _item = _step3.value;
+
+					if (_item[priv.matchesFuncName](filterBy)) return true;
+				}
+			} catch (err) {
+				_didIteratorError3 = true;
+				_iteratorError3 = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion3 && _iterator3.return) {
+						_iterator3.return();
+					}
+				} finally {
+					if (_didIteratorError3) {
+						throw _iteratorError3;
+					}
+				}
 			}
 		}
 		return false;
 	};
 
 	/**
+  * Map each element to an array of values.
   * @method map
   * @memberof Filtering
   * @param {function} callback return the value to be included, or null or undefined to skip
   * @returns {object} Grindstone object of included values returned from the callback
-  * @example $(array).map(function(){});
-  * @description Map each element to an array of values.
+  * @example $(array).map(function(item){});
   */
 
 	$.fn.map = function (callback) {
 		var newSet = $();
-		for (var i = 0; i < this.length; i++) {
-			var ret = callback.call(this[i]);
-			if (ret !== undefined && ret !== null) newSet.push(ret);
+		var _iteratorNormalCompletion4 = true;
+		var _didIteratorError4 = false;
+		var _iteratorError4 = undefined;
+
+		try {
+			for (var _iterator4 = this[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+				var item = _step4.value;
+
+				var ret = callback.call(item);
+				if (ret !== undefined && ret !== null) newSet.push(ret);
+			}
+		} catch (err) {
+			_didIteratorError4 = true;
+			_iteratorError4 = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion4 && _iterator4.return) {
+					_iterator4.return();
+				}
+			} finally {
+				if (_didIteratorError4) {
+					throw _iteratorError4;
+				}
+			}
 		}
+
 		return newSet;
 	};
 
 	/**
+  * Filter the elements by the selector or callback function.
   * @method filter
   * @memberof Filtering
   * @param {string|function} filterBy selector or callback function, return true to include
   * @returns {object} new instance of Grindstone with the reduced set of matching elements
   * @example $('.selector').filter('.visible');
-  * @description Filter the elements by the selector or callback function.
   */
 
 	$.fn.filter = function (filterBy) {
@@ -753,12 +838,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Excludes matching elements and includes non-matching elements.
   * @method not
   * @memberof Filtering
   * @param {string|function} filterBy selector or callback function, return true to include
   * @returns {object} new instance of Grindstone with the reduced set of not matching elements
   * @example $('.selector').not('.hidden');
-  * @description Excludes matching elements and includes non-matching elements.
   */
 
 	$.fn.not = function (filterBy) {
@@ -768,11 +853,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Get the first element.
   * @method first
   * @memberof Filtering
   * @returns {object} new instance of Grindstone with the first element of the original set
   * @example $('.selector').first();
-  * @description Get the first element.
   */
 
 	$.fn.first = function () {
@@ -780,11 +865,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Get the last element.
   * @method last
   * @memberof Filtering
   * @returns {object} new instance of Grindstone with the last element of the original set
   * @example $('.selector').last();
-  * @description Get the last element.
   */
 
 	$.fn.last = function () {
@@ -794,6 +879,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Focus */
 
 	/**
+  * Focus on the first element in the set or trigger a callback when some element is focused on.
   * @method focus
   * @memberof Focus
   * @param {function} callback optional
@@ -801,7 +887,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').focus();
   * $('#selector').focus(function(){});
-  * @description Focus on the first element in the set or trigger a callback when some element is focused on.
   */
 
 	$.fn.focus = function (callback) {
@@ -818,12 +903,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Get */
 
 	/**
+  * Return the DOM element at the specified index of the current set.
   * @method get
   * @memberof Get
   * @param {number} index
   * @returns {object} the DOM element
   * @example $('.selector').get(2);
-  * @description Return the DOM element at the specified index of the current set.
   */
 
 	$.fn.get = function (index) {
@@ -833,6 +918,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace HTML */
 
 	/**
+  * Replace an element's innerHTML or return the current innerHTML.
   * @method html
   * @memberof HTML
   * @param {string} content optional
@@ -840,7 +926,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').html();
   * $('#selector').html('<p>Hello World</p>');
-  * @description Replace an element's innerHTML or return the current innerHTML.
   */
 
 	$.fn.html = function (content) {
@@ -858,25 +943,26 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Insert */
 
 	/**
+  * Insert new content before a target element.
   * @method before
   * @memberof Insert
   * @param {string|object} content
   * @returns {object} current instance of Grindstone
   * @example $('#selector').before('<p>Hello World</p>');
-  * @description Insert new content before a target element.
   */
 
 	$.fn.before = function (content) {
 		this.each(function () {
+			var _this10 = this;
+
 			if (typeof content === 'string') {
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('beforebegin', content);
 				} else {
-					var self = this;
 					var dom = d.querySelectorAll(content);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
-						self.parentNode.insertBefore(item, self);
+						_this10.parentNode.insertBefore(item, self);
 					});
 				}
 			} else {
@@ -887,25 +973,26 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Insert new content after a target element.
   * @method after
   * @memberof Insert
   * @param {string|object} content
   * @returns {object} current instance of Grindstone
   * @example $('#selector').after('<p>Hello World</p>');
-  * @description Insert new content after a target element.
   */
 
 	$.fn.after = function (content) {
 		this.each(function () {
+			var _this11 = this;
+
 			if (typeof content === 'string') {
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterend', content);
 				} else {
-					var self = this;
 					var dom = d.querySelectorAll(content);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
-						self.parentNode.insertBefore(item, self.nextSibling);
+						_this11.parentNode.insertBefore(item, self.nextSibling);
 					});
 				}
 			} else {
@@ -918,6 +1005,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Mouseable */
 
 	/**
+  * Create hover and active states.
   * @method mouseable
   * @memberof Mouseable
   * @param {object} classes optional
@@ -925,14 +1013,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').mouseable();
   * $('#selector').mouseable({ hoverClass: 'stuff', activeClass: 'things' });
-  * @description Create hover and active states.
   */
 
 	$.fn.mouseable = function () {
-		var classes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { hoverClass: 'over', activeClass: 'down' };
-
-
-		if (classes && (typeof classes === 'undefined' ? 'undefined' : _typeof(classes)) !== 'object') throw new Error('Classes parameter for mouseable() must be an object with properties "hoverClass" and/or "activeClass".');
+		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { hoverClass: 'over', activeClass: 'down' },
+		    _ref$hoverClass = _ref.hoverClass,
+		    hoverClass = _ref$hoverClass === undefined ? 'over' : _ref$hoverClass,
+		    _ref$activeClass = _ref.activeClass,
+		    activeClass = _ref$activeClass === undefined ? 'down' : _ref$activeClass;
 
 		var events = {
 			hover: priv.createInteraction('touchstart', 'mouseenter'),
@@ -942,16 +1030,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		};
 
 		this.each(function () {
-			var _this = this;
+			var _this12 = this;
 
 			$(this).on(events.hover, function () {
-				$(_this).addClass(classes.hoverClass || 'over');
+				$(_this12).addClass(hoverClass);
 			}).on(events.remove, function () {
-				$(_this).removeClass(classes.hoverClass || 'over');
+				$(_this12).removeClass(hoverClass);
 			}).on(events.down, function () {
-				$(_this).addClass(classes.activeClass || 'down');
+				$(_this12).addClass(activeClass);
 			}).on(events.up, function () {
-				$(_this).removeClass(classes.activeClass || 'down');
+				$(_this12).removeClass(activeClass);
 			});
 		});
 
@@ -961,6 +1049,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Offset */
 
 	/**
+  * Return the left or top value of the selector, relative to the document.
   * @method offset
   * @memberof Offset
   * @param {string} position 'left' or 'top'
@@ -968,7 +1057,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').offset('left');
   * $('#selector').offset('right');
-  * @description Return the left or top value of the selector, relative to the document.
   */
 
 	$.fn.offset = function (position) {
@@ -999,6 +1087,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Prepend */
 
 	/**
+  * Prepend a new element or new content.
   * @method prepend
   * @memberof Prepend
   * @param {object|string} element
@@ -1006,20 +1095,20 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').prepend('#element');
   * $('#selector').prepend('<p>Hello World</p>');
-  * @description Prepend a new element or new content.
   */
 
 	$.fn.prepend = function (element) {
 		this.each(function () {
+			var _this13 = this;
+
 			if (typeof element === 'string') {
 				if (element.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterbegin', element);
 				} else {
-					var self = this;
 					var dom = d.querySelectorAll(element);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
-						self.insertBefore(item, self.firstChild);
+						_this13.insertBefore(item, self.firstChild);
 					});
 				}
 			} else {
@@ -1032,12 +1121,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Ready */
 
 	/**
+  * Trigger a function when the DOM content is loaded.
   * @method ready
   * @memberof Ready
   * @param {function} callback
   * @returns {object} current instance of Grindstone
   * @example $(document).ready(function(){});
-  * @description Trigger a function when the DOM content is loaded.
   */
 
 	$.fn.ready = function (callback) {
@@ -1050,12 +1139,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Trigger a function on the load event.
   * @method load
   * @memberof Ready
   * @param {function} callback
   * @returns {object} current instance of Grindstone
   * @example $(window).load(function(){});
-  * @description Trigger a function on the load event.
   */
 
 	$.fn.load = function (callback) {
@@ -1070,6 +1159,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Remove */
 
 	/**
+  * Remove elements from the DOM.
   * @method remove
   * @memberof Remove
   * @param {object} target element(s), optional
@@ -1077,7 +1167,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').remove();
   * $('#selector').remove('.selector');
-  * @description Remove elements from the DOM.
   */
 
 	$.fn.remove = function (target) {
@@ -1085,9 +1174,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			var elems = d.querySelectorAll(target);
 			elems = Array.prototype.slice.call(elems);
 			this.each(function () {
-				var self = this;
+				var _this14 = this;
+
 				elems.forEach(function (el) {
-					self.removeChild(el);
+					_this14.removeChild(el);
 				});
 			});
 		} else {
@@ -1101,12 +1191,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace ReplaceWith */
 
 	/**
+  * Replace an element with some other content.
   * @method replaceWith
   * @memberof ReplaceWith
   * @param {object|string} content
   * @returns {object} current instance of Grindstone
   * @example $('#selector').replaceWith('<p>Hello World</p>');
-  * @description Replace an element with some other content.
   */
 
 	$.fn.replaceWith = function (content) {
@@ -1119,12 +1209,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Resize */
 
 	/**
+  * Capture the resize event from a set of elements and execute a function.
   * @method resize
   * @memberof Resize
   * @param {function} callback
   * @returns {object} current instance of Grindstone
   * @example $(window).resize(function(){});
-  * @description Capture the resize event from a set of elements and execute a function.
   */
 
 	$.fn.resize = function (callback) {
@@ -1139,12 +1229,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Scroll */
 
 	/**
+  * Listen for the scroll event and trigger a function.
   * @method scroll
   * @memberof Scroll
   * @param {function} callback
   * @returns {object} current instance of Grindstone
   * @example $(window).scroll(function(){});
-  * @description Listen for the scroll event and trigger a function.
   */
 
 	$.fn.scroll = function (callback) {
@@ -1157,6 +1247,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Scroll an element to a specific top position relative to its another parent container.
+  * Return the current top offset of an element, relative to its parent container.
   * @method scrollTop
   * @memberof Scroll
   * @param {number} top offset in px, optional
@@ -1164,9 +1256,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').scrollTop();
   * $('#selector').scrollTop(50);
-  * @description
-  * Scroll an element to a specific top position relative to its another parent container.
-  * Return the current top offset of an element, relative to its parent container.
   */
 
 	$.fn.scrollTop = function (top) {
@@ -1199,6 +1288,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Scroll an element to a specific left position relative to its another parent container.
+  * Return the current left offset of an element, relative to its parent container.
   * @method scrollLeft
   * @memberof Scroll
   * @param {number} left offset in px, optional
@@ -1206,9 +1297,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').scrollLeft();
   * $('#selector').scrollLeft(50);
-  * @description
-  * Scroll an element to a specific left position relative to its another parent container.
-  * Return the current left offset of an element, relative to its parent container.
   */
 
 	$.fn.scrollLeft = function (left) {
@@ -1243,6 +1331,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Submit */
 
 	/**
+  * Submit a form or trigger a function when a form is submitted.
   * @method submit
   * @memberof Submit
   * @param {function} callback optional
@@ -1250,7 +1339,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').submit();
   * $('#selector').submit(function(){});
-  * @description Submit a form or trigger a function when a form is submitted.
   */
 
 	$.fn.submit = function (callback) {
@@ -1269,6 +1357,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Traversing */
 
 	/**
+  * Get the parent element as a Grindstone object.
   * @method parent
   * @memberof Traversing
   * @param {string} selector only get the parent if it matches the selector, optional
@@ -1276,7 +1365,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').parent();
   * $('#selector').parent('.selector');
-  * @description Get the parent element as a Grindstone object.
   */
 
 	$.fn.parent = function (selector) {
@@ -1284,6 +1372,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Get the next element as a Grindstone object.
   * @method next
   * @memberof Traversing
   * @param {string} selector only get the element if it matches the selector, optional
@@ -1291,7 +1380,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').next();
   * $('#selector').next('.selector');
-  * @description Get the next element as a Grindstone object.
   */
 
 	$.fn.next = function (selector) {
@@ -1299,6 +1387,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Get the previous element as a Grindstone object.
   * @method prev
   * @memberof Traversing
   * @param {string} selector only get the element if it matches the selector, optional
@@ -1306,7 +1395,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').prev();
   * $('#selector').prev('.selector');
-  * @description Get the previous element as a Grindstone object.
   */
 
 	$.fn.prev = function (selector) {
@@ -1314,6 +1402,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Get the child elements as a Grindstone object.
   * @method children
   * @memberof Traversing
   * @param {string} selector only get the elements if they match the selector, optional
@@ -1321,7 +1410,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').children();
   * $('#selector').children('.selector');
-  * @description Get the child elements as a Grindstone object.
   */
 
 	$.fn.children = function (selector) {
@@ -1329,11 +1417,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	/**
+  * Get all the children as a Grindstone object, including text and comments.
   * @method contents
   * @memberof Traversing
   * @returns {object} contents as a new instance of Grindstone
   * @example $('#selector').contents();
-  * @description Get all the children as a Grindstone object, including text and comments.
   */
 
 	$.fn.contents = function () {
@@ -1343,12 +1431,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Trigger */
 
 	/**
+  * Dispatch a custom event.
   * @method trigger
   * @memberof Trigger
   * @param {number} evt custom event
   * @returns {object|number} current instance of Grindstone or top offset
   * @example $('#selector').trigger('myEvent');
-  * @description Dispatch a custom event.
   */
 
 	$.fn.trigger = function (evt) {
@@ -1362,6 +1450,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Value */
 
 	/**
+  * Return or assign the value of an element.
   * @method val
   * @memberof Value
   * @param {string} newValue optional
@@ -1369,7 +1458,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   * @example
   * $('#selector').val();
   * $('#selector').val('7');
-  * @description Return or assign the value of an element.
   */
 
 	$.fn.val = function (newValue) {
@@ -1386,42 +1474,42 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	/** @namespace Wrap */
 
 	/**
+  * Wrap the outer structure of the set of elements.
   * @method wrap
   * @memberof Wrap
   * @param {string} structure
   * @returns {object} current instance of Grindstone
   * @example $('#selector').wrap('<section class="outside"><div class="middle"><div class="inner">');
-  * @description Wrap the outer structure of the set of elements.
   */
 
 	$.fn.wrap = function (structure) {
 		this.each(function () {
-			if (typeof structure === 'string') {
+			if (typeof structure === 'string' && structure.startsWith('<') && structure.endsWith('>')) {
 				var contents = this.outerHTML;
 				this.outerHTML = structure + contents;
 			} else {
-				throw new Error('wrap() structure must be a string.');
+				throw new Error('wrap() structure must be a string that denotes an HTML container starting with "<" and ending with ">".');
 			}
 		});
 		return this;
 	};
 
 	/**
+  * Wrap the inner structure of the set of elements.
   * @method wrapInner
   * @memberof Wrap
   * @param {string} structure
   * @returns {object} current instance of Grindstone
   * @example $('#selector').wrapInner('<section class="outside"><div class="middle"><div class="inner">');
-  * @description Wrap the inner structure of the set of elements.
   */
 
 	$.fn.wrapInner = function (structure) {
 		this.each(function () {
-			if (typeof structure === 'string') {
+			if (typeof structure === 'string' && structure.startsWith('<') && structure.endsWith('>')) {
 				var contents = $(this).html();
 				$(this).html(structure + contents);
 			} else {
-				throw new Error('wrapInner() structure must be a string.');
+				throw new Error('wrapInner() structure must be a string that denotes an HTML container starting with "<" and ending with ">".');
 			}
 		});
 		return this;

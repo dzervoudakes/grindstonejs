@@ -1,14 +1,6 @@
 	/** @namespace Ajax */	
 	
 	/**
-	 * @method ajax
-	 * @memberof Ajax
-	 * @param {object} opts required, you may adhere to the default properties by passing in a blank object
-	 * @returns {object} XMLHttpRequest
-	 * @example
-	 * $.ajax({});
-	 * $.ajax({ opts: 'values' });
-	 * @description
 	 * Submit a GET or POST AJAX request.
 	 * Acceptable properties of "opts" are:
 	 * - method (GET or POST)
@@ -18,13 +10,19 @@
 	 * - error (callback to invoke if unsuccessful)
 	 * - header (adds a custom HTTP header to the request)
 	 * - headerValue (value of the custom HTTP header)
+	 * @method ajax
+	 * @memberof Ajax
+	 * @param {object} opts "method" and "url" properties are required here
+	 * @returns {object} XMLHttpRequest
+	 * @example
+	 * $.ajax({ method: 'GET', url: 'data/data.txt' });
 	 */
 
 	$.ajax = function(opts) {
 
 		if (typeof opts !== 'object') throw new Error('XHR properties are not properly defined.');
 
-		let { method = null, url = null, async = true, success = () => {}, error = () => {}, header = 'Content-Type', headerValue = 'application/x-www-form-urlencoded; charset=UTF-8' } = opts;
+		let { method, url, async = true, success = () => {}, error = () => {}, header = 'Content-Type', headerValue = 'application/x-www-form-urlencoded; charset=UTF-8' } = opts;
 		
 		const xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = () => {

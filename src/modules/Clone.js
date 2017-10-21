@@ -1,11 +1,11 @@
 	/** @namespace Clone */
 	
 	/**
+	 * Clone the elements in the set.
 	 * @method clone
 	 * @memberof Clone
 	 * @returns {object} current instance of Grindstone
 	 * @example $('#selector').clone();
-	 * @description Clone the elements in the set.
 	 */
  
 	$.fn.clone = function() {

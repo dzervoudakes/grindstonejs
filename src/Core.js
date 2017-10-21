@@ -1,6 +1,7 @@
 	/** @namespace Core */
 
 	/**
+	 * Create new instances of our constructor using familiar, jQuery-style syntax.
 	 * @function Grindstone
 	 * @memberof Core
 	 * @param {string|object} selector
@@ -9,7 +10,6 @@
 	 * @example
 	 * $('.selector');
 	 * $('.selector', '#container');
-	 * @description Create new instances of our constructor using familiar, jQuery-style syntax.
 	 */
 	
 	const Grindstone = function(selector, context) {
@@ -58,8 +58,8 @@
 	const priv = {
 		children: function(set, nodeType, selector) {
 			const newSet = $();
-			for (let i = 0; i < set.length; i++) {
-				for (let child = set[i].firstChild; child; child = child.nextSibling) {
+			for (let item of set) {
+				for (let child = item.firstChild; child; child = child.nextSibling) {
 					if (nodeType === undefined || nodeType === child.nodeType) {
 						if (!selector || $(child).is(selector)) newSet.push(child);
 					}
@@ -75,16 +75,12 @@
 				let find = this;
 				while (true) {
 					const element = find[propName];
-					if (!element) {
-						break;
-					}
+					if (!element) break;
 					if (element.nodeType != 1) {
 						find = element;
 						continue;
 					}
-					if (!selector || $(element).is(selector)) {
-						return element;
-					}
+					if (!selector || $(element).is(selector)) return element;
 					break;
 				}
 			});

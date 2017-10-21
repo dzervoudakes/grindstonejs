@@ -1,6 +1,7 @@
 	/** @namespace Value */
 	
 	/**
+	 * Return or assign the value of an element.
 	 * @method val
 	 * @memberof Value
 	 * @param {string} newValue optional
@@ -8,7 +9,6 @@
 	 * @example
 	 * $('#selector').val();
 	 * $('#selector').val('7');
-	 * @description Return or assign the value of an element.
 	 */
 
 	$.fn.val = function(newValue) {
