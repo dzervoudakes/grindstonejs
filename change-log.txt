@@ -283,5 +283,5 @@ Contributor(s): dzervoudakes
 
 v3.0.3
 
-- continued updating with ES6
+- continued refining ES6 updates
 - removed @description tag from JSDoc comments
