@@ -613,9 +613,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	$.fn.mouseable = function () {
 		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { hoverClass: 'over', activeClass: 'down' },
 		    _ref$hoverClass = _ref.hoverClass,
-		    hoverClass = _ref$hoverClass === undefined ? '' : _ref$hoverClass,
+		    hoverClass = _ref$hoverClass === undefined ? 'over' : _ref$hoverClass,
 		    _ref$activeClass = _ref.activeClass,
-		    activeClass = _ref$activeClass === undefined ? '' : _ref$activeClass;
+		    activeClass = _ref$activeClass === undefined ? 'down' : _ref$activeClass;
 
 		var events = {
 			hover: priv.createInteraction('touchstart', 'mouseenter'),

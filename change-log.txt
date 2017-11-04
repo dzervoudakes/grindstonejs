@@ -295,5 +295,4 @@ v3.1.0
 - Finally made this library 'requireable'
 - Extracted documentation comments into a separate file
 - Now using 'gulp-preprocessor' for file includes (no more 'Intro/Outro' jank)
-- Set default Mouseable classNames to empty strings
 - Refactored Ajax module in favor of a Promise-based approach

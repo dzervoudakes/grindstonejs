@@ -1,4 +1,4 @@
-	$.fn.mouseable = function({ hoverClass = '', activeClass = '' } = { hoverClass: 'over', activeClass: 'down' }) {
+	$.fn.mouseable = function({ hoverClass = 'over', activeClass = 'down' } = { hoverClass: 'over', activeClass: 'down' }) {
 		
 		const events = {
 			hover:  priv.createInteraction('touchstart', 'mouseenter'),
