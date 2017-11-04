@@ -13,12 +13,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 (function (root, lib) {
 	if (typeof exports !== 'undefined') {
-		module.exports = lib();
+		// requireable
+		return module.exports = lib();
 	} else {
-		root.Grindstone = root.$ = lib();
+		// standard DOM
+		return root.Grindstone = root.$ = lib();
 	}
-})(this, function (w, d) {
-
+})(this, function () {
 	var Grindstone = function Grindstone(selector, context) {
 		var set = this;
 		if (selector) {
@@ -27,7 +28,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			if (typeof selector === 'string') {
 				if (context) {
 					if (typeof context === 'string') {
-						ctx = d.querySelectorAll(context);
+						ctx = document.querySelectorAll(context);
 					} else if (priv.isElementArray(context)) {
 						ctx = context;
 					} else {
@@ -42,7 +43,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 						});
 					});
 				} else {
-					set.push.apply(set, d.querySelectorAll(selector));
+					set.push.apply(set, document.querySelectorAll(selector));
 				}
 			} else if (priv.isElementArray(selector)) {
 				set.push.apply(set, selector);
@@ -98,7 +99,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			return newSet;
 		},
 		createInteraction: function createInteraction(touchEvt, mouseEvt) {
-			return 'ontouchend' in d ? touchEvt : mouseEvt;
+			return 'ontouchend' in document ? touchEvt : mouseEvt;
 		},
 		elementProp: function elementProp(set, propName, selector) {
 			return $.fn.map.call(set, function () {
@@ -160,7 +161,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				if (element.match(/(<).+(>)/)) {
 					this.innerHTML += element;
 				} else {
-					var dom = d.querySelectorAll(element);
+					var dom = document.querySelectorAll(element);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
 						_this.appendChild(item);
@@ -317,10 +318,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			});
 			return this;
 		} else {
-			if (this.set[0] === d) {
-				return d.body.clientHeight;
-			} else if (this.set[0] === w) {
-				return w.innerHeight;
+			if (this.set[0] === document) {
+				return document.body.clientHeight;
+			} else if (this.set[0] === window) {
+				return window.innerHeight;
 			} else {
 				return this.set[0].offsetHeight;
 			}
@@ -334,10 +335,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			});
 			return this;
 		} else {
-			if (this.set[0] === d) {
-				return d.body.clientWidth;
-			} else if (this.set[0] === w) {
-				return w.innerWidth;
+			if (this.set[0] === document) {
+				return document.body.clientWidth;
+			} else if (this.set[0] === window) {
+				return window.innerWidth;
 			} else {
 				return this.set[0].offsetWidth;
 			}
@@ -578,7 +579,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('beforebegin', content);
 				} else {
-					var dom = d.querySelectorAll(content);
+					var dom = document.querySelectorAll(content);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
 						_this10.parentNode.insertBefore(item, self);
@@ -599,7 +600,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterend', content);
 				} else {
-					var dom = d.querySelectorAll(content);
+					var dom = document.querySelectorAll(content);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
 						_this11.parentNode.insertBefore(item, self.nextSibling);
@@ -615,9 +616,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	$.fn.mouseable = function () {
 		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { hoverClass: 'over', activeClass: 'down' },
 		    _ref$hoverClass = _ref.hoverClass,
-		    hoverClass = _ref$hoverClass === undefined ? 'over' : _ref$hoverClass,
+		    hoverClass = _ref$hoverClass === undefined ? '' : _ref$hoverClass,
 		    _ref$activeClass = _ref.activeClass,
-		    activeClass = _ref$activeClass === undefined ? 'down' : _ref$activeClass;
+		    activeClass = _ref$activeClass === undefined ? '' : _ref$activeClass;
 
 		var events = {
 			hover: priv.createInteraction('touchstart', 'mouseenter'),
@@ -676,7 +677,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				if (element.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterbegin', element);
 				} else {
-					var dom = d.querySelectorAll(element);
+					var dom = document.querySelectorAll(element);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
 						_this13.insertBefore(item, self.firstChild);
@@ -709,7 +710,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	$.fn.remove = function (target) {
 		if (target) {
-			var elems = d.querySelectorAll(target);
+			var elems = document.querySelectorAll(target);
 			elems = Array.prototype.slice.call(elems);
 			this.each(function () {
 				var _this14 = this;
@@ -784,14 +785,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		var leftOffset = void 0;
 		this.each(function () {
 			switch (this) {
-				case w:
+				case window:
 					if (typeof left === 'number') {
 						this.scrollTo(left, 0);
 					} else {
 						leftOffset = this.pageXOffset;
 					}
 					break;
-				case d:
+				case document:
 					if (typeof left === 'number') {
 						this.body.scrollLeft = left;
 					} else {
@@ -885,5 +886,5 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		return this;
 	};
 
-	return Grindstone;
-})(window, document);
+	return $;
+});

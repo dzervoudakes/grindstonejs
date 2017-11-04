@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v3.0.3.js"></script>
+		<script src="../dist/grindstone-v3.1.0.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -327,11 +327,11 @@
 
 					// el.doubleTap(function() { alert('doubleTap works'); });
 					
-					el.on(state.interaction(), state.eventHandlers.wrapTest);
-					el2.on(state.interaction(), state.eventHandlers.wrapInnerTest);
+					el.on(state.interaction(), state.eventHandlers.dataTest1);
+					el2.on(state.interaction(), state.eventHandlers.dataTest2);
 					
-					// $('.mouseable').mouseable();
-					$('.mouseable').mouseable({ hoverClass: 'test' });
+					$('.mouseable').mouseable();
+					// $('.mouseable').mouseable({ hoverClass: 'test' });
 				};
 				
 				var init = function() {

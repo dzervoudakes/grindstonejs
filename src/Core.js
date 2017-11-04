@@ -1,11 +1,12 @@
 (function(root, lib) {
 	if (typeof exports !== 'undefined') {
-		module.exports = lib();
+		// requireable
+		return module.exports = lib();
 	} else {
-		root.Grindstone = root.$ = lib();
+		// standard DOM
+		return root.Grindstone = root.$ = lib();
 	}
-})(this, function(w, d) {
-	
+})(this, function() {
 	const Grindstone = function(selector, context) {
 		const set = this;
 		if (selector) {
@@ -13,7 +14,7 @@
 			if (typeof selector === 'string') {
 				if (context) {
 					if (typeof context === 'string') {
-						ctx = d.querySelectorAll(context);
+						ctx = document.querySelectorAll(context);
 					} else if (priv.isElementArray(context)) {
 						ctx = context;
 					} else {
@@ -28,7 +29,7 @@
 						});
 					});
 				} else {
-					set.push.apply(set, d.querySelectorAll(selector));
+					set.push.apply(set, document.querySelectorAll(selector));
 				}
 			} else if (priv.isElementArray(selector)) {
 				set.push.apply(set, selector);
@@ -62,7 +63,7 @@
 			return newSet;
 		},
 		createInteraction: (touchEvt, mouseEvt) => {
-			return 'ontouchend' in d ? touchEvt : mouseEvt;
+			return 'ontouchend' in document ? touchEvt : mouseEvt;
 		},
 		elementProp: (set, propName, selector) => {
 			return $.fn.map.call(set, function() {
@@ -92,6 +93,5 @@
 
 	// @include ./includes/Includes.js
 
-	return Grindstone;
-	
-})(window, document);
+	return $;
+});

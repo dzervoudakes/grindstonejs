@@ -257,9 +257,9 @@ Contributor(s): dzervoudakes
 
 v3.0.0
 
-- rewrote each module in ES6
-- implemented transpiling with Babel
-- implemented JSDoc
+- Rewrote each module in ES6
+- Implemented transpiling with Babel
+- Implemented JSDoc
 
 Date: 7/31/17
 Changes Current Version: NO
@@ -267,7 +267,7 @@ Contributor(s): dzervoudakes
 
 v3.0.1
 
-- bug fix in 'offset'
+- Bug fix in 'offset'
 
 Date: 9/29/17
 Changes Current Version: NO
@@ -275,7 +275,7 @@ Contributor(s): dzervoudakes
 
 v3.0.2
 
-- slight tweaks to variable and parameter declarations in CSS, Mouseable and DoubleTap modules
+- Slight tweaks to variable and parameter declarations in CSS, Mouseable and DoubleTap modules
 
 Date: 10/20/17
 Changes Current Version: NO
@@ -283,13 +283,17 @@ Contributor(s): dzervoudakes
 
 v3.0.3
 
-- continued refining ES6 updates
-- removed @description tag from JSDoc comments
+- Continued refining ES6 updates
+- Removed @description tag from JSDoc comments
 
-Date: 11/y/17
+Date: 11/4/17
 Changes Current Version: YES
 Contributor(s): dzervoudakes
 
 v3.1.0
 
-- TBD
+- Finally made this library 'requireable'
+- Extracted documentation comments into a separate file
+- Now using 'gulp-preprocessor' for file includes (no more 'Intro/Outro' jank)
+- Set default Mouseable classNames to empty strings
+- Refactored Ajax module in favor of a Promise-based approach

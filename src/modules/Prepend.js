@@ -4,7 +4,7 @@
 				if (element.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterbegin', element);
 				} else {
-					let dom = d.querySelectorAll(element);
+					let dom = document.querySelectorAll(element);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(item => {
 						this.insertBefore(item, self.firstChild);

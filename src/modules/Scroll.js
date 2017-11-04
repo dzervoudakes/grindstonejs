@@ -40,14 +40,14 @@
 		let leftOffset;
 		this.each(function() {
 			switch (this) {
-			case w:
+			case window:
 				if (typeof left === 'number') {
 					this.scrollTo(left, 0);
 				} else {
 					leftOffset = this.pageXOffset;
 				}
 				break;
-			case d:
+			case document:
 				if (typeof left === 'number') {
 					this.body.scrollLeft = left;
 				} else {

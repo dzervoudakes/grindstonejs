@@ -4,7 +4,7 @@
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('beforebegin', content);
 				} else {
-					let dom = d.querySelectorAll(content);
+					let dom = document.querySelectorAll(content);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(item => {
 						this.parentNode.insertBefore(item, self);
@@ -23,7 +23,7 @@
 				if (content.match(/(<).+(>)/)) {
 					this.insertAdjacentHTML('afterend', content);
 				} else {
-					let dom = d.querySelectorAll(content);
+					let dom = document.querySelectorAll(content);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(item => {
 						this.parentNode.insertBefore(item, self.nextSibling);

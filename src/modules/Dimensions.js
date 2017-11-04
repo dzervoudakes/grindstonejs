@@ -5,10 +5,10 @@
 			});
 			return this;
 		} else {
-			if (this.set[0] === d) {
-				return d.body.clientHeight;
-			} else if (this.set[0] === w) {
-				return w.innerHeight;
+			if (this.set[0] === document) {
+				return document.body.clientHeight;
+			} else if (this.set[0] === window) {
+				return window.innerHeight;
 			} else {
 				return this.set[0].offsetHeight;
 			}
@@ -22,10 +22,10 @@
 			});
 			return this;
 		} else {
-			if (this.set[0] === d) {
-				return d.body.clientWidth;
-			} else if (this.set[0] === w) {
-				return w.innerWidth;
+			if (this.set[0] === document) {
+				return document.body.clientWidth;
+			} else if (this.set[0] === window) {
+				return window.innerWidth;
 			} else {
 				return this.set[0].offsetWidth;
 			}

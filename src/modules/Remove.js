@@ -1,6 +1,6 @@
 	$.fn.remove = function(target) {
 		if (target) {
-			let elems = d.querySelectorAll(target);
+			let elems = document.querySelectorAll(target);
 			elems = Array.prototype.slice.call(elems);
 			this.each(function() {
 				elems.forEach(el => {

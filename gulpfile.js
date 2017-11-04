@@ -4,8 +4,6 @@ const jsDocConf = require('./jsdoc.json');
 const $ = require('gulp-load-plugins')();
 const { stripIndents } = require('common-tags');
 
-// @TODO: AUTO-UPDATE THE SCRIPT INCLUDE FOR OUR TEST HTML WHEN THE VERSION UPDATES
-
 // banners for output files
 const banners = {
 	max: stripIndents`

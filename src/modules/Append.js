@@ -4,7 +4,7 @@
 				if (element.match(/(<).+(>)/)) {
 					this.innerHTML += element;
 				} else {
-					let dom = d.querySelectorAll(element);
+					let dom = document.querySelectorAll(element);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(item => {
 						this.appendChild(item);
