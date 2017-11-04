@@ -12,13 +12,8 @@
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 (function (root, lib) {
-	if (typeof exports !== 'undefined') {
-		// requireable
-		return module.exports = lib();
-	} else {
-		// standard DOM
-		return root.Grindstone = root.$ = lib();
-	}
+	if (typeof exports !== 'undefined') return module.exports = lib(); // requireable
+	return root.Grindstone = root.$ = lib(); // standard DOM implementation
 })(this, function () {
 	var Grindstone = function Grindstone(selector, context) {
 		var set = this;
@@ -126,31 +121,33 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 		if ((typeof opts === 'undefined' ? 'undefined' : _typeof(opts)) !== 'object') throw new Error('XHR properties are not properly defined.');
 
-		var method = opts.method,
-		    url = opts.url,
+		var _opts$method = opts.method,
+		    method = _opts$method === undefined ? 'GET' : _opts$method,
+		    _opts$url = opts.url,
+		    url = _opts$url === undefined ? '' : _opts$url,
 		    _opts$async = opts.async,
 		    async = _opts$async === undefined ? true : _opts$async,
-		    _opts$success = opts.success,
-		    success = _opts$success === undefined ? function () {} : _opts$success,
-		    _opts$error = opts.error,
-		    error = _opts$error === undefined ? function () {} : _opts$error,
+		    _opts$body = opts.body,
+		    body = _opts$body === undefined ? null : _opts$body,
 		    _opts$header = opts.header,
 		    header = _opts$header === undefined ? 'Content-Type' : _opts$header,
 		    _opts$headerValue = opts.headerValue,
 		    headerValue = _opts$headerValue === undefined ? 'application/x-www-form-urlencoded; charset=UTF-8' : _opts$headerValue;
 
 
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function () {
-			var func = void 0;
-			if (xmlhttp.readyState === 4) func = xmlhttp.status === 200 ? success(xmlhttp) : error(xmlhttp);
-			return func;
-		};
-		xmlhttp.open(method, url, async);
-		xmlhttp.setRequestHeader(header, headerValue);
-		xmlhttp.send(null);
-
-		return xmlhttp;
+		return new Promise(function (resolve, reject) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.open(method, url, async);
+			xmlhttp.onload = function () {
+				return resolve(xmlhttp.response);
+			};
+			xmlhttp.onerror = function () {
+				return reject('failure');
+			};
+			xmlhttp.setRequestHeader(header, headerValue);
+			xmlhttp.send(body);
+			return xmlhttp;
+		});
 	};
 
 	$.fn.append = function (element) {

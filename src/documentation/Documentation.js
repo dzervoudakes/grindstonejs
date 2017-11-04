@@ -15,21 +15,20 @@
 /** @namespace Ajax */
 
 /**
- * Submit a GET or POST AJAX request.
- * Acceptable properties of "opts" are:
- * - method (GET or POST)
+ * Submit an AJAX request. This module uses a Promise-based approach.
+ * Acceptable properties of of our opts parameter include:
+ * - method (GET, POST, PUT, etc.)
  * - url (data path)
  * - async (true or false)
- * - success (callback to invoke if successful)
- * - error (callback to invoke if unsuccessful)
+ * - body (payload)
  * - header (adds a custom HTTP header to the request)
  * - headerValue (value of the custom HTTP header)
  * @method ajax
  * @memberof Ajax
- * @param {object} opts "method" and "url" properties are required here
+ * @param {object} opts
  * @returns {object} XMLHttpRequest
  * @example
- * $.ajax({ method: 'GET', url: 'data/data.txt' });
+ * $.ajax({ method: 'POST', url: 'https://www.something.com/api', body: { form: data } }).then(function(resp) {}).catch(function(err) {});
  */
 
 /** @namespace Append */

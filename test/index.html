@@ -145,17 +145,15 @@
 				var gatherEvents = function() {
 					
 					state.eventHandlers.ajaxTest = function() {
-						$.ajax({
+						var opts = {
 							method: 'GET',
 							url: 'ajax-test.html',
-							async: true,
-							success: function(xhr) {
-								var text = xhr.responseText;
-								state.dom.$emptyArticle.html(text);
-							},
-							error: function(xhr) {
-								console.log(xhr);
-							}
+							async: true
+						};
+						$.ajax(opts).then(function(resp) {
+							state.dom.$emptyArticle.html(resp);
+						}).catch(function(err) {
+							console.log(err);
 						});
 					};
 					
@@ -327,7 +325,7 @@
 
 					// el.doubleTap(function() { alert('doubleTap works'); });
 					
-					el.on(state.interaction(), state.eventHandlers.dataTest1);
+					el.on(state.interaction(), state.eventHandlers.ajaxTest);
 					el2.on(state.interaction(), state.eventHandlers.dataTest2);
 					
 					$('.mouseable').mouseable();
