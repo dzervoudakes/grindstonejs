@@ -753,14 +753,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		var topOffset = void 0;
 		this.each(function () {
 			switch (this) {
-				case w:
+				case window:
 					if (typeof top === 'number') {
 						this.scrollTo(0, top);
 					} else {
 						topOffset = this.pageYOffset;
 					}
 					break;
-				case d:
+				case document:
 					if (typeof top === 'number') {
 						this.body.scrollTop = top;
 					} else {
