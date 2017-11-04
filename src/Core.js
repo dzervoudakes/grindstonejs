@@ -1,16 +1,10 @@
-	/** @namespace Core */
-
-	/**
-	 * Create new instances of our constructor using familiar, jQuery-style syntax.
-	 * @function Grindstone
-	 * @memberof Core
-	 * @param {string|object} selector
-	 * @param {string|object} context optional
-	 * @returns {object} Grindstone
-	 * @example
-	 * $('.selector');
-	 * $('.selector', '#container');
-	 */
+(function(root, lib) {
+	if (typeof exports !== 'undefined') {
+		module.exports = lib();
+	} else {
+		root.Grindstone = root.$ = lib();
+	}
+})(this, function(w, d) {
 	
 	const Grindstone = function(selector, context) {
 		const set = this;
@@ -56,7 +50,7 @@
 
 	// private functions
 	const priv = {
-		children: function(set, nodeType, selector) {
+		children: (set, nodeType, selector) => {
 			const newSet = $();
 			for (let item of set) {
 				for (let child = item.firstChild; child; child = child.nextSibling) {
@@ -67,10 +61,10 @@
 			}
 			return newSet;
 		},
-		createInteraction: function(touchEvt, mouseEvt) {
+		createInteraction: (touchEvt, mouseEvt) => {
 			return 'ontouchend' in d ? touchEvt : mouseEvt;
 		},
-		elementProp: function(set, propName, selector) {
+		elementProp: (set, propName, selector) => {
 			return $.fn.map.call(set, function() {
 				let find = this;
 				while (true) {
@@ -85,7 +79,7 @@
 				}
 			});
 		},
-		isElementArray: function(obj) {
+		isElementArray: obj => {
 			return obj instanceof Array;
 		},
 		matchesFuncName: Element.prototype.matches ? 'matches' :
@@ -95,3 +89,9 @@
 			Element.prototype.msMatchesSelector ? 'msMatchesSelector' : 
 			undefined
 	};
+
+	// @include ./includes/Includes.js
+
+	return Grindstone;
+	
+})(window, document);

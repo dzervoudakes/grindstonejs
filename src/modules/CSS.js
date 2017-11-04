@@ -1,18 +1,3 @@
-	/** @namespace CSS */
-	
-	/**
-	 * Adjust the styles of selected elements or return the requested value.
-	 * @method css
-	 * @memberof CSS
-	 * @param {object|string} styles object with style properties or single style in a string
-	 * @param {string} value new style value to apply
-	 * @returns {object|string} current instance of Grindstone or style value
-	 * @example
-	 * $('#selector').style('display');
-	 * $('#selector').style('display', 'block');
-	 * $('#selector').style({ display: 'block', color: 'red' });
-	 */
-
 	$.fn.css = function(styles, value) {
 		let returnedStyle, returnStyle;
 		this.each(function() {

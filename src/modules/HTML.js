@@ -1,16 +1,3 @@
-	/** @namespace HTML */
-	
-	/**
-	 * Replace an element's innerHTML or return the current innerHTML.
-	 * @method html
-	 * @memberof HTML
-	 * @param {string} content optional
-	 * @returns {object|string} current instance of Grindstone or current innerHTML of an element
-	 * @example
-	 * $('#selector').html();
-	 * $('#selector').html('<p>Hello World</p>');
-	 */
-
 	$.fn.html = function(content) {
 		let text;
 		this.each(function() {

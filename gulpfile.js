@@ -4,6 +4,8 @@ const jsDocConf = require('./jsdoc.json');
 const $ = require('gulp-load-plugins')();
 const { stripIndents } = require('common-tags');
 
+// @TODO: AUTO-UPDATE THE SCRIPT INCLUDE FOR OUR TEST HTML WHEN THE VERSION UPDATES
+
 // banners for output files
 const banners = {
 	max: stripIndents`
@@ -25,9 +27,12 @@ gulp.task('clean', () => {
 		.pipe($.clean({ force: true }));
 });
 
-// concatenate and transpile all the things
-gulp.task('concat', ['clean'], () => {
-	return gulp.src(['./src/templates/Intro.js', './src/Core.js', './src/modules/*.js', './src/templates/Outro.js'])
+// compile and transpile all the things
+gulp.task('compile', ['clean'], () => {
+	return gulp.src('./src/Core.js')
+		.pipe($.preprocess({
+			context: { NODE_ENV: 'dev' }
+		}))
 		.pipe($.concat(`${pkg.name}-v${pkg.version}.js`))
 		.pipe($.babel())
 		.pipe($.header(banners.max))
@@ -35,7 +40,7 @@ gulp.task('concat', ['clean'], () => {
 });
 
 // uglify it
-gulp.task('uglify', ['concat'], () => {
+gulp.task('uglify', ['compile'], () => {
 	return gulp.src(`./dist/${pkg.name}-v${pkg.version}.js`)
 		.pipe($.uglify())
 		.pipe($.header(banners.min))
@@ -51,7 +56,7 @@ gulp.task('clean-jsdoc', () => {
 
 // generate documentation
 gulp.task('jsdoc', ['clean-jsdoc'], () => {
-	return gulp.src(`./dist/${pkg.name}-v${pkg.version}.js`)
+	return gulp.src('./src/documentation/Documentation.js')
 		.pipe($.jsdoc3(jsDocConf));
 });
 
@@ -63,4 +68,4 @@ gulp.task('watch', () => {
 });
 
 // build
-gulp.task('build', ['clean', 'concat', 'uglify']);
+gulp.task('build', ['clean', 'compile', 'uglify']);

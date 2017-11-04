@@ -285,3 +285,11 @@ v3.0.3
 
 - continued refining ES6 updates
 - removed @description tag from JSDoc comments
+
+Date: 11/y/17
+Changes Current Version: YES
+Contributor(s): dzervoudakes
+
+v3.1.0
+
+- TBD

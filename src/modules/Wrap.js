@@ -1,14 +1,3 @@
-	/** @namespace Wrap */
-	
-	/**
-	 * Wrap the outer structure of the set of elements.
-	 * @method wrap
-	 * @memberof Wrap
-	 * @param {string} structure
-	 * @returns {object} current instance of Grindstone
-	 * @example $('#selector').wrap('<section class="outside"><div class="middle"><div class="inner">');
-	 */
-
 	$.fn.wrap = function(structure) {
 		this.each(function() {
 			if (typeof structure === 'string' && structure.startsWith('<') && structure.endsWith('>')) {
@@ -20,15 +9,6 @@
 		});
 		return this;
 	};
-
-	/**
-	 * Wrap the inner structure of the set of elements.
-	 * @method wrapInner
-	 * @memberof Wrap
-	 * @param {string} structure
-	 * @returns {object} current instance of Grindstone
-	 * @example $('#selector').wrapInner('<section class="outside"><div class="middle"><div class="inner">');
-	 */
 	
 	$.fn.wrapInner = function(structure) {
 		this.each(function() {

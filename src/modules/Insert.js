@@ -1,14 +1,3 @@
-	/** @namespace Insert */
-	
-	/**
-	 * Insert new content before a target element.
-	 * @method before
-	 * @memberof Insert
-	 * @param {string|object} content
-	 * @returns {object} current instance of Grindstone
-	 * @example $('#selector').before('<p>Hello World</p>');
-	 */
-
 	$.fn.before = function(content) {
 		this.each(function() {
 			if (typeof content === 'string') {
@@ -27,15 +16,6 @@
 		});
 		return this;
 	};
-
-	/**
-	 * Insert new content after a target element.
-	 * @method after
-	 * @memberof Insert
-	 * @param {string|object} content
-	 * @returns {object} current instance of Grindstone
-	 * @example $('#selector').after('<p>Hello World</p>');
-	 */
 
 	$.fn.after = function(content) {
 		this.each(function() {

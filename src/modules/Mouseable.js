@@ -1,16 +1,3 @@
-	/** @namespace Mouseable */
-	
-	/**
-	 * Create hover and active states.
-	 * @method mouseable
-	 * @memberof Mouseable
-	 * @param {object} classes optional
-	 * @returns {object} current instance of Grindstone
-	 * @example
-	 * $('#selector').mouseable();
-	 * $('#selector').mouseable({ hoverClass: 'stuff', activeClass: 'things' });
-	 */
-
 	$.fn.mouseable = function({ hoverClass = 'over', activeClass = 'down' } = { hoverClass: 'over', activeClass: 'down' }) {
 		
 		const events = {

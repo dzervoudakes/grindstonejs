@@ -1,16 +1,3 @@
-	/** @namespace Debounce */
-	
-	/**
-	 * Debounce a given function.
-	 * @method debounce
-	 * @memberof Debounce
-	 * @param {function} fn function to debounce
-	 * @param {number} wait delay in ms
-	 * @param {boolean} immediate invoke immediately, optional
-	 * @returns {function}
-	 * @example $.debounce(function(){}, 300);
-	 */
-
 	$.debounce = function(fn, wait, immediate) {
 		let timeout;
 		const debounce = function() {

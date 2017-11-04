@@ -1,16 +1,3 @@
-	/** @namespace Offset */
-	
-	/**
-	 * Return the left or top value of the selector, relative to the document.
-	 * @method offset
-	 * @memberof Offset
-	 * @param {string} position 'left' or 'top'
-	 * @returns {number} offset value in px
-	 * @example
-	 * $('#selector').offset('left');
-	 * $('#selector').offset('right');
-	 */
-
 	$.fn.offset = function(position) {
 		if (position && typeof position === 'string') {
 			if (position !== 'left' && position !== 'top') {

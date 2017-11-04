@@ -1,16 +1,3 @@
-	/** @namespace Remove */
-	
-	/**
-	 * Remove elements from the DOM.
-	 * @method remove
-	 * @memberof Remove
-	 * @param {object} target element(s), optional
-	 * @returns {object} current instance of Grindstone
-	 * @example
-	 * $('#selector').remove();
-	 * $('#selector').remove('.selector');
-	 */
-
 	$.fn.remove = function(target) {
 		if (target) {
 			let elems = d.querySelectorAll(target);

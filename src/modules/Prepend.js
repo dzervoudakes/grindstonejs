@@ -1,16 +1,3 @@
-	/** @namespace Prepend */
-	
-	/**
-	 * Prepend a new element or new content.
-	 * @method prepend
-	 * @memberof Prepend
-	 * @param {object|string} element
-	 * @returns {object} current instance of Grindstone
-	 * @example
-	 * $('#selector').prepend('#element');
-	 * $('#selector').prepend('<p>Hello World</p>');
-	 */
-
 	$.fn.prepend = function(element) {
 		this.each(function() {
 			if (typeof element === 'string') {

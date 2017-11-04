@@ -1,16 +1,3 @@
-	/** @namespace Focus */
-	
-	/**
-	 * Focus on the first element in the set or trigger a callback when some element is focused on.
-	 * @method focus
-	 * @memberof Focus
-	 * @param {function} callback optional
-	 * @returns {object} current instance of Grindstone
-	 * @example
-	 * $('#selector').focus();
-	 * $('#selector').focus(function(){});
-	 */
-	
 	$.fn.focus = function(callback) {
 		if (typeof callback === 'function') {
 			this.each(function() {
