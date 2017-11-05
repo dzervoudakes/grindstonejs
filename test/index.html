@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v3.1.0.js"></script>
+		<script src="../dist/grindstone-v3.1.1.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -229,6 +229,13 @@
 						$('#btn1').hide();
 						$('#btn1').show(1000);
 					};
+
+					state.eventHandlers.eachTest = function() {
+						$('.empty-div').each(function(index) {
+							console.log(this);
+							console.log(index);
+						});
+					};
 					
 					state.eventHandlers.focusTest = function() {
 						// $('.test-input').focus();
@@ -325,7 +332,7 @@
 
 					// el.doubleTap(function() { alert('doubleTap works'); });
 					
-					el.on(state.interaction(), state.eventHandlers.ajaxTest);
+					el.on(state.interaction(), state.eventHandlers.eachTest);
 					el2.on(state.interaction(), state.eventHandlers.dataTest2);
 					
 					$('.mouseable').mouseable();

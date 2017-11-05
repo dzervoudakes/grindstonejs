@@ -26,7 +26,7 @@
  * @method ajax
  * @memberof Ajax
  * @param {object} opts
- * @returns {object} XMLHttpRequest
+ * @returns {object} a Promise
  * @example
  * $.ajax({ method: 'POST', url: 'https://www.something.com/api', body: { form: data } }).then(function(resp) {}).catch(function(err) {});
  */
@@ -242,7 +242,7 @@
  * @memberof Each
  * @param {function} callback
  * @returns {object} current instance of Grindstone
- * @example $('.selector').each(function(){});
+ * @example $('.selector').each(function(index){});
  */
 
 /** @namespace Eq */

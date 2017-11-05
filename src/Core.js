@@ -2,6 +2,7 @@
 	if (typeof exports !== 'undefined') return module.exports = lib(); // requireable
 	return root.Grindstone = root.$ = lib(); // standard DOM implementation
 })(this, function() {
+
 	const Grindstone = function(selector, context) {
 		const set = this;
 		if (selector) {
@@ -89,4 +90,5 @@
 	// @include ./includes/Includes.js
 
 	return $;
+
 });

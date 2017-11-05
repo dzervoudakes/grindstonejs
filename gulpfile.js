@@ -28,9 +28,7 @@ gulp.task('clean', () => {
 // compile and transpile all the things
 gulp.task('compile', ['clean'], () => {
 	return gulp.src('./src/Core.js')
-		.pipe($.preprocess({
-			context: { NODE_ENV: 'dev' }
-		}))
+		.pipe($.preprocess())
 		.pipe($.concat(`${pkg.name}-v${pkg.version}.js`))
 		.pipe($.babel())
 		.pipe($.header(banners.max))
