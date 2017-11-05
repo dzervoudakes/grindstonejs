@@ -1,8 +1,8 @@
 	$.fn.each = function(callback) {
 		let set = this.set;
 		set = Array.prototype.slice.call(set);
-		set.forEach(item => {
-			callback.call(item);
+		set.forEach(function (item, index) {
+			callback.call(item, index);
 		});
 		return this;
 	};
