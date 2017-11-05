@@ -1,7 +1,7 @@
 {
   "name": "grindstone",
-  "version": "3.1.1",
-  "main": "dist/grindstone-v3.1.1.min.js",
+  "version": "3.1.2",
+  "main": "dist/grindstone.min.js",
   "homepage": "https://grindstonejs.drzwebdev.com",
   "author": {
     "name": "Dan Zervoudakes",

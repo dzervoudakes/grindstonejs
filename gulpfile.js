@@ -29,7 +29,7 @@ gulp.task('clean', () => {
 gulp.task('compile', ['clean'], () => {
 	return gulp.src('./src/Core.js')
 		.pipe($.preprocess())
-		.pipe($.concat(`${pkg.name}-v${pkg.version}.js`))
+		.pipe($.concat(`${pkg.name}.js`))
 		.pipe($.babel())
 		.pipe($.header(banners.max))
 		.pipe(gulp.dest('./dist'));
@@ -37,10 +37,10 @@ gulp.task('compile', ['clean'], () => {
 
 // uglify it
 gulp.task('uglify', ['compile'], () => {
-	return gulp.src(`./dist/${pkg.name}-v${pkg.version}.js`)
+	return gulp.src(`./dist/${pkg.name}.js`)
 		.pipe($.uglify())
 		.pipe($.header(banners.min))
-		.pipe($.rename(`${pkg.name}-v${pkg.version}.min.js`))
+		.pipe($.rename(`${pkg.name}.min.js`))
 		.pipe(gulp.dest('./dist'));
 });
 

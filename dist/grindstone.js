@@ -1,5 +1,5 @@
 /**,
-* Grindstone JavaScript Library v3.1.1
+* Grindstone JavaScript Library v3.1.2
 * https://github.com/dzervoudakes/GrindstoneJS
 * 
 * Copyright (c) 2014, 2017 Dan Zervoudakes and contributors
@@ -402,8 +402,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	$.fn.each = function (callback) {
 		var set = this.set;
 		set = Array.prototype.slice.call(set);
-		set.forEach(function (item, index) {
-			callback.call(item, index);
+		set.forEach(function (item, index, array) {
+			callback.call(item, index, array);
 		});
 		return this;
 	};

@@ -3,7 +3,7 @@
 	<head>
 		<title>GrindstoneJS</title>
 		<meta charset="UTF-8">
-		<script src="../dist/grindstone-v3.1.1.js"></script>
+		<script src="../dist/grindstone.js"></script>
 		<style type="text/css">
 			
 			* {
@@ -231,7 +231,8 @@
 					};
 
 					state.eventHandlers.eachTest = function() {
-						$('.empty-div').each(function(index) {
+						$('.empty-div').each(function(index, array) {
+							if (index === 0) console.log(array);
 							console.log(this);
 							console.log(index);
 						});

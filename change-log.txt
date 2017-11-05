@@ -304,3 +304,12 @@ Contributor(s): exside | dzervoudakes
 v3.1.1
 
 - Pass index through 'each()'
+
+Date: 11/5/17
+Changes Current Version: NO
+Contributor(s): exside | dzervoudakes
+
+v3.1.2
+
+- Pass the iterated array through 'each()'
+- Removed '-v${pkg.version}' from dist files for compatibility with unpkg.com

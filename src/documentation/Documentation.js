@@ -242,7 +242,7 @@
  * @memberof Each
  * @param {function} callback
  * @returns {object} current instance of Grindstone
- * @example $('.selector').each(function(index){});
+ * @example $('.selector').each(function(index, array){});
  */
 
 /** @namespace Eq */
