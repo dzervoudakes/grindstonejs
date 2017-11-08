@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Offset - Documentation</title>
+    <title>Extend - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Offset</h1>
+    <h1 class="page-title">Extend</h1>
     
 
     
@@ -42,7 +42,7 @@
 <header>
     
         <h2>
-        Offset
+        Extend
         </h2>
         
     
@@ -85,7 +85,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Documentation.js.html">Documentation.js</a>, <a href="Documentation.js.html#line426">line 426</a>
+        <a href="Documentation.js.html">Documentation.js</a>, <a href="Documentation.js.html#line287">line 287</a>
     </li></ul></dd>
     
 
@@ -122,14 +122,15 @@
 
     
 
-    <h4 class="name" id=".offset"><span class="type-signature">(static) </span>offset<span class="signature">(position)</span><span class="type-signature"> &rarr; {number}</span></h4>
+    <h4 class="name" id=".extend"><span class="type-signature">(static) </span>extend<span class="signature">(target, object)</span><span class="type-signature"> &rarr; {object}</span></h4>
 
     
 
 
 
 <div class="description">
-    Return the left or top value of the selector, relative to the document.
+    Merge properties from one or more objects into a target object.
+Existing properties in the target object will be overwritten if they exist in any of the argument objects.
 </div>
 
 
@@ -165,7 +166,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Documentation.js.html">Documentation.js</a>, <a href="Documentation.js.html#line428">line 428</a>
+        <a href="Documentation.js.html">Documentation.js</a>, <a href="Documentation.js.html#line289">line 289</a>
     </li></ul></dd>
     
 
@@ -209,13 +210,13 @@
 
         <tr>
             
-                <td class="name"><code>position</code></td>
+                <td class="name"><code>target</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>string</code></span>
+<span class="param-type"><code>object</code></span>
 
 
             
@@ -226,7 +227,33 @@
             
 
             <td class="description last">
-                'left' or 'top'
+                
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>object</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                object(s) whose properties will be merged into the target object
                 
             </td>
         </tr>
@@ -259,7 +286,7 @@
     </dt>
     <dd>
         
-<span class="param-type"><code>number</code></span>
+<span class="param-type"><code>object</code></span>
 
 
     </dd>
@@ -267,7 +294,7 @@
 
 
 <div class="param-desc">
-    offset value in px
+    target object with merged properties
 </div>
 
     
@@ -278,8 +305,8 @@
 <div class="section-examples">
 <h5>Example</h5>
 
-    <pre class="prettyprint"><code>$('#selector').offset('left');
-$('#selector').offset('right');</code></pre>
+    <pre class="prettyprint"><code>$.extend({}, { foo: 'bar' });
+$.extend(obj1, obj2, obj3, obj4...);</code></pre>
 
 </div>
 

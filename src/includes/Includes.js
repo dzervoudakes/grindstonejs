@@ -12,6 +12,7 @@
 // @include ../modules/Each.js
 // @include ../modules/Eq.js
 // @include ../modules/Events.js
+// @include ../modules/Extend.js
 // @include ../modules/Filtering.js
 // @include ../modules/Focus.js
 // @include ../modules/Get.js

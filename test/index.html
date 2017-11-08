@@ -146,12 +146,26 @@
 					
 					state.eventHandlers.ajaxTest = function() {
 						var opts = {
+							async: true,
 							method: 'GET',
-							url: 'ajax-test.html',
-							async: true
+							url: 'data/ajax-test.html'
 						};
 						$.ajax(opts).then(function(resp) {
 							state.dom.$emptyArticle.html(resp);
+						}).catch(function(err) {
+							console.log(err);
+						});
+					};
+
+					state.eventHandlers.ajaxTest2 = function() {
+						var opts = {
+							dataType: 'json',
+							method: 'GET',
+							url: 'data/data.json'
+						};
+						$.ajax(opts).then(function(resp) {
+							console.log('typeof resp, index.html: ' + typeof resp);
+							console.log(resp);
 						}).catch(function(err) {
 							console.log(err);
 						});
@@ -236,6 +250,17 @@
 							console.log(this);
 							console.log(index);
 						});
+					};
+
+					state.eventHandlers.extendTest = function() {
+						var obj1 = { foo: 'bar' };
+						var obj2 = { hello: 'world', nested: { obj: 'inception' } };
+						var obj3 = { hai: 'guys', hello: 'hola' };
+						var obj4 = { juice: 'loose', try: 'this', arr: ['yolo', 'whassup'] };
+						// $.extend(obj1, obj3);
+						// console.log(obj1);
+						var newObj = $.extend({}, obj1, obj2, obj3, obj4);
+						console.log(newObj);
 					};
 					
 					state.eventHandlers.focusTest = function() {
@@ -333,7 +358,7 @@
 
 					// el.doubleTap(function() { alert('doubleTap works'); });
 					
-					el.on(state.interaction(), state.eventHandlers.eachTest);
+					el.on(state.interaction(), state.eventHandlers.extendTest);
 					el2.on(state.interaction(), state.eventHandlers.dataTest2);
 					
 					$('.mouseable').mouseable();

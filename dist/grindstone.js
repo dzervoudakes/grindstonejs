@@ -1,5 +1,5 @@
 /**,
-* Grindstone JavaScript Library v3.1.2
+* Grindstone JavaScript Library v3.1.3
 * https://github.com/dzervoudakes/GrindstoneJS
 * 
 * Copyright (c) 2014, 2017 Dan Zervoudakes and contributors
@@ -128,6 +128,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		    url = _opts$url === undefined ? '' : _opts$url,
 		    _opts$async = opts.async,
 		    async = _opts$async === undefined ? true : _opts$async,
+		    _opts$dataType = opts.dataType,
+		    dataType = _opts$dataType === undefined ? '' : _opts$dataType,
 		    _opts$body = opts.body,
 		    body = _opts$body === undefined ? null : _opts$body,
 		    _opts$header = opts.header,
@@ -139,13 +141,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		return new Promise(function (resolve, reject) {
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.open(method, url, async);
+			xmlhttp.responseType = dataType;
+			xmlhttp.setRequestHeader(header, headerValue);
 			xmlhttp.onload = function () {
 				return resolve(xmlhttp.response);
 			};
 			xmlhttp.onerror = function () {
 				return reject('failure');
 			};
-			xmlhttp.setRequestHeader(header, headerValue);
 			xmlhttp.send(body);
 			return xmlhttp;
 		});
@@ -436,42 +439,52 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		return this;
 	};
 
-	$.fn.is = function (filterBy) {
-		if (typeof filterBy === 'function') {
-			var _iteratorNormalCompletion2 = true;
-			var _didIteratorError2 = false;
-			var _iteratorError2 = undefined;
+	$.extend = function (target) {
+		for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+			args[_key - 1] = arguments[_key];
+		}
 
+		if ((typeof target === 'undefined' ? 'undefined' : _typeof(target)) !== 'object' || !args.length === 0) throw new Error('Cannot merge properties into the target: argument is not an object.');
+		var _iteratorNormalCompletion2 = true;
+		var _didIteratorError2 = false;
+		var _iteratorError2 = undefined;
+
+		try {
+			for (var _iterator2 = args[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+				var arg = _step2.value;
+
+				if ((typeof arg === 'undefined' ? 'undefined' : _typeof(arg)) !== 'object') throw new Error('Cannot merge properties into the target: argument is not an object.');
+				target = Object.assign(target, arg);
+			}
+		} catch (err) {
+			_didIteratorError2 = true;
+			_iteratorError2 = err;
+		} finally {
 			try {
-				for (var _iterator2 = this[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-					var item = _step2.value;
-
-					if (filterBy.call(item, this.indexOf(item), item)) return true;
+				if (!_iteratorNormalCompletion2 && _iterator2.return) {
+					_iterator2.return();
 				}
-			} catch (err) {
-				_didIteratorError2 = true;
-				_iteratorError2 = err;
 			} finally {
-				try {
-					if (!_iteratorNormalCompletion2 && _iterator2.return) {
-						_iterator2.return();
-					}
-				} finally {
-					if (_didIteratorError2) {
-						throw _iteratorError2;
-					}
+				if (_didIteratorError2) {
+					throw _iteratorError2;
 				}
 			}
-		} else {
+		}
+
+		return target;
+	};
+
+	$.fn.is = function (filterBy) {
+		if (typeof filterBy === 'function') {
 			var _iteratorNormalCompletion3 = true;
 			var _didIteratorError3 = false;
 			var _iteratorError3 = undefined;
 
 			try {
 				for (var _iterator3 = this[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-					var _item = _step3.value;
+					var item = _step3.value;
 
-					if (_item[priv.matchesFuncName](filterBy)) return true;
+					if (filterBy.call(item, this.indexOf(item), item)) return true;
 				}
 			} catch (err) {
 				_didIteratorError3 = true;
@@ -487,34 +500,59 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					}
 				}
 			}
+		} else {
+			var _iteratorNormalCompletion4 = true;
+			var _didIteratorError4 = false;
+			var _iteratorError4 = undefined;
+
+			try {
+				for (var _iterator4 = this[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+					var _item = _step4.value;
+
+					if (_item[priv.matchesFuncName](filterBy)) return true;
+				}
+			} catch (err) {
+				_didIteratorError4 = true;
+				_iteratorError4 = err;
+			} finally {
+				try {
+					if (!_iteratorNormalCompletion4 && _iterator4.return) {
+						_iterator4.return();
+					}
+				} finally {
+					if (_didIteratorError4) {
+						throw _iteratorError4;
+					}
+				}
+			}
 		}
 		return false;
 	};
 
 	$.fn.map = function (callback) {
 		var newSet = $();
-		var _iteratorNormalCompletion4 = true;
-		var _didIteratorError4 = false;
-		var _iteratorError4 = undefined;
+		var _iteratorNormalCompletion5 = true;
+		var _didIteratorError5 = false;
+		var _iteratorError5 = undefined;
 
 		try {
-			for (var _iterator4 = this[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-				var item = _step4.value;
+			for (var _iterator5 = this[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+				var item = _step5.value;
 
 				var ret = callback.call(item);
 				if (ret !== undefined && ret !== null) newSet.push(ret);
 			}
 		} catch (err) {
-			_didIteratorError4 = true;
-			_iteratorError4 = err;
+			_didIteratorError5 = true;
+			_iteratorError5 = err;
 		} finally {
 			try {
-				if (!_iteratorNormalCompletion4 && _iterator4.return) {
-					_iterator4.return();
+				if (!_iteratorNormalCompletion5 && _iterator5.return) {
+					_iterator5.return();
 				}
 			} finally {
-				if (_didIteratorError4) {
-					throw _iteratorError4;
+				if (_didIteratorError5) {
+					throw _iteratorError5;
 				}
 			}
 		}
@@ -643,27 +681,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	$.fn.offset = function (position) {
-		if (position && typeof position === 'string') {
-			if (position !== 'left' && position !== 'top') {
-				throw new Error('offset() position must be either "left" or "top".');
-			} else {
-				var el = this.set[0];
-				if (position === 'left') {
-					var offsetLeft = 0;
-					do {
-						if (!isNaN(el.offsetLeft)) offsetLeft += el.offsetLeft;
-					} while (el = el.offsetParent);
-					return offsetLeft;
-				} else if (position === 'top') {
-					var offsetTop = 0;
-					do {
-						if (!isNaN(el.offsetTop)) offsetTop += el.offsetTop;
-					} while (el = el.offsetParent);
-					return offsetTop;
-				}
-			}
-		} else {
-			throw new Error('offset() position must be a string: acceptable values are "left" and "top".');
+		if (!position || typeof position !== 'string') throw new Error('offset() position must be a string: acceptable values are "left" and "top".');
+		if (position !== 'left' && position !== 'top') throw new Error('offset() position must be either "left" or "top".');
+		var el = this.set[0];
+		if (position === 'left') {
+			var offsetLeft = 0;
+			do {
+				if (!isNaN(el.offsetLeft)) offsetLeft += el.offsetLeft;
+			} while (el = el.offsetParent);
+			return offsetLeft;
+		} else if (position === 'top') {
+			var offsetTop = 0;
+			do {
+				if (!isNaN(el.offsetTop)) offsetTop += el.offsetTop;
+			} while (el = el.offsetParent);
+			return offsetTop;
 		}
 	};
 
@@ -862,24 +894,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	$.fn.wrap = function (structure) {
 		this.each(function () {
-			if (typeof structure === 'string' && structure.startsWith('<') && structure.endsWith('>')) {
-				var contents = this.outerHTML;
-				this.outerHTML = structure + contents;
-			} else {
-				throw new Error('wrap() structure must be a string that denotes an HTML container starting with "<" and ending with ">".');
-			}
+			if (typeof structure !== 'string' || !structure.startsWith('<') || !structure.endsWith('>')) throw new Error('wrap() structure must be a string that denotes an HTML container starting with "<" and ending with ">".');
+			var contents = this.outerHTML;
+			this.outerHTML = structure + contents;
 		});
 		return this;
 	};
 
 	$.fn.wrapInner = function (structure) {
 		this.each(function () {
-			if (typeof structure === 'string' && structure.startsWith('<') && structure.endsWith('>')) {
-				var contents = $(this).html();
-				$(this).html(structure + contents);
-			} else {
-				throw new Error('wrapInner() structure must be a string that denotes an HTML container starting with "<" and ending with ">".');
-			}
+			if (typeof structure !== 'string' || !structure.startsWith('<') || !structure.endsWith('>')) throw new Error('wrapInner() structure must be a string that denotes an HTML container starting with "<" and ending with ">".');
+			var contents = $(this).html();
+			$(this).html(structure + contents);
 		});
 		return this;
 	};

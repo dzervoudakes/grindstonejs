@@ -313,3 +313,12 @@ v3.1.2
 
 - Pass the iterated array through 'each()'
 - Removed '-v${pkg.version}' from dist files for compatibility with unpkg.com
+
+Date: 11/7/17
+Changes Current Version: NO
+Contributor(s): exside | dzervoudakes
+
+v3.1.3
+
+- Handling 'dataType' in Ajax module
+- Added '$.extend()'

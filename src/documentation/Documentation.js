@@ -20,6 +20,7 @@
  * - method (GET, POST, PUT, etc.)
  * - url (data path)
  * - async (true or false)
+ * - dataType (DOMString, blob, json, document, etc.)
  * - body (payload)
  * - header (adds a custom HTTP header to the request)
  * - headerValue (value of the custom HTTP header)
@@ -28,6 +29,7 @@
  * @param {object} opts
  * @returns {object} a Promise
  * @example
+ * $.ajax({ method: 'GET', url: 'https://www.something.com/detail', dataType: 'json' }).then(function(resp) {}).catch(function(err) {});
  * $.ajax({ method: 'POST', url: 'https://www.something.com/api', body: { form: data } }).then(function(resp) {}).catch(function(err) {});
  */
 
@@ -38,7 +40,7 @@
  * @method append
  * @memberof Append
  * @param {object|string} element
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example
  * $('#selector').append('#element');
  * $('#selector').append('<p>Hello World</p>');
@@ -52,7 +54,7 @@
  * @memberof Attributes
  * @param {string} attribute
  * @param {string} value optional
- * @returns {object|string} current instance of Grindstone or attribute value
+ * @returns {object|string} Grindstone or attribute value
  * @example
  * $('#selector').attr('example');
  * $('#selector').attr('example', 'test');
@@ -72,7 +74,7 @@
  * @method removeAttr
  * @memberof Attributes
  * @param {string} attribute
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').removeAttr('example');
  */
 
@@ -92,7 +94,7 @@
  * @method addClass
  * @memberof Classes
  * @param {string} cls className
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').addClass('example');
  */
 
@@ -101,7 +103,7 @@
  * @method removeClass
  * @memberof Classes
  * @param {string} cls className
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').removeClass('example');
  */
 
@@ -110,7 +112,7 @@
  * @method toggleClass
  * @memberof Classes
  * @param {string} cls className
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').toggleClass('example');
  */
 
@@ -120,7 +122,7 @@
  * Clone the elements in the set.
  * @method clone
  * @memberof Clone
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').clone();
  */
 
@@ -132,7 +134,7 @@
  * @memberof CSS
  * @param {object|string} styles object with style properties or single style in a string
  * @param {string} value new style value to apply
- * @returns {object|string} current instance of Grindstone or style value
+ * @returns {object|string} Grindstone or style value
  * @example
  * $('#selector').style('display');
  * $('#selector').style('display', 'block');
@@ -147,7 +149,7 @@
  * @memberof Data
  * @param {string} valueName
  * @param {string} newValue optional
- * @returns {object|string} current instance of Grindstone or the current data-value of an element
+ * @returns {object|string} Grindstone or the current data-value of an element
  * @example
  * $('#selector').data('name');
  * $('#selector').data('name', 'value');
@@ -158,7 +160,7 @@
  * @method removeData
  * @memberof Data
  * @param {string} valueName
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').removeData('name');
  */
 
@@ -182,7 +184,7 @@
  * @method height
  * @memberof Dimensions
  * @param {number} num px, optional
- * @returns {object|number} current instance of Grindstone or current height of the first element in the set
+ * @returns {object|number} Grindstone or current height of the first element in the set
  * @example
  * $('#selector').height();
  * $('#selector').height(30);
@@ -193,7 +195,7 @@
  * @method width
  * @memberof Dimensions
  * @param {number} num px, optional
- * @returns {object|number} current instance of Grindstone or current width of the first element in the set
+ * @returns {object|number} Grindstone or current width of the first element in the set
  * @example
  * $('#selector').width();
  * $('#selector').width(30);
@@ -206,7 +208,7 @@
  * @method show
  * @memberof Display
  * @param {delay} delay ms, optional
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example
  * $('#selector').show();
  * $('#selector').show(100);
@@ -217,7 +219,7 @@
  * @method hide
  * @memberof Display
  * @param {delay} delay ms, optional
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example
  * $('#selector').hide();
  * $('#selector').hide(100);
@@ -230,7 +232,7 @@
  * @method doubleTap
  * @memberof DoubleTap
  * @param {function} callback
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').doubleTap(function(){});
  */
 
@@ -241,7 +243,7 @@
  * @method each
  * @memberof Each
  * @param {function} callback
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('.selector').each(function(index, array){});
  */
 
@@ -264,7 +266,7 @@
  * @memberof Events
  * @param {string} action event(s)
  * @param {function} callback
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example
  * $('#selector').on('change', function(){});
  * $('#selector').on('click touchend', function(){});
@@ -276,10 +278,25 @@
  * @memberof Events
  * @param {string} action event(s)
  * @param {function} callback
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example
  * $('#selector').off('change', function(){});
  * $('#selector').off('click touchend', function(){});
+ */
+
+ /** @namespace Extend */
+
+/**
+ * Merge properties from one or more objects into a target object.
+ * Existing properties in the target object will be overwritten if they exist in any of the argument objects.
+ * @method extend
+ * @memberof Extend
+ * @param {object} target
+ * @param {object} object object(s) whose properties will be merged into the target object
+ * @returns {object} target object with merged properties
+ * @example
+ * $.extend({}, { foo: 'bar' });
+ * $.extend(obj1, obj2, obj3, obj4...);
  */
 
 /** @namespace Filtering */
@@ -343,7 +360,7 @@
  * @method focus
  * @memberof Focus
  * @param {function} callback optional
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example
  * $('#selector').focus();
  * $('#selector').focus(function(){});
@@ -367,7 +384,7 @@
  * @method html
  * @memberof HTML
  * @param {string} content optional
- * @returns {object|string} current instance of Grindstone or current innerHTML of an element
+ * @returns {object|string} Grindstone or current innerHTML of an element
  * @example
  * $('#selector').html();
  * $('#selector').html('<p>Hello World</p>');
@@ -380,7 +397,7 @@
  * @method before
  * @memberof Insert
  * @param {string|object} content
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').before('<p>Hello World</p>');
  */
 
@@ -389,7 +406,7 @@
  * @method after
  * @memberof Insert
  * @param {string|object} content
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').after('<p>Hello World</p>');
  */
 
@@ -400,7 +417,7 @@
  * @method mouseable
  * @memberof Mouseable
  * @param {object} classes optional
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example
  * $('#selector').mouseable();
  * $('#selector').mouseable({ hoverClass: 'stuff', activeClass: 'things' });
@@ -426,7 +443,7 @@
  * @method prepend
  * @memberof Prepend
  * @param {object|string} element
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example
  * $('#selector').prepend('#element');
  * $('#selector').prepend('<p>Hello World</p>');
@@ -439,7 +456,7 @@
  * @method ready
  * @memberof Ready
  * @param {function} callback
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $(document).ready(function(){});
  */
 
@@ -448,7 +465,7 @@
  * @method load
  * @memberof Ready
  * @param {function} callback
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $(window).load(function(){});
  */
 
@@ -459,7 +476,7 @@
  * @method remove
  * @memberof Remove
  * @param {object} target element(s), optional
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example
  * $('#selector').remove();
  * $('#selector').remove('.selector');
@@ -472,7 +489,7 @@
  * @method replaceWith
  * @memberof ReplaceWith
  * @param {object|string} content
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').replaceWith('<p>Hello World</p>');
  */
 
@@ -483,7 +500,7 @@
  * @method resize
  * @memberof Resize
  * @param {function} callback
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $(window).resize(function(){});
  */
 
@@ -494,7 +511,7 @@
  * @method scroll
  * @memberof Scroll
  * @param {function} callback
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $(window).scroll(function(){});
  */
 
@@ -504,7 +521,7 @@
  * @method scrollTop
  * @memberof Scroll
  * @param {number} top offset in px, optional
- * @returns {object|number} current instance of Grindstone or top offset
+ * @returns {object|number} Grindstone or top offset
  * @example
  * $('#selector').scrollTop();
  * $('#selector').scrollTop(50);
@@ -516,7 +533,7 @@
  * @method scrollLeft
  * @memberof Scroll
  * @param {number} left offset in px, optional
- * @returns {object|number} current instance of Grindstone or left offset
+ * @returns {object|number} Grindstone or left offset
  * @example
  * $('#selector').scrollLeft();
  * $('#selector').scrollLeft(50);
@@ -529,7 +546,7 @@
  * @method submit
  * @memberof Submit
  * @param {function} callback optional
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example
  * $('#selector').submit();
  * $('#selector').submit(function(){});
@@ -596,7 +613,7 @@
  * @method trigger
  * @memberof Trigger
  * @param {number} evt custom event
- * @returns {object|number} current instance of Grindstone or top offset
+ * @returns {object|number} Grindstone or top offset
  * @example $('#selector').trigger('myEvent');
  */
 
@@ -607,7 +624,7 @@
  * @method val
  * @memberof Value
  * @param {string} newValue optional
- * @returns {object|string} current instance of Grindstone or the value of the first element in the set
+ * @returns {object|string} Grindstone or the value of the first element in the set
  * @example
  * $('#selector').val();
  * $('#selector').val('7');
@@ -620,7 +637,7 @@
  * @method wrap
  * @memberof Wrap
  * @param {string} structure
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').wrap('<section class="outside"><div class="middle"><div class="inner">');
  */
 
@@ -629,6 +646,6 @@
  * @method wrapInner
  * @memberof Wrap
  * @param {string} structure
- * @returns {object} current instance of Grindstone
+ * @returns {object} Grindstone
  * @example $('#selector').wrapInner('<section class="outside"><div class="middle"><div class="inner">');
  */
