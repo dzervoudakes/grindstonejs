@@ -29,7 +29,7 @@ gulp.task('clean', () => {
 gulp.task('compile', ['clean'], () => {
 	return gulp.src('./src/Core.js')
 		.pipe($.preprocess())
-		.pipe($.concat(`${pkg.name}.js`))
+		.pipe($.rename(`${pkg.name}.js`))
 		.pipe($.babel())
 		.pipe($.header(banners.max))
 		.pipe(gulp.dest('./dist'));
