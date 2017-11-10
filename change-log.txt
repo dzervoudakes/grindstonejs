@@ -327,6 +327,7 @@ Date: 11/9/17
 Changes Current Version: NO
 Contributor(s): dzervoudakes
 
-v3.1.4
+v3.1.4 - v3.1.5
 
 - Refactored CSS module
+- Refactored gulpfile
