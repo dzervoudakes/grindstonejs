@@ -1,5 +1,5 @@
 /**,
-* Grindstone JavaScript Library v3.1.3
+* Grindstone JavaScript Library v3.1.4
 * https://github.com/dzervoudakes/GrindstoneJS
 * 
 * Copyright (c) 2014, 2017 Dan Zervoudakes and contributors
@@ -256,13 +256,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		var returnedStyle = void 0,
 		    returnStyle = void 0;
 		this.each(function () {
-			var _this5 = this;
-
 			if ((typeof styles === 'undefined' ? 'undefined' : _typeof(styles)) === 'object') {
-				var stl = Object.keys(styles);
-				stl.forEach(function (key) {
-					_this5.style[key] = styles[key];
-				});
+				Object.assign(this.style, styles);
 			} else if (typeof styles === 'string' && (value === undefined || value === null)) {
 				returnedStyle = this.style[styles];
 				returnStyle = true;
@@ -347,11 +342,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	$.fn.show = function (delay) {
-		var _this6 = this;
+		var _this5 = this;
 
 		if (delay) {
 			setTimeout(function () {
-				$.fn.show.call(_this6);
+				$.fn.show.call(_this5);
 			}, delay);
 		} else {
 			this.each(function () {
@@ -365,11 +360,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	};
 
 	$.fn.hide = function (delay) {
-		var _this7 = this;
+		var _this6 = this;
 
 		if (delay) {
 			setTimeout(function () {
-				$.fn.hide.call(_this7);
+				$.fn.hide.call(_this6);
 			}, delay);
 		} else {
 			this.each(function () {
@@ -417,11 +412,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	$.fn.on = function (action, callback) {
 		this.each(function () {
-			var _this8 = this;
+			var _this7 = this;
 
 			var events = action.split(' ');
 			events.forEach(function (evt) {
-				_this8.addEventListener(evt, callback, false);
+				_this7.addEventListener(evt, callback, false);
 			});
 		});
 		return this;
@@ -429,11 +424,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	$.fn.off = function (action, callback) {
 		this.each(function () {
-			var _this9 = this;
+			var _this8 = this;
 
 			var events = action.split(' ');
 			events.forEach(function (evt) {
-				_this9.removeEventListener(evt, callback, false);
+				_this8.removeEventListener(evt, callback, false);
 			});
 		});
 		return this;
@@ -609,7 +604,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	$.fn.before = function (content) {
 		this.each(function () {
-			var _this10 = this;
+			var _this9 = this;
 
 			if (typeof content === 'string') {
 				if (content.match(/(<).+(>)/)) {
@@ -618,7 +613,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					var dom = document.querySelectorAll(content);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
-						_this10.parentNode.insertBefore(item, self);
+						_this9.parentNode.insertBefore(item, self);
 					});
 				}
 			} else {
@@ -630,7 +625,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	$.fn.after = function (content) {
 		this.each(function () {
-			var _this11 = this;
+			var _this10 = this;
 
 			if (typeof content === 'string') {
 				if (content.match(/(<).+(>)/)) {
@@ -639,7 +634,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					var dom = document.querySelectorAll(content);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
-						_this11.parentNode.insertBefore(item, self.nextSibling);
+						_this10.parentNode.insertBefore(item, self.nextSibling);
 					});
 				}
 			} else {
@@ -664,16 +659,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		};
 
 		this.each(function () {
-			var _this12 = this;
+			var _this11 = this;
 
 			$(this).on(events.hover, function () {
-				$(_this12).addClass(hoverClass);
+				$(_this11).addClass(hoverClass);
 			}).on(events.remove, function () {
-				$(_this12).removeClass(hoverClass);
+				$(_this11).removeClass(hoverClass);
 			}).on(events.down, function () {
-				$(_this12).addClass(activeClass);
+				$(_this11).addClass(activeClass);
 			}).on(events.up, function () {
-				$(_this12).removeClass(activeClass);
+				$(_this11).removeClass(activeClass);
 			});
 		});
 
@@ -701,7 +696,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	$.fn.prepend = function (element) {
 		this.each(function () {
-			var _this13 = this;
+			var _this12 = this;
 
 			if (typeof element === 'string') {
 				if (element.match(/(<).+(>)/)) {
@@ -710,7 +705,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					var dom = document.querySelectorAll(element);
 					dom = Array.prototype.slice.call(dom);
 					dom.forEach(function (item) {
-						_this13.insertBefore(item, self.firstChild);
+						_this12.insertBefore(item, self.firstChild);
 					});
 				}
 			} else {
@@ -743,10 +738,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			var elems = document.querySelectorAll(target);
 			elems = Array.prototype.slice.call(elems);
 			this.each(function () {
-				var _this14 = this;
+				var _this13 = this;
 
 				elems.forEach(function (el) {
-					_this14.removeChild(el);
+					_this13.removeChild(el);
 				});
 			});
 		} else {

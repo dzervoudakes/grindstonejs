@@ -322,3 +322,11 @@ v3.1.3
 
 - Handling 'dataType' in Ajax module
 - Added '$.extend()'
+
+Date: 11/9/17
+Changes Current Version: NO
+Contributor(s): dzervoudakes
+
+v3.1.4
+
+- Refactored CSS module

@@ -2,10 +2,7 @@
 		let returnedStyle, returnStyle;
 		this.each(function() {
 			if (typeof styles === 'object') {
-				const stl = Object.keys(styles);
-				stl.forEach(key => {
-					this.style[key] = styles[key];
-				});
+				Object.assign(this.style, styles);
 			} else if (typeof styles === 'string' && (value === undefined || value === null)) {
 				returnedStyle = this.style[styles];
 				returnStyle = true;
