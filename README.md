@@ -2,8 +2,6 @@
 
 A lightweight jQuery alternative for modern browsers.
 
-https://grindstonejs.drzwebdev.com/
-
 ```
 npm install grindstone
 ```
@@ -23,7 +21,7 @@ GrindstoneJS does not aim to "replace" jQuery or reinvent the wheel... it is mer
 
 ### Documentation
 
-For documentation and examples, please refer to the website or run the following command:
+For documentation and examples, please refer to the [website](https://grindstonejs.drzwebdev.com/) or run the following command:
 
 ```
 gulp jsdoc
