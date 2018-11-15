@@ -14,3 +14,12 @@ jobs:
       - checkout
       - run: npm run lint
       - run: npm test
+
+workflows:
+  version: 2.1
+  build_and_test:
+    jobs:
+      - build
+      - quality
+        requires:
+          - build
