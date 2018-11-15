@@ -1,380 +1,140 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
 	<head>
-		<title>GrindstoneJS</title>
-		<meta charset="UTF-8">
-		<script src="../dist/grindstone.js"></script>
-		<style type="text/css">
-			
-			* {
-				margin: 0;
-				padding: 0;
-			}
-			
-			button {
-				border: none;
-				outline: none;
-			}
-			
-			body > *:first-child {
-				position: relative;
-				left: 30px;
-				top: 10px;
-				/* height: 1000px; */ /* for scrollTop() test */
-			}
-			
-			.test-div {
-				position: absolute;
-				left: 100px;
-				top: 100px;
-				height: 60px;
-				width: 60px;
-				background: #0f0;
-				margin-left: 10px; /* for offset() test */
-			}
-			
-			.test-div.over {
-				background: #333;
-			}
-			
-			.test-div.down {
-				top: 104px;
-				left: 104px;
-			}
-			
-			.btns {
-				position: absolute;
-				right: 100px;
-				width: 50px;
-				height: 50px;
-				background: #069;
-				border: 1px solid #069;
-			}
-			
-			.mouseable {
-				cursor: pointer;
-			}
-			
-			.btns.over {
-				border-color: #f00;
-			}
-			
-			#btn1 {
-				top: 100px;
-			}
-			
-			#btn2 {
-				top: 210px;
-			}
-			
-			#btn2.TOGGLE {
-				background: #0f0;
-			}
-			
-			.empty-div {
-				margin: 0;
-				padding: 0;
-				display: none;
-			}
-			
-			.test-input {
-				width: 120px;
-				height: 20px;
-				border-radius: 3px;
-				box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.25);
-				margin-top: 30px;
-				margin-left: 30px;
-				border: none;
-			}
-			
-			.scroll-box {
-				position: absolute;
-				left: 400px;
-				top: 200px;
-				width: 400px;
-				height: 400px;
-				background: #b0b0b0;
-				overflow-y: scroll;
-			}
-			
-			.scroll-box > * {
-				width: 100%;
-				height: 1200px;
-			}
-			
-		</style>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Grindstone.js Unit Tests</title>
 	</head>
 	<body>
-		<div>
-			<div id="test-div" class="test-div mouseable">
-				<div id="empty-div01" class="empty-div"></div>
-				<div id="empty-div02" class="empty-div"></div>
-				<div id="empty-div03" class="empty-div"></div>
-				<div id="empty-div04" class="empty-div"></div>
-			</div>
+		<div id="jest" class="jest-fixture-class"></div>
+		<div class="jest-fixture-class"></div>
+
+		<div id="jest-context-container">
+			<div class="jest-fixture-class"></div>
+			<div class="jest-fixture-class"></div>
 		</div>
-		<article id="empty-article"></article>
-		<button id="btn1" class="btns mouseable"></button>
-		<button id="btn2" class="btns mouseable bleh"></button>
-		<input type="text" class="test-input">
-		<!--<div id="scroll-box" class="scroll-box">
-			<div></div>
-		</div>-->
-		<form class="test-form" method="POST" action="">
-			<input type="text">
-			<input type="submit" value="submit">
+
+		<div id="jest-append-parent">
+			<div class="dummy-div"></div>
+		</div>
+		<div id="jest-append-child">hi</div>
+
+		<div id="jest-prepend-parent">
+			<div class="dummy-div"></div>
+		</div>
+		<div id="jest-prepend-child">hi</div>
+
+		<div id="jest-after-parent">
+			<div id="jest-after-sibling"></div>
+		</div>
+		<div id="jest-after-child">child please</div>
+
+		<div id="jest-before-parent">
+			<div id="jest-before-sibling"></div>
+		</div>
+		<div id="jest-before-child">child please</div>
+
+		<div id="jest-attr"></div>
+
+		<div id="jest-classes" class="jest-classes-test"></div>
+
+		<div class="jest-clone"></div>
+
+		<div id="jest-css"></div>
+
+		<div id="jest-data"></div>
+
+		<div id="jest-dimensions"></div>
+
+		<div id="jest-display" style="display: block;"></div>
+
+		<div class="jest-each"></div>
+		<div class="jest-each"></div>
+		<div class="jest-each"></div>
+
+		<div id="jest-empty">
+			<div>one</div>
+			<div>two</div>
+		</div>
+
+		<div class="jest-eq fist"></div>
+		<div class="jest-eq middle"></div>
+		<div class="jest-eq last"></div>
+
+		<div id="jest-is"></div>
+
+		<div class="jest-map"></div>
+		<div class="jest-map filter"></div>
+		<div class="jest-map filter"></div>
+
+		<ul id="jest-filter">
+			<li></li>
+			<li class="filtered"></li>
+			<li class="filtered"></li>
+		</ul>
+
+		<div class="first-last first"></div>
+		<div class="first-last middle"></div>
+		<div class="first-last last"></div>
+
+		<div id="jest-doubletap"></div>
+
+		<input id="jest-focus" />
+
+		<div id="jest-load"></div>
+		<div id="jest-ready"></div>
+		<div id="jest-events"></div>
+
+		<div class="jest-get" title="one"></div>
+		<div class="jest-get" title="two"></div>
+		<div class="jest-get" title="three"></div>
+		<div class="jest-get" title="four"></div>
+
+		<div id="jest-html"></div>
+
+		<div id="jest-insert">
+			<div class="middle"></div>
+		</div>
+
+		<div id="jest-mouseable"></div>
+
+		<div id="jest-offset" style="position: absolute; left: 50px; top: 50px;"></div>
+
+		<div id="jest-prepend">
+			<div class="middle"></div>
+			<div class="last"></div>
+		</div>
+
+		<div id="jest-remove">
+			<div id="jest-remove-child" class="child"></div>
+		</div>
+
+		<div id="jest-replacewith"></div>
+
+		<div id="jest-scroll">
+			<div id="jest-scrollleft"></div>
+		</div>
+
+		<form id="jest-submit">
+			<input id="jest-submit-input" type="hidden" value="hai guys" />
+			<input id="jest-submit-button" type="submit" value="submit" />
 		</form>
-		<script type="text/javascript">
-			
-			(function(w, d, $) {
-				
-				var state = {};
-				state.dom = {};
-				state.eventHandlers = {};
-				
-				state.interaction = function() {
-					return ('ontouchend' in d) ? 'touchend' : 'click';
-				};
-				
-				var collectDOM = function() {
-					state.dom.btn1 = d.getElementById('btn1');
-					state.dom.btn2 = d.getElementById('btn2');
-					state.dom.$emptyArticle = $('#empty-article');
-				};
-				
-				var gatherEvents = function() {
-					
-					state.eventHandlers.ajaxTest = function() {
-						var opts = {
-							async: true,
-							method: 'GET',
-							url: 'data/ajax-test.html'
-						};
-						$.ajax(opts).then(function(resp) {
-							state.dom.$emptyArticle.html(resp);
-						}).catch(function(err) {
-							console.log(err);
-						});
-					};
 
-					state.eventHandlers.ajaxTest2 = function() {
-						var opts = {
-							dataType: 'json',
-							method: 'GET',
-							url: 'data/data.json'
-						};
-						$.ajax(opts).then(function(resp) {
-							console.log('typeof resp, index.html: ' + typeof resp);
-							console.log(resp);
-						}).catch(function(err) {
-							console.log(err);
-						});
-					};
-					
-					state.eventHandlers.appendTest = function() {
-						// state.dom.$emptyArticle.append('<div class="append-test">test</div>');
-						state.dom.$emptyArticle.append('#btn2');
-					};
+		<div id="jest-contents">
+			<p>hello</p>
+			<p>world</p>
+		</div>
 
-					state.eventHandlers.attributesTest = function() {
-						console.log('has jank: ' + $('#btn1').hasAttr('jank'));
-						setTimeout(function() {
-							$('#btn1').attr('jank', 'clean all the things');
-						}, 1000);
-						setTimeout(function() {
-							console.log('has jank? ' + $('#btn1').hasAttr('jank') + ', ' + $('#btn1').attr('jank'));
-						}, 2000);
-						setTimeout(function() {
-							$('#btn1').removeAttr('jank');
-						}, 3000);
-					};
+		<div id="jest-traversing" class="parent">
+			<div class="first"></div>
+			<div class="middle"></div>
+			<div class="last"></div>
+		</div>
 
-					state.eventHandlers.childrenTest = function() {
-						console.log($('#test-div').children());
-					};
-					
-					state.eventHandlers.cloneTest = function() {
-						var el = $('#btn1').clone();
-						console.log(el);
-					};
-					
-					state.eventHandlers.contentsTest = function() {
-						var el = $('#test-div').contents();
-						console.log(el);
-					};
+		<input id="jest-value" value="50" />
 
-					state.eventHandlers.cssTest = function() {
-						$(state.dom.btn1).css({
-							background: '#f00',
-							border: '3px solid blue',
-							borderRadius: '25px'
-						});
-						setTimeout(function() {
-							console.log($(state.dom.btn1).css('border'));
-						}, 500);
-					};
-					
-					state.eventHandlers.dataTest1 = function() {
-						$(this).data('clicked', 'oh ya');
-						alert($(this).data('clicked'));
-					};
-					
-					state.eventHandlers.dataTest2 = function() {
-						$(state.dom.btn1).removeData('clicked');
-					};
-					
-					state.eventHandlers.debounceTest = $.debounce(function() {
-						$(w).on('resize', function() {
-							var curHeight = $(this).height();
-							var curWidth = $(this).width();
-							console.log(curHeight);
-							console.log(curWidth);
-						});
-					});
-
-					state.eventHandlers.dimensionsTest = function() {
-						$('#btn1').width(400);
-						console.log('btn1 width: ' + $('#btn1').width());
-						$('#btn2').height(300);
-						console.log('btn2 height: ' + $('#btn2').height());
-					};
-
-					state.eventHandlers.displayTest = function() {
-						$('#btn1').hide();
-						$('#btn1').show(1000);
-					};
-
-					state.eventHandlers.eachTest = function() {
-						$('.empty-div').each(function(index, array) {
-							if (index === 0) console.log(array);
-							console.log(this);
-							console.log(index);
-						});
-					};
-
-					state.eventHandlers.extendTest = function() {
-						var obj1 = { foo: 'bar' };
-						var obj2 = { hello: 'world', nested: { obj: 'inception' } };
-						var obj3 = { hai: 'guys', hello: 'hola' };
-						var obj4 = { juice: 'loose', try: 'this', arr: ['yolo', 'whassup'] };
-						// $.extend(obj1, obj3);
-						// console.log(obj1);
-						var newObj = $.extend({}, obj1, obj2, obj3, obj4);
-						console.log(newObj);
-					};
-					
-					state.eventHandlers.focusTest = function() {
-						// $('.test-input').focus();
-						$('.test-input').focus(function() { console.log('focus'); });
-					};
-					
-					state.eventHandlers.getTest = function() {
-						var el = $('.empty-div').get(1);
-						console.log(el);
-					};
-					
-					state.eventHandlers.htmlTest = function() {
-						$(this).html('<p style="font-size: 24px;">test</p>');
-					};
-
-					state.eventHandlers.insertTest = function() {
-						$('#test-div').before('<p>Hello</p>').after('<p>World</p>')
-					};
-
-					state.eventHandlers.isTest = function() {
-						var test = $('.btns').is('#btn1');
-						var test2 = $('.btns').is('#btn3');
-						console.log(test, test2);
-					};
-					
-					state.eventHandlers.mapTest = function() {
-						$('#test-div').children().map(function() {
-							$(this).attr('jank', 'mapped');
-						});
-					};
-					
-					state.eventHandlers.parentTest = function() {
-						var el = $('#empty-div03').parent();
-						var el2 = $('#empty-div03').parent('#test-div');
-						console.log(el + '\n' + el2);
-					};
-
-					state.eventHandlers.prependTest = function() {
-						state.dom.$emptyArticle.html('<p>prepend</p>')
-						setTimeout(function() {
-							state.dom.$emptyArticle.append('#btn1').prepend('#btn2');
-						}, 200);
-					};
-					
-					state.eventHandlers.removeTest = function() {
-						$(state.dom.btn1).remove();
-						$('#test-div').remove('#empty-div01');
-					};
-					
-					state.eventHandlers.scrollLeftTest = function() {
-						$(d).scrollLeft(300);
-					};
-					
-					state.eventHandlers.scrollTopTest = function() {
-						var curScroll = $(w).scrollTop();
-						console.log(curScroll);
-					};
-					
-					state.eventHandlers.toggleClassTest = function() {
-						$(state.dom.btn2).toggleClass('TOGGLE bleh');
-					};
-					
-					state.eventHandlers.submitTest = function() {
-						$('.test-form').submit();
-						// $('.test-form').submit(function() { alert('form submitted'); });
-					};
-					
-					state.eventHandlers.valueTest1 = function() {
-						$('.test-input').val('New Value');
-					};
-					
-					state.eventHandlers.valueTest2 = function() {
-						var value = $('.test-input').val();
-						alert(value);
-					};
-
-					state.eventHandlers.wrapTest = function() {
-						$('#test-div').wrap('<section class="jeah"><div class="jeah">');
-					};
-
-					state.eventHandlers.wrapInnerTest = function() {
-						$('#test-div').wrapInner('<article class="jank">');
-					};
-				};
-				
-				var runTests = function() {
-					
-					var el = $(state.dom.btn1);
-					var el2 = $(state.dom.btn2);
-					var test = $('#test-div');
-					var buttonsArray = $('.btns');
-					var divs = $('div');
-					var emptyDivs = $('div', '#test-div');
-
-					// el.doubleTap(function() { alert('doubleTap works'); });
-					
-					el.on(state.interaction(), state.eventHandlers.cssTest);
-					el2.on(state.interaction(), state.eventHandlers.dataTest2);
-					
-					$('.mouseable').mouseable();
-					// $('.mouseable').mouseable({ hoverClass: 'test' });
-				};
-				
-				var init = function() {
-					collectDOM();
-					gatherEvents();
-					runTests();
-				};
-				
-				$(d).ready(init);
-				
-			})(window, document, Grindstone);
-			
-		</script>
+		<div id="jest-wrap">
+			<div id="jest-wrapinner"></div>
+		</div>
 	</body>
 </html>

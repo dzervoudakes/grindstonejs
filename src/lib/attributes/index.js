@@ -1,0 +1,9 @@
+// @include ./modules/AddClass.js
+// @include ./modules/Attr.js
+// @include ./modules/Data.js
+// @include ./modules/HasAttr.js
+// @include ./modules/HasClass.js
+// @include ./modules/RemoveAttr.js
+// @include ./modules/RemoveClass.js
+// @include ./modules/RemoveData.js
+// @include ./modules/ToggleClass.js

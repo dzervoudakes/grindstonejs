@@ -1,40 +1,66 @@
 {
-  "name": "grindstone",
-  "version": "3.1.5",
-  "main": "dist/grindstone.min.js",
-  "homepage": "https://grindstonejs.drzwebdev.com",
-  "author": {
-    "name": "Dan Zervoudakes",
-    "url": "https://drzwebdev.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dzervoudakes/GrindstoneJS"
-  },
-  "devDependencies": {
-    "babel-plugin-transform-strict-mode": "^6.24.1",
-    "babel-preset-es2015-script": "^1.1.0",
-    "common-tags": "^1.4.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-clean": "^0.3.2",
-    "gulp-header": "^1.8.2",
-    "gulp-jsdoc3": "^1.0.1",
-    "gulp-load-plugins": "^1.2.4",
-    "gulp-preprocess": "^2.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^1.5.3",
-    "minami": "^1.2.3"
-  },
-  "keywords": [
-    "grindstone",
-    "javascript",
-    "library",
-    "jquery",
-    "lightweight"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
-  }
+	"name": "grindstone",
+	"version": "3.2.0",
+	"main": "dist/grindstone.min.js",
+	"license": "MIT",
+	"author": {
+		"name": "dzervoudakes and contributors"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dzervoudakes/GrindstoneJS"
+	},
+	"scripts": {
+		"build": "gulp build",
+		"clean": "gulp clean",
+		"clean:coverage": "gulp clean:coverage",
+		"clean:docs": "gulp clean:jsdoc",
+		"docs": "gulp jsdoc",
+		"lint": "eslint . --ext js",
+		"lint:fix": "eslint . --ext js --fix",
+		"prepublishOnly": "npm run lint && npm run build && npm test",
+		"test": "gulp test",
+		"start": "gulp watch"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-eslint": "^8.2.6",
+		"babel-plugin-transform-strict-mode": "^6.24.1",
+		"babel-preset-env": "^1.7.0",
+		"common-tags": "^1.8.0",
+		"eslint": "^5.2.0",
+		"gulp": "^3.9.1",
+		"gulp-babel": "^7.0.1",
+		"gulp-clean": "^0.4.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-header": "^2.0.5",
+		"gulp-jest": "^4.0.2",
+		"gulp-jsdoc3": "^2.0.0",
+		"gulp-load-plugins": "^1.5.0",
+		"gulp-preprocess": "^3.0.0",
+		"gulp-rename": "^1.4.0",
+		"gulp-strip-comments": "^2.5.2",
+		"gulp-uglify": "^3.0.1",
+		"husky": "^1.1.3",
+		"jest-cli": "^23.4.2",
+		"lint-staged": "^8.0.4",
+		"minami": "^1.2.3"
+	},
+	"keywords": [
+		"grindstone",
+		"javascript",
+		"library",
+		"jquery",
+		"lightweight"
+	],
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not ie <= 9"
+	]
 }

@@ -1,0 +1,17 @@
+.vscode
+.DS_Store
+.git
+.gitignore
+.babelrc
+.circleci
+.editorconfig
+.eslintignore
+.eslintrc.js
+CHANGELOG.md
+package-lock.json
+gulpfile.js
+jsdoc.json
+src
+test
+coverage
+config
