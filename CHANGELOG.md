@@ -21,7 +21,7 @@
 
 ## v3.2.0
 
-**Release Date:** 2018-11-14\
+**Release Date:** 2018-11-15\
 **Contributor(s):** dzervoudakes
 
 * Updated dependencies

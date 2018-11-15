@@ -1,26 +1,48 @@
 version: 2.1
 
+# npm installing all the things per each job until we figure
+# out how to 1) cache uploaded node_modules in artifacts,
+# and 2) ensure said node_modules are available in
+# subsequent jobs...
+
 jobs:
-  build:
+  dependencies:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
       - checkout
       - run: npm install
+      # - store_artifacts:
+      #     path: node_modules/
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+    steps:
+      - checkout
+      - run: npm install # hopefully we can remove this step
       - run: npm run build
+      # - store_artifacts:
+      #     path: dist/
   quality:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
       - checkout
+      - run: npm install # hopefully we can remove this step
+      - run: npm run build # hopefully we can remove this step
       - run: npm run lint
       - run: npm test
+      # - store_artifacts:
+      #     path: coverage/
 
 workflows:
   version: 2.1
   build_and_test:
     jobs:
-      - build
+      - dependencies
+      - build:
+          requires:
+            - dependencies
       - quality:
           requires:
             - build

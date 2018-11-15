@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master.svg?style=svg)](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master)
+
 # Grindstone.js
 
 > A lightweight jQuery alternative for modern browsers.
