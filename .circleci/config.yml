@@ -1,39 +1,16 @@
-image: node:10.11.0
-stages:
-	- dependencies
-	- quality
-	- build
-	- coverage
-
-install:
-	stage: dependencies
-	script:
-		- npm install
-	artifacts:
-		paths:
-			- node_modules/
-
-eslint:
-	stage: quality
-	script:
-		- npm run lint
-	dependencies:
-		- install
-
-bundle:
-	stage: build
-	script:
-		- npm run build
-	dependencies:
-		- install
-	artifacts:
-		paths:
-			- dist/
-
-test:
-	stage: coverage
-	script:
-		- npm run test
-	dependencies:
-		- install
-		- bundle
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
+  quality:
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+    steps:
+      - checkout
+      - run: npm run lint
+      - run: npm test
