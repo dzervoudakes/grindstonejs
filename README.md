@@ -1,5 +1,9 @@
+<!--
+	Codacy Coverage Installation: https://github.com/codacy/node-codacy-coverage#installation
+-->
 [![CircleCI branch](https://img.shields.io/circleci/project/github/dzervoudakes/GrindstoneJS/master.svg)](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dzervoudakes/GrindstoneJS&amp;utm_campaign=Badge_Grade)
+![Codacy coverage](https://img.shields.io/codacy/coverage/a339a84a71454c7e89467539369fa12d.svg)
 
 # Grindstone.js
 
@@ -54,7 +58,7 @@ $(selector[, context]);
 
 Extending Grindstone.js by adding new methods is as easy as well:
 
-```
+```js
 $.fn => Grindstone.prototype
 
 $.fn.someNewMethod = function() {};

@@ -18,8 +18,9 @@
 		"docs": "gulp jsdoc",
 		"lint": "eslint . --ext js",
 		"lint:fix": "eslint . --ext js --fix",
-		"prepublishOnly": "npm run lint && npm run build && npm test",
+		"prepublishOnly": "npm run lint && npm run build && npm test-codacy",
 		"test": "gulp test",
+		"test-codacy": "npm test && cat ./coverage/lcov.info | codacy-coverage --token a339a84a71454c7e89467539369fa12d",
 		"start": "gulp watch"
 	},
 	"devDependencies": {
@@ -27,6 +28,7 @@
 		"babel-eslint": "^8.2.6",
 		"babel-plugin-transform-strict-mode": "^6.24.1",
 		"babel-preset-env": "^1.7.0",
+		"codacy-coverage": "^3.2.0",
 		"common-tags": "^1.8.0",
 		"eslint": "^5.2.0",
 		"gulp": "^3.9.1",
