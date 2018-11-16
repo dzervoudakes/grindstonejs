@@ -1,10 +1,5 @@
 version: 2.1
 
-# npm installing all the things per each job until we figure
-# out how to 1) cache uploaded node_modules in artifacts,
-# and 2) ensure said node_modules are available in
-# subsequent jobs...
-
 jobs:
   dependencies:
     docker:
@@ -12,28 +7,21 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      # - store_artifacts:
-      #     path: node_modules/
   build:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
       - checkout
-      - run: npm install # hopefully we can remove this step
+      - run: npm install
       - run: npm run build
-      # - store_artifacts:
-      #     path: dist/
   quality:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
       - checkout
-      - run: npm install # hopefully we can remove this step
-      - run: npm run build # hopefully we can remove this step
+      - run: npm install
       - run: npm run lint
       - run: npm test
-      # - store_artifacts:
-      #     path: coverage/
 
 workflows:
   version: 2.1
@@ -46,3 +34,56 @@ workflows:
       - quality:
           requires:
             - build
+
+####################################################################################################
+
+# version: 2.1
+
+# jobs:
+#   dependencies:
+#     docker:
+#       - image: circleci/ruby:2.5.1-node-browsers
+#     steps:
+#       - checkout
+#       - run: npm install
+#       - persist_to_workspace:
+#           root: ~/project
+#           paths:
+#             - node_modules/
+#   build:
+#     docker:
+#       - image: circleci/ruby:2.5.1-node-browsers
+#     steps:
+#       - checkout
+#       - run: npm run build
+#       - attach_workspace:
+#           at: ~/project
+#       - persist_to_workspace:
+#           root: ~/project
+#           paths:
+#             - dist/
+#   quality:
+#     docker:
+#       - image: circleci/ruby:2.5.1-node-browsers
+#     steps:
+#       - checkout
+#       - run: npm run lint
+#       - run: npm test
+#       - attach_workspace:
+#           at: ~/project
+#       - persist_to_workspace:
+#           root: ~/project
+#           paths:
+#             - coverage/
+
+# workflows:
+#   version: 2.1
+#   build_and_test:
+#     jobs:
+#       - dependencies
+#       - build:
+#           requires:
+#             - dependencies
+#       - quality:
+#           requires:
+#             - build

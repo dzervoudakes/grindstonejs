@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master.svg?style=shield)](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master)
+[![CircleCI branch](https://img.shields.io/circleci/project/github/dzervoudakes/GrindstoneJS/master.svg)](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master)
 
 # Grindstone.js
 
