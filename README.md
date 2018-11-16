@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/edfd4e15c42d4fa596c5b11cda4a1b16)](https://app.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&utm_medium=referral&utm_content=dzervoudakes/GrindstoneJS&utm_campaign=Badge_Grade_Dashboard)
 [![CircleCI branch](https://img.shields.io/circleci/project/github/dzervoudakes/GrindstoneJS/master.svg)](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master)
 
 # Grindstone.js
