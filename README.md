@@ -70,18 +70,18 @@ Full documentation on all methods is below.
 
 | Ajax						| Attributes										| Collection				| Events											| Filtering						|
 | --------------- | ----------------------------- | ----------------- | --------------------------- | ------------------- |
-| [ajax()](#ajax) | [addClass()](#addclass)				| [each()](#each)		| [doubleTap()](#doubletap) 	| [filter()](#filter) |
-|									| [attr()](#attr)								| [eq()](#eq)				| [focus()](#focus)						| [is()](#is)					|
-|									| [data()](#data)								| [first()](#first) | [load()](#load)							| [not()](#not)				|
-|									| [hasAttr()](#hasattr)					| [get()](#get)			| [off()](#off)								|											|
-|									| [hasClass()](#hasclass)				| [last()](#last)		| [on()](#on)									|											|
-|									| [removeAttr()](#removeattr)		| [map()](#map)			| [ready()](#ready)						|											|
-|									| [removeClass()](#removeclass) |										| [resize()](#resize)					|											|
-|									| [removeData()](#removedata)		|										| [scroll()](#scroll)					|											|
-|									| [toggleClass()](#toggleclass) |										| [scrollLeft()](#scrollleft) |											|
-|									|																|										| [scrollTop()](#scrolltop)		|											|
+| [ajax()](#ajax) | [addClass()](#addclass)				| [each()](#each)		| [click()](#click) 					| [filter()](#filter) |
+|									| [attr()](#attr)								| [eq()](#eq)				| [doubleTap()](#doubleTap)		| [is()](#is)					|
+|									| [data()](#data)								| [first()](#first) | [focus()](#focus)						| [not()](#not)				|
+|									| [hasAttr()](#hasattr)					| [get()](#get)			| [load()](#load)							|											|
+|									| [hasClass()](#hasclass)				| [last()](#last)		| [off()](#off)								|											|
+|									| [removeAttr()](#removeattr)		| [map()](#map)			| [on()](#on)									|											|
+|									| [removeClass()](#removeclass) |										| [ready()](#ready)						|											|
+|									| [removeData()](#removedata)		|										| [resize()](#resize)					|											|
+|									| [toggleClass()](#toggleclass) |										| [scroll()](#scroll) 				|											|
+|									|																|										| [scrollLeft()](#scrollLeft)	|											|
+|									|																|										| [scrollTop()](#scrollTop)		|											|
 |									|																|										| [trigger()](#trigger)				|											|
-|									|																|										| [click()](#click)						|											|
 
 | Forms								| Manipulation									| Miscellaneous							| Traversing							|
 | ------------------- | ----------------------------- | ------------------------- | ----------------------- |
