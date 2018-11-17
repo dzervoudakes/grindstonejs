@@ -3,7 +3,7 @@
 -->
 [![CircleCI branch](https://img.shields.io/circleci/project/github/dzervoudakes/GrindstoneJS/master.svg)](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dzervoudakes/GrindstoneJS&amp;utm_campaign=Badge_Grade)
-[![Codacy coverage](https://img.shields.io/codacy/coverage/a339a84a71454c7e89467539369fa12d.svg)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dzervoudakes/GrindstoneJS)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&utm_medium=referral&utm_content=dzervoudakes/GrindstoneJS&utm_campaign=Badge_Coverage)
 
 # Grindstone.js
 
