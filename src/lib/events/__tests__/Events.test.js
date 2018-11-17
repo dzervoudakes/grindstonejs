@@ -1,10 +1,20 @@
 const { setupTests } = global;
+setupTests('click', 'events/modules/Click');
 setupTests('on', 'events/modules/On');
 setupTests('off', 'events/modules/Off');
 setupTests('trigger', 'events/modules/Trigger');
 
-describe('on()', () => {
+describe('click()', () => {
 	it('fires a callback when triggered', () => {
+		let i = 0;
+		$('#jest-events').click(() => { i++; });
+		$('#jest-events').click();
+		expect(i).toBe(1);
+	});
+});
+
+describe('on()', () => {
+	it('adds one or more event listeners', () => {
 		let i = 0;
 		$('#jest-events').on('click touchend', () => { i++; });
 		$('#jest-events').trigger('click');
@@ -14,7 +24,7 @@ describe('on()', () => {
 });
 
 describe('off()', () => {
-	it('removes an event listener', () => {
+	it('removes one or more event listeners', () => {
 		let i = 0;
 		const cb = () => { i++; };
 		$('#jest-events').on('click', cb);

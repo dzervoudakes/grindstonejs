@@ -3,7 +3,7 @@
 -->
 [![CircleCI branch](https://img.shields.io/circleci/project/github/dzervoudakes/GrindstoneJS/master.svg)](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dzervoudakes/GrindstoneJS&amp;utm_campaign=Badge_Grade)
-![Codacy coverage](https://img.shields.io/codacy/coverage/a339a84a71454c7e89467539369fa12d.svg)
+[![Codacy coverage](https://img.shields.io/codacy/coverage/a339a84a71454c7e89467539369fa12d.svg)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dzervoudakes/GrindstoneJS)
 
 # Grindstone.js
 
@@ -81,6 +81,7 @@ Full documentation on all methods is below.
 |									| [toggleClass()](#toggleclass) |										| [scrollLeft()](#scrollleft) |											|
 |									|																|										| [scrollTop()](#scrolltop)		|											|
 |									|																|										| [trigger()](#trigger)				|											|
+|									|																|										| [click()](#click)						|											|
 
 | Forms								| Manipulation									| Miscellaneous							| Traversing							|
 | ------------------- | ----------------------------- | ------------------------- | ----------------------- |
@@ -146,6 +147,17 @@ Set or return the value of the specified attribute.
 ```js
 $('#selector').addClass('example');
 $('#selector').addClass('one two');
+```
+
+<a id="click"></a>
+
+### click()
+
+Trigger a callback on click, or trigger the click itself.
+
+```js
+$('#selector').click();
+$('#selector').click(function(){});
 ```
 
 <a id="data"></a>

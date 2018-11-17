@@ -1,3 +1,4 @@
+// @include ./modules/Click.js
 // @include ./modules/DoubleTap.js
 // @include ./modules/Focus.js
 // @include ./modules/Load.js
