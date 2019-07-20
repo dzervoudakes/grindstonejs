@@ -9,9 +9,9 @@ module.exports = {
 		 * ${pkg.repository.url}
 		 *
 		 * Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name}
-		 * Released under the MIT license
+		 * @license MIT
 		 * ${pkg.repository.url}/blob/master/LICENSE
 		 */
 	` + '\n\n',
-	min: `/* Grindstone JavaScript Library v${pkg.version} | Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} | ${pkg.repository.url}/blob/master/LICENSE */\n`
+	min: `/*! Grindstone JavaScript Library v${pkg.version} | Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} | ${pkg.repository.url}/blob/master/LICENSE */\n`
 };

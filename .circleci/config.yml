@@ -1,26 +1,41 @@
 version: 2.1
 
 jobs:
-  dependencies:
+  install_dependencies:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
       - checkout
+      - restore_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
       - run: npm install
+      - save_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
   build:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
       - checkout
-      - run: npm install
+      - restore_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          key: v1-output
       - run: npm run build
-  quality:
+      - save_cache:
+          key: v1-output
+          paths:
+            - dist
+  check_quality:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
       - checkout
-      - run: npm install
-      - run: npm run build
+      - restore_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          key: v1-output
       - run: npm run lint
       - run: npm test
 
@@ -28,63 +43,10 @@ workflows:
   version: 2.1
   build_and_test:
     jobs:
-      - dependencies
+      - install_dependencies
       - build:
           requires:
-            - dependencies
-      - quality:
+            - install_dependencies
+      - check_quality:
           requires:
             - build
-
-####################################################################################################
-
-# version: 2.1
-
-# jobs:
-#   dependencies:
-#     docker:
-#       - image: circleci/ruby:2.5.1-node-browsers
-#     steps:
-#       - checkout
-#       - run: npm install
-#       - persist_to_workspace:
-#           root: ~/project
-#           paths:
-#             - node_modules/
-#   build:
-#     docker:
-#       - image: circleci/ruby:2.5.1-node-browsers
-#     steps:
-#       - checkout
-#       - run: npm run build
-#       - attach_workspace:
-#           at: ~/project
-#       - persist_to_workspace:
-#           root: ~/project
-#           paths:
-#             - dist/
-#   quality:
-#     docker:
-#       - image: circleci/ruby:2.5.1-node-browsers
-#     steps:
-#       - checkout
-#       - run: npm run lint
-#       - run: npm test
-#       - attach_workspace:
-#           at: ~/project
-#       - persist_to_workspace:
-#           root: ~/project
-#           paths:
-#             - coverage/
-
-# workflows:
-#   version: 2.1
-#   build_and_test:
-#     jobs:
-#       - dependencies
-#       - build:
-#           requires:
-#             - dependencies
-#       - quality:
-#           requires:
-#             - build

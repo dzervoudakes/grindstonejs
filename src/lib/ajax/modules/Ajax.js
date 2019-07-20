@@ -28,7 +28,7 @@ const ajax = function(opts) {
 		throw new Error('XHR properties are not properly defined.');
 	}
 
-	let {
+	const {
 		method = 'GET',
 		url = '',
 		async = true,

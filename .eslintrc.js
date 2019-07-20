@@ -33,6 +33,7 @@ module.exports = {
 		'no-undef': OFF,
 		'no-unused-vars': ERROR,
 		'object-curly-spacing': ['error', 'always'],
+		'prefer-const': ERROR,
 		'semi': ['error', 'always'],
 		'quotes': ['error', 'single']
 	}

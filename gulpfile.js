@@ -8,11 +8,11 @@ const jsdocConfig = require('./config/jsdoc');
 // build
 // --
 gulp.task('clean', () => {
-	return gulp.src('dist', { read: false })
+	return gulp.src('dist', { allowEmpty: true, read: false })
 		.pipe($.clean({ force: true }));
 });
 
-gulp.task('compile', ['clean'], () => {
+gulp.task('compile', () => {
 	return gulp.src('./src/Core.js')
 		.pipe($.preprocess({
 			context: { NODE_ENV: 'production' }
@@ -24,7 +24,7 @@ gulp.task('compile', ['clean'], () => {
 		.pipe(gulp.dest('./dist'));
 });
 
-gulp.task('uglify', ['compile'], () => {
+gulp.task('uglify', () => {
 	return gulp.src(`./dist/${pkg.name}.js`)
 		.pipe($.uglify())
 		.pipe($.header(banners.min))
@@ -32,34 +32,34 @@ gulp.task('uglify', ['compile'], () => {
 		.pipe(gulp.dest('./dist'));
 });
 
-gulp.task('build', ['clean', 'compile', 'uglify']);
+gulp.task('build', gulp.series('clean', 'compile', 'uglify'));
 
 // continuous build
 // --
-gulp.task('watch', ['build'], () => {
-	gulp.watch(['./src/**/*.js', '!./src/**/*.test.js'], ['build']);
-});
+gulp.task('watch', gulp.series('build', () => {
+	gulp.watch(['./src/**/*.js', '!./src/**/*.test.js'], gulp.series('build'));
+}));
 
 // run unit tests (requires manual build/'dist' output)
 // --
 gulp.task('clean:coverage', () => {
-	return gulp.src('./coverage', { read: false })
+	return gulp.src('./coverage', { allowEmpty: true, read: false })
 		.pipe($.clean({ force: true }));
 });
 
-gulp.task('test', ['clean:coverage'], () => {
+gulp.task('test', gulp.series('clean:coverage', () => {
 	return gulp.src('./dist/grindstone.js')
 		.pipe($.jest.default(jestConfig));
-});
+}));
 
 // generate documentation
 // --
 gulp.task('clean:jsdoc', () => {
-	return gulp.src('./docs', { read: false })
+	return gulp.src('./docs', { allowEmpty: true, read: false })
 		.pipe($.clean({ force: true }));
 });
 
-gulp.task('jsdoc', ['clean:jsdoc'], () => {
+gulp.task('jsdoc', gulp.series('clean:jsdoc', () => {
 	return gulp.src('./src/**/*.js')
 		.pipe($.jsdoc3(jsdocConfig));
-});
+}));
