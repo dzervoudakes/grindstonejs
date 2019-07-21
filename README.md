@@ -1,7 +1,3 @@
-<!--
-	Codacy Coverage Installation: https://github.com/codacy/node-codacy-coverage#installation
--->
-
 # Grindstone.js
 
 > A lightweight jQuery alternative for modern browsers.
