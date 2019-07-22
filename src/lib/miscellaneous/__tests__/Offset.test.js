@@ -24,7 +24,8 @@ describe('offset()', () => {
 	});
 
 	it('throws an error when provided invalid arguments', () => {
-		expect(() => { $(testDiv).offset('wrong'); })
-			.toThrowError('offset() position must be either "left" or "top".');
+		expect(() => {
+			$(testDiv).offset('wrong');
+		}).toThrowError('offset() position must be either "left" or "top".');
 	});
 });

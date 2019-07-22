@@ -1,11 +1,10 @@
+'use strict';
+
 const path = require('path');
 
 module.exports = {
 	collectCoverage: true,
-	collectCoverageFrom: [
-		'<rootDir>/src/Core.js',
-		'<rootDir>/src/lib/**/modules/*.js'
-	],
+	collectCoverageFrom: ['<rootDir>/src/Core.js', '<rootDir>/src/lib/**/modules/*.js'],
 	coverageDirectory: '<rootDir>/coverage/',
 	coverageThreshold: {
 		global: {
@@ -16,18 +15,9 @@ module.exports = {
 		}
 	},
 	rootDir: path.resolve(__dirname, '..'),
-	setupFiles: [
-		'<rootDir>/test/setup.js'
-	],
-	testPathIgnorePatterns: [
-		'<rootDir>/node_modules/',
-		'<rootDir>/src/utils/'
-	],
-	testMatch: [
-		'<rootDir>/src/**/__tests__/*.test.js'
-	],
+	setupFiles: ['<rootDir>/test/setup.js'],
+	testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/src/utils/'],
+	testMatch: ['<rootDir>/src/**/__tests__/*.test.js'],
 	testURL: 'http://localhost',
-	transformIgnorePatterns: [
-		'<rootDir>/node_modules/'
-	]
+	transformIgnorePatterns: ['<rootDir>/node_modules/']
 };

@@ -1,3 +1,5 @@
+'use strict';
+
 const $ = require('../dist/grindstone');
 const utils = require('../src/utils');
 const html = require('fs').readFileSync('./test/index.html').toString();

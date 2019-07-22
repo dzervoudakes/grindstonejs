@@ -64,7 +64,8 @@ describe('ajax()', () => {
 	});
 
 	it('throws an error when provided invalid arguments', () => {
-		expect(() => { $.ajax('wrong'); })
-			.toThrowError('XHR properties are not properly defined.');
+		expect(() => {
+			$.ajax('wrong');
+		}).toThrowError('XHR properties are not properly defined.');
 	});
 });

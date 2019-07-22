@@ -1,11 +1,10 @@
 (function(root, lib) {
 	if (typeof exports !== 'undefined') {
-		return module.exports = lib();
+		return (module.exports = lib());
 	} else {
 		root.Grindstone = root.$ = lib();
 	}
 })(window, function() {
-
 	/** @namespace Grindstone */
 
 	/**
@@ -21,7 +20,6 @@
 	 */
 
 	const Grindstone = function(selector, context) {
-
 		const set = this;
 
 		if (selector) {
@@ -71,5 +69,4 @@
 	// @include ./lib/index.js
 
 	return $;
-
 });

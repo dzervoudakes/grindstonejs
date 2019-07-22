@@ -1,5 +1,4 @@
 const utils = (() => {
-
 	const applyContext = (item, selector, set) => {
 		const elems = item.querySelectorAll(selector);
 		Array.prototype.forEach.call(elems, el => {
@@ -21,11 +20,10 @@ const utils = (() => {
 		return newSet;
 	};
 
-	const createInteraction = (touchEvt, mouseEvt) => (
-		'ontouchend' in document ? touchEvt : mouseEvt
-	);
+	const createInteraction = (touchEvt, mouseEvt) =>
+		'ontouchend' in document ? touchEvt : mouseEvt;
 
-	const elementProp = (set, propName, selector) => (
+	const elementProp = (set, propName, selector) =>
 		$.fn.map.call(set, function() {
 			let find = this;
 			while (true) {
@@ -40,19 +38,21 @@ const utils = (() => {
 				}
 				break;
 			}
-		})
-	);
+		});
 
-	const isElementArray = obj => (
-		obj instanceof Array
-	);
+	const isElementArray = obj => obj instanceof Array;
 
-	const matchesFuncName = Element.prototype.matches ? 'matches' :
-		Element.prototype.matchesSelector ? 'matchesSelector' :
-			Element.prototype.webkitMatchesSelector ? 'webkitMatchesSelector' :
-				Element.prototype.mozMatchesSelector ? 'mozMatchesSelector' :
-					Element.prototype.msMatchesSelector ? 'msMatchesSelector' :
-						undefined;
+	const matchesFuncName = Element.prototype.matches
+		? 'matches'
+		: Element.prototype.matchesSelector
+		? 'matchesSelector'
+		: Element.prototype.webkitMatchesSelector
+		? 'webkitMatchesSelector'
+		: Element.prototype.mozMatchesSelector
+		? 'mozMatchesSelector'
+		: Element.prototype.msMatchesSelector
+		? 'msMatchesSelector'
+		: undefined;
 
 	return {
 		applyContext,
@@ -62,7 +62,6 @@ const utils = (() => {
 		isElementArray,
 		matchesFuncName
 	};
-
 })();
 
 // @if !NODE_ENV='production'

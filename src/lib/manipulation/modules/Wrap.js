@@ -9,9 +9,11 @@
 
 const wrap = function(structure) {
 	this.each(function() {
-		if (typeof structure !== 'string' ||
+		if (
+			typeof structure !== 'string' ||
 			!structure.startsWith('<') ||
-			!structure.endsWith('>')) {
+			!structure.endsWith('>')
+		) {
 			throw new Error('wrap() string must start with "<" and ending with ">".');
 		}
 		const contents = this.outerHTML;

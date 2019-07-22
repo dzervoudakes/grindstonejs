@@ -35,14 +35,17 @@ Object.defineProperties(testScrollLeftDiv, {
 describe('scroll()', () => {
 	it('fires a callback when triggered', () => {
 		let i = 0;
-		$(document).scroll(() => { i++; });
+		$(document).scroll(() => {
+			i++;
+		});
 		$(document).trigger('scroll');
 		expect(i).toBe(1);
 	});
 
 	it('throws an error when no callback is provided', () => {
-		expect(() => { $('#jest-scroll').scroll();  })
-			.toThrowError('No callback specified for "scroll()"');
+		expect(() => {
+			$('#jest-scroll').scroll();
+		}).toThrowError('No callback specified for "scroll()"');
 	});
 });
 

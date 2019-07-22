@@ -12,14 +12,20 @@ describe('extend()', () => {
 	it('throws an error when target is not an object', () => {
 		const obj1 = '';
 		const obj2 = { foo: 'bar' };
-		expect(() => { $.extend(obj1, obj2); })
-			.toThrowError('Cannot merge properties into the target: argument is not an object.');
+		expect(() => {
+			$.extend(obj1, obj2);
+		}).toThrowError(
+			'Cannot merge properties into the target: argument is not an object.'
+		);
 	});
 
 	it('throws an error when provided invalid arguments', () => {
 		const obj = { foo: 'bar' };
 		const str = 'hi';
-		expect(() => { $.extend(obj, str); })
-			.toThrowError('Cannot merge properties into the target: argument is not an object.');
+		expect(() => {
+			$.extend(obj, str);
+		}).toThrowError(
+			'Cannot merge properties into the target: argument is not an object.'
+		);
 	});
 });

@@ -23,7 +23,6 @@
  */
 
 const ajax = function(opts) {
-
 	if (typeof opts !== 'object') {
 		throw new Error('XHR properties are not properly defined.');
 	}

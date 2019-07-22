@@ -1,9 +1,11 @@
-/* eslint-disable max-len */
+'use strict';
+
 const { stripIndents } = require('common-tags');
 const pkg = require('../package.json');
 
 module.exports = {
-	max: stripIndents`
+	max:
+		stripIndents`
 		/**
 		 * Grindstone JavaScript Library v${pkg.version}
 		 * ${pkg.repository.url}
@@ -13,5 +15,9 @@ module.exports = {
 		 * ${pkg.repository.url}/blob/master/LICENSE
 		 */
 	` + '\n\n',
-	min: `/*! Grindstone JavaScript Library v${pkg.version} | Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} | ${pkg.repository.url}/blob/master/LICENSE */\n`
+	min: `/*! Grindstone JavaScript Library v${
+		pkg.version
+	} | Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} | ${
+		pkg.repository.url
+	}/blob/master/LICENSE */\n`
 };

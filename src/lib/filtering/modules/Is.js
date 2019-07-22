@@ -10,9 +10,9 @@
 const is = function(filterBy) {
 	const isFunction = typeof filterBy === 'function' ? true : false;
 	for (const item of this) {
-		const condition = isFunction ?
-			filterBy.call(item, this.indexOf(item), item) :
-			item[utils.matchesFuncName](filterBy);
+		const condition = isFunction
+			? filterBy.call(item, this.indexOf(item), item)
+			: item[utils.matchesFuncName](filterBy);
 		if (condition) return true;
 	}
 	return false;

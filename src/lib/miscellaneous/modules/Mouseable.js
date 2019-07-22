@@ -9,19 +9,17 @@
  * $('#selector').mouseable({ hoverClass: 'stuff', activeClass: 'things' });
  */
 
-const mouseable = function({
-	hoverClass = 'over',
-	activeClass = 'down'
-} = {
-	hoverClass: 'over',
-	activeClass: 'down'
-}) {
-
+const mouseable = function(
+	{ hoverClass = 'over', activeClass = 'down' } = {
+		hoverClass: 'over',
+		activeClass: 'down'
+	}
+) {
 	const events = {
-		hover:  utils.createInteraction('touchstart', 'mouseenter'),
+		hover: utils.createInteraction('touchstart', 'mouseenter'),
 		remove: utils.createInteraction('touchend', 'mouseleave'),
-		down:   utils.createInteraction('touchstart', 'mousedown'),
-		up: 	utils.createInteraction('touchend', 'mouseup mouseleave')
+		down: utils.createInteraction('touchstart', 'mousedown'),
+		up: utils.createInteraction('touchend', 'mouseup mouseleave')
 	};
 
 	this.each(function() {

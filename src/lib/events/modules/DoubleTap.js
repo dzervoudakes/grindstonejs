@@ -15,11 +15,11 @@ const doubleTap = function(callback) {
 		$(this).on(interaction, () => {
 			if (active) {
 				callback();
-				return active = false;
+				return (active = false);
 			}
 			active = true;
 			setTimeout(() => {
-				return active = false;
+				return (active = false);
 			}, 350);
 		});
 	});

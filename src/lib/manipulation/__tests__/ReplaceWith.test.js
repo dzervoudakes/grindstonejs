@@ -3,7 +3,9 @@ setupTests('replaceWith', 'manipulation/modules/ReplaceWith');
 
 describe('replaceWith()', () => {
 	it('replaces content with new content', () => {
-		$('#jest-replacewith').replaceWith('<div id="jest-replacewith" class="replaced"></div>');
+		$('#jest-replacewith').replaceWith(
+			'<div id="jest-replacewith" class="replaced"></div>'
+		);
 		const isReplaced = $('#jest-replacewith').hasClass('replaced');
 		expect(isReplaced).toBe(true);
 	});

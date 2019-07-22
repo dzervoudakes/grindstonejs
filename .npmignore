@@ -8,6 +8,8 @@
 .eslintignore
 .eslintrc.js
 .lintstagedrc.js
+.prettierignore
+.prettierrc.js
 CHANGELOG.md
 package-lock.json
 gulpfile.js

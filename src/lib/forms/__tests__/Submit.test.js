@@ -11,7 +11,9 @@ setupTests('submit', 'forms/modules/Submit');
 describe('submit()', () => {
 	it('triggers the callback', () => {
 		let i = 0;
-		$('#jest-submit').submit(() => { i++; });
+		$('#jest-submit').submit(() => {
+			i++;
+		});
 		$('#jest-submit').submit();
 		$('#jest-submit').trigger('submit');
 		expect(i).toBe(1);
