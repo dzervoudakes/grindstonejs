@@ -67,39 +67,24 @@ $(selector).someNewMethod();
 
 Full documentation on all methods is below.
 
-| Ajax						| Attributes										| Collection				| Events											| Filtering						|
-| --------------- | ----------------------------- | ----------------- | --------------------------- | ------------------- |
-| [ajax()](#ajax) | [addClass()](#addclass)				| [each()](#each)		| [click()](#click) 					| [filter()](#filter) |
-|									| [attr()](#attr)								| [eq()](#eq)				| [doubleTap()](#doubleTap)		| [is()](#is)					|
-|									| [data()](#data)								| [first()](#first) | [focus()](#focus)						| [not()](#not)				|
-|									| [hasAttr()](#hasattr)					| [get()](#get)			| [load()](#load)							|											|
-|									| [hasClass()](#hasclass)				| [last()](#last)		| [off()](#off)								|											|
-|									| [removeAttr()](#removeattr)		| [map()](#map)			| [on()](#on)									|											|
-|									| [removeClass()](#removeclass) |										| [ready()](#ready)						|											|
-|									| [removeData()](#removedata)		|										| [resize()](#resize)					|											|
-|									| [toggleClass()](#toggleclass) |										| [scroll()](#scroll) 				|											|
-|									|																|										| [scrollLeft()](#scrollLeft)	|											|
-|									|																|										| [scrollTop()](#scrollTop)		|											|
-|									|																|										| [trigger()](#trigger)				|											|
-
-| Forms								| Manipulation									| Miscellaneous							| Traversing							|
-| ------------------- | ----------------------------- | ------------------------- | ----------------------- |
-| [submit()](#submit) | [after()](#after)							| [debounce()](#debounce)		| [children()](#children) |
-| [val()](#val)				| [append()](#append)						| [extend()](#extend)				| [contents()](#contents) |
-|											|	[before()](#before)						| [mouseable()](#mouseable) | [next()](#next)					|
-|											| [clone()](#clone)							| [offset()](#offset)				| [parent()](#parent)			|
-|											| [css()](#css)									|														| [prev()](#prev)					|
-|											| [empty()](#empty)							|														|													|
-|											| [height()](#height)						|														|													|
-|											| [hide()](#hide)								|														|													|
-|											| [html()](#html)								|														|													|
-|											| [prepend()](#prepend)					|														|													|
-|											| [remove()](#remove)						|														|													|
-|											| [replaceWith()](#replacewith) |														|													|
-|											| [show()](#show)								|														|													|
-|											| [width()](#width)							|														|													|
-|											| [wrap()](#wrap)								|														|													|
-|											| [wrapInner()](#wrapinner)			|														|													|
+| Ajax						| Attributes										| Collection				| Events											| Filtering						| Forms							  | Manipulation									| Miscellaneous 						| Traversing							|
+| --------------- | ----------------------------- | ----------------- | --------------------------- | ------------------- | ------------------- | ----------------------------- | ------------------------- | ----------------------- |
+| [ajax()](#ajax) | [addClass()](#addclass)				| [each()](#each)		| [click()](#click) 					| [filter()](#filter) | [submit()](#submit) | [after()](#after)							| [debounce()](#debounce)		| [children()](#children) |
+|									| [attr()](#attr)								| [eq()](#eq)				| [doubleTap()](#doubleTap)		| [is()](#is)					| [val()](#val)			  | [append()](#append)						| [extend()](#extend)				| [contents()](#contents) |
+|									| [data()](#data)								| [first()](#first) | [focus()](#focus)						| [not()](#not)				|											| [before()](#before)						| [mouseable()](#mouseable) | [next()](#next) 				|
+|									| [hasAttr()](#hasattr)					| [get()](#get)			| [load()](#load)							|											|											| [clone()](#clone)							| [offset()](#offset)				|	[parent()](#parent) 		|
+|									| [hasClass()](#hasclass)				| [last()](#last)		| [off()](#off)								|											|											| [css()](#css)									|														| [prev()](#prev) 				|
+|									| [removeAttr()](#removeattr)		| [map()](#map)			| [on()](#on)									|											|											| [empty()](#empty)							|														|													|
+|									| [removeClass()](#removeclass) |										| [ready()](#ready)						|											|											| [height()](#height)						|														|													|
+|									| [removeData()](#removedata)		|										| [resize()](#resize)					|											|											| [hide()](#hide)								|														|													|
+|									| [toggleClass()](#toggleclass) |										| [scroll()](#scroll) 				|											|											| [html()](#html)								|														|													|
+|									|																|										| [scrollLeft()](#scrollLeft)	|											|											| [prepend()](#prepend)					|														|													|
+|									|																|										| [scrollTop()](#scrollTop)		|											|											| [remove()](#remove)						|														|													|
+|									|																|										| [trigger()](#trigger)				|											|											| [replaceWith()](#replacewith) |														|													|
+|									|																|										| 														|											|											| [show()](#show)								|														|													|
+|									|																|										| 														|											|											| [width()](#width)							|														|													|
+|									|																|										| 														|											|											| [wrap()](#wrap)								|														|													|
+|									|																|										| 														|											|											| [wrapInner()](#wrapinner)			|														|													|
 
 <a id="ajax"></a>
 
