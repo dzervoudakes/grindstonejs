@@ -3,7 +3,7 @@
 > A lightweight jQuery alternative for modern browsers.
 
 [![npm](https://img.shields.io/npm/v/grindstone.svg)](https://www.npmjs.com/package/grindstone)
-[![CircleCI branch](https://img.shields.io/circleci/project/github/dzervoudakes/GrindstoneJS/master.svg)](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master)
+[![CircleCI Branch](https://img.shields.io/circleci/project/github/dzervoudakes/GrindstoneJS/master.svg)](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dzervoudakes/GrindstoneJS&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&utm_medium=referral&utm_content=dzervoudakes/GrindstoneJS&utm_campaign=Badge_Coverage)
 [![Prettier Badge](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
