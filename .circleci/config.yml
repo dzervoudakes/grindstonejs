@@ -13,7 +13,7 @@ jobs:
           key: v1-dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-  lint:
+  eslint:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
@@ -59,16 +59,20 @@ workflows:
   build_and_test:
     jobs:
       - dependencies
-      - lint:
+      - eslint:
           requires:
             - dependencies
       - build:
           requires:
             - dependencies
+            - eslint
       - documentation:
           requires:
             - dependencies
+            - eslint
       - test:
           requires:
             - dependencies
+            - eslint
             - build
+            - documentation
