@@ -21,7 +21,7 @@
 		"lint:fix": "eslint . --ext js --fix",
 		"prepublishOnly": "npm run lint && npm run build && npm run test-codacy",
 		"test": "gulp test",
-		"test-codacy": "npm test && cat ./coverage/lcov.info | codacy-coverage",
+		"test:codacy": "npm test && cat ./coverage/lcov.info | codacy-coverage",
 		"start": "gulp watch"
 	},
 	"devDependencies": {

@@ -37,7 +37,7 @@ jobs:
       - restore_cache:
           key: v1-output
       - run: npm run lint
-      - run: npm test
+      - run: npm run test:codacy
 
 workflows:
   version: 2.1
