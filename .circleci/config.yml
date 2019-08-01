@@ -27,6 +27,14 @@ jobs:
           key: v1-output
           paths:
             - dist
+  documentation:
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+      - run: npm run docs
   check_quality:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
@@ -47,6 +55,10 @@ workflows:
       - build:
           requires:
             - install_dependencies
+      - documentation:
+          requires:
+            - install_dependencies
       - check_quality:
           requires:
+            - install_dependencies
             - build

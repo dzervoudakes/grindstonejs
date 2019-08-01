@@ -729,24 +729,19 @@ $('#selector').prev('.selector');
 npm install
 ```
 
+### Run Continuous Build for Development
+```
+npm start
+```
+
 ### Compile
 ```
 npm run build
 ```
 
-### Clear Output
-```
-npm run clean
-```
-
 ### Generate Documentation
 ```
 npm run docs
-```
-
-### Clear Documentation
-```
-npm run clean:docs
 ```
 
 ### Run Lint
@@ -764,12 +759,7 @@ npm run lint:fix
 npm test
 ```
 
-### Clear Test Coverage
+### Remove All Build Directories
 ```
-npm run clean:coverage
-```
-
-### Run Continuous Build
-```
-npm start
+npm run clean
 ```

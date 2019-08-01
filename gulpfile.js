@@ -11,7 +11,7 @@ const jsdocConfig = require('./config/jsdoc');
 // --
 gulp.task('clean', () => {
 	return gulp
-		.src(['coverage', 'dist'], { allowEmpty: true, read: false })
+		.src(['coverage', 'dist', 'docs'], { allowEmpty: true, read: false })
 		.pipe($.clean({ force: true }));
 });
 
