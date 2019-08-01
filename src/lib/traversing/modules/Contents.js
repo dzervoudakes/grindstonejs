@@ -1,8 +1,8 @@
 /**
- * Get all the children as a Grindstone object, including text and comments.
+ * Get all the children as a new collection, including text and comments.
  * @method contents
  * @memberof Grindstone
- * @returns {object} contents as a new Collection
+ * @returns {NodeList} contents as a new collection
  * @example $('#selector').contents();
  */
 

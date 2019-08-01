@@ -4,7 +4,7 @@
  * @method width
  * @memberof Grindstone
  * @param {number} num px, optional
- * @returns {object|number} Collection or current width of the first element in the set
+ * @returns {NodeList|number} collection or current width of the first element in the set
  * @example
  * $('#selector').width();
  * $('#selector').width(30);

@@ -1,9 +1,15 @@
 /**
+ * @typedef {Object} MouseableOpts
+ * @prop {string} hoverClass class to apply when hovering over the target
+ * @prop {string} activeClass class to apply when interacting with the target
+ */
+
+/**
  * Assign hover and active classes.
  * @method mouseable
  * @memberof Grindstone
- * @param {object} classes optional
- * @returns {object} Collection
+ * @param {MouseableOpts} classes optional
+ * @returns {NodeList} collection
  * @example
  * $('#selector').mouseable();
  * $('#selector').mouseable({ hoverClass: 'stuff', activeClass: 'things' });

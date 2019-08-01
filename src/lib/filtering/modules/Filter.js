@@ -3,7 +3,7 @@
  * @method filter
  * @memberof Grindstone
  * @param {string|function} filterBy selector or callback function, return true to include
- * @returns {object} new Collection with the reduced set of matching elements
+ * @returns {NodeList} new collection with the reduced set of matching elements
  * @example $('.selector').filter('.visible');
  */
 

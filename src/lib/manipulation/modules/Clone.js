@@ -2,7 +2,7 @@
  * Clone the elements in the set.
  * @method clone
  * @memberof Grindstone
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $('#selector').clone();
  */
 

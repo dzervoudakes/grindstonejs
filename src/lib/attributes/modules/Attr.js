@@ -4,7 +4,7 @@
  * @memberof Grindstone
  * @param {string} attribute
  * @param {string} value optional
- * @returns {object|string} Collection or attribute value
+ * @returns {NodeList|string} collection or attribute value
  * @example
  * $('#selector').attr('example');
  * $('#selector').attr('example', 'test');

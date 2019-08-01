@@ -2,7 +2,7 @@
  * Get the first element.
  * @method first
  * @memberof Grindstone
- * @returns {object} new Collection with the first element of the original set
+ * @returns {NodeList} new collection with the first element of the original set
  * @example $('.selector').first();
  */
 

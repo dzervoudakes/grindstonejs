@@ -3,7 +3,7 @@
  * @method each
  * @memberof Grindstone
  * @param {function} callback
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $('.selector').each(function(item, index, array){});
  */
 

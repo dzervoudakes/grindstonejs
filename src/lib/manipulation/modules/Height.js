@@ -4,7 +4,7 @@
  * @method height
  * @memberof Grindstone
  * @param {number} num px, optional
- * @returns {object|number} Collection or current height of the first element in the set
+ * @returns {NodeList|number} collection or current height of the first element in the set
  * @example
  * $('#selector').height();
  * $('#selector').height(30);

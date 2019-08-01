@@ -2,8 +2,8 @@
  * Hide a set of elements.
  * @method hide
  * @memberof Grindstone
- * @param {delay} delay ms, optional
- * @returns {object} Collection
+ * @param {number} delay ms, optional
+ * @returns {NodeList} collection
  * @example
  * $('#selector').hide();
  * $('#selector').hide(100);

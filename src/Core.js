@@ -11,9 +11,9 @@
 	 * Create new instances of our constructor using familiar, jQuery-style syntax.
 	 * @function $()
 	 * @memberof Grindstone
-	 * @param {string|object} selector
-	 * @param {string|object} context optional
-	 * @returns {object} Collection
+	 * @param {HTMLElement|string} selector
+	 * @param {HTMLElement|string} context optional
+	 * @returns {NodeList} collection
 	 * @example
 	 * $('.selector');
 	 * $('.selector', '#container');

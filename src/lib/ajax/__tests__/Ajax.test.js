@@ -6,9 +6,6 @@ let open, setRequestHeader, onload, onerror, send;
 const createXhrMock = () => {
 	open = jest.fn();
 	setRequestHeader = jest.fn();
-	// onload = jest.fn();
-	// onerror = jest.fn();
-	// send = jest.fn();
 
 	send = jest.fn().mockImplementation(function() {
 		onload = this.onload.bind(this);

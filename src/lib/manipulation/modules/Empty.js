@@ -2,7 +2,7 @@
  * Remove all child nodes of all elements in the set.
  * @method empty
  * @memberof Grindstone
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $('.selector').empty();
  */
 

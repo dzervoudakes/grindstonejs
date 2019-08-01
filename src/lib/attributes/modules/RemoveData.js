@@ -3,7 +3,7 @@
  * @method removeData
  * @memberof Grindstone
  * @param {string} valueName
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $('#selector').removeData('name');
  */
 

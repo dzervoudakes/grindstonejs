@@ -1,9 +1,9 @@
 /**
- * Get the previous element as a Grindstone object.
+ * Get the previous element as a new collection.
  * @method prev
  * @memberof Grindstone
  * @param {string} selector only get the element if it matches the selector, optional
- * @returns {object} previous element as a new Collection
+ * @returns {NodeList} previous element as a new collection
  * @example
  * $('#selector').prev();
  * $('#selector').prev('.selector');

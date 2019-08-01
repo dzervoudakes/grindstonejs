@@ -1,17 +1,20 @@
 /**
+ * @typedef {Object} AjaxOpts
+ * @prop {string} method http method
+ * @prop {string} url API endpoint
+ * @prop {boolean} async asynchronous calls
+ * @prop {string} dataType data format
+ * @prop {Object} body payload
+ * @prop {string} header custom header
+ * @prop {string} headerValue value of the customer header
+ */
+
+/**
  * Create an XMLHttpRequest.
- * Acceptable properties include:
- * - method (GET, POST, PUT, etc.)
- * - url (data path)
- * - async (true or false)
- * - dataType (DOMString, blob, json, document, etc.)
- * - body (payload)
- * - header (adds a custom HTTP header to the request)
- * - headerValue (value of the custom HTTP header)
  * @method ajax
  * @memberof Grindstone
- * @param {object} opts
- * @returns {object} Promise
+ * @param {AjaxOpts} opts
+ * @returns {Promise} Promise
  * @example
  * $.ajax({ method: 'GET', url: 'https://www.something.com/detail', dataType: 'json' })
  * 	.then(function(resp) {})

@@ -3,7 +3,7 @@
  * @method removeClass
  * @memberof Grindstone
  * @param {string} cls className
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example
  * $('#selector').removeClass('example');
  * $('#selector').removeClass('one two');

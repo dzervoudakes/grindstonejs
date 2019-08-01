@@ -3,7 +3,7 @@
  * @method addClass
  * @memberof Grindstone
  * @param {string} cls className
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example
  * $('#selector').addClass('example');
  * $('#selector').addClass('one two');

@@ -1,9 +1,9 @@
 /**
- * Get the child elements as a Grindstone object.
+ * Get the child elements as a new collection.
  * @method children
  * @memberof Grindstone
  * @param {string} selector only get the elements if they match the selector, optional
- * @returns {object} child elements as a new instance of Grindstone
+ * @returns {NodeList} child elements as a new collection
  * @example
  * $('#selector').children();
  * $('#selector').children('.selector');

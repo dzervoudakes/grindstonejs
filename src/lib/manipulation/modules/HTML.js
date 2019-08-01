@@ -3,7 +3,7 @@
  * @method html
  * @memberof Grindstone
  * @param {string} content optional
- * @returns {object|string} Collection or current innerHTML of an element
+ * @returns {NodeList|string} collection or current innerHTML of an element
  * @example
  * $('#selector').html();
  * $('#selector').html('<p>Hello World</p>');

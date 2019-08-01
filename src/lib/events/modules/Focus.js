@@ -3,7 +3,7 @@
  * @method focus
  * @memberof Grindstone
  * @param {function} callback optional
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example
  * $('#selector').focus();
  * $('#selector').focus(function(){});

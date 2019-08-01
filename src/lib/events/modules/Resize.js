@@ -3,7 +3,7 @@
  * @method resize
  * @memberof Grindstone
  * @param {function} callback
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $(window).resize(function(){});
  */
 

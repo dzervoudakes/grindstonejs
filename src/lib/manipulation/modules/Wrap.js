@@ -3,7 +3,7 @@
  * @method wrap
  * @memberof Grindstone
  * @param {string} structure
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $('#selector').wrap('<div class="outer"><div class="inner">');
  */
 

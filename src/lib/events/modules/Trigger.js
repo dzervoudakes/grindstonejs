@@ -3,7 +3,7 @@
  * @method trigger
  * @memberof Grindstone
  * @param {number} evt custom event
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $('#selector').trigger('example');
  */
 

@@ -4,7 +4,7 @@
  * @method scrollTop
  * @memberof Grindstone
  * @param {number} top offset in px, optional
- * @returns {object|number} Collection or top offset
+ * @returns {NodeList|number} collection or top offset
  * @example
  * $('#selector').scrollTop();
  * $('#selector').scrollTop(50);

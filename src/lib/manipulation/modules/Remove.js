@@ -2,8 +2,8 @@
  * Remove elements from the DOM.
  * @method remove
  * @memberof Grindstone
- * @param {object} target element(s), optional
- * @returns {object} Collection
+ * @param {string} target element(s), optional
+ * @returns {NodeList} collection
  * @example
  * $('#selector').remove();
  * $('#selector').remove('.selector');

@@ -3,7 +3,7 @@
  * @method click
  * @memberof Grindstone
  * @param {function} callback optional
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example
  * $('#selector').click();
  * $('#selector').click(function(){});

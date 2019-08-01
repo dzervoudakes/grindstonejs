@@ -4,7 +4,7 @@
  * @memberof Grindstone
  * @param {string} valueName
  * @param {string} newValue optional
- * @returns {object|string} Collection or the current data-value of an element
+ * @returns {NodeList|string} collection or the current data-value of an element
  * @example
  * $('#selector').data('name');
  * $('#selector').data('name', 'value');

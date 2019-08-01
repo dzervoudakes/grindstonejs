@@ -2,8 +2,8 @@
  * Append a new element or new content.
  * @method append
  * @memberof Grindstone
- * @param {object|string} content
- * @returns {object} Collection
+ * @param {HTMLElement|string} content
+ * @returns {NodeList} collection
  * @example
  * $('#selector').append('#content');
  * $('#selector').append('<p>Hello World</p>');

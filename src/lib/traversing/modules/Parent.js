@@ -1,9 +1,9 @@
 /**
- * Get the parent element as a Grindstone object.
+ * Get the parent element as a new collection.
  * @method parent
  * @memberof Grindstone
  * @param {string} selector only get the parent if it matches the selector, optional
- * @returns {object} parent element as a new Collection
+ * @returns {NodeList} parent element as a new collection
  * @example
  * $('#selector').parent();
  * $('#selector').parent('.selector');

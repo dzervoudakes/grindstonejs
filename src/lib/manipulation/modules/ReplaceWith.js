@@ -2,8 +2,8 @@
  * Replace an element with some other content.
  * @method replaceWith
  * @memberof Grindstone
- * @param {object|string} content
- * @returns {object} Collection
+ * @param {HTMLElement|string} content
+ * @returns {NodeList} collection
  * @example $('#selector').replaceWith('<p>Hello World</p>');
  */
 

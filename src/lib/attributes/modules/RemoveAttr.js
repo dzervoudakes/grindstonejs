@@ -3,7 +3,7 @@
  * @method removeAttr
  * @memberof Grindstone
  * @param {string} attribute
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $('#selector').removeAttr('example');
  */
 

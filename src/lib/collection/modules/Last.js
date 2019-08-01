@@ -2,7 +2,7 @@
  * Get the last element.
  * @method last
  * @memberof Grindstone
- * @returns {object} new Collection with the last element of the original set
+ * @returns {NodeList} new collection with the last element of the original set
  * @example $('.selector').last();
  */
 

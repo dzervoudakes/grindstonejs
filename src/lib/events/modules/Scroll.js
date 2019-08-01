@@ -3,7 +3,7 @@
  * @method scroll
  * @memberof Grindstone
  * @param {function} callback
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $(window).scroll(function(){});
  */
 

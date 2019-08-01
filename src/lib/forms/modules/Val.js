@@ -3,7 +3,7 @@
  * @method val
  * @memberof Grindstone
  * @param {string} newValue optional
- * @returns {object|string} Collection or the value of the first element in the set
+ * @returns {NodeList|string} collection or the value of the first element in the set
  * @example
  * $('#selector').val();
  * $('#selector').val('7');

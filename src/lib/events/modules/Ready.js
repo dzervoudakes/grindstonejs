@@ -3,7 +3,7 @@
  * @method ready
  * @memberof Grindstone
  * @param {function} callback
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $(document).ready(function(){});
  */
 

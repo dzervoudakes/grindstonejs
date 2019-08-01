@@ -2,9 +2,9 @@
  * Adjust the styles of selected elements or return the requested value.
  * @method css
  * @memberof Grindstone
- * @param {object|string} styles object with style properties or single style in a string
+ * @param {Object.<string>|string} styles object with style properties or single style in a string
  * @param {string} value new style value to apply
- * @returns {object|string} Collection or style value
+ * @returns {NodeList|string} collection or style value
  * @example
  * $('#selector').style('display');
  * $('#selector').style('display', 'block');

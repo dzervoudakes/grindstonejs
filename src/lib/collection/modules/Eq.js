@@ -3,7 +3,7 @@
  * @method eq
  * @memberof Grindstone
  * @param {number} index
- * @returns {object} new Collection
+ * @returns {NodeList} new collection
  * @example $('.selector').eq(2);
  */
 

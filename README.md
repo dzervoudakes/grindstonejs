@@ -668,7 +668,7 @@ $('#selector').offset('top');
 
 ### children()
 
-Get the child elements as a Grindstone object.
+Get the child elements as a new collection.
 
 ```js
 $('#selector').children();
@@ -679,7 +679,7 @@ $('#selector').children('.selector');
 
 ### contents()
 
-Get all the children as a Grindstone object, including text and comments.
+Get all the children as a new collection, including text and comments.
 
 ```js
 $('#selector').contents();
@@ -689,7 +689,7 @@ $('#selector').contents();
 
 ### next()
 
-Get the next element as a Grindstone object.
+Get the next element as a new collection.
 
 ```js
 $('#selector').next();
@@ -700,7 +700,7 @@ $('#selector').next('.selector');
 
 ### parent()
 
-Get the parent element as a Grindstone object.
+Get the parent element as a new collection.
 
 ```js
 $('#selector').parent();
@@ -711,7 +711,7 @@ $('#selector').parent('.selector');
 
 ### prev()
 
-Get the previous element as a Grindstone object.
+Get the previous element as a new collection.
 
 ```js
 $('#selector').prev();

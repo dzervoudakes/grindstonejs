@@ -3,7 +3,7 @@
  * @method doubleTap
  * @memberof Grindstone
  * @param {function} callback
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example $('#selector').doubleTap(function(){});
  */
 

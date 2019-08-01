@@ -3,7 +3,7 @@
  * @method show
  * @memberof Grindstone
  * @param {delay} delay ms, optional
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example
  * $('#selector').show();
  * $('#selector').show(100);

@@ -4,7 +4,7 @@
  * @method scrollLeft
  * @memberof Grindstone
  * @param {number} left offset in px, optional
- * @returns {object|number} Collection or left offset
+ * @returns {NodeList|number} collection or left offset
  * @example
  * $('#selector').scrollLeft();
  * $('#selector').scrollLeft(50);

@@ -3,7 +3,7 @@
  * @method get
  * @memberof Grindstone
  * @param {number} index
- * @returns {object} DOM element
+ * @returns {HTMLElement} DOM element
  * @example $('.selector').get(2);
  */
 

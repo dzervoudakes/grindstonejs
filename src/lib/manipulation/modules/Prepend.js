@@ -2,8 +2,8 @@
  * Prepend a new element or new content.
  * @method prepend
  * @memberof Grindstone
- * @param {object|string} content
- * @returns {object} Collection
+ * @param {HTMLElement|string} content
+ * @returns {NodeList} collection
  * @example
  * $('#selector').prepend('#content');
  * $('#selector').prepend('<p>Hello World</p>');

@@ -2,8 +2,8 @@
  * Insert new content after a target element.
  * @method after
  * @memberof Grindstone
- * @param {string|object} content
- * @returns {object} Collection
+ * @param {HTMLElement|string} content
+ * @returns {NodeList} collection
  * @example $('#selector').after('<p>Hello World</p>');
  */
 

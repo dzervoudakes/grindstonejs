@@ -4,7 +4,7 @@
  * @memberof Grindstone
  * @param {string} action event(s)
  * @param {function} callback
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example
  * $('#selector').off('change', function(){});
  * $('#selector').off('click touchend', function(){});

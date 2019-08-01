@@ -2,8 +2,8 @@
  * Insert new content before a target element.
  * @method before
  * @memberof Grindstone
- * @param {string|object} content
- * @returns {object} Collection
+ * @param {HTMLElement|string} content
+ * @returns {NodeList} collection
  * @example $('#selector').before('<p>Hello World</p>');
  */
 

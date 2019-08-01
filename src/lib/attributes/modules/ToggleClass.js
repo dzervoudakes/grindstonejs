@@ -3,7 +3,7 @@
  * @method toggleClass
  * @memberof Grindstone
  * @param {string} cls className
- * @returns {object} Collection
+ * @returns {NodeList} collection
  * @example
  * $('#selector').toggleClass('example');
  * $('#selector').toggleClass('one two');

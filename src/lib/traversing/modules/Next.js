@@ -1,9 +1,9 @@
 /**
- * Get the next element as a Grindstone object.
+ * Get the next element as a new collection.
  * @method next
  * @memberof Grindstone
  * @param {string} selector only get the element if it matches the selector, optional
- * @returns {object} next element as a new Collection
+ * @returns {NodeList} next element as a new collection
  * @example
  * $('#selector').next();
  * $('#selector').next('.selector');
