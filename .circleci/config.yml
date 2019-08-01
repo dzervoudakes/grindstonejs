@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  install_dependencies:
+  dependencies:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
@@ -13,6 +13,14 @@ jobs:
           key: v1-dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
+  lint:
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+      - run: npm run lint
   build:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
@@ -35,7 +43,7 @@ jobs:
       - restore_cache:
           key: v1-dependency-cache-{{ checksum "package.json" }}
       - run: npm run docs
-  check_quality:
+  test:
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
     steps:
@@ -44,21 +52,23 @@ jobs:
           key: v1-dependency-cache-{{ checksum "package.json" }}
       - restore_cache:
           key: v1-output
-      - run: npm run lint
       - run: npm run test:codacy
 
 workflows:
   version: 2.1
   build_and_test:
     jobs:
-      - install_dependencies
+      - dependencies
+      - lint:
+          requires:
+            - dependencies
       - build:
           requires:
-            - install_dependencies
+            - dependencies
       - documentation:
           requires:
-            - install_dependencies
-      - check_quality:
+            - dependencies
+      - test:
           requires:
-            - install_dependencies
+            - dependencies
             - build
