@@ -38,12 +38,12 @@ Grindstone.js supports the following browsers:
 
 | Browser | Version |
 | ------- | ------- |
-| Chrome	| 4.0+		|
-| Firefox | 3.5+		|
-| Edge		| 13+			|
-| IE			| 10+			|
-| Safari	| 3.2+		|
-| Opera		| 10.0+		|
+| Chrome  | 4.0+    |
+| Firefox | 3.5+    |
+| Edge    | 13+     |
+| IE      | 10+     |
+| Safari  | 3.2+    |
+| Opera   | 10.0+   |
 
 <a id="documentation"></a>
 
@@ -67,24 +67,24 @@ $(selector).someNewMethod();
 
 Full documentation on all methods is below.
 
-| Ajax						| Attributes										| Collection				| Events											| Filtering						| Forms							  | Manipulation									| Miscellaneous 						| Traversing							|
+| Ajax            | Attributes                    | Collection        | Events                      | Filtering           | Forms               | Manipulation                  | Miscellaneous             | Traversing              |
 | --------------- | ----------------------------- | ----------------- | --------------------------- | ------------------- | ------------------- | ----------------------------- | ------------------------- | ----------------------- |
-| [ajax()](#ajax) | [addClass()](#addclass)				| [each()](#each)		| [click()](#click) 					| [filter()](#filter) | [submit()](#submit) | [after()](#after)							| [debounce()](#debounce)		| [children()](#children) |
-|									| [attr()](#attr)								| [eq()](#eq)				| [doubleTap()](#doubleTap)		| [is()](#is)					| [val()](#val)			  | [append()](#append)						| [extend()](#extend)				| [contents()](#contents) |
-|									| [data()](#data)								| [first()](#first) | [focus()](#focus)						| [not()](#not)				|											| [before()](#before)						| [mouseable()](#mouseable) | [next()](#next) 				|
-|									| [hasAttr()](#hasattr)					| [get()](#get)			| [load()](#load)							|											|											| [clone()](#clone)							| [offset()](#offset)				|	[parent()](#parent) 		|
-|									| [hasClass()](#hasclass)				| [last()](#last)		| [off()](#off)								|											|											| [css()](#css)									|														| [prev()](#prev) 				|
-|									| [removeAttr()](#removeattr)		| [map()](#map)			| [on()](#on)									|											|											| [empty()](#empty)							|														|													|
-|									| [removeClass()](#removeclass) |										| [ready()](#ready)						|											|											| [height()](#height)						|														|													|
-|									| [removeData()](#removedata)		|										| [resize()](#resize)					|											|											| [hide()](#hide)								|														|													|
-|									| [toggleClass()](#toggleclass) |										| [scroll()](#scroll) 				|											|											| [html()](#html)								|														|													|
-|									|																|										| [scrollLeft()](#scrollLeft)	|											|											| [prepend()](#prepend)					|														|													|
-|									|																|										| [scrollTop()](#scrollTop)		|											|											| [remove()](#remove)						|														|													|
-|									|																|										| [trigger()](#trigger)				|											|											| [replaceWith()](#replacewith) |														|													|
-|									|																|										| 														|											|											| [show()](#show)								|														|													|
-|									|																|										| 														|											|											| [width()](#width)							|														|													|
-|									|																|										| 														|											|											| [wrap()](#wrap)								|														|													|
-|									|																|										| 														|											|											| [wrapInner()](#wrapinner)			|														|													|
+| [ajax()](#ajax) | [addClass()](#addclass)       | [each()](#each)   | [click()](#click)           | [filter()](#filter) | [submit()](#submit) | [after()](#after)             | [debounce()](#debounce)   | [children()](#children) |
+|                 | [attr()](#attr)               | [eq()](#eq)       | [doubleTap()](#doubleTap)   | [is()](#is)         | [val()](#val)       | [append()](#append)           | [extend()](#extend)       | [contents()](#contents) |
+|                 | [data()](#data)               | [first()](#first) | [focus()](#focus)           | [not()](#not)       |                     | [before()](#before)           | [mouseable()](#mouseable) | [next()](#next)         |
+|                 | [hasAttr()](#hasattr)         | [get()](#get)     | [load()](#load)             |                     |                     | [clone()](#clone)             | [offset()](#offset)       |  [parent()](#parent)    |
+|                 | [hasClass()](#hasclass)       | [last()](#last)   | [off()](#off)               |                     |                     | [css()](#css)                 |                           | [prev()](#prev)         |
+|                 | [removeAttr()](#removeattr)   | [map()](#map)     | [on()](#on)                 |                     |                     | [empty()](#empty)             |                           |                         |
+|                 | [removeClass()](#removeclass) |                   | [ready()](#ready)           |                     |                     | [height()](#height)           |                           |                         |
+|                 | [removeData()](#removedata)   |                   | [resize()](#resize)         |                     |                     | [hide()](#hide)               |                           |                         |
+|                 | [toggleClass()](#toggleclass) |                   | [scroll()](#scroll)         |                     |                     | [html()](#html)               |                           |                         |
+|                 |                               |                   | [scrollLeft()](#scrollLeft) |                     |                     | [prepend()](#prepend)         |                           |                         |
+|                 |                               |                   | [scrollTop()](#scrollTop)   |                     |                     | [remove()](#remove)           |                           |                         |
+|                 |                               |                   | [trigger()](#trigger)       |                     |                     | [replaceWith()](#replacewith) |                           |                         |
+|                 |                               |                   |                             |                     |                     | [show()](#show)               |                           |                         |
+|                 |                               |                   |                             |                     |                     | [width()](#width)             |                           |                         |
+|                 |                               |                   |                             |                     |                     | [wrap()](#wrap)               |                           |                         |
+|                 |                               |                   |                             |                     |                     | [wrapInner()](#wrapinner)     |                           |                         |
 
 <a id="ajax"></a>
 
@@ -102,13 +102,21 @@ Acceptable options include:
 * headerValue (value of the custom HTTP header)
 
 ```js
-$.ajax({ method: 'GET', url: 'https://www.something.com/detail', dataType: 'json' })
-	.then(function(resp) {})
-	.catch(function(err) {});
+$.ajax({
+    method: 'GET',
+    url: 'https://www.something.com/detail',
+    dataType: 'json'
+})
+  .then((resp) => {})
+  .catch((err) => {});
 
-$.ajax({ method: 'POST', url: 'https://www.something.com/api', body: { form: data } })
-	.then(function(resp) {})
-	.catch(function(err) {});
+$.ajax({
+  method: 'POST',
+  url: 'https://www.something.com/api',
+  body: { form: data }
+})
+  .then((resp) => {})
+  .catch((err) => {});
 ```
 
 <a id="addclass"></a>
@@ -141,7 +149,7 @@ Trigger a callback on click, or trigger the click itself.
 
 ```js
 $('#selector').click();
-$('#selector').click(function(){});
+$('#selector').click(() => {});
 ```
 
 <a id="data"></a>
@@ -285,7 +293,7 @@ $(array).map(function(item, index, array){});
 Trigger a function by double-tapping or double-clicking.
 
 ```js
-$('#selector').doubleTap(function(){});
+$('#selector').doubleTap(() => {});
 ```
 
 <a id="focus"></a>
@@ -296,7 +304,7 @@ Focus on the first element in the set or trigger a callback when some element is
 
 ```js
 $('#selector').focus();
-$('#selector').focus(function(){});
+$('#selector').focus(() => {});
 ```
 
 <a id="load"></a>
@@ -306,7 +314,7 @@ $('#selector').focus(function(){});
 Trigger a function on the load event.
 
 ```js
-$(window).load(function(){});
+$(window).load(() => {});
 ```
 
 <a id="off"></a>
@@ -316,8 +324,8 @@ $(window).load(function(){});
 Remove an event listener.
 
 ```js
-$('#selector').off('change', function(){});
-$('#selector').off('click touchend', function(){});
+$('#selector').off('change', () => {});
+$('#selector').off('click touchend', () => {});
 ```
 
 <a id="on"></a>
@@ -327,8 +335,8 @@ $('#selector').off('click touchend', function(){});
 Assign an event listener.
 
 ```js
-$('#selector').on('change', function(){});
-$('#selector').on('click touchend', function(){});
+$('#selector').on('change', () => {});
+$('#selector').on('click touchend', () => {});
 ```
 
 <a id="ready"></a>
@@ -338,7 +346,7 @@ $('#selector').on('click touchend', function(){});
 Trigger a function when the DOM content is loaded.
 
 ```js
-$(document).ready(function(){});
+$(document).ready(() => {});
 ```
 
 <a id="resize"></a>
@@ -348,7 +356,7 @@ $(document).ready(function(){});
 Capture the resize event from a set of elements and execute a function.
 
 ```js
-$(window).resize(function(){});
+$(window).resize(() => {});
 ```
 
 <a id="scroll"></a>
@@ -358,7 +366,7 @@ $(window).resize(function(){});
 Listen for the scroll event and trigger a function.
 
 ```js
-$(window).scroll(function(){});
+$(window).scroll(() => {});
 ```
 
 <a id="scrollleft"></a>
@@ -435,7 +443,7 @@ Submit a form or trigger a function when a form is submitted.
 
 ```js
 $('#selector').submit();
-$('#selector').submit(function(){});
+$('#selector').submit(() => {});
 ```
 
 <a id="val"></a>
@@ -626,7 +634,7 @@ $('#selector').wrapInner('<div class="outer"><div class="inner">');
 Rate-limit a given function.
 
 ```js
-$.debounce(function(){}, 300);
+$.debounce(() => {}, 300);
 ```
 
 <a id="extend"></a>

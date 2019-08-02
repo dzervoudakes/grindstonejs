@@ -6,7 +6,7 @@
  * @param {number} wait delay in ms
  * @param {boolean} immediate invoke immediately, optional
  * @returns {function}
- * @example $.debounce(function(){}, 300);
+ * @example $.debounce(() => {}, 300);
  */
 
 const debounce = function(fn, wait, immediate) {

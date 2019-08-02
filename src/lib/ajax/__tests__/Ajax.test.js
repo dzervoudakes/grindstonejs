@@ -25,8 +25,7 @@ describe('ajax()', () => {
 			async: false,
 			dataType: 'json',
 			body: null,
-			header: 'Content-Type',
-			headerValue: 'application/json'
+			headers: { 'Content-Type': 'application/json' }
 		};
 
 		createXhrMock();
@@ -39,6 +38,7 @@ describe('ajax()', () => {
 			setRequestHeader();
 			onload();
 			onerror();
+
 			expect(open).toBeCalledWith('GET', 'http://example.com', false);
 			expect(send).toBeCalled();
 		});
@@ -55,6 +55,7 @@ describe('ajax()', () => {
 			setRequestHeader();
 			onload();
 			onerror();
+
 			expect(open).toBeCalledWith('GET', '', true);
 			expect(send).toBeCalled();
 		});

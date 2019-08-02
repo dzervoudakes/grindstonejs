@@ -6,8 +6,8 @@
  * @param {function} callback
  * @returns {NodeList} collection
  * @example
- * $('#selector').off('change', function(){});
- * $('#selector').off('click touchend', function(){});
+ * $('#selector').off('change', () => {});
+ * $('#selector').off('click touchend', () => {});
  */
 
 const off = function(action, callback) {

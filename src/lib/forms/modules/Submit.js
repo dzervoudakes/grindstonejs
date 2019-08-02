@@ -6,7 +6,7 @@
  * @returns {NodeList} collection
  * @example
  * $('#selector').submit();
- * $('#selector').submit(function(){});
+ * $('#selector').submit(() => {});
  */
 
 const submit = function(callback) {

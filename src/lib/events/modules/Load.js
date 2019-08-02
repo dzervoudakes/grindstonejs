@@ -4,7 +4,7 @@
  * @memberof Grindstone
  * @param {function} callback
  * @returns {NodeList} collection
- * @example $(window).load(function(){});
+ * @example $(window).load(() => {});
  */
 
 const load = function(callback) {

@@ -6,7 +6,7 @@
  * @returns {NodeList} collection
  * @example
  * $('#selector').click();
- * $('#selector').click(function(){});
+ * $('#selector').click(() => {});
  */
 
 const click = function(callback) {

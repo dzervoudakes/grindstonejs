@@ -4,7 +4,7 @@
  * @memberof Grindstone
  * @param {function} callback
  * @returns {NodeList} collection
- * @example $(window).scroll(function(){});
+ * @example $(window).scroll(() => {});
  */
 
 const scroll = function(callback) {

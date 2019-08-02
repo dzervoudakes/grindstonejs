@@ -4,7 +4,7 @@
  * @memberof Grindstone
  * @param {function} callback
  * @returns {NodeList} collection
- * @example $(window).resize(function(){});
+ * @example $(window).resize(() => {});
  */
 
 const resize = function(callback) {

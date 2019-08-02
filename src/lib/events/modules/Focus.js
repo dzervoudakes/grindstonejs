@@ -6,7 +6,7 @@
  * @returns {NodeList} collection
  * @example
  * $('#selector').focus();
- * $('#selector').focus(function(){});
+ * $('#selector').focus(() => {});
  */
 
 const focus = function(callback) {

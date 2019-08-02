@@ -4,7 +4,7 @@
  * @memberof Grindstone
  * @param {function} callback
  * @returns {NodeList} collection
- * @example $('#selector').doubleTap(function(){});
+ * @example $('#selector').doubleTap(() => {});
  */
 
 const doubleTap = function(callback) {

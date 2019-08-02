@@ -6,8 +6,8 @@
  * @param {function} callback
  * @returns {NodeList} collection
  * @example
- * $('#selector').on('change', function(){});
- * $('#selector').on('click touchend', function(){});
+ * $('#selector').on('change', () => {});
+ * $('#selector').on('click touchend', () => {});
  */
 
 const on = function(action, callback) {

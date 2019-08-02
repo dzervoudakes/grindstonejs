@@ -1,12 +1,11 @@
 /**
  * @typedef {Object} AjaxOpts
- * @prop {string} method http method
+ * @prop {string} method http method, default is 'GET'
  * @prop {string} url API endpoint
- * @prop {boolean} async asynchronous calls
- * @prop {string} dataType data format
+ * @prop {boolean} async asynchronous calls, default is true
+ * @prop {string} dataType data format, default is 'json'
  * @prop {Object} body payload
- * @prop {string} header custom header
- * @prop {string} headerValue value of the customer header
+ * @prop {Object.<string>} headers custom headers
  */
 
 /**
@@ -16,13 +15,21 @@
  * @param {AjaxOpts} opts
  * @returns {Promise} Promise
  * @example
- * $.ajax({ method: 'GET', url: 'https://www.something.com/detail', dataType: 'json' })
- * 	.then(function(resp) {})
- * 	.catch(function(err) {});
+ * $.ajax({
+ * 		method: 'GET',
+ * 		url: 'https://www.something.com/detail',
+ * 		dataType: 'json'
+ * })
+ * 	.then((resp) => {})
+ * 	.catch((err) => {});
  *
- * $.ajax({ method: 'POST', url: 'https://www.something.com/api', body: { form: data } })
- * 	.then(function(resp) {})
- * 	.catch(function(err) {});
+ * $.ajax({
+ * 		method: 'POST',
+ * 		url: 'https://www.something.com/api',
+ * 		body: { form: data }
+ * })
+ * 	.then((resp) => {})
+ * 	.catch((err) => {});
  */
 
 const ajax = function(opts) {
@@ -34,20 +41,24 @@ const ajax = function(opts) {
 		method = 'GET',
 		url = '',
 		async = true,
-		dataType = '',
+		dataType = 'json',
 		body = null,
-		header = 'Content-Type',
-		headerValue = 'application/x-www-form-urlencoded; charset=UTF-8'
+		headers = {}
 	} = opts;
 
 	return new Promise((resolve, reject) => {
 		const xmlhttp = new XMLHttpRequest();
 		xmlhttp.open(method, url, async);
 		xmlhttp.responseType = dataType;
-		xmlhttp.setRequestHeader(header, headerValue);
+
+		Object.keys(headers).forEach((header, value) => {
+			xmlhttp.setRequestHeader(header, value);
+		});
+
 		xmlhttp.onload = () => resolve(xmlhttp.response);
-		xmlhttp.onerror = () => reject('failure');
+		xmlhttp.onerror = () => reject(xmlhttp.response);
 		xmlhttp.send(body);
+
 		return xmlhttp;
 	});
 };

@@ -4,7 +4,7 @@
  * @memberof Grindstone
  * @param {function} callback
  * @returns {NodeList} collection
- * @example $(document).ready(function(){});
+ * @example $(document).ready(() => {});
  */
 
 const ready = function(callback) {

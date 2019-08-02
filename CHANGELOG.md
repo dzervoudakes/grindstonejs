@@ -14,8 +14,19 @@
 | [v1.2.1](#v121) | [v2.0.9](#v209)	|	[v3.1.5](#v315)	|
 | [v1.2.2](#v122) | [v2.1.0](#v210)	|	[v3.2.0](#v320)	|
 | [v1.2.3](#v123) | [v2.1.1](#v211)	|	[v3.2.1](#v321)	|
-| [v1.2.4](#v124) | [v2.2.0](#v220)	|									|
+| [v1.2.4](#v124) | [v2.2.0](#v220)	|	[v3.3.0](#v330)	|
 | [v1.2.5](#v125) |									|									|
+
+<a id="v330"></a>
+
+## v3.3.0
+
+**Release Date:** 2019-08-01\
+**Contributor(s):** dzervoudakes
+
+* Updated Ajax request headers handling
+* Update code formatting
+* Updated documentation
 
 <a id="v321"></a>
 
