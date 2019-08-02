@@ -76,6 +76,8 @@ gulp.task('clean:jsdoc', () => {
 gulp.task(
 	'jsdoc',
 	gulp.series('clean:jsdoc', () => {
-		return gulp.src('./src/**/*.js').pipe($.jsdoc3(jsdocConfig));
+		return gulp
+			.src(['./test/*.js', './config/*.js', './src/**/*.js'])
+			.pipe($.jsdoc3(jsdocConfig));
 	})
 );

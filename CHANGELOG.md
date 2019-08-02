@@ -15,7 +15,18 @@
 | [v1.2.2](#v122) | [v2.1.0](#v210)	|	[v3.2.0](#v320)	|
 | [v1.2.3](#v123) | [v2.1.1](#v211)	|	[v3.2.1](#v321)	|
 | [v1.2.4](#v124) | [v2.2.0](#v220)	|	[v3.3.0](#v330)	|
-| [v1.2.5](#v125) |									|									|
+| [v1.2.5](#v125) |									|	[v3.3.1](#v331)	|
+
+<a id="v331"></a>
+
+## v3.3.1
+
+**Release Date:** 2019-08-02\
+**Contributor(s):** dzervoudakes
+
+* Fixed bug with Ajax request headers
+* Updated unit tests
+* Added some `@fileoverview` annotations
 
 <a id="v330"></a>
 

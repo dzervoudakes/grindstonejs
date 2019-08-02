@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * @fileoverview Defines configuration for licensing banners in production outputs
+ */
 const { stripIndents } = require('common-tags');
 const pkg = require('../package.json');
 

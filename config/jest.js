@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * @fileoverview Defines configuration for Jest unit testing
+ */
 const path = require('path');
 
 module.exports = {

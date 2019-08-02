@@ -12,7 +12,14 @@ const createXhrMock = () => {
 		onerror = this.onerror.bind(this);
 	});
 
-	const xhrMockClass = () => ({ open, setRequestHeader, onload, onerror, send });
+	const xhrMockClass = () => ({
+		open,
+		setRequestHeader,
+		onload,
+		onerror,
+		send,
+		response: { resp: 'resp' }
+	});
 
 	window.XMLHttpRequest = jest.fn().mockImplementation(xhrMockClass);
 };
@@ -20,11 +27,11 @@ const createXhrMock = () => {
 describe('ajax()', () => {
 	describe('success with options', () => {
 		const opts = {
-			method: 'GET',
+			method: 'POST',
 			url: 'http://example.com',
 			async: false,
 			dataType: 'json',
-			body: null,
+			body: { data: 'data' },
 			headers: { 'Content-Type': 'application/json' }
 		};
 
@@ -35,12 +42,10 @@ describe('ajax()', () => {
 		});
 
 		it('resolves an XMLHttpRequest', () => {
-			setRequestHeader();
 			onload();
-			onerror();
 
-			expect(open).toBeCalledWith('GET', 'http://example.com', false);
-			expect(send).toBeCalled();
+			expect(open).toBeCalledWith('POST', 'http://example.com', false);
+			expect(send).toBeCalledWith({ data: 'data' });
 		});
 	});
 
@@ -52,16 +57,16 @@ describe('ajax()', () => {
 		});
 
 		it('resolves an XMLHttpRequest with default options', () => {
-			setRequestHeader();
 			onload();
-			onerror();
 
 			expect(open).toBeCalledWith('GET', '', true);
-			expect(send).toBeCalled();
+			expect(send).toBeCalledWith(null);
 		});
 	});
 
 	it('throws an error when provided invalid arguments', () => {
+		onerror();
+
 		expect(() => {
 			$.ajax('wrong');
 		}).toThrowError('XHR properties are not properly defined.');

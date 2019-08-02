@@ -51,8 +51,8 @@ const ajax = function(opts) {
 		xmlhttp.open(method, url, async);
 		xmlhttp.responseType = dataType;
 
-		Object.keys(headers).forEach((header, value) => {
-			xmlhttp.setRequestHeader(header, value);
+		Object.keys(headers).forEach(key => {
+			xmlhttp.setRequestHeader(key, headers[key]);
 		});
 
 		xmlhttp.onload = () => resolve(xmlhttp.response);

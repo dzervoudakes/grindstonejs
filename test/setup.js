@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * @fileoverview Handles test setup prior to running each test suite
+ */
 const $ = require('../dist/grindstone');
 const utils = require('../src/utils');
 const html = require('fs').readFileSync('./test/index.html').toString();
