@@ -98,8 +98,7 @@ Acceptable options include:
 * async (true or false)
 * dataType (DOMString, blob, json, document, etc.)
 * body (payload)
-* header (adds a custom HTTP header to the request)
-* headerValue (value of the custom HTTP header)
+* headers (adds custom HTTP headers to the request)
 
 ```js
 $.ajax({
@@ -113,7 +112,8 @@ $.ajax({
 $.ajax({
   method: 'POST',
   url: 'https://www.something.com/api',
-  body: { form: data }
+  body: { form: data },
+  headers: { 'Content-Type': 'application/json' }
 })
   .then((resp) => {})
   .catch((err) => {});

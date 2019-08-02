@@ -16,6 +16,16 @@
 | [v1.2.3](#v123) | [v2.1.1](#v211)	|	[v3.2.1](#v321)	|
 | [v1.2.4](#v124) | [v2.2.0](#v220)	|	[v3.3.0](#v330)	|
 | [v1.2.5](#v125) |									|	[v3.3.1](#v331)	|
+|                 |									|	[v3.3.2](#v332)	|
+
+<a id="v332"></a>
+
+## v3.3.2
+
+**Release Date:** 2019-08-02\
+**Contributor(s):** dzervoudakes
+
+* Fixed flaw in Ajax documentation
 
 <a id="v331"></a>
 
