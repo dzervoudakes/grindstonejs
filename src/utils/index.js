@@ -1,5 +1,5 @@
 /**
- * @fileoverview Defines a set of reusable shared methods for use throughout the library
+ * @fileoverview Defines a set of reusable shared methods for use throughout the library.
  */
 const utils = (() => {
 	const applyContext = (item, selector, set) => {

@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @fileoverview Defines configuration for Jest unit testing
+ * @fileoverview Defines configuration for Jest unit testing.
  */
 const path = require('path');
 

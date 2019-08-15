@@ -1,5 +1,5 @@
 /**
- * @fileoverview Initializes the Grindstone constructor and exports for consumption
+ * @fileoverview Initializes the Grindstone constructor and exports for consumption.
  */
 (function(root, lib) {
 	if (typeof exports !== 'undefined') {

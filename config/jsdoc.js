@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @fileoverview Defines configuration for documentation output
+ * @fileoverview Defines configuration for documentation output.
  */
 module.exports = {
 	opts: {
