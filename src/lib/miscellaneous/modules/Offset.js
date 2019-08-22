@@ -18,13 +18,15 @@ const offset = function(position) {
 		let offsetLeft = 0;
 		do {
 			if (!isNaN(el.offsetLeft)) offsetLeft += el.offsetLeft;
-		} while ((el = el.offsetParent));
+			el = el.offsetParent;
+		} while (el);
 		return offsetLeft;
 	} else if (position === 'top') {
 		let offsetTop = 0;
 		do {
 			if (!isNaN(el.offsetTop)) offsetTop += el.offsetTop;
-		} while ((el = el.offsetParent));
+			el = el.offsetParent;
+		} while (el);
 		return offsetTop;
 	}
 };

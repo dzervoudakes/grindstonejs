@@ -13,8 +13,8 @@ const utils = (() => {
 
 	const children = (set, nodeType, selector) => {
 		const newSet = $();
-		for (const item of set) {
-			for (let child = item.firstChild; child; child = child.nextSibling) {
+		for (let i = 0; i < set.length; i++) {
+			for (let child = set[i].firstChild; child; child = child.nextSibling) {
 				if (nodeType === undefined || nodeType === child.nodeType) {
 					if (!selector || $(child).is(selector)) newSet.push(child);
 				}

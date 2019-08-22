@@ -17,6 +17,16 @@
 | [v1.2.4](#v124) | [v2.2.0](#v220)	|	[v3.3.0](#v330)	|
 | [v1.2.5](#v125) |									|	[v3.3.1](#v331)	|
 |                 |									|	[v3.3.2](#v332)	|
+|                 |									|	[v3.3.3](#v333)	|
+
+<a id="v333"></a>
+
+## v3.3.3
+
+**Release Date:** 2019-08-21\
+**Contributor(s):** dzervoudakes
+
+* Removed assignment from operand in `offset()`
 
 <a id="v332"></a>
 

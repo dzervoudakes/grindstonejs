@@ -1,6 +1,6 @@
 {
 	"name": "grindstone",
-	"version": "3.3.2",
+	"version": "3.3.3",
 	"main": "dist/grindstone.min.js",
 	"license": "MIT",
 	"author": {
@@ -29,7 +29,7 @@
 		"codacy-coverage": "3.4.0",
 		"common-tags": "1.8.0",
 		"eslint": "6.1.0",
-		"eslint-config-prettier": "6.0.0",
+		"eslint-config-prettier": "6.1.0",
 		"eslint-plugin-prettier": "3.1.0",
 		"gulp": "4.0.2",
 		"gulp-babel": "8.0.0",
@@ -43,9 +43,9 @@
 		"gulp-rename": "1.4.0",
 		"gulp-strip-comments": "2.5.2",
 		"gulp-uglify": "3.0.2",
-		"husky": "3.0.3",
-		"jest-cli": "24.8.0",
-		"lint-staged": "9.2.1",
+		"husky": "3.0.4",
+		"jest-cli": "24.9.0",
+		"lint-staged": "9.2.3",
 		"minami": "1.2.3",
 		"prettier": "1.18.2"
 	},

@@ -18,13 +18,13 @@ const extend = function(target, ...args) {
 			'Cannot merge properties into the target: argument is not an object.'
 		);
 	}
-	for (const arg of args) {
-		if (typeof arg !== 'object' || Array.isArray(arg)) {
+	for (let i = 0; i < args.length; i++) {
+		if (typeof args[i] !== 'object' || Array.isArray(args[i])) {
 			throw new Error(
 				'Cannot merge properties into the target: argument is not an object.'
 			);
 		}
-		target = Object.assign(target, arg);
+		target = Object.assign(target, args[i]);
 	}
 	return target;
 };
