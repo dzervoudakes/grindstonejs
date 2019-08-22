@@ -32,7 +32,7 @@ CDN:
 
 For the average project, 87kb or so worth of jQuery - minified - is unnecessary. Grindstone.js handles many commonly used methods while weighing in at just 13kb (minified).
 
-This library does not aim to replace jQuery 100%.
+This library does not aim to replace jQuery.
 
 Grindstone.js supports the following browsers:
 
