@@ -10,7 +10,7 @@
  */
 
 const children = function(selector) {
-	return utils.children(this, 1, selector);
+  return utils.children(this, 1, selector);
 };
 
 $.fn.children = children;

@@ -7,12 +7,12 @@
  */
 
 const empty = function() {
-	this.each(function() {
-		while (this.firstChild) {
-			this.removeChild(this.firstChild);
-		}
-	});
-	return this;
+  this.each(function() {
+    while (this.firstChild) {
+      this.removeChild(this.firstChild);
+    }
+  });
+  return this;
 };
 
 $.fn.empty = empty;

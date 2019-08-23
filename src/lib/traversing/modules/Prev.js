@@ -10,7 +10,7 @@
  */
 
 const prev = function(selector) {
-	return utils.elementProp(this, 'previousSibling', selector);
+  return utils.elementProp(this, 'previousSibling', selector);
 };
 
 $.fn.prev = prev;

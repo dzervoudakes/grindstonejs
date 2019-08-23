@@ -11,20 +11,20 @@
  */
 
 const height = function(num) {
-	if (typeof num === 'number' || num === 0) {
-		this.each(function() {
-			this.style.height = `${num}px`;
-		});
-		return this;
-	} else {
-		if (this.set[0] === document) {
-			return document.body.clientHeight;
-		} else if (this.set[0] === window) {
-			return window.innerHeight;
-		} else {
-			return this.set[0].offsetHeight;
-		}
-	}
+  if (typeof num === 'number' || num === 0) {
+    this.each(function() {
+      this.style.height = `${num}px`;
+    });
+    return this;
+  } else {
+    if (this.set[0] === document) {
+      return document.body.clientHeight;
+    } else if (this.set[0] === window) {
+      return window.innerHeight;
+    } else {
+      return this.set[0].offsetHeight;
+    }
+  }
 };
 
 $.fn.height = height;

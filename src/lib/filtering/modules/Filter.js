@@ -8,9 +8,9 @@
  */
 
 const filter = function(filterBy) {
-	return $.fn.map.call(this, function() {
-		if ($(this).is(filterBy)) return this;
-	});
+  return $.fn.map.call(this, function() {
+    if ($(this).is(filterBy)) return this;
+  });
 };
 
 $.fn.filter = filter;

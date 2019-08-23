@@ -8,10 +8,10 @@
  */
 
 const replaceWith = function(content) {
-	this.each(function() {
-		this.outerHTML = content ? content : '';
-	});
-	return this;
+  this.each(function() {
+    this.outerHTML = content ? content : '';
+  });
+  return this;
 };
 
 $.fn.replaceWith = replaceWith;

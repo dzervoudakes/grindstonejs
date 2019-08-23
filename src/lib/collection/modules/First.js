@@ -7,7 +7,7 @@
  */
 
 const first = function() {
-	return $(this.set[0]);
+  return $(this.set[0]);
 };
 
 $.fn.first = first;

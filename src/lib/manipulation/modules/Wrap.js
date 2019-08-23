@@ -8,18 +8,18 @@
  */
 
 const wrap = function(structure) {
-	this.each(function() {
-		if (
-			typeof structure !== 'string' ||
-			!structure.startsWith('<') ||
-			!structure.endsWith('>')
-		) {
-			throw new Error('wrap() string must start with "<" and ending with ">".');
-		}
-		const contents = this.outerHTML;
-		this.outerHTML = structure + contents;
-	});
-	return this;
+  this.each(function() {
+    if (
+      typeof structure !== 'string' ||
+      !structure.startsWith('<') ||
+      !structure.endsWith('>')
+    ) {
+      throw new Error('wrap() string must start with "<" and ending with ">".');
+    }
+    const contents = this.outerHTML;
+    this.outerHTML = structure + contents;
+  });
+  return this;
 };
 
 $.fn.wrap = wrap;

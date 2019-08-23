@@ -10,13 +10,13 @@
  */
 
 const removeClass = function(cls) {
-	const classes = cls.split(' ');
-	this.each(function() {
-		classes.forEach(clsName => {
-			this.classList.remove(clsName);
-		});
-	});
-	return this;
+  const classes = cls.split(' ');
+  this.each(function() {
+    classes.forEach(clsName => {
+      this.classList.remove(clsName);
+    });
+  });
+  return this;
 };
 
 $.fn.removeClass = removeClass;

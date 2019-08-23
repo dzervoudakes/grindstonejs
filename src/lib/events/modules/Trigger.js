@@ -8,11 +8,11 @@
  */
 
 const trigger = function(evt) {
-	const customEvent = new Event(evt);
-	this.each(function() {
-		this.dispatchEvent(customEvent);
-	});
-	return this;
+  const customEvent = new Event(evt);
+  this.each(function() {
+    this.dispatchEvent(customEvent);
+  });
+  return this;
 };
 
 $.fn.trigger = trigger;

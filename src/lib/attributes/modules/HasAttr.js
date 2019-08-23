@@ -8,11 +8,11 @@
  */
 
 const hasAttr = function(attribute) {
-	let exists = false;
-	this.each(function() {
-		if (attribute) exists = $(this).attr(attribute) !== null;
-	});
-	return exists;
+  let exists = false;
+  this.each(function() {
+    if (attribute) exists = $(this).attr(attribute) !== null;
+  });
+  return exists;
 };
 
 $.fn.hasAttr = hasAttr;

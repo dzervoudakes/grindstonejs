@@ -10,25 +10,25 @@
  */
 
 const offset = function(position) {
-	if (position !== 'left' && position !== 'top') {
-		throw new Error('offset() position must be either "left" or "top".');
-	}
-	let el = this.set[0];
-	if (position === 'left') {
-		let offsetLeft = 0;
-		do {
-			if (!isNaN(el.offsetLeft)) offsetLeft += el.offsetLeft;
-			el = el.offsetParent;
-		} while (el);
-		return offsetLeft;
-	} else if (position === 'top') {
-		let offsetTop = 0;
-		do {
-			if (!isNaN(el.offsetTop)) offsetTop += el.offsetTop;
-			el = el.offsetParent;
-		} while (el);
-		return offsetTop;
-	}
+  if (position !== 'left' && position !== 'top') {
+    throw new Error('offset() position must be either "left" or "top".');
+  }
+  let el = this.set[0];
+  if (position === 'left') {
+    let offsetLeft = 0;
+    do {
+      if (!isNaN(el.offsetLeft)) offsetLeft += el.offsetLeft;
+      el = el.offsetParent;
+    } while (el);
+    return offsetLeft;
+  } else if (position === 'top') {
+    let offsetTop = 0;
+    do {
+      if (!isNaN(el.offsetTop)) offsetTop += el.offsetTop;
+      el = el.offsetParent;
+    } while (el);
+    return offsetTop;
+  }
 };
 
 $.fn.offset = offset;

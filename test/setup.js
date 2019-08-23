@@ -9,17 +9,17 @@ const html = require('fs').readFileSync('./test/index.html').toString();
 
 const setupTests = (method, path, isPrototype = true) => {
 
-	// interpret test html
-	document.documentElement.innerHTML = html;
+  // interpret test html
+  document.documentElement.innerHTML = html;
 
-	// global mocks
-	jest.dontMock('fs');
-	global.$ = $;
-	global.utils = utils;
+  // global mocks
+  jest.dontMock('fs');
+  global.$ = $;
+  global.utils = utils;
 
-	// apply lib methods
-	const $method = require(`../src/lib/${path}`);
-	return (isPrototype ? $.fn : $)[method] = $method;
+  // apply lib methods
+  const $method = require(`../src/lib/${path}`);
+  return (isPrototype ? $.fn : $)[method] = $method;
 };
 
 global.setupTests = setupTests;

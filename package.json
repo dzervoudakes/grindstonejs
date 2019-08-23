@@ -1,69 +1,69 @@
 {
-	"name": "grindstone",
-	"version": "3.3.3",
-	"main": "dist/grindstone.min.js",
-	"license": "MIT",
-	"author": {
-		"name": "dzervoudakes and contributors"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/dzervoudakes/GrindstoneJS"
-	},
-	"scripts": {
-		"build": "gulp build",
-		"clean": "gulp clean",
-		"docs": "gulp jsdoc",
-		"lint": "eslint . --ext js",
-		"lint:fix": "eslint . --ext js --fix",
-		"prepublishOnly": "npm run lint && npm run docs && npm run build && npm test",
-		"test": "gulp test",
-		"test:codacy": "npm test && cat ./coverage/lcov.info | codacy-coverage",
-		"start": "gulp watch"
-	},
-	"devDependencies": {
-		"@babel/core": "7.5.5",
-		"@babel/plugin-transform-strict-mode": "7.2.0",
-		"@babel/preset-env": "7.5.5",
-		"babel-eslint": "10.0.2",
-		"codacy-coverage": "3.4.0",
-		"common-tags": "1.8.0",
-		"eslint": "6.1.0",
-		"eslint-config-prettier": "6.1.0",
-		"eslint-plugin-prettier": "3.1.0",
-		"gulp": "4.0.2",
-		"gulp-babel": "8.0.0",
-		"gulp-clean": "0.4.0",
-		"gulp-concat": "2.6.1",
-		"gulp-header": "2.0.9",
-		"gulp-jest": "4.0.3",
-		"gulp-jsdoc3": "2.0.0",
-		"gulp-load-plugins": "2.0.1",
-		"gulp-preprocess": "3.0.2",
-		"gulp-rename": "1.4.0",
-		"gulp-strip-comments": "2.5.2",
-		"gulp-uglify": "3.0.2",
-		"husky": "3.0.4",
-		"jest-cli": "24.9.0",
-		"lint-staged": "9.2.3",
-		"minami": "1.2.3",
-		"prettier": "1.18.2"
-	},
-	"keywords": [
-		"grindstone",
-		"javascript",
-		"library",
-		"jquery",
-		"lightweight"
-	],
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"not ie <= 9"
-	]
+  "name": "grindstone",
+  "version": "3.3.3",
+  "main": "dist/grindstone.min.js",
+  "license": "MIT",
+  "author": {
+    "name": "dzervoudakes and contributors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dzervoudakes/GrindstoneJS"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "docs": "gulp jsdoc",
+    "lint": "eslint . --ext js",
+    "lint:fix": "eslint . --ext js --fix",
+    "prepublishOnly": "npm run lint && npm run docs && npm run build && npm test",
+    "test": "gulp test",
+    "test:codacy": "npm test && cat ./coverage/lcov.info | codacy-coverage",
+    "start": "gulp watch"
+  },
+  "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/plugin-transform-strict-mode": "7.2.0",
+    "@babel/preset-env": "7.5.5",
+    "babel-eslint": "10.0.2",
+    "codacy-coverage": "3.4.0",
+    "common-tags": "1.8.0",
+    "eslint": "6.1.0",
+    "eslint-config-prettier": "6.1.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "gulp": "4.0.2",
+    "gulp-babel": "8.0.0",
+    "gulp-clean": "0.4.0",
+    "gulp-concat": "2.6.1",
+    "gulp-header": "2.0.9",
+    "gulp-jest": "4.0.3",
+    "gulp-jsdoc3": "2.0.0",
+    "gulp-load-plugins": "2.0.1",
+    "gulp-preprocess": "3.0.2",
+    "gulp-rename": "1.4.0",
+    "gulp-strip-comments": "2.5.2",
+    "gulp-uglify": "3.0.2",
+    "husky": "3.0.4",
+    "jest-cli": "24.9.0",
+    "lint-staged": "9.2.3",
+    "minami": "1.2.3",
+    "prettier": "1.18.2"
+  },
+  "keywords": [
+    "grindstone",
+    "javascript",
+    "library",
+    "jquery",
+    "lightweight"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 9"
+  ]
 }

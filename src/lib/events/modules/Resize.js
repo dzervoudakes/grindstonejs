@@ -8,14 +8,14 @@
  */
 
 const resize = function(callback) {
-	if (typeof callback === 'function') {
-		this.each(function() {
-			$(this).on('resize', callback);
-		});
-	} else {
-		throw new Error('No callback specified for "resize()"');
-	}
-	return this;
+  if (typeof callback === 'function') {
+    this.each(function() {
+      $(this).on('resize', callback);
+    });
+  } else {
+    throw new Error('No callback specified for "resize()"');
+  }
+  return this;
 };
 
 $.fn.resize = resize;

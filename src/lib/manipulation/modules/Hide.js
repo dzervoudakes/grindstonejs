@@ -10,19 +10,19 @@
  */
 
 const hide = function(delay) {
-	if (delay) {
-		setTimeout(() => {
-			$.fn.hide.call(this);
-		}, delay);
-	} else {
-		this.each(function() {
-			if (this.style.display !== 'none') {
-				if (this.style.display) $(this).data('_prevdisplay', this.style.display);
-				this.style.display = 'none';
-			}
-		});
-	}
-	return this;
+  if (delay) {
+    setTimeout(() => {
+      $.fn.hide.call(this);
+    }, delay);
+  } else {
+    this.each(function() {
+      if (this.style.display !== 'none') {
+        if (this.style.display) $(this).data('_prevdisplay', this.style.display);
+        this.style.display = 'none';
+      }
+    });
+  }
+  return this;
 };
 
 $.fn.hide = hide;

@@ -11,15 +11,15 @@
  */
 
 const attr = function(attribute, value) {
-	let elemAttribute;
-	this.each(function() {
-		if (value || value === '') {
-			this.setAttribute(attribute, value);
-		} else {
-			elemAttribute = this.getAttribute(attribute);
-		}
-	});
-	return value ? this : elemAttribute;
+  let elemAttribute;
+  this.each(function() {
+    if (value || value === '') {
+      this.setAttribute(attribute, value);
+    } else {
+      elemAttribute = this.getAttribute(attribute);
+    }
+  });
+  return value ? this : elemAttribute;
 };
 
 $.fn.attr = attr;

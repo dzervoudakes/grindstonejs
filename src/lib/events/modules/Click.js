@@ -10,15 +10,15 @@
  */
 
 const click = function(callback) {
-	this.each(function() {
-		if (callback) {
-			this.addEventListener('click', callback, false);
-		} else {
-			const clickEvent = new Event('click');
-			this.dispatchEvent(clickEvent);
-		}
-	});
-	return this;
+  this.each(function() {
+    if (callback) {
+      this.addEventListener('click', callback, false);
+    } else {
+      const clickEvent = new Event('click');
+      this.dispatchEvent(clickEvent);
+    }
+  });
+  return this;
 };
 
 $.fn.click = click;

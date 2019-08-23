@@ -10,13 +10,13 @@
  */
 
 const toggleClass = function(cls) {
-	const classes = cls.split(' ');
-	this.each(function() {
-		classes.forEach(clsName => {
-			this.classList.toggle(clsName);
-		});
-	});
-	return this;
+  const classes = cls.split(' ');
+  this.each(function() {
+    classes.forEach(clsName => {
+      this.classList.toggle(clsName);
+    });
+  });
+  return this;
 };
 
 $.fn.toggleClass = toggleClass;

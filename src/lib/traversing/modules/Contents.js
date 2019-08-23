@@ -7,7 +7,7 @@
  */
 
 const contents = function() {
-	return utils.children(this);
+  return utils.children(this);
 };
 
 $.fn.contents = contents;

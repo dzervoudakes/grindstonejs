@@ -10,7 +10,7 @@
  */
 
 const parent = function(selector) {
-	return utils.elementProp(this, 'parentNode', selector);
+  return utils.elementProp(this, 'parentNode', selector);
 };
 
 $.fn.parent = parent;

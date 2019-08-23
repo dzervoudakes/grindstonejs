@@ -8,7 +8,7 @@
  */
 
 const get = function(index) {
-	return this.set[index];
+  return this.set[index];
 };
 
 $.fn.get = get;

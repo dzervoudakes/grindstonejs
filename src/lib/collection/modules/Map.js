@@ -8,15 +8,15 @@
  */
 
 const map = function(callback) {
-	const newSet = $();
-	const set = this.set;
+  const newSet = $();
+  const set = this.set;
 
-	set.forEach((item, index, array) => {
-		const ret = callback.call(item, item, index, array);
-		if (ret !== undefined && ret !== null) newSet.push(ret);
-	});
+  set.forEach((item, index, array) => {
+    const ret = callback.call(item, item, index, array);
+    if (ret !== undefined && ret !== null) newSet.push(ret);
+  });
 
-	return newSet;
+  return newSet;
 };
 
 $.fn.map = map;

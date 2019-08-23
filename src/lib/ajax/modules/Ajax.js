@@ -33,34 +33,34 @@
  */
 
 const ajax = function(opts) {
-	if (typeof opts !== 'object') {
-		throw new Error('XHR properties are not properly defined.');
-	}
+  if (typeof opts !== 'object') {
+    throw new Error('XHR properties are not properly defined.');
+  }
 
-	const {
-		method = 'GET',
-		url = '',
-		async = true,
-		dataType = 'json',
-		body = null,
-		headers = {}
-	} = opts;
+  const {
+    method = 'GET',
+    url = '',
+    async = true,
+    dataType = 'json',
+    body = null,
+    headers = {}
+  } = opts;
 
-	return new Promise((resolve, reject) => {
-		const xmlhttp = new XMLHttpRequest();
-		xmlhttp.open(method, url, async);
-		xmlhttp.responseType = dataType;
+  return new Promise((resolve, reject) => {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.open(method, url, async);
+    xmlhttp.responseType = dataType;
 
-		Object.keys(headers).forEach(key => {
-			xmlhttp.setRequestHeader(key, headers[key]);
-		});
+    Object.keys(headers).forEach(key => {
+      xmlhttp.setRequestHeader(key, headers[key]);
+    });
 
-		xmlhttp.onload = () => resolve(xmlhttp.response);
-		xmlhttp.onerror = () => reject(xmlhttp.response);
-		xmlhttp.send(body);
+    xmlhttp.onload = () => resolve(xmlhttp.response);
+    xmlhttp.onerror = () => reject(xmlhttp.response);
+    xmlhttp.send(body);
 
-		return xmlhttp;
-	});
+    return xmlhttp;
+  });
 };
 
 $.fn.ajax = ajax;

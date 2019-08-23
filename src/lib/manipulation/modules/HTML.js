@@ -10,15 +10,15 @@
  */
 
 const html = function(content) {
-	let text;
-	this.each(function() {
-		if (content || content === '') {
-			this.innerHTML = content;
-		} else {
-			text = this.innerHTML;
-		}
-	});
-	return content ? this : text;
+  let text;
+  this.each(function() {
+    if (content || content === '') {
+      this.innerHTML = content;
+    } else {
+      text = this.innerHTML;
+    }
+  });
+  return content ? this : text;
 };
 
 $.fn.html = html;

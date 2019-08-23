@@ -8,14 +8,14 @@
  */
 
 const ready = function(callback) {
-	if (typeof callback === 'function') {
-		this.each(function() {
-			$(this).on('DOMContentLoaded', callback);
-		});
-	} else {
-		throw new Error('No callback specified for "ready()"');
-	}
-	return this;
+  if (typeof callback === 'function') {
+    this.each(function() {
+      $(this).on('DOMContentLoaded', callback);
+    });
+  } else {
+    throw new Error('No callback specified for "ready()"');
+  }
+  return this;
 };
 
 $.fn.ready = ready;

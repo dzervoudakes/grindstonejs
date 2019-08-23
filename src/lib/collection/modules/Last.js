@@ -7,7 +7,7 @@
  */
 
 const last = function() {
-	return $(this.set[this.set.length - 1]);
+  return $(this.set[this.set.length - 1]);
 };
 
 $.fn.last = last;

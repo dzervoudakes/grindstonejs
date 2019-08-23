@@ -8,14 +8,14 @@
  */
 
 const scroll = function(callback) {
-	if (typeof callback === 'function') {
-		this.each(function() {
-			$(this).on('scroll', callback);
-		});
-	} else {
-		throw new Error('No callback specified for "scroll()"');
-	}
-	return this;
+  if (typeof callback === 'function') {
+    this.each(function() {
+      $(this).on('scroll', callback);
+    });
+  } else {
+    throw new Error('No callback specified for "scroll()"');
+  }
+  return this;
 };
 
 $.fn.scroll = scroll;

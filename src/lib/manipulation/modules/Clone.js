@@ -7,9 +7,9 @@
  */
 
 const clone = function() {
-	return this.map(function() {
-		return this.cloneNode(true);
-	});
+  return this.map(function() {
+    return this.cloneNode(true);
+  });
 };
 
 $.fn.clone = clone;

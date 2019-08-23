@@ -10,7 +10,7 @@
  */
 
 const next = function(selector) {
-	return utils.elementProp(this, 'nextSibling', selector);
+  return utils.elementProp(this, 'nextSibling', selector);
 };
 
 $.fn.next = next;

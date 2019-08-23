@@ -8,12 +8,12 @@
  */
 
 const each = function(callback) {
-	let set = this.set;
-	set = Array.prototype.slice.call(set);
-	set.forEach((item, index, array) => {
-		callback.call(item, item, index, array);
-	});
-	return this;
+  let set = this.set;
+  set = Array.prototype.slice.call(set);
+  set.forEach((item, index, array) => {
+    callback.call(item, item, index, array);
+  });
+  return this;
 };
 
 $.fn.each = each;

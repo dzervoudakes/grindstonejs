@@ -11,32 +11,32 @@
  */
 
 const scrollTop = function(top) {
-	let topOffset;
-	this.each(function() {
-		switch (this) {
-			case window:
-				if (typeof top === 'number') {
-					this.scrollTo(0, top);
-				} else {
-					topOffset = this.pageYOffset;
-				}
-				break;
-			case document:
-				if (typeof top === 'number') {
-					this.body.scrollTop = top;
-				} else {
-					topOffset = this.body.scrollTop;
-				}
-				break;
-			default:
-				if (typeof top === 'number') {
-					this.scrollTop = top;
-				} else {
-					topOffset = this.scrollTop;
-				}
-		}
-	});
-	return typeof top === 'number' ? this : topOffset;
+  let topOffset;
+  this.each(function() {
+    switch (this) {
+      case window:
+        if (typeof top === 'number') {
+          this.scrollTo(0, top);
+        } else {
+          topOffset = this.pageYOffset;
+        }
+        break;
+      case document:
+        if (typeof top === 'number') {
+          this.body.scrollTop = top;
+        } else {
+          topOffset = this.body.scrollTop;
+        }
+        break;
+      default:
+        if (typeof top === 'number') {
+          this.scrollTop = top;
+        } else {
+          topOffset = this.scrollTop;
+        }
+    }
+  });
+  return typeof top === 'number' ? this : topOffset;
 };
 
 $.fn.scrollTop = scrollTop;

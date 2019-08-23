@@ -10,13 +10,13 @@
  */
 
 const addClass = function(cls) {
-	const classes = cls.split(' ');
-	this.each(function() {
-		classes.forEach(clsName => {
-			this.classList.add(clsName);
-		});
-	});
-	return this;
+  const classes = cls.split(' ');
+  this.each(function() {
+    classes.forEach(clsName => {
+      this.classList.add(clsName);
+    });
+  });
+  return this;
 };
 
 $.fn.addClass = addClass;

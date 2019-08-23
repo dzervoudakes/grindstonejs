@@ -16,35 +16,35 @@
  */
 
 const mouseable = function(
-	{ hoverClass = 'over', activeClass = 'down' } = {
-		hoverClass: 'over',
-		activeClass: 'down'
-	}
+  { hoverClass = 'over', activeClass = 'down' } = {
+    hoverClass: 'over',
+    activeClass: 'down'
+  }
 ) {
-	const events = {
-		hover: utils.createInteraction('touchstart', 'mouseenter'),
-		remove: utils.createInteraction('touchend', 'mouseleave'),
-		down: utils.createInteraction('touchstart', 'mousedown'),
-		up: utils.createInteraction('touchend', 'mouseup mouseleave')
-	};
+  const events = {
+    hover: utils.createInteraction('touchstart', 'mouseenter'),
+    remove: utils.createInteraction('touchend', 'mouseleave'),
+    down: utils.createInteraction('touchstart', 'mousedown'),
+    up: utils.createInteraction('touchend', 'mouseup mouseleave')
+  };
 
-	this.each(function() {
-		$(this)
-			.on(events.hover, () => {
-				$(this).addClass(hoverClass);
-			})
-			.on(events.remove, () => {
-				$(this).removeClass(hoverClass);
-			})
-			.on(events.down, () => {
-				$(this).addClass(activeClass);
-			})
-			.on(events.up, () => {
-				$(this).removeClass(activeClass);
-			});
-	});
+  this.each(function() {
+    $(this)
+      .on(events.hover, () => {
+        $(this).addClass(hoverClass);
+      })
+      .on(events.remove, () => {
+        $(this).removeClass(hoverClass);
+      })
+      .on(events.down, () => {
+        $(this).addClass(activeClass);
+      })
+      .on(events.up, () => {
+        $(this).removeClass(activeClass);
+      });
+  });
 
-	return this;
+  return this;
 };
 
 $.fn.mouseable = mouseable;

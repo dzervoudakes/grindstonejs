@@ -8,14 +8,14 @@
  */
 
 const load = function(callback) {
-	if (typeof callback === 'function') {
-		this.each(function() {
-			$(this).on('load', callback);
-		});
-	} else {
-		throw new Error('No callback specified for "load()"');
-	}
-	return this;
+  if (typeof callback === 'function') {
+    this.each(function() {
+      $(this).on('load', callback);
+    });
+  } else {
+    throw new Error('No callback specified for "load()"');
+  }
+  return this;
 };
 
 $.fn.load = load;

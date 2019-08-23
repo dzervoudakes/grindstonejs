@@ -11,13 +11,13 @@
  */
 
 const on = function(action, callback) {
-	this.each(function() {
-		const events = action.split(' ');
-		events.forEach(evt => {
-			this.addEventListener(evt, callback, false);
-		});
-	});
-	return this;
+  this.each(function() {
+    const events = action.split(' ');
+    events.forEach(evt => {
+      this.addEventListener(evt, callback, false);
+    });
+  });
+  return this;
 };
 
 $.fn.on = on;

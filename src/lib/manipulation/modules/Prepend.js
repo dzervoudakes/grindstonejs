@@ -10,22 +10,22 @@
  */
 
 const prepend = function(content) {
-	this.each(function() {
-		if (typeof content === 'string') {
-			if (content.match(/(<).+(>)/)) {
-				this.insertAdjacentHTML('afterbegin', content);
-			} else {
-				let dom = document.querySelectorAll(content);
-				dom = Array.prototype.slice.call(dom);
-				dom.forEach(item => {
-					this.insertBefore(item, this.firstChild);
-				});
-			}
-		} else {
-			this.insertBefore(content, this.firstChild);
-		}
-	});
-	return this;
+  this.each(function() {
+    if (typeof content === 'string') {
+      if (content.match(/(<).+(>)/)) {
+        this.insertAdjacentHTML('afterbegin', content);
+      } else {
+        let dom = document.querySelectorAll(content);
+        dom = Array.prototype.slice.call(dom);
+        dom.forEach(item => {
+          this.insertBefore(item, this.firstChild);
+        });
+      }
+    } else {
+      this.insertBefore(content, this.firstChild);
+    }
+  });
+  return this;
 };
 
 $.fn.prepend = prepend;

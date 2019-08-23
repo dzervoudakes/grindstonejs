@@ -8,10 +8,10 @@
  */
 
 const removeData = function(valueName) {
-	this.each(function() {
-		$(this).removeAttr(`data-${valueName}`);
-	});
-	return this;
+  this.each(function() {
+    $(this).removeAttr(`data-${valueName}`);
+  });
+  return this;
 };
 
 $.fn.removeData = removeData;
