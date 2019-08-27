@@ -233,7 +233,7 @@ $('#selector').toggleClass('one two');
 Iterate through each item in the set and execute the callback.
 
 ```js
-$('.selector').each(function(item, index, array){});
+$('.selector').each((item, index, array) => {});
 ```
 
 <a id="eq"></a>
@@ -283,7 +283,7 @@ $('.selector').last();
 Map each element to an array of values.
 
 ```js
-$(array).map(function(item, index, array){});
+$(array).map((item, index, array) => {});
 ```
 
 <a id="doubletap"></a>
