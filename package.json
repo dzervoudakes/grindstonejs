@@ -1,6 +1,6 @@
 {
   "name": "grindstone",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "main": "dist/grindstone.min.js",
   "license": "MIT",
   "author": {
