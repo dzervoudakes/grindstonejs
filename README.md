@@ -7,6 +7,7 @@
 [![Codacy badge](https://api.codacy.com/project/badge/Grade/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dzervoudakes/GrindstoneJS&amp;utm_campaign=Badge_Grade)
 [![Codacy badge](https://api.codacy.com/project/badge/Coverage/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&utm_medium=referral&utm_content=dzervoudakes/GrindstoneJS&utm_campaign=Badge_Coverage)
 [![Prettier badge](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 NPM:
 
@@ -771,3 +772,10 @@ npm test
 ```
 npm run clean
 ```
+
+## Technical Requirements
+> The runtime environment for this library requires `Node >= 10.11.0` and `NPM >= 6.4.1`.
+
+## Configuration
+> This library makes use of `ESLint` and `EditorConfig`. Each of these features requires
+> an extension be installed in order to work properly with IDEs and text editors such as VSCode.

@@ -61,6 +61,10 @@
       "pre-commit": "lint-staged"
     }
   },
+  "engines": {
+    "node": ">= 10.11.0",
+    "npm": ">= 6.4.1"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
