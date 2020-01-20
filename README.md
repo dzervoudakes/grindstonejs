@@ -774,7 +774,7 @@ npm run clean
 ```
 
 ## Technical Requirements
-> The runtime environment for this library requires `Node >= 10.11.0` and `NPM >= 6.4.1`.
+> The runtime environment for this library requires `Node >= 10.13.6` and `NPM >= 6.4.1`.
 
 ## Configuration
 > This library makes use of `ESLint` and `EditorConfig`. Each of these features requires

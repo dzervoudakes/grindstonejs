@@ -16,8 +16,7 @@ describe('hasClass()', () => {
   it('returns true if the specified className exists', () => {
     const hasClass = $('#jest-classes').hasClass('jest-classes-test');
     const notHasClass = !$('#jest-classes').hasClass('jest-classes-test trick');
-    const assertion = hasClass === true && notHasClass === true;
-    expect(assertion).toBe(true);
+    expect(hasClass && notHasClass).toBe(true);
   });
 });
 

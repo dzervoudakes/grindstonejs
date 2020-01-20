@@ -13,7 +13,7 @@ const map = function(callback) {
 
   set.forEach((item, index, array) => {
     const ret = callback.call(item, item, index, array);
-    if (ret !== undefined && ret !== null) newSet.push(ret);
+    if (ret && ret !== null) newSet.push(ret);
   });
 
   return newSet;
