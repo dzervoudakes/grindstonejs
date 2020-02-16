@@ -1,0 +1,11 @@
+name: build and test
+
+on: [push]
+
+jobs:
+  dependencies:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: install dependencies
+      run: npm install
