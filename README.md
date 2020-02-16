@@ -3,11 +3,11 @@
 > A lightweight jQuery alternative for modern browsers.
 
 [![npm](https://img.shields.io/npm/v/grindstone.svg)](https://www.npmjs.com/package/grindstone)
-[![CircleCI branch](https://img.shields.io/circleci/project/github/dzervoudakes/GrindstoneJS/master.svg)](https://circleci.com/gh/dzervoudakes/GrindstoneJS/tree/master)
-[![Codacy badge](https://api.codacy.com/project/badge/Grade/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dzervoudakes/GrindstoneJS&amp;utm_campaign=Badge_Grade)
-[![Codacy badge](https://api.codacy.com/project/badge/Coverage/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&utm_medium=referral&utm_content=dzervoudakes/GrindstoneJS&utm_campaign=Badge_Coverage)
-[![Prettier badge](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![build](https://github.com/dzervoudakes/GrindstoneJS/workflows/Build%20and%20test/badge.svg)](https://github.com/dzervoudakes/GrindstoneJS/actions)
+[![codecov](https://codecov.io/gh/dzervoudakes/GrindstoneJS/branch/master/graph/badge.svg)](https://codecov.io/gh/dzervoudakes/GrindstoneJS)
+[![quality](https://api.codacy.com/project/badge/Grade/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/GrindstoneJS?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dzervoudakes/GrindstoneJS&amp;utm_campaign=Badge_Grade)
+[![prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
+[![license](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 NPM:
 
@@ -774,7 +774,7 @@ npm run clean
 ```
 
 ## Technical Requirements
-> The runtime environment for this library requires `Node >= 10.13.6` and `NPM >= 6.4.1`.
+> The runtime environment for this library requires `Node >= 13.6.0` and `NPM >= 6.4.1`.
 
 ## Configuration
 > This library makes use of `ESLint` and `EditorConfig`. Each of these features requires

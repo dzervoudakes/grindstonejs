@@ -5,10 +5,11 @@
  */
 const $ = require('../dist/grindstone');
 const utils = require('../src/utils');
-const html = require('fs').readFileSync('./test/index.html').toString();
+const html = require('fs')
+  .readFileSync('./test/index.html')
+  .toString();
 
 const setupTests = (method, path, isPrototype = true) => {
-
   // interpret test html
   document.documentElement.innerHTML = html;
 
@@ -19,7 +20,7 @@ const setupTests = (method, path, isPrototype = true) => {
 
   // apply lib methods
   const $method = require(`../src/lib/${path}`);
-  return (isPrototype ? $.fn : $)[method] = $method;
+  return ((isPrototype ? $.fn : $)[method] = $method);
 };
 
 global.setupTests = setupTests;

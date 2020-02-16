@@ -18,18 +18,16 @@
     "lint:fix": "eslint . --ext js --fix",
     "prepublishOnly": "npm run lint && npm run docs && npm run build && npm test",
     "test": "gulp test",
-    "test:codacy": "npm test && cat ./coverage/lcov.info | codacy-coverage",
     "start": "gulp watch"
   },
   "devDependencies": {
-    "@babel/core": "7.8.3",
+    "@babel/core": "7.8.4",
     "@babel/plugin-transform-strict-mode": "7.8.3",
-    "@babel/preset-env": "7.8.3",
+    "@babel/preset-env": "7.8.4",
     "babel-eslint": "10.0.3",
-    "codacy-coverage": "3.4.0",
     "common-tags": "1.8.0",
     "eslint": "6.8.0",
-    "eslint-config-prettier": "6.9.0",
+    "eslint-config-prettier": "6.10.0",
     "eslint-plugin-prettier": "3.1.2",
     "gulp": "4.0.2",
     "gulp-babel": "8.0.0",
@@ -43,9 +41,9 @@
     "gulp-rename": "2.0.0",
     "gulp-strip-comments": "2.5.2",
     "gulp-uglify": "3.0.2",
-    "husky": "4.0.10",
+    "husky": "4.2.3",
     "jest-cli": "24.9.0",
-    "lint-staged": "10.0.0",
+    "lint-staged": "10.0.7",
     "minami": "1.2.3",
     "prettier": "1.19.1"
   },
@@ -62,7 +60,7 @@
     }
   },
   "engines": {
-    "node": ">= 10.13.6",
+    "node": ">= 13.6.0",
     "npm": ">= 6.4.1"
   },
   "browserslist": [

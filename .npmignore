@@ -3,7 +3,7 @@
 .git
 .gitignore
 .babelrc
-.circleci
+.github
 .editorconfig
 .eslintignore
 .eslintrc.js
