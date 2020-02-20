@@ -23,7 +23,8 @@
 
 ## v3.3.3
 
-**Release Date:** 2019-08-21\
+**Release Date:** 2019-08-21
+
 **Contributor(s):** dzervoudakes
 
 * Removed assignment from operand in `offset()`
@@ -32,7 +33,8 @@
 
 ## v3.3.2
 
-**Release Date:** 2019-08-02\
+**Release Date:** 2019-08-02
+
 **Contributor(s):** dzervoudakes
 
 * Fixed flaw in Ajax documentation
@@ -41,7 +43,8 @@
 
 ## v3.3.1
 
-**Release Date:** 2019-08-02\
+**Release Date:** 2019-08-02
+
 **Contributor(s):** dzervoudakes
 
 * Fixed bug with Ajax request headers
@@ -52,7 +55,8 @@
 
 ## v3.3.0
 
-**Release Date:** 2019-08-01\
+**Release Date:** 2019-08-01
+
 **Contributor(s):** dzervoudakes
 
 * Updated Ajax request headers handling
@@ -63,7 +67,8 @@
 
 ## v3.2.1
 
-**Release Date:** 2018-11-16\
+**Release Date:** 2018-11-16
+
 **Contributor(s):** dzervoudakes
 
 * Implemented `click()`
@@ -72,7 +77,8 @@
 
 ## v3.2.0
 
-**Release Date:** 2018-11-15\
+**Release Date:** 2018-11-15
+
 **Contributor(s):** dzervoudakes
 
 * Updated dependencies
@@ -95,7 +101,8 @@
 
 ## v3.1.5
 
-**Release Date:** 2017-11-09\
+**Release Date:** 2017-11-09
+
 **Contributor(s):** dzervoudakes
 
 * Refactored gulpfile
@@ -104,7 +111,8 @@
 
 ## v3.1.4
 
-**Release Date:** 2017-11-08\
+**Release Date:** 2017-11-08
+
 **Contributor(s):** dzervoudakes
 
 * Refactored CSS module
@@ -113,7 +121,8 @@
 
 ## v3.1.3
 
-**Release Date:** 2017-11-07\
+**Release Date:** 2017-11-07
+
 **Contributor(s):** exside | dzervoudakes
 
 * Handling `dataType` in Ajax module
@@ -123,7 +132,8 @@
 
 ## v3.1.2
 
-**Release Date:** 2017-11-05\
+**Release Date:** 2017-11-05
+
 **Contributor(s):** exside | dzervoudakes
 
 * Pass the iterated array through `each()`
@@ -133,7 +143,8 @@
 
 ## v3.1.1
 
-**Release Date:** 2017-11-05\
+**Release Date:** 2017-11-05
+
 **Contributor(s):** exside | dzervoudakes
 
 * Pass index through `each()`
@@ -142,7 +153,8 @@
 
 ## v3.1.0
 
-**Release Date:** 2017-11-04\
+**Release Date:** 2017-11-04
+
 **Contributor(s):** dzervoudakes
 
 * Finally made this library requireable
@@ -154,7 +166,8 @@
 
 ## v3.0.3
 
-**Release Date:** 2017-10-20\
+**Release Date:** 2017-10-20
+
 **Contributor(s):** dzervoudakes
 
 * Continued refining ES6 updates
@@ -164,7 +177,8 @@
 
 ## v3.0.2
 
-**Release Date:** 2017-09-29\
+**Release Date:** 2017-09-29
+
 **Contributor(s):** dzervoudakes
 
 * Slight tweaks to variable and parameter declarations in CSS, Mouseable and DoubleTap modules
@@ -173,7 +187,8 @@
 
 ## v3.0.1
 
-**Release Date:** 2017-07-31\
+**Release Date:** 2017-07-31
+
 **Contributor(s):** dzervoudakes
 
 * Bug fix in `offset()`
@@ -182,7 +197,8 @@
 
 ## v3.0.0
 
-**Release Date:** 2017-07-31\
+**Release Date:** 2017-07-31
+
 **Contributor(s):** dzervoudakes
 
 * Rewrote each module in ES6
@@ -193,7 +209,8 @@
 
 ## v2.2.0
 
-**Release Date:** 2017-03-12\
+**Release Date:** 2017-03-12
+
 **Contributor(s):** millerlogic | dzervoudakes
 
 * Implemented `get()`
@@ -211,7 +228,8 @@
 
 ## v2.1.1
 
-**Release Date:** 2016-06-29\
+**Release Date:** 2016-06-29
+
 **Contributor(s):** dzervoudakes
 
 * Refactored all for loops to forEach
@@ -222,7 +240,8 @@
 
 ## v2.1.0
 
-**Release Date:** 2016-05-27\
+**Release Date:** 2016-05-27
+
 **Contributor(s):** dzervoudakes
 
 * Switched build tasks from Grunt to Gulp
@@ -232,7 +251,8 @@
 
 ## v2.0.9
 
-**Release Date:** 2016-05-24\
+**Release Date:** 2016-05-24
+
 **Contributor(s):** dzervoudakes
 
 * Updated ternary syntax
@@ -241,7 +261,8 @@
 
 ## v2.0.8
 
-**Release Date:** 2016-05-21\
+**Release Date:** 2016-05-21
+
 **Contributor(s):** dzervoudakes
 
 * Added better error handling in `ajax()`
@@ -250,7 +271,8 @@
 
 ## v2.0.7
 
-**Release Date:** 2016-05-13\
+**Release Date:** 2016-05-13
+
 **Contributor(s):** dzervoudakes
 
 * No functionality updates: replaced double quotes with single quotes throughout the codebase for readability
@@ -260,7 +282,8 @@
 
 ## v2.0.6
 
-**Release Date:** 2016-05-03\
+**Release Date:** 2016-05-03
+
 **Contributor(s):** dzervoudakes
 
 * Updated classes module and fixed errors
@@ -270,7 +293,8 @@
 
 ## v2.0.5
 
-**Release Date:** 2016-05-02\
+**Release Date:** 2016-05-02
+
 **Contributor(s):** dzervoudakes
 
 * Updated classes module
@@ -280,7 +304,8 @@
 
 ## v2.0.4
 
-**Release Date:** 2016-05-02\
+**Release Date:** 2016-05-02
+
 **Contributor(s):** dzervoudakes
 
 * Debugged more `mouseable()` errors
@@ -289,7 +314,8 @@
 
 ## v2.0.3
 
-**Release Date:** 2016-05-01\
+**Release Date:** 2016-05-01
+
 **Contributor(s):** dzervoudakes
 
 * Debugged `mouseable()` errors
@@ -298,7 +324,8 @@
 
 ## v2.0.2
 
-**Release Date:** 2016-04-29\
+**Release Date:** 2016-04-29
+
 **Contributor(s):** dzervoudakes
 
 * Added callback functionality to `focus()`
@@ -308,7 +335,8 @@
 
 ## v2.0.1
 
-**Release Date:** 2016-04-28\
+**Release Date:** 2016-04-28
+
 **Contributor(s):** dzervoudakes
 
 * Removed node_modules from npm package
@@ -317,7 +345,8 @@
 
 ## v2.0.0
 
-**Release Date:** 2016-04-28\
+**Release Date:** 2016-04-28
+
 **Contributor(s):** dzervoudakes
 
 * Updated documentation
@@ -336,7 +365,8 @@
 
 ## v1.2.5
 
-**Release Date:** 2015-05-12\
+**Release Date:** 2015-05-12
+
 **Contributor(s):** dzervoudakes
 
 * Updated browser support and fixed `README` errors
@@ -345,7 +375,8 @@
 
 ## v1.2.4
 
-**Release Date:** 2015-04-27\
+**Release Date:** 2015-04-27
+
 **Contributor(s):** dzervoudakes
 
 * Increased support for `ajax()` method in the case of no server or localhost
@@ -354,7 +385,8 @@
 
 ## v1.2.3
 
-**Release Date:** 2015-04-24\
+**Release Date:** 2015-04-24
+
 **Contributor(s):** dzervoudakes
 
 * Increased support for `scrollTop()` method; originally this only worked on the `window` object
@@ -363,7 +395,8 @@
 
 ## v1.2.2
 
-**Release Date:** 2015-04-20\
+**Release Date:** 2015-04-20
+
 **Contributor(s):** dzervoudakes
 
 * Added `scrollTop()` method
@@ -372,7 +405,8 @@
 
 ## v1.2.1
 
-**Release Date:** 2015-04-13\
+**Release Date:** 2015-04-13
+
 **Contributor(s):** dzervoudakes
 
 * Added `wrap()` method, effectively changing `WrapInner.js` module to just `Wrap.js`
@@ -381,7 +415,8 @@
 
 ## v1.2.0
 
-**Release Date:** 2015-03-20\
+**Release Date:** 2015-03-20
+
 **Contributor(s):** dzervoudakes
 
 * Streamlined codebase throughout the library
@@ -390,7 +425,8 @@
 
 ## v1.1.5
 
-**Release Date:** 2015-03-05\
+**Release Date:** 2015-03-05
+
 **Contributor(s):** dzervoudakes
 
 * Changed `evt()` and `dropEvt()` to `on()` and `off()`, respectively (breaking change)
@@ -401,7 +437,8 @@
 
 ## v1.1.4
 
-**Release Date:** 2015-02-16\
+**Release Date:** 2015-02-16
+
 **Contributor(s):** dzervoudakes
 
 * Fixed bug in Dimensions module where inputting `0` returned `null`
@@ -411,7 +448,8 @@
 
 ## v1.1.3
 
-**Release Date:** 2015-02-12\
+**Release Date:** 2015-02-12
+
 **Contributor(s):** dzervoudakes
 
 * Tightened up text parsing in `Append`, `Prepend`, and `Insert` modules
@@ -420,7 +458,8 @@
 
 ## v1.1.2
 
-**Release Date:** 2015-02-11\
+**Release Date:** 2015-02-11
+
 **Contributor(s):** dzervoudakes
 
 * Updated `querySelector` to `querySelectorAll` for context in `Core.js`
@@ -429,7 +468,8 @@
 
 ## v1.1.1
 
-**Release Date:** 2015-02-10\
+**Release Date:** 2015-02-10
+
 **Contributor(s):** dzervoudakes
 
 * Refactored variable layout/format within each module
@@ -438,7 +478,8 @@
 
 ## v1.1.0
 
-**Release Date:** 2015-02-03\
+**Release Date:** 2015-02-03
+
 **Contributor(s):** dzervoudakes
 
 * Reformatted initialization - now to loop through collections, use 'this.init()' format in all modules
@@ -449,7 +490,8 @@
 
 ## v1.0.1
 
-**Release Date:** 2015-01-30\
+**Release Date:** 2015-01-30
+
 **Contributor(s):** dzervoudakes
 
 * Slight bug fix for `hasClass()`
@@ -459,7 +501,8 @@
 
 ## v1.0.0
 
-**Release Date:** 2015-01-29\
+**Release Date:** 2015-01-29
+
 **Contributor(s):** dzervoudakes
 
 * Deployed initial library for field testing
