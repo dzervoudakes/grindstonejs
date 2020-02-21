@@ -26,7 +26,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: node_modules
-        key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        key: grindstone-dependency-cache-${{ hashFiles('**/package-lock.json') }}
     - name: Lint all scripts
       run: npm run lint
 
@@ -39,7 +39,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: node_modules
-        key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        key: grindstone-dependency-cache-${{ hashFiles('**/package-lock.json') }}
     - name: Bundle library
       run: npm run build
     - name: Upload artifact
@@ -57,7 +57,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: node_modules
-        key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        key: grindstone-dependency-cache-${{ hashFiles('**/package-lock.json') }}
     - name: Generate documentation
       run: npm run docs
 
@@ -70,7 +70,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: node_modules
-        key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        key: grindstone-dependency-cache-${{ hashFiles('**/package-lock.json') }}
     - name: Retrieve artifact
       uses: actions/download-artifact@v1
       with:
