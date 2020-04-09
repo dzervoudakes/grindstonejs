@@ -20,7 +20,7 @@
     "test": "gulp test",
     "start": "gulp watch"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "7.8.4",
     "@babel/plugin-transform-strict-mode": "7.8.3",
     "@babel/preset-env": "7.8.4",
