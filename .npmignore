@@ -11,10 +11,11 @@
 .prettierignore
 .prettierrc.js
 CHANGELOG.md
-package-lock.json
+config
+coverage
 gulpfile.js
 jsdoc.json
+package-lock.json
+scripts
 src
 test
-coverage
-config

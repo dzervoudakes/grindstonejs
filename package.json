@@ -18,7 +18,7 @@
     "lint:fix": "eslint . --ext js --fix",
     "prepublishOnly": "npm run test:all",
     "test": "gulp test",
-    "test:all": "npm run lint && npm run docs && npm run build && npm test && npm run clean",
+    "test:all": "./scripts/prepublish.sh",
     "start": "gulp watch"
   },
   "dependencies": {
