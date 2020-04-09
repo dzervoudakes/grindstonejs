@@ -9,13 +9,13 @@
 [![prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
 [![license](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-NPM:
+**NPM:**
 
 ```
 npm install grindstone
 ```
 
-CDN:
+**CDN:**
 
 ```
 <script type="text/javascript" src="https://unpkg.com/grindstone@latest/dist/grindstone.min.js"></script>
