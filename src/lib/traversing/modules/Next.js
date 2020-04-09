@@ -9,7 +9,7 @@
  * $('#selector').next('.selector');
  */
 
-const next = function(selector) {
+const next = function (selector) {
   return utils.elementProp(this, 'nextSibling', selector);
 };
 

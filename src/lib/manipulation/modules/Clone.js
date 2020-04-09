@@ -6,8 +6,8 @@
  * @example $('#selector').clone();
  */
 
-const clone = function() {
-  return this.map(function() {
+const clone = function () {
+  return this.map(function () {
     return this.cloneNode(true);
   });
 };

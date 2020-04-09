@@ -7,8 +7,8 @@
  * @example $('.selector').filter('.visible');
  */
 
-const filter = function(filterBy) {
-  return $.fn.map.call(this, function() {
+const filter = function (filterBy) {
+  return $.fn.map.call(this, function () {
     if ($(this).is(filterBy)) return this;
   });
 };

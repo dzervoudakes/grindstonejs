@@ -4,7 +4,7 @@
 const utils = (() => {
   const applyContext = (item, selector, set) => {
     const elems = item.querySelectorAll(selector);
-    Array.prototype.forEach.call(elems, el => {
+    Array.prototype.forEach.call(elems, (el) => {
       if (set.indexOf(el) === -1) {
         set.push(el);
       }
@@ -27,7 +27,7 @@ const utils = (() => {
     'ontouchend' in document ? touchEvt : mouseEvt;
 
   const elementProp = (set, propName, selector) =>
-    $.fn.map.call(set, function() {
+    $.fn.map.call(set, function () {
       let find = this;
       while (true) {
         const element = find[propName];
@@ -43,7 +43,7 @@ const utils = (() => {
       }
     });
 
-  const isElementArray = obj => obj instanceof Array;
+  const isElementArray = (obj) => obj instanceof Array;
 
   const matchesFuncName = Element.prototype.matches
     ? 'matches'

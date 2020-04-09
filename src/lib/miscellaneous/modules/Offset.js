@@ -9,7 +9,7 @@
  * $('#selector').offset('top');
  */
 
-const offset = function(position) {
+const offset = function (position) {
   if (position !== 'left' && position !== 'top') {
     throw new Error('offset() position must be either "left" or "top".');
   }

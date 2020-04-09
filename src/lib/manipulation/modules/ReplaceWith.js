@@ -7,8 +7,8 @@
  * @example $('#selector').replaceWith('<p>Hello World</p>');
  */
 
-const replaceWith = function(content) {
-  this.each(function() {
+const replaceWith = function (content) {
+  this.each(function () {
     this.outerHTML = content ? content : '';
   });
   return this;

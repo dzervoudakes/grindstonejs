@@ -9,7 +9,7 @@
  * $('#selector').parent('.selector');
  */
 
-const parent = function(selector) {
+const parent = function (selector) {
   return utils.elementProp(this, 'parentNode', selector);
 };
 

@@ -7,9 +7,9 @@
  * @example $(window).resize(() => {});
  */
 
-const resize = function(callback) {
+const resize = function (callback) {
   if (typeof callback === 'function') {
-    this.each(function() {
+    this.each(function () {
       $(this).on('resize', callback);
     });
   } else {

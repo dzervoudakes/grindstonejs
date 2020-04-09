@@ -13,27 +13,21 @@ describe('children()', () => {
 
 describe('next()', () => {
   it('matches the next element', () => {
-    const isNext = $('#jest-traversing .middle')
-      .next()
-      .hasClass('last');
+    const isNext = $('#jest-traversing .middle').next().hasClass('last');
     expect(isNext).toBe(true);
   });
 });
 
 describe('parent()', () => {
   it('matches the parent element', () => {
-    const isParent = $('#jest-traversing .first')
-      .parent()
-      .hasClass('parent');
+    const isParent = $('#jest-traversing .first').parent().hasClass('parent');
     expect(isParent).toBe(true);
   });
 });
 
 describe('prev()', () => {
   it('matches the previous element', () => {
-    const isPrev = $('#jest-traversing .middle')
-      .prev()
-      .hasClass('first');
+    const isPrev = $('#jest-traversing .middle').prev().hasClass('first');
     expect(isPrev).toBe(true);
   });
 });

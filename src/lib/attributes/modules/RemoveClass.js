@@ -9,10 +9,10 @@
  * $('#selector').removeClass('one two');
  */
 
-const removeClass = function(cls) {
+const removeClass = function (cls) {
   const classes = cls.split(' ');
-  this.each(function() {
-    classes.forEach(clsName => {
+  this.each(function () {
+    classes.forEach((clsName) => {
       this.classList.remove(clsName);
     });
   });

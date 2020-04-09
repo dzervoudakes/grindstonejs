@@ -10,9 +10,9 @@
  * $('#selector').scrollTop(50);
  */
 
-const scrollTop = function(top) {
+const scrollTop = function (top) {
   let topOffset;
-  this.each(function() {
+  this.each(function () {
     switch (this) {
       case window:
         if (typeof top === 'number') {

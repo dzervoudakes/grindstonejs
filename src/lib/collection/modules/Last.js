@@ -6,7 +6,7 @@
  * @example $('.selector').last();
  */
 
-const last = function() {
+const last = function () {
   return $(this.set[this.set.length - 1]);
 };
 

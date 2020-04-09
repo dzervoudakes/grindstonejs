@@ -7,7 +7,7 @@
  * @example $('.selector').get(2);
  */
 
-const get = function(index) {
+const get = function (index) {
   return this.set[index];
 };
 

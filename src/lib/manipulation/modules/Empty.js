@@ -6,8 +6,8 @@
  * @example $('.selector').empty();
  */
 
-const empty = function() {
-  this.each(function() {
+const empty = function () {
+  this.each(function () {
     while (this.firstChild) {
       this.removeChild(this.firstChild);
     }

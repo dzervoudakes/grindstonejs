@@ -7,7 +7,7 @@
  * @example $('.selector').is('.visible');
  */
 
-const is = function(filterBy) {
+const is = function (filterBy) {
   const isFunction = typeof filterBy === 'function' ? true : false;
   for (const item of this) {
     const condition = isFunction

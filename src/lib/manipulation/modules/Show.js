@@ -9,13 +9,13 @@
  * $('#selector').show(100);
  */
 
-const show = function(delay) {
+const show = function (delay) {
   if (delay) {
     setTimeout(() => {
       $.fn.show.call(this);
     }, delay);
   } else {
-    this.each(function() {
+    this.each(function () {
       if (this.style.display === 'none') {
         this.style.display = $(this).data('_prevdisplay') || '';
         $(this).removeData('_prevdisplay');

@@ -10,9 +10,9 @@
  * $('#selector').attr('example', 'test');
  */
 
-const attr = function(attribute, value) {
+const attr = function (attribute, value) {
   let elemAttribute;
-  this.each(function() {
+  this.each(function () {
     if (value || value === '') {
       this.setAttribute(attribute, value);
     } else {

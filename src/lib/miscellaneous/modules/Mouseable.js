@@ -15,7 +15,7 @@
  * $('#selector').mouseable({ hoverClass: 'stuff', activeClass: 'things' });
  */
 
-const mouseable = function(
+const mouseable = function (
   { hoverClass = 'over', activeClass = 'down' } = {
     hoverClass: 'over',
     activeClass: 'down'
@@ -28,7 +28,7 @@ const mouseable = function(
     up: utils.createInteraction('touchend', 'mouseup mouseleave')
   };
 
-  this.each(function() {
+  this.each(function () {
     $(this)
       .on(events.hover, () => {
         $(this).addClass(hoverClass);

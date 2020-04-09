@@ -10,9 +10,9 @@
  * $('#selector').height(30);
  */
 
-const height = function(num) {
+const height = function (num) {
   if (typeof num === 'number' || num === 0) {
-    this.each(function() {
+    this.each(function () {
       this.style.height = `${num}px`;
     });
     return this;

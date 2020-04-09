@@ -6,7 +6,7 @@
  * @example $('.selector').first();
  */
 
-const first = function() {
+const first = function () {
   return $(this.set[0]);
 };
 

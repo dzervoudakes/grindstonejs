@@ -7,15 +7,15 @@
  * @example $('#selector').after('<p>Hello World</p>');
  */
 
-const after = function(content) {
-  this.each(function() {
+const after = function (content) {
+  this.each(function () {
     if (typeof content === 'string') {
       if (content.match(/(<).+(>)/)) {
         this.insertAdjacentHTML('afterend', content);
       } else {
         let dom = document.querySelectorAll(content);
         dom = Array.prototype.slice.call(dom);
-        dom.forEach(item => {
+        dom.forEach((item) => {
           this.parentNode.insertBefore(item, this.nextSibling);
         });
       }

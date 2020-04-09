@@ -11,9 +11,9 @@
  * $('#selector').style({ display: 'block', color: 'red' });
  */
 
-const css = function(styles, value) {
+const css = function (styles, value) {
   let returnedStyle, returnStyle;
-  this.each(function() {
+  this.each(function () {
     if (typeof styles === 'object' && !Array.isArray(styles)) {
       Object.assign(this.style, styles);
     } else if (typeof styles === 'string' && (value === undefined || value === null)) {

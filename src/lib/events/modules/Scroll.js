@@ -7,9 +7,9 @@
  * @example $(window).scroll(() => {});
  */
 
-const scroll = function(callback) {
+const scroll = function (callback) {
   if (typeof callback === 'function') {
-    this.each(function() {
+    this.each(function () {
       $(this).on('scroll', callback);
     });
   } else {

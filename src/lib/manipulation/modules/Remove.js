@@ -9,17 +9,17 @@
  * $('#selector').remove('.selector');
  */
 
-const remove = function(target) {
+const remove = function (target) {
   if (target) {
     let elems = document.querySelectorAll(target);
     elems = Array.prototype.slice.call(elems);
-    this.each(function() {
-      elems.forEach(el => {
+    this.each(function () {
+      elems.forEach((el) => {
         this.removeChild(el);
       });
     });
   } else {
-    this.each(function() {
+    this.each(function () {
       this.parentNode.removeChild(this);
     });
   }

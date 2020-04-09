@@ -12,7 +12,7 @@
  * $.extend(obj1, obj2, obj3, obj4);
  */
 
-const extend = function(target, ...args) {
+const extend = function (target, ...args) {
   if (typeof target !== 'object' || !args.length === 0) {
     throw new Error(
       'Cannot merge properties into the target: argument is not an object.'

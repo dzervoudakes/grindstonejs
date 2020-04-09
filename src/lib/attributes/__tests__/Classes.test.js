@@ -30,10 +30,7 @@ describe('removeClass()', () => {
 
 describe('toggleClass()', () => {
   it('toggles the specified className', () => {
-    $('#jest-classes')
-      .toggleClass('hai')
-      .toggleClass('hai')
-      .toggleClass('hai');
+    $('#jest-classes').toggleClass('hai').toggleClass('hai').toggleClass('hai');
     const hasClass = $('#jest-classes').hasClass('hai');
     expect(hasClass).toBe(true);
   });

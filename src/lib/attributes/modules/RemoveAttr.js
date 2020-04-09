@@ -7,8 +7,8 @@
  * @example $('#selector').removeAttr('example');
  */
 
-const removeAttr = function(attribute) {
-  this.each(function() {
+const removeAttr = function (attribute) {
+  this.each(function () {
     if (attribute) this.removeAttribute(attribute);
   });
   return this;

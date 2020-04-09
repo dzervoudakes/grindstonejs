@@ -9,9 +9,9 @@
  * $('#selector').val('7');
  */
 
-const val = function(newValue) {
+const val = function (newValue) {
   if (newValue && typeof newValue === 'string') {
-    this.each(function() {
+    this.each(function () {
       this.value = newValue;
     });
     return this;

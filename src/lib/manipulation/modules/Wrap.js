@@ -7,8 +7,8 @@
  * @example $('#selector').wrap('<div class="outer"><div class="inner">');
  */
 
-const wrap = function(structure) {
-  this.each(function() {
+const wrap = function (structure) {
+  this.each(function () {
     if (
       typeof structure !== 'string' ||
       !structure.startsWith('<') ||

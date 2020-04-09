@@ -9,7 +9,7 @@
  * $('#selector').prev('.selector');
  */
 
-const prev = function(selector) {
+const prev = function (selector) {
   return utils.elementProp(this, 'previousSibling', selector);
 };
 

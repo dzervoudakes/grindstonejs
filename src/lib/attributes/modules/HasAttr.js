@@ -7,9 +7,9 @@
  * @example $('#selector').hasAttr('example');
  */
 
-const hasAttr = function(attribute) {
+const hasAttr = function (attribute) {
   let exists = false;
-  this.each(function() {
+  this.each(function () {
     if (attribute) exists = $(this).attr(attribute) !== null;
   });
   return exists;

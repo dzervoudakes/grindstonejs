@@ -7,8 +7,8 @@
  * @example $('.selector').not('.hidden');
  */
 
-const not = function(filterBy) {
-  return $.fn.map.call(this, function() {
+const not = function (filterBy) {
+  return $.fn.map.call(this, function () {
     if (!$(this).is(filterBy)) return this;
   });
 };

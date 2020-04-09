@@ -7,9 +7,9 @@
  * @example $(window).load(() => {});
  */
 
-const load = function(callback) {
+const load = function (callback) {
   if (typeof callback === 'function') {
-    this.each(function() {
+    this.each(function () {
       $(this).on('load', callback);
     });
   } else {

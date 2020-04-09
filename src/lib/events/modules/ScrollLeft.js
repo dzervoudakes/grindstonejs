@@ -10,9 +10,9 @@
  * $('#selector').scrollLeft(50);
  */
 
-const scrollLeft = function(left) {
+const scrollLeft = function (left) {
   let leftOffset;
-  this.each(function() {
+  this.each(function () {
     switch (this) {
       case window:
         if (typeof left === 'number') {

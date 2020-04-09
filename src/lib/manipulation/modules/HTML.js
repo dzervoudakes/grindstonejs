@@ -9,9 +9,9 @@
  * $('#selector').html('<p>Hello World</p>');
  */
 
-const html = function(content) {
+const html = function (content) {
   let text;
-  this.each(function() {
+  this.each(function () {
     if (content || content === '') {
       this.innerHTML = content;
     } else {

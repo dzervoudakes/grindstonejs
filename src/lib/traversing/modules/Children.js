@@ -9,7 +9,7 @@
  * $('#selector').children('.selector');
  */
 
-const children = function(selector) {
+const children = function (selector) {
   return utils.children(this, 1, selector);
 };
 

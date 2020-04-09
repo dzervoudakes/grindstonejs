@@ -7,7 +7,7 @@
  * @example $('.selector').each(function(item, index, array){});
  */
 
-const each = function(callback) {
+const each = function (callback) {
   let set = this.set;
   set = Array.prototype.slice.call(set);
   set.forEach((item, index, array) => {

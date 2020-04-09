@@ -10,10 +10,10 @@
  * $('#selector').on('click touchend', () => {});
  */
 
-const on = function(action, callback) {
-  this.each(function() {
+const on = function (action, callback) {
+  this.each(function () {
     const events = action.split(' ');
-    events.forEach(evt => {
+    events.forEach((evt) => {
       this.addEventListener(evt, callback, false);
     });
   });

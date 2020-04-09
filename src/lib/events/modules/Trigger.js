@@ -7,9 +7,9 @@
  * @example $('#selector').trigger('example');
  */
 
-const trigger = function(evt) {
+const trigger = function (evt) {
   const customEvent = new Event(evt);
-  this.each(function() {
+  this.each(function () {
     this.dispatchEvent(customEvent);
   });
   return this;

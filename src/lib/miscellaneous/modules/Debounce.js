@@ -9,9 +9,9 @@
  * @example $.debounce(() => {}, 300);
  */
 
-const debounce = function(fn, wait, immediate) {
+const debounce = function (fn, wait, immediate) {
   let timeout;
-  const debounce = function() {
+  const debounce = function () {
     const context = this;
     const args = arguments;
     const later = () => {

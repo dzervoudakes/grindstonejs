@@ -16,6 +16,6 @@ describe('submit()', () => {
     });
     $('#jest-submit').submit();
     $('#jest-submit').trigger('submit');
-    expect(i).toBe(1);
+    expect(i).toBe(2);
   });
 });

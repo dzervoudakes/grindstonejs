@@ -9,15 +9,15 @@
  * $('#selector').append('<p>Hello World</p>');
  */
 
-const append = function(content) {
-  this.each(function() {
+const append = function (content) {
+  this.each(function () {
     if (typeof content === 'string') {
       if (content.match(/(<).+(>)/)) {
         this.innerHTML += content;
       } else {
         let dom = document.querySelectorAll(content);
         dom = Array.prototype.slice.call(dom);
-        dom.forEach(item => {
+        dom.forEach((item) => {
           this.appendChild(item);
         });
       }

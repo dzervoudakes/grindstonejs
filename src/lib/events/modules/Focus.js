@@ -9,9 +9,9 @@
  * $('#selector').focus(() => {});
  */
 
-const focus = function(callback) {
+const focus = function (callback) {
   if (typeof callback === 'function') {
-    this.each(function() {
+    this.each(function () {
       $(this).on('focus', callback);
     });
   } else {

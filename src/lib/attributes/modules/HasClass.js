@@ -9,11 +9,11 @@
  * $('#selector').hasClass('one two');
  */
 
-const hasClass = function(cls) {
+const hasClass = function (cls) {
   let hasClass = true;
   const classes = cls.split(' ');
-  this.each(function() {
-    classes.forEach(clsName => {
+  this.each(function () {
+    classes.forEach((clsName) => {
       if (!this.classList.contains(clsName)) {
         hasClass = false;
         return false;

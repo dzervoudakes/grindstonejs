@@ -7,7 +7,7 @@
  * @example $(array).map(function(item, index, array){});
  */
 
-const map = function(callback) {
+const map = function (callback) {
   const newSet = $();
   const set = this.set;
 

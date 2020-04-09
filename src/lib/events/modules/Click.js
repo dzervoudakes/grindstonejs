@@ -9,8 +9,8 @@
  * $('#selector').click(() => {});
  */
 
-const click = function(callback) {
-  this.each(function() {
+const click = function (callback) {
+  this.each(function () {
     if (callback) {
       this.addEventListener('click', callback, false);
     } else {

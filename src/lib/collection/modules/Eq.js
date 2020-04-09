@@ -7,7 +7,7 @@
  * @example $('.selector').eq(2);
  */
 
-const eq = function(index) {
+const eq = function (index) {
   return $(this.set[index]);
 };
 

@@ -10,9 +10,9 @@
  * $('#selector').width(30);
  */
 
-const width = function(num) {
+const width = function (num) {
   if (typeof num === 'number' || num === 0) {
-    this.each(function() {
+    this.each(function () {
       this.style.width = `${num}px`;
     });
     return this;

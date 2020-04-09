@@ -1,13 +1,13 @@
 /**
  * @fileoverview Initializes the Grindstone constructor and exports for consumption.
  */
-(function(root, lib) {
+(function (root, lib) {
   if (typeof exports !== 'undefined') {
     return (module.exports = lib());
   } else {
     root.Grindstone = root.$ = lib();
   }
-})(window, function() {
+})(window, function () {
   /** @namespace Grindstone */
 
   /**
@@ -22,7 +22,7 @@
    * $('.selector', '#container');
    */
 
-  const Grindstone = function(selector, context) {
+  const Grindstone = function (selector, context) {
     const set = this;
 
     if (selector) {
@@ -36,14 +36,14 @@
           }
           // apply context when adding to the current set
           if (ctx instanceof Array) {
-            ctx.forEach(item => {
+            ctx.forEach((item) => {
               const foundContexts = document.querySelectorAll(item);
-              Array.prototype.forEach.call(foundContexts, item => {
+              Array.prototype.forEach.call(foundContexts, (item) => {
                 utils.applyContext(item, selector, set);
               });
             });
           } else {
-            Array.prototype.forEach.call(ctx, item => {
+            Array.prototype.forEach.call(ctx, (item) => {
               utils.applyContext(item, selector, set);
             });
           }
@@ -62,7 +62,7 @@
 
   Grindstone.prototype = [];
 
-  const $ = function(selector, context) {
+  const $ = function (selector, context) {
     return new Grindstone(selector, context);
   };
 

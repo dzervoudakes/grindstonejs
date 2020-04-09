@@ -9,10 +9,10 @@
  * $('#selector').addClass('one two');
  */
 
-const addClass = function(cls) {
+const addClass = function (cls) {
   const classes = cls.split(' ');
-  this.each(function() {
-    classes.forEach(clsName => {
+  this.each(function () {
+    classes.forEach((clsName) => {
       this.classList.add(clsName);
     });
   });

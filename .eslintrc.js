@@ -24,16 +24,15 @@ module.exports = {
   },
   plugins: ['prettier'],
   rules: {
-    'arrow-parens': ['error', 'as-needed'],
-    'comma-dangle': ['error', 'never'],
-    'comma-spacing': ['error', { 'before': false, 'after': true }],
-    'eol-last': ['error', 'always'],
+    'comma-dangle': [ERROR, 'never'],
+    'comma-spacing': [ERROR, { 'before': false, 'after': true }],
+    'eol-last': [ERROR, 'always'],
     'linebreak-style': OFF,
     'no-cond-assign': OFF,
     'no-console': WARN,
     'no-undef': OFF,
     'no-unused-vars': ERROR,
-    'object-curly-spacing': ['error', 'always'],
+    'object-curly-spacing': [ERROR, 'always'],
     'prefer-const': ERROR
   }
 };

@@ -7,9 +7,9 @@
  * @example $(document).ready(() => {});
  */
 
-const ready = function(callback) {
+const ready = function (callback) {
   if (typeof callback === 'function') {
-    this.each(function() {
+    this.each(function () {
       $(this).on('DOMContentLoaded', callback);
     });
   } else {

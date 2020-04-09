@@ -9,10 +9,10 @@
  * $('#selector').toggleClass('one two');
  */
 
-const toggleClass = function(cls) {
+const toggleClass = function (cls) {
   const classes = cls.split(' ');
-  this.each(function() {
-    classes.forEach(clsName => {
+  this.each(function () {
+    classes.forEach((clsName) => {
       this.classList.toggle(clsName);
     });
   });

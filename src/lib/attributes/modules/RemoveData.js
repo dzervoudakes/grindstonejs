@@ -7,8 +7,8 @@
  * @example $('#selector').removeData('name');
  */
 
-const removeData = function(valueName) {
-  this.each(function() {
+const removeData = function (valueName) {
+  this.each(function () {
     $(this).removeAttr(`data-${valueName}`);
   });
   return this;

@@ -7,15 +7,15 @@
  * @example $('#selector').before('<p>Hello World</p>');
  */
 
-const before = function(content) {
-  this.each(function() {
+const before = function (content) {
+  this.each(function () {
     if (typeof content === 'string') {
       if (content.match(/(<).+(>)/)) {
         this.insertAdjacentHTML('beforebegin', content);
       } else {
         let dom = document.querySelectorAll(content);
         dom = Array.prototype.slice.call(dom);
-        dom.forEach(item => {
+        dom.forEach((item) => {
           this.parentNode.insertBefore(item, this);
         });
       }

@@ -1,508 +1,323 @@
 # Grindstone.js | Changelog
 
-| 1.x.x						| 2.x.x						| 3.x.x						|
-| --------------- | --------------- | --------------- |
-| [v1.0.0](#v100) | [v2.0.0](#v200)	|	[v3.0.0](#v300)	|
-| [v1.0.1](#v101) | [v2.0.1](#v201)	|	[v3.0.1](#v301)	|
-| [v1.1.0](#v110) | [v2.0.2](#v202)	|	[v3.0.2](#v302)	|
-| [v1.1.1](#v111) | [v2.0.3](#v203)	|	[v3.0.3](#v303)	|
-| [v1.1.2](#v112) | [v2.0.4](#v204)	|	[v3.1.0](#v310)	|
-| [v1.1.3](#v113) | [v2.0.5](#v205)	|	[v3.1.1](#v311)	|
-| [v1.1.4](#v114) | [v2.0.6](#v206)	|	[v3.1.2](#v312)	|
-| [v1.1.5](#v115) | [v2.0.7](#v207)	|	[v3.1.3](#v313)	|
-| [v1.2.0](#v120) | [v2.0.8](#v208)	|	[v3.1.4](#v314)	|
-| [v1.2.1](#v121) | [v2.0.9](#v209)	|	[v3.1.5](#v315)	|
-| [v1.2.2](#v122) | [v2.1.0](#v210)	|	[v3.2.0](#v320)	|
-| [v1.2.3](#v123) | [v2.1.1](#v211)	|	[v3.2.1](#v321)	|
-| [v1.2.4](#v124) | [v2.2.0](#v220)	|	[v3.3.0](#v330)	|
-| [v1.2.5](#v125) |									|	[v3.3.1](#v331)	|
-|                 |									|	[v3.3.2](#v332)	|
-|                 |									|	[v3.3.3](#v333)	|
+## v3.3.4
 
-<a id="v333"></a>
+**Release Date:** TBD
+
+* Update dependencies.
+* Update CI config.
 
 ## v3.3.3
 
 **Release Date:** 2019-08-21
 
-**Contributor(s):** dzervoudakes
-
-* Removed assignment from operand in `offset()`
-
-<a id="v332"></a>
+* Remove assignment from operand in `offset()`.
 
 ## v3.3.2
 
 **Release Date:** 2019-08-02
 
-**Contributor(s):** dzervoudakes
-
-* Fixed flaw in Ajax documentation
-
-<a id="v331"></a>
+* Fix flaw in Ajax documentation.
 
 ## v3.3.1
 
 **Release Date:** 2019-08-02
 
-**Contributor(s):** dzervoudakes
-
-* Fixed bug with Ajax request headers
-* Updated unit tests
-* Added some `@fileoverview` annotations
-
-<a id="v330"></a>
+* Fix bug with Ajax request headers.
+* Update unit tests.
+* Add `@fileoverview` annotations.
 
 ## v3.3.0
 
 **Release Date:** 2019-08-01
 
-**Contributor(s):** dzervoudakes
-
-* Updated Ajax request headers handling
-* Update code formatting
-* Updated documentation
-
-<a id="v321"></a>
+* Update Ajax request headers handling.
+* Update code formatting.
+* Update documentation.
 
 ## v3.2.1
 
 **Release Date:** 2018-11-16
 
-**Contributor(s):** dzervoudakes
-
-* Implemented `click()`
-
-<a id="v320"></a>
+* Implement `click()`.
 
 ## v3.2.0
 
 **Release Date:** 2018-11-15
 
-**Contributor(s):** dzervoudakes
-
-* Updated dependencies
-* Refactored and modularized src
-* Refactored changelog and removed website link
-* Updated website URL references
-* Passing item, index and array into `map()`
-* Created `empty()` module
-* Moved documentation notes back into individual modules
-* Implemented unit tests with `Jest`
-* Implemented long overdue linting
-* Implemented .editorconfig
-* Implemented .npmignore
-* Cleaned up gulpfile.js
-* Refactored Context in Core.js
-* Throw some extra errors pending validity of method arguments
-* Implemented `CircleCI` config
-
-<a id="v315"></a>
+* Update dependencies.
+* Refactor and modularized src.
+* Refactor changelog and removed website link.
+* Update website URL references.
+* Passing item, index and array into `map()`.
+* Create `empty()` module.
+* Move documentation notes back into individual modules.
+* Implement unit tests with `Jest`.
+* Implement long overdue linting.
+* Implement .editorconfig.
+* Implement .npmignore.
+* Clean up gulpfile.js.
+* Refactor Context in Core.js.
+* Throw some extra errors pending validity of method arguments.
+* Implement `CircleCI` config.
 
 ## v3.1.5
 
 **Release Date:** 2017-11-09
 
-**Contributor(s):** dzervoudakes
-
-* Refactored gulpfile
-
-<a id="v314"></a>
+* Refactor gulpfile.
 
 ## v3.1.4
 
 **Release Date:** 2017-11-08
 
-**Contributor(s):** dzervoudakes
-
-* Refactored CSS module
-
-<a id="v313"></a>
+* Refactor CSS module.
 
 ## v3.1.3
 
 **Release Date:** 2017-11-07
 
-**Contributor(s):** exside | dzervoudakes
-
-* Handling `dataType` in Ajax module
-* Added `$.extend()`
-
-<a id="v312"></a>
+* Handle `dataType` in Ajax module.
+* Add `$.extend()`.
 
 ## v3.1.2
 
 **Release Date:** 2017-11-05
 
-**Contributor(s):** exside | dzervoudakes
-
-* Pass the iterated array through `each()`
-* Removed `-v${pkg.version}` from dist files for compatibility with unpkg.com
-
-<a id="v311"></a>
+* Pass the iterated array through `each()`.
+* Remove `-v${pkg.version}` from dist files for compatibility with unpkg.com.
 
 ## v3.1.1
 
 **Release Date:** 2017-11-05
 
-**Contributor(s):** exside | dzervoudakes
-
-* Pass index through `each()`
-
-<a id="v310"></a>
+* Pass index through `each()`.
 
 ## v3.1.0
 
 **Release Date:** 2017-11-04
 
-**Contributor(s):** dzervoudakes
-
-* Finally made this library requireable
-* Extracted documentation comments into a separate file
-* Now using `gulp-preprocessor` for file includes (no more 'Intro/Outro' jank)
-* Refactored `ajax()` in favor of a Promise-based approach
-
-<a id="v303"></a>
+* Finally made this library requireable.
+* Extract documentation comments into a separate file.
+* Now using `gulp-preprocessor` for file includes (no more 'Intro/Outro' jank).
+* Refactor `ajax()` in favor of a Promise-based approach.
 
 ## v3.0.3
 
 **Release Date:** 2017-10-20
 
-**Contributor(s):** dzervoudakes
-
-* Continued refining ES6 updates
-* Removed `@description` tag from JSDoc comments
-
-<a id="v302"></a>
+* Continue refining ES6 updates.
+* Remove `@description` tag from JSDoc comments.
 
 ## v3.0.2
 
 **Release Date:** 2017-09-29
 
-**Contributor(s):** dzervoudakes
-
-* Slight tweaks to variable and parameter declarations in CSS, Mouseable and DoubleTap modules
-
-<a id="v301"></a>
+* Slight tweaks to variable and parameter declarations in CSS, Mouseable and DoubleTap modules.
 
 ## v3.0.1
 
 **Release Date:** 2017-07-31
 
-**Contributor(s):** dzervoudakes
-
-* Bug fix in `offset()`
-
-<a id="v300"></a>
+* Bug fix in `offset()`.
 
 ## v3.0.0
 
 **Release Date:** 2017-07-31
 
-**Contributor(s):** dzervoudakes
-
-* Rewrote each module in ES6
-* Implemented transpiling with Babel
-* Implemented JSDoc
-
-<a id="v220"></a>
+* Rewrite each module in ES6.
+* Implement transpiling with Babel.
+* Implement JSDoc.
 
 ## v2.2.0
 
 **Release Date:** 2017-03-12
 
-**Contributor(s):** millerlogic | dzervoudakes
-
-* Implemented `get()`
-* Append text node like jQuery
-* Append clone of element if appending to more than one
-* Improve array and Grindstone object detection
-* Allow appending an array of elements or a Grindstone object
-* Fix adding and removing multiple classes
-* Show/hide should not change the display type when shown
-* Minimal filtering and traversal
-* Minor tweaks
-* Clone all the elements in the set, return the new Grindstone object
-
-<a id="v211"></a>
+* Implement `get()`.
+* Append text node like jQuery.
+* Append clone of element if appending to more than one.
+* Improve array and Grindstone object detection.
+* Allow appending an array of elements or a Grindstone object.
+* Fix adding and removing multiple classes.
+* Show/hide should not change the display type when shown.
+* Minimal filtering and traversal.
+* Clone all the elements in the set, return the new Grindstone object.
 
 ## v2.1.1
 
 **Release Date:** 2016-06-29
 
-**Contributor(s):** dzervoudakes
-
-* Refactored all for loops to forEach
-* Refactored `[].forEach.call()` functions to increase legibility
-* Minor variable cleanup throughout each module
-
-<a id="v210"></a>
+* Refactor all for loops to forEach.
+* Refactor `[].forEach.call()` functions to increase legibility.
+* Minor variable cleanup throughout each module.
 
 ## v2.1.0
 
 **Release Date:** 2016-05-27
 
-**Contributor(s):** dzervoudakes
-
-* Switched build tasks from Grunt to Gulp
-* Some code refactoring and better handling of private functions
-
-<a id="v209"></a>
+* Switch build tasks from Grunt to Gulp.
+* Some code refactoring and better handling of private functions.
 
 ## v2.0.9
 
 **Release Date:** 2016-05-24
 
-**Contributor(s):** dzervoudakes
-
-* Updated ternary syntax
-
-<a id="v208"></a>
+* Update ternary syntax.
 
 ## v2.0.8
 
 **Release Date:** 2016-05-21
 
-**Contributor(s):** dzervoudakes
-
-* Added better error handling in `ajax()`
-
-<a id="v207"></a>
+* Add better error handling in `ajax()`.
 
 ## v2.0.7
 
 **Release Date:** 2016-05-13
 
-**Contributor(s):** dzervoudakes
-
-* No functionality updates: replaced double quotes with single quotes throughout the codebase for readability
-* Merged all scrolling methods into one module
-
-<a id="v206"></a>
+* Replace double quotes with single quotes throughout the codebase for readability.
+* Merge all scrolling methods into one module.
 
 ## v2.0.6
 
 **Release Date:** 2016-05-03
 
-**Contributor(s):** dzervoudakes
-
-* Updated classes module and fixed errors
-* Updated `mouseable()` as a result of classes refactoring
-
-<a id="v205"></a>
+* Update classes module and fixed errors.
+* Update `mouseable()` as a result of classes refactoring.
 
 ## v2.0.5
 
 **Release Date:** 2016-05-02
 
-**Contributor(s):** dzervoudakes
-
-* Updated classes module
-* Updated browser compatibility
-
-<a id="v204"></a>
+* Update classes module.
+* Update browser compatibility.
 
 ## v2.0.4
 
 **Release Date:** 2016-05-02
 
-**Contributor(s):** dzervoudakes
-
-* Debugged more `mouseable()` errors
-
-<a id="v203"></a>
+* Debug more `mouseable()` errors.
 
 ## v2.0.3
 
 **Release Date:** 2016-05-01
 
-**Contributor(s):** dzervoudakes
-
-* Debugged `mouseable()` errors
-
-<a id="v202"></a>
+* Debug `mouseable()` errors.
 
 ## v2.0.2
 
 **Release Date:** 2016-04-29
 
-**Contributor(s):** dzervoudakes
-
-* Added callback functionality to `focus()`
-* Added `submit()`
-
-<a id="v201"></a>
+* Add callback functionality to `focus()`.
+* Add `submit()`.
 
 ## v2.0.1
 
 **Release Date:** 2016-04-28
 
-**Contributor(s):** dzervoudakes
-
-* Removed node_modules from npm package
-
-<a id="v200"></a>
+* Remove node_modules from npm package.
 
 ## v2.0.0
 
 **Release Date:** 2016-04-28
 
-**Contributor(s):** dzervoudakes
-
-* Updated documentation
-* Broke out `eq()` into its own module
-* Restructured the source folder/file structure
-* Refactored all code and comments
-* Removed `newEl()` method
-* Removed code redundancies
-* Replaced original `val()` methods with `data()` and `removeData()` (breaking change)
-* Implemented a more appropriate rendition of `val()`
-* Added `debounce()`
-* Added `focus()`
-* Added `scrollLeft()`
-
-<a id="v125"></a>
+* Update documentation.
+* Break out `eq()` into its own module.
+* Restructure the source folder/file structure.
+* Refactor all code and comments.
+* Remove `newEl()` method.
+* Remove code redundancies.
+* Replace original `val()` methods with `data()` and `removeData()` (breaking change).
+* Implement a more appropriate rendition of `val()`.
+* Adde `debounce()`.
+* Add `focus()`.
+* Add `scrollLeft()`.
 
 ## v1.2.5
 
 **Release Date:** 2015-05-12
 
-**Contributor(s):** dzervoudakes
-
-* Updated browser support and fixed `README` errors
-
-<a id="v124"></a>
+* Update browser support and fixed `README` errors.
 
 ## v1.2.4
 
 **Release Date:** 2015-04-27
 
-**Contributor(s):** dzervoudakes
-
-* Increased support for `ajax()` method in the case of no server or localhost
-
-<a id="v123"></a>
+* Increase support for `ajax()` method in the case of no server or localhost.
 
 ## v1.2.3
 
 **Release Date:** 2015-04-24
 
-**Contributor(s):** dzervoudakes
-
-* Increased support for `scrollTop()` method; originally this only worked on the `window` object
-
-<a id="v122"></a>
+* Increase support for `scrollTop()` method; originally this only worked on the `window` object.
 
 ## v1.2.2
 
 **Release Date:** 2015-04-20
 
-**Contributor(s):** dzervoudakes
-
-* Added `scrollTop()` method
-
-<a id="v121"></a>
+* Add `scrollTop()` method.
 
 ## v1.2.1
 
 **Release Date:** 2015-04-13
 
-**Contributor(s):** dzervoudakes
-
-* Added `wrap()` method, effectively changing `WrapInner.js` module to just `Wrap.js`
-
-<a id="v120"></a>
+* Add `wrap()` method, effectively changing `WrapInner.js` module to just `Wrap.js`.
 
 ## v1.2.0
 
 **Release Date:** 2015-03-20
 
-**Contributor(s):** dzervoudakes
-
-* Streamlined codebase throughout the library
-
-<a id="v115"></a>
+* Streamline codebase throughout the library.
 
 ## v1.1.5
 
 **Release Date:** 2015-03-05
 
-**Contributor(s):** dzervoudakes
-
-* Changed `evt()` and `dropEvt()` to `on()` and `off()`, respectively (breaking change)
-* Per the changes above, edited `mouseable()`, `doubleTap()`, `scroll()` and `resize()`
-* Streamlined codebase in `NewEl.js`
-
-<a id="v114"></a>
+* Change `evt()` and `dropEvt()` to `on()` and `off()`, respectively (breaking change).
+* Per the changes above, edit `mouseable()`, `doubleTap()`, `scroll()` and `resize()`.
+* Streamline codebase in `NewEl.js`.
 
 ## v1.1.4
 
 **Release Date:** 2015-02-16
 
-**Contributor(s):** dzervoudakes
-
-* Fixed bug in Dimensions module where inputting `0` returned `null`
-* Updated CSS module to accept single properties for altering; no longer just the object
-
-<a id="v113"></a>
+* Fix bug in Dimensions module where inputting `0` returned `null`.
+* Updat CSS module to accept single properties for altering; no longer just the object.
 
 ## v1.1.3
 
 **Release Date:** 2015-02-12
 
-**Contributor(s):** dzervoudakes
-
-* Tightened up text parsing in `Append`, `Prepend`, and `Insert` modules
-
-<a id="v112"></a>
+* Tighten up text parsing in `Append`, `Prepend`, and `Insert` modules.
 
 ## v1.1.2
 
 **Release Date:** 2015-02-11
 
-**Contributor(s):** dzervoudakes
-
-* Updated `querySelector` to `querySelectorAll` for context in `Core.js`
-
-<a id="v111"></a>
+* Update `querySelector` to `querySelectorAll` for context in `Core.js`.
 
 ## v1.1.1
 
 **Release Date:** 2015-02-10
 
-**Contributor(s):** dzervoudakes
-
-* Refactored variable layout/format within each module
-
-<a id="v110"></a>
+* Refactor variable layout/format within each module.
 
 ## v1.1.0
 
 **Release Date:** 2015-02-03
 
-**Contributor(s):** dzervoudakes
-
-* Reformatted initialization - now to loop through collections, use 'this.init()' format in all modules
-* Added `scrollTop()` method in 'Scroll.js' module
-* Expanded range of selectors to be appended/prepended in `Append.js`, `Prepend.js` and `Insert.js`
-
-<a id="v101"></a>
+* Reformat initialization - now to loop through collections, use 'this.init()' format in all modules.
+* Add `scrollTop()` method in 'Scroll.js' module.
+* Expand range of selectors to be appended/prepended in `Append.js`, `Prepend.js` and `Insert.js`.
 
 ## v1.0.1
 
 **Release Date:** 2015-01-30
 
-**Contributor(s):** dzervoudakes
-
-* Slight bug fix for `hasClass()`
-* Made `RegEx` more specific/semantic for `Classes.js`
-
-<a id="v100"></a>
+* Slight bug fix for `hasClass()`.
+* Make `RegEx` more specific/semantic for `Classes.js`.
 
 ## v1.0.0
 
 **Release Date:** 2015-01-29
 
-**Contributor(s):** dzervoudakes
-
-* Deployed initial library for field testing
+* Deploy initial library for field testing.

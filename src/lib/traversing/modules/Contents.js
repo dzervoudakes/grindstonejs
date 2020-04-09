@@ -6,7 +6,7 @@
  * @example $('#selector').contents();
  */
 
-const contents = function() {
+const contents = function () {
   return utils.children(this);
 };
 

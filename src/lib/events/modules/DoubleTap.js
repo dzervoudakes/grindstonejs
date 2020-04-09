@@ -7,9 +7,9 @@
  * @example $('#selector').doubleTap(() => {});
  */
 
-const doubleTap = function(callback) {
+const doubleTap = function (callback) {
   let active, interaction;
-  this.each(function() {
+  this.each(function () {
     active = false;
     interaction = utils.createInteraction('touchend', 'click');
     $(this).on(interaction, () => {

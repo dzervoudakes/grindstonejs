@@ -32,7 +32,7 @@
  * 	.catch((err) => {});
  */
 
-const ajax = function(opts) {
+const ajax = function (opts) {
   if (typeof opts !== 'object') {
     throw new Error('XHR properties are not properly defined.');
   }
@@ -51,7 +51,7 @@ const ajax = function(opts) {
     xmlhttp.open(method, url, async);
     xmlhttp.responseType = dataType;
 
-    Object.keys(headers).forEach(key => {
+    Object.keys(headers).forEach((key) => {
       xmlhttp.setRequestHeader(key, headers[key]);
     });
 
