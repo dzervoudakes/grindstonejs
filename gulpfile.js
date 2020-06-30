@@ -50,7 +50,7 @@ gulp.task(
   })
 );
 
-// run unit tests (requires manual build/'dist' output)
+// run unit tests (requires build/'dist' output)
 // --
 gulp.task('clean:coverage', () => {
   return gulp
