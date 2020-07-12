@@ -11,12 +11,14 @@ module.exports = {
     node: true
   },
   extends: ['eslint:recommended', 'plugin:prettier/recommended'],
-  overrides: [{
-    files: ['src/utils/*.js'],
-    rules: {
-      'no-constant-condition': OFF
+  overrides: [
+    {
+      files: ['src/utils/*.js'],
+      rules: {
+        'no-constant-condition': OFF
+      }
     }
-  }],
+  ],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 9,
@@ -25,7 +27,7 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'comma-dangle': [ERROR, 'never'],
-    'comma-spacing': [ERROR, { 'before': false, 'after': true }],
+    'comma-spacing': [ERROR, { before: false, after: true }],
     'eol-last': [ERROR, 'always'],
     'linebreak-style': OFF,
     'no-cond-assign': OFF,

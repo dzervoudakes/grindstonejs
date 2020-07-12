@@ -2,10 +2,9 @@
 
 ## v3.3.4
 
-**Release Date:** TBD
+**Release Date:** 2020-07-12
 
-* Update dependencies.
-* Update CI config.
+* Update dependencies and formatting.
 
 ## v3.3.3
 
