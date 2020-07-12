@@ -1,5 +1,11 @@
 # Grindstone.js | Changelog
 
+## v3.3.5
+
+**Release Date:** 2020-07-12
+
+* Fix publish error.
+
 ## v3.3.4
 
 **Release Date:** 2020-07-12
