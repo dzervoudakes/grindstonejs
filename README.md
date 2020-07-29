@@ -15,6 +15,12 @@
 npm install grindstone
 ```
 
+**Yarn:**
+
+```
+yarn add grindstone
+```
+
 **CDN:**
 
 ```
