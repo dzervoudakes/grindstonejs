@@ -58,8 +58,8 @@ gulp.task('clean:coverage', () => {
 
 gulp.task(
   'test',
-  gulp.series('clean:coverage', () => {
-    return gulp.src('./dist/grindstone.js').pipe($.jest.default(jestConfig));
+  gulp.series('clean:coverage', 'build', () => {
+    return gulp.src('./dist/grindstone.min.js').pipe($.jest.default(jestConfig));
   })
 );
 

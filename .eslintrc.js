@@ -34,7 +34,8 @@ module.exports = {
     {
       files: ['test/setup.js'],
       rules: {
-        'global-require': OFF
+        'global-require': OFF,
+        'import/no-unresolved': OFF
       }
     }
   ],
