@@ -14,7 +14,7 @@ describe('append()', () => {
     expect(lastChild.innerHTML).toBe('hi');
   });
 
-  it('appends an existing element to a new parent', () => {
+  it('appends text to a new parent', () => {
     const child = document.createElement('div');
     child.innerHTML = 'hi';
     $('#jest-append-parent').append(child);

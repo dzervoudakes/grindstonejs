@@ -1,5 +1,11 @@
 # Grindstone.js | Changelog
 
+## v3.4.0
+
+**Release Date:** 2020-07-30
+
+* Update lint rules and formatting.
+
 ## v3.3.5
 
 **Release Date:** 2020-07-12

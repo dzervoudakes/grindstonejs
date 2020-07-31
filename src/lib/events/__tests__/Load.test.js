@@ -5,7 +5,7 @@ describe('load()', () => {
   it('fires a callback when triggered', () => {
     let i = 0;
     $('#jest-load').load(() => {
-      i++;
+      i += 1;
     });
     $('#jest-load').trigger('load');
     expect(i).toBe(1);

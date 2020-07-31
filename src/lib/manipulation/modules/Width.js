@@ -16,15 +16,19 @@ const width = function (num) {
       this.style.width = `${num}px`;
     });
     return this;
-  } else {
-    if (this.set[0] === document) {
-      return document.body.clientWidth;
-    } else if (this.set[0] === window) {
-      return window.innerWidth;
-    } else {
-      return this.set[0].offsetWidth;
-    }
   }
+
+  let value;
+
+  if (this.set[0] === document) {
+    value = document.body.clientWidth;
+  } else if (this.set[0] === window) {
+    value = window.innerWidth;
+  } else {
+    value = this.set[0].offsetWidth;
+  }
+
+  return value;
 };
 
 $.fn.width = width;

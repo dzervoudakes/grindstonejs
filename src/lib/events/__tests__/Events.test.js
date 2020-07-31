@@ -8,7 +8,7 @@ describe('click()', () => {
   it('fires a callback when triggered', () => {
     let i = 0;
     $('#jest-events').click(() => {
-      i++;
+      i += 1;
     });
     $('#jest-events').click();
     expect(i).toBe(1);
@@ -19,7 +19,7 @@ describe('on()', () => {
   it('adds one or more event listeners', () => {
     let i = 0;
     $('#jest-events').on('click touchend', () => {
-      i++;
+      i += 1;
     });
     $('#jest-events').trigger('click');
     $('#jest-events').trigger('touchend');
@@ -31,7 +31,7 @@ describe('off()', () => {
   it('removes one or more event listeners', () => {
     let i = 0;
     const cb = () => {
-      i++;
+      i += 1;
     };
     $('#jest-events').on('click', cb);
     $('#jest-events').off('click', cb);
@@ -44,7 +44,7 @@ describe('trigger()', () => {
   it('fires a callback when simulating an event', () => {
     let i = 0;
     $('#jest-events').on('jank', () => {
-      i++;
+      i += 1;
     });
     $('#jest-events').trigger('jank');
     expect(i).toBe(1);

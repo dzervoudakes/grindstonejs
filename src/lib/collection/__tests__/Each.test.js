@@ -5,7 +5,7 @@ describe('each()', () => {
   it('executes a callback when iterating over the set', () => {
     let i = 0;
     $('.jest-each').each(() => {
-      i++;
+      i += 1;
     });
     expect(i).toBe(3);
   });

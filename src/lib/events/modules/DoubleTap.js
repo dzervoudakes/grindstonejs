@@ -8,18 +8,20 @@
  */
 
 const doubleTap = function (callback) {
-  let active, interaction;
+  let active;
+  let interaction;
+
   this.each(function () {
     active = false;
     interaction = utils.createInteraction('touchend', 'click');
     $(this).on(interaction, () => {
       if (active) {
         callback();
-        return (active = false);
+        active = false;
       }
       active = true;
       setTimeout(() => {
-        return (active = false);
+        active = false;
       }, 350);
     });
   });

@@ -10,17 +10,17 @@
  */
 
 const hasClass = function (cls) {
-  let hasClass = true;
+  let has = true;
   const classes = cls.split(' ');
   this.each(function () {
     classes.forEach((clsName) => {
       if (!this.classList.contains(clsName)) {
-        hasClass = false;
+        has = false;
         return false;
       }
     });
   });
-  return hasClass;
+  return has;
 };
 
 $.fn.hasClass = hasClass;

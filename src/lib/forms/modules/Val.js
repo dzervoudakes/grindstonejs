@@ -15,9 +15,9 @@ const val = function (newValue) {
       this.value = newValue;
     });
     return this;
-  } else {
-    return this.set[0].value;
   }
+
+  return this.set[0].value;
 };
 
 $.fn.val = val;

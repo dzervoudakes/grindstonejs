@@ -7,6 +7,7 @@ describe('map()', () => {
       if ($(item).hasClass('filter') && index !== 2) {
         return item;
       }
+      return false;
     });
     const { length } = map;
     expect(length).toBe(1);

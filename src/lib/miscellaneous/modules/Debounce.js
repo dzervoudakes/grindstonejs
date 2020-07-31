@@ -11,9 +11,10 @@
 
 const debounce = function (fn, wait, immediate) {
   let timeout;
-  const debounce = function () {
+
+  const timer = function () {
     const context = this;
-    const args = arguments;
+    const args = [fn, wait, immediate];
     const later = () => {
       timeout = null;
       if (!immediate) fn.apply(context, args);
@@ -23,7 +24,8 @@ const debounce = function (fn, wait, immediate) {
     timeout = setTimeout(later, wait);
     if (callNow) fn.apply(context, args);
   };
-  return debounce;
+
+  return timer;
 };
 
 $.debounce = debounce;

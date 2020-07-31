@@ -5,7 +5,7 @@ describe('ready()', () => {
   it('fires a callback when triggered', () => {
     let i = 0;
     $('#jest-ready').ready(() => {
-      i++;
+      i += 1;
     });
     $('#jest-ready').trigger('DOMContentLoaded');
     expect(i).toBe(1);

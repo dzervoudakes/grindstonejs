@@ -36,7 +36,7 @@ describe('scroll()', () => {
   it('fires a callback when triggered', () => {
     let i = 0;
     $(document).scroll(() => {
-      i++;
+      i += 1;
     });
     $(document).trigger('scroll');
     expect(i).toBe(1);

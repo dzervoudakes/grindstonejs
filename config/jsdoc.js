@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @fileoverview Defines configuration for documentation output.
  */

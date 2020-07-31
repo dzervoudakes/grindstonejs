@@ -5,7 +5,7 @@ describe('doubleTap()', () => {
   it('fires a callback when triggered on click', () => {
     let i = 0;
     $('#jest-doubletap').doubleTap(() => {
-      i++;
+      i += 1;
     });
     $('#jest-doubletap').trigger('click');
     $('#jest-doubletap').trigger('click');
@@ -16,7 +16,7 @@ describe('doubleTap()', () => {
     let i = 0;
     jest.useFakeTimers();
     $('#jest-doubletap').doubleTap(() => {
-      i++;
+      i += 1;
     });
     $('#jest-doubletap').trigger('click');
     jest.runAllTimers();

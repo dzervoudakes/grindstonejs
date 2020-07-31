@@ -9,7 +9,7 @@
 
 const map = function (callback) {
   const newSet = $();
-  const set = this.set;
+  const { set } = this;
 
   set.forEach((item, index, array) => {
     const ret = callback.call(item, item, index, array);

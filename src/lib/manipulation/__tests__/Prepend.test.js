@@ -14,7 +14,7 @@ describe('prepend()', () => {
     expect(firstChild.innerHTML).toBe('hi');
   });
 
-  it('prepends an existing element to a new parent', () => {
+  it('prepends text to a new parent', () => {
     const child = document.createElement('div');
     child.innerHTML = 'hi';
     $('#jest-prepend-parent').prepend(child);

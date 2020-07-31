@@ -1,7 +1,11 @@
 const { setupTests } = global;
 setupTests('ajax', 'ajax/modules/Ajax', false);
 
-let open, setRequestHeader, onload, onerror, send;
+let open;
+let setRequestHeader;
+let onload;
+let onerror;
+let send;
 
 const createXhrMock = () => {
   open = jest.fn();

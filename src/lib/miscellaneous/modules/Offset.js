@@ -13,22 +13,27 @@ const offset = function (position) {
   if (position !== 'left' && position !== 'top') {
     throw new Error('offset() position must be either "left" or "top".');
   }
+
   let el = this.set[0];
+  let target;
+
   if (position === 'left') {
     let offsetLeft = 0;
     do {
-      if (!isNaN(el.offsetLeft)) offsetLeft += el.offsetLeft;
+      if (!Number.isNaN(el.offsetLeft)) offsetLeft += el.offsetLeft;
       el = el.offsetParent;
     } while (el);
-    return offsetLeft;
+    target = offsetLeft;
   } else if (position === 'top') {
     let offsetTop = 0;
     do {
-      if (!isNaN(el.offsetTop)) offsetTop += el.offsetTop;
+      if (!Number.isNaN(el.offsetTop)) offsetTop += el.offsetTop;
       el = el.offsetParent;
     } while (el);
-    return offsetTop;
+    target = offsetTop;
   }
+
+  return target;
 };
 
 $.fn.offset = offset;

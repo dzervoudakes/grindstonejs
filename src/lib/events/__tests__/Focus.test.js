@@ -5,7 +5,7 @@ describe('focus()', () => {
   it('fires a callback when triggered', () => {
     let i = 0;
     $('#jest-focus').focus(() => {
-      i++;
+      i += 1;
     });
     $('#jest-focus').focus();
     expect(i).toBe(1);

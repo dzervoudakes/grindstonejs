@@ -9,7 +9,7 @@
 
 const replaceWith = function (content) {
   this.each(function () {
-    this.outerHTML = content ? content : '';
+    this.outerHTML = content ?? '';
   });
   return this;
 };

@@ -12,7 +12,7 @@ describe('submit()', () => {
   it('triggers the callback', () => {
     let i = 0;
     $('#jest-submit').submit(() => {
-      i++;
+      i += 1;
     });
     $('#jest-submit').submit();
     $('#jest-submit').trigger('submit');

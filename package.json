@@ -1,6 +1,6 @@
 {
   "name": "grindstone",
-  "version": "3.3.5",
+  "version": "3.4.0",
   "main": "dist/grindstone.min.js",
   "license": "MIT",
   "author": {
@@ -36,12 +36,15 @@
     "minami": "1.2.3"
   },
   "devDependencies": {
-    "@babel/core": "7.10.4",
+    "@babel/core": "7.11.0",
     "@babel/plugin-transform-strict-mode": "7.10.4",
-    "@babel/preset-env": "7.10.4",
+    "@babel/preset-env": "7.11.0",
     "babel-eslint": "10.1.0",
-    "eslint": "7.4.0",
+    "eslint": "7.5.0",
+    "eslint-config-airbnb-base": "14.2.0",
     "eslint-config-prettier": "6.11.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jest": "23.20.0",
     "eslint-plugin-prettier": "3.1.4",
     "gulp-jsdoc3": "3.0.0",
     "gulp-load-plugins": "2.0.3",

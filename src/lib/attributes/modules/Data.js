@@ -16,13 +16,12 @@ const data = function (valueName, newValue) {
       $(this).attr(`data-${valueName}`, newValue);
     });
     return this;
-  } else {
-    let elemValue;
-    this.each(function () {
-      elemValue = $(this).attr(`data-${valueName}`);
-    });
-    return elemValue;
   }
+  let elemValue;
+  this.each(function () {
+    elemValue = $(this).attr(`data-${valueName}`);
+  });
+  return elemValue;
 };
 
 $.fn.data = data;

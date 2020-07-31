@@ -1,6 +1,6 @@
+const html = require('fs').readFileSync('./test/index.html').toString();
 const $ = require('../Core');
 const utils = require('../utils');
-const html = require('fs').readFileSync('./test/index.html').toString();
 
 document.documentElement.innerHTML = html;
 global.utils = utils;

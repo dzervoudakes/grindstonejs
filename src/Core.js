@@ -3,10 +3,10 @@
  */
 (function (root, lib) {
   if (typeof exports !== 'undefined') {
-    return (module.exports = lib());
-  } else {
-    root.Grindstone = root.$ = lib();
+    module.exports = lib();
   }
+  root.Grindstone = lib();
+  root.$ = lib();
 })(window, function () {
   /** @namespace Grindstone */
 
@@ -38,8 +38,8 @@
           if (ctx instanceof Array) {
             ctx.forEach((item) => {
               const foundContexts = document.querySelectorAll(item);
-              Array.prototype.forEach.call(foundContexts, (item) => {
-                utils.applyContext(item, selector, set);
+              Array.prototype.forEach.call(foundContexts, (key) => {
+                utils.applyContext(key, selector, set);
               });
             });
           } else {
@@ -48,14 +48,17 @@
             });
           }
         } else {
+          // set = [...set, ...document.querySelectorAll(selector)];
           set.push.apply(set, document.querySelectorAll(selector));
         }
       } else if (utils.isElementArray(selector)) {
+        // set = [...set, ...selector];
         set.push.apply(set, selector);
       } else {
         set.push(selector);
       }
     }
+
     this.set = set; // backwards compatibility
     return this;
   };

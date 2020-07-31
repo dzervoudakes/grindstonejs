@@ -16,15 +16,18 @@ const height = function (num) {
       this.style.height = `${num}px`;
     });
     return this;
-  } else {
-    if (this.set[0] === document) {
-      return document.body.clientHeight;
-    } else if (this.set[0] === window) {
-      return window.innerHeight;
-    } else {
-      return this.set[0].offsetHeight;
-    }
   }
+  let value;
+
+  if (this.set[0] === document) {
+    value = document.body.clientHeight;
+  } else if (this.set[0] === window) {
+    value = window.innerHeight;
+  } else {
+    value = this.set[0].offsetHeight;
+  }
+
+  return value;
 };
 
 $.fn.height = height;

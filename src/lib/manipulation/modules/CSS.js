@@ -12,7 +12,9 @@
  */
 
 const css = function (styles, value) {
-  let returnedStyle, returnStyle;
+  let returnedStyle;
+  let returnStyle;
+
   this.each(function () {
     if (typeof styles === 'object' && !Array.isArray(styles)) {
       Object.assign(this.style, styles);

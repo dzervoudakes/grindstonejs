@@ -5,7 +5,7 @@ describe('resize()', () => {
   it('fires a callback when triggered', () => {
     let i = 0;
     $(window).resize(() => {
-      i++;
+      i += 1;
     });
     $(window).trigger('resize');
     expect(i).toBe(1);

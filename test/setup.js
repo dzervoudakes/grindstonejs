@@ -1,11 +1,9 @@
-'use strict';
-
 /**
  * @fileoverview Handles test setup prior to running each test suite.
  */
+const html = require('fs').readFileSync('./test/index.html').toString();
 const $ = require('../dist/grindstone');
 const utils = require('../src/utils');
-const html = require('fs').readFileSync('./test/index.html').toString();
 
 const setupTests = (method, path, isPrototype = true) => {
   // interpret test html
@@ -18,7 +16,9 @@ const setupTests = (method, path, isPrototype = true) => {
 
   // apply lib methods
   const $method = require(`../src/lib/${path}`);
-  return ((isPrototype ? $.fn : $)[method] = $method);
+  const $target = isPrototype ? $.fn : $;
+
+  $target[method] = $method;
 };
 
 global.setupTests = setupTests;

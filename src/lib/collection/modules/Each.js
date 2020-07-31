@@ -8,7 +8,7 @@
  */
 
 const each = function (callback) {
-  let set = this.set;
+  let { set } = this;
   set = Array.prototype.slice.call(set);
   set.forEach((item, index, array) => {
     callback.call(item, item, index, array);
