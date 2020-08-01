@@ -15,6 +15,10 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:prettier/recommended'
   ],
+  globals: {
+    $: true,
+    utils: true
+  },
   overrides: [
     {
       files: ['src/Core.js'],
@@ -83,7 +87,6 @@ module.exports = {
     ],
 
     // global overrides
-    'no-undef': OFF,
     'func-names': OFF,
     'no-restricted-syntax': OFF
   }
