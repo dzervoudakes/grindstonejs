@@ -1,6 +1,3 @@
-module.exports = {
-	printWidth: 90,
-	singleQuote: true,
-	tabWidth: 2,
-	trailingComma: 'none'
-};
+const config = require('@dztools/prettier-config');
+
+module.exports = config;
