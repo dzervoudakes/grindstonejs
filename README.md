@@ -7,7 +7,7 @@
 [![codecov](https://codecov.io/gh/dzervoudakes/grindstonejs/branch/master/graph/badge.svg)](https://codecov.io/gh/dzervoudakes/grindstonejs)
 [![quality](https://api.codacy.com/project/badge/Grade/d63676bd689246d4958a7cd2852b7d74)](https://www.codacy.com/app/dzervoudakes/grindstonejs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dzervoudakes/grindstonejs&amp;utm_campaign=Badge_Grade)
 [![prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io/)
-[![license](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![license](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 **NPM:**
 
