@@ -10,7 +10,6 @@
 .lintstagedrc.js
 .prettierignore
 .prettierrc.js
-CHANGELOG.md
 config
 coverage
 gulpfile.js
