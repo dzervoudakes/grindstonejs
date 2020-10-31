@@ -12,12 +12,12 @@ module.exports = {
 		 *
 		 * Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name}
 		 * @license MIT
-		 * ${pkg.repository.url}/blob/master/LICENSE
+		 * ${pkg.repository.url}/blob/main/LICENSE
 		 */
 	`}\n\n`,
   min: `/*! Grindstone JavaScript Library v${
     pkg.version
   } | Copyright (c) 2014, ${new Date().getFullYear()} ${pkg.author.name} | ${
     pkg.repository.url
-  }/blob/master/LICENSE */\n`
+  }/blob/main/LICENSE */\n`
 };
