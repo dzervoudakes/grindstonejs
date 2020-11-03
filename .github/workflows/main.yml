@@ -1,10 +1,11 @@
-name: build
+name: Build and Test
 
 on: [push]
 
 jobs:
   dependencies:
     runs-on: ubuntu-latest
+    name: Install Dependencies
     steps:
     - uses: actions/checkout@v2
     - name: Cache node modules
@@ -19,6 +20,7 @@ jobs:
 
   eslint:
     runs-on: ubuntu-latest
+    name: Lint Scripts
     needs: dependencies
     steps:
     - uses: actions/checkout@v2
@@ -32,6 +34,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    name: Bundle Library
     needs: eslint
     steps:
     - uses: actions/checkout@v2
@@ -50,6 +53,7 @@ jobs:
 
   documentation:
     runs-on: ubuntu-latest
+    name: Generate Documentation
     needs: eslint
     steps:
     - uses: actions/checkout@v2
@@ -63,6 +67,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    name: Run Unit Tests
     needs: build
     steps:
     - uses: actions/checkout@v2
