@@ -9,12 +9,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Cache node modules
-      uses: actions/cache@v1
+      uses: actions/cache@v2
       env:
         cache-name: grindstone-dependency-cache
       with:
         path: node_modules
-        key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os}}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - name: Install dependencies
       run: npm install
 
@@ -25,10 +25,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Restore npm cache
-      uses: actions/cache@v1
+      uses: actions/cache@v2
+      env:
+        cache-name: grindstone-dependency-cache
       with:
         path: node_modules
-        key: grindstone-dependency-cache-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os}}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - name: Lint all scripts
       run: npm run lint
 
@@ -39,10 +41,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Restore npm cache
-      uses: actions/cache@v1
+      uses: actions/cache@v2
+      env:
+        cache-name: grindstone-dependency-cache
       with:
         path: node_modules
-        key: grindstone-dependency-cache-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os}}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - name: Bundle library
       run: npm run build
     - name: Upload artifact
@@ -58,10 +62,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Restore npm cache
-      uses: actions/cache@v1
+      uses: actions/cache@v2
+      env:
+        cache-name: grindstone-dependency-cache
       with:
         path: node_modules
-        key: grindstone-dependency-cache-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os}}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - name: Generate documentation
       run: npm run docs
 
@@ -72,10 +78,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Restore npm cache
-      uses: actions/cache@v1
+      uses: actions/cache@v2
+      env:
+        cache-name: grindstone-dependency-cache
       with:
         path: node_modules
-        key: grindstone-dependency-cache-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os}}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
     - name: Retrieve artifact
       uses: actions/download-artifact@v1
       with:
