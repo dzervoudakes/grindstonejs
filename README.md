@@ -1,3 +1,5 @@
+⚠️ **This package has been deprecated and will no longer be actively maintained.**
+
 # Grindstone.js
 
 > A lightweight jQuery alternative for modern browsers.
